@@ -75,6 +75,7 @@ $(function ($) {
     $('#about').waypoint(function() {
       $('#masthead').addClass('sub');
       $('.logo').addClass('sub');
+      $('.attentionPointer').addClass('hide');
     });
 
     //Service Panel Switching

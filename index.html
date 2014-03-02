@@ -48,6 +48,34 @@
 <link href="stylesheets/main-retina.css" rel="stylesheet">
 <!-- LESS stylesheet for managing color presets -->
 <link rel="stylesheet/less" type="text/css" href="less/color.less">
+<style type="text/css">
+.color-low{
+	color:white;
+	font-size: 130px;
+	font-family: NexaBold;
+}
+span.demo{
+	float: right;
+	position: relative;
+	margin-top: 17px;
+	right: 28%;
+	color: white;
+	font-family: NexaBold;
+	font-size: 17px;
+}
+.attentionPointer{
+	position: fixed;
+	right:31%;
+	top: 50px;
+	width: 200px; 
+	z-index: 10;
+}
+.attentionPointer.hide{
+	display: none;
+	opacity: 0;
+}
+</style>
+
 
 <!-- LESS JS engine-->
 <script src="less/less-1.5.0.min.js"></script>
@@ -66,6 +94,7 @@
 
 
 <body>
+<img class="attentionPointer" src="images/pointer.png">
 <!-- Sliding Navigation : starts -->
 <nav class="menu" id="sm">
 	<div class="sm-wrap">
@@ -92,7 +121,7 @@
 
 <!-- masthead : starts -->
 <header id="masthead" class="clearfix">
-	<h1 class="logo">Aptitude</h1>
+<a href="demo.php"><span class="logo demo">DEMO</span></a>	<h1 class="logo">Aptitude</h1>
 </header>
 <!-- masthead : ends -->
 
@@ -103,10 +132,12 @@
 
 	<div class="vertical-center top-banner-caption-v1">
 		<div class="logo-emblem">
-			<a href="https://www.goaptitude.com/indiegogo.php"><img alt="" title="" style="width:300px; margin-left:-75px;" src="images/aptitude-indiegogo.png"/>
+			<img alt="" title="" src="images/badge-red.png"/>
 		</div>
-		<h3><span style="font-size: 55px;">Let's make it happen</span></h3>
-		<h3><span style="border-bottom:none; font-size: 55px;">fund us on indiegogo</span></h3></a>
+		<h3><span style="font-size: 55px;">Here's to change</span></h3>
+		<strong class="text-rotator-fade color-low">
+			<span class="rotate">MASTER, ENGAGE, INNOVATE, CHALLENGE, EMPOWER</span>
+		</strong>
 	</div>
 </div>
 <!-- top-banner : ends -->
@@ -124,9 +155,9 @@
 		<div style="padding-top:25px" class="row">
 			<article class="col-md-12 text-center">
 				
-				<h1 class="super-heading animated" data-fx="flipInX">Where learning happens</h1>
+				<h1 class="super-heading animated" data-fx="flipInX">empowering the learner</h1>
 				
-				<p class="promo-text">We have a passion for changing how we understand things. For all of that hard work to pay off with knowledge that will last your lifetime, not just until the test.</p>
+				<p class="promo-text">We have a passion for allowing each student to learn in the way thats best for them. For all of that hard work to pay off with knowledge that will last their lifetime, not just until a test.</p>
 			</article>
 		</div>
 	</section>
@@ -145,10 +176,10 @@
           				
 	          <div class="item">
 	          	<div class="container text-center testimonial-block">
-	          		<span style="color:white; border:none;" class="promo-heading">Our Mission</span>
+	          		<span style="color:white; border:none;" class="promo-heading">Our Purpose</span>
 			<article class="col-md-12 arrow-division-dark">
 			</article>
-	          	 	<p style="font-size:19px;" class="white-text">To create an interactive and adaptive online learning system that will replace textbooks. By doing so, making learning fun again for everyone and facilitating the jobs of teachers while focusing on the needs of the students.</p>
+	          	 	<p style="font-size:19px;" class="white-text">We beleive every human deserves an equal opportunity to attain power through knowledge.</p>
 	          	</div>
 
 	          	<div class="col-md-12 text-center" style="margin-top:25px;">
