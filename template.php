@@ -39,6 +39,7 @@ if(isset($_SESSION['logged'])){
 <head>
 <?php
 	include_once 'head.php';
+	//$drawObj->head();
 ?>
 </head>
 <body>
