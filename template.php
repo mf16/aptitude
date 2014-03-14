@@ -16,11 +16,11 @@ $elements = explode('/', $path);                // Split path on slashes
 if(count($elements) == 0 || (count($elements)==2 && !$elements[1])){                       
 	echo 'homepage';
 	//$drawObj = new homepage();
-} else switch ($elements[1]){
+} else switch (strtolower($elements[1])){
 	case 'signup':
-		include 'includes/class.newUser.php';
-		// include js? js folder or just class.newUser.js?
-		$drawObj = new newUser();
+		include 'includes/class.Signup.php';
+		// include js? js folder or just class.Signup.js?
+		$drawObj = new Signup();
 		break;
 	default:
 		echo '404 error';die();
