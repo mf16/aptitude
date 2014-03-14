@@ -10,23 +10,12 @@
 
 include_once "includes/global.php";
 
-$path = ltrim(substr($_SERVER['REQUEST_URI'],0), '/');
+$path = ltrim(str_replace('//','/',$_SERVER['REQUEST_URI']), '/');
 $elements = explode('/', $path);
 
 if(count($elements) == 0 || (count($elements)==2 && !$elements[1])){                       
 	echo 'homepage';
-	//$drawObj = new homepage();
-}/* else switch (strtolower($elements[1])){
-	case 'signup':
-		include 'includes/class.Signup.php';
-		// include js? js folder or just class.Signup.js?
-		$drawObj = new Signup();
-		break;
-	default:
-		echo '404 error';die();
-		//Show404Error();
 }
-*/
 $className = '';
 array_shift($elements); // using localhost/aptitude
 foreach($elements as $key => $element){
