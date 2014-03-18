@@ -30,7 +30,7 @@ $drawObj = new $className;
 
 if(isset($_SESSION['logged'])){
 
-} else {
+} else{
 	$user->name='Guest';
 }
 
