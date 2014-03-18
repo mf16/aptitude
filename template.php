@@ -31,11 +31,12 @@ $drawObj = new $className;
 if(isset($_SESSION['logged'])){
 
 } else{
-	$user->name='Guest';
+	//THis line creating issues
+	//$user->name='Guest';
 }
-
-?><!DOCTYPE html>
-<html class="no-js">
+?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <?php
 	include_once 'head.php';
@@ -46,5 +47,9 @@ if(isset($_SESSION['logged'])){
 	<?php
 	$drawObj->draw(); //??
 	?>
+<?php
+	include_once 'foot.php';
+	//$drawObj->head();
+?>
 </body>
 </html>
