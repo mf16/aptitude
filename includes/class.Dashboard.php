@@ -1,7 +1,8 @@
 <?php
 class Dashboard {
 	function draw(){
-		echo '<!-- wrapper -->
+		echo '
+		<!-- wrapper -->
 		<div class="page-wrap">
 			<div id="slidingMenu">
 				<h1>Aptitude</h1>

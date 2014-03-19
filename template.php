@@ -31,7 +31,7 @@ $drawObj = new $className;
 if(isset($_SESSION['logged'])){
 
 } else{
-	//THis line creating issues
+	//This line creating issues
 	//$user->name='Guest';
 }
 ?>

@@ -7,14 +7,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="img/global/icon.ico">
 <!--Universal style sheet-->
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link href="http://localhost/aptitude/css/style.css" type="text/css" rel="stylesheet">
 <!-- Bootstrap CSS Files -->
-<link href="css/bootstrap-3.1.1/css/bootstrap.min.css" rel="stylesheet">
-<link href="css/bootstrap-3.1.1/css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="http://localhost/aptitude/css/bootstrap-3.1.1/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="http://localhost/aptitude/css/bootstrap-3.1.1/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet">
 <!-- Custom Fonts Setup via Font-face CSS3 -->
-<link href="includes/fonts/fonts.css" rel="stylesheet">
+<link href="http://localhost/aptitude/includes/fonts/fonts.css" type="text/css" rel="stylesheet">
 <!--Google fonts-->
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-<script src="js/jquery-1.11.0/jquery.min.js" type="text/javascript"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700" type="text/css" rel="stylesheet">
+<script src="http://localhost/aptitude/js/jquery-1.11.0/jquery.min.js" type="text/javascript"></script>
 <?php
 ?>
