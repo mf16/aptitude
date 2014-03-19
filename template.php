@@ -47,9 +47,9 @@ if(isset($_SESSION['logged'])){
 	<?php
 	$drawObj->draw(); //??
 	?>
+</body>
 <?php
 	include_once 'foot.php';
 	//$drawObj->head();
 ?>
-</body>
 </html>

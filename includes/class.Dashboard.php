@@ -13,19 +13,19 @@ class Dashboard {
 				<hr style="margin:0px; border-top: 1px solid #F26522;">
 				<a href="#">+ Create new class</a>
 			</div>
+
 			<header>
 				<div id="header">
 					<!--Button to expand slideout-->
 					<section id="buttonSideMenu">
 					</section>
 					<article>
-						<span id="aptitude">
-							Aptitude
-						</span>
-					</article>	
+						<span id="aptitude">Aptitude</span>
+					</article>
 				</div>
 			</header>
-			<section id="headerSpacer"></section>
+			<section id="headerSpacer">
+			</section>
 			<section class="container">
 				<div id="graph">
 				</div>
@@ -35,7 +35,7 @@ class Dashboard {
 		<footer class="site-footer col-md-12">
 			<section>
 				<img src = "img/global/icon.ico" />
-				<span>Powered by Aptitude LLC.
+				<span>Powered by Aptitude LLC.</span>
 			</section>
 			<section id="feedback">
 				<a href="feedback.php"><span>Have feedback?</span></a>

@@ -1,3 +1,7 @@
+$(document).ready(function(){
+	$("body").fadeIn(650);
+});
+
 ////////////Script for the sliding menu on side///////////////////
 	//Click on the button to expand menu
 	$('#buttonSideMenu').click(function() {
