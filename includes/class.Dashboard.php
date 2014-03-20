@@ -1,6 +1,18 @@
 <?php
 class Dashboard {
+	function __construct(){
+		if(isset($_REQUEST['action'])){
+			$action=$_REQUEST['action'];
+			$this->$action();
+		} else{
+			$this->draw();
+		}
+	}
+	function head(){
+	}
+
 	function draw(){
+		drawHeader($this->head());
 		echo '
 		<!-- wrapper -->
 		<div class="page-wrap">
@@ -42,5 +54,9 @@ class Dashboard {
 			</section>
 		</footer>';
 
+		drawFooter($this->foot());
+	}
+	function foot(){
 	}
 }
+$dashboard= new Dashboard();
