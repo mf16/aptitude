@@ -37,6 +37,7 @@ if(isset($_SESSION['logged'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <?php
 include 'includes/class.'.$className.'.php';
 ?>

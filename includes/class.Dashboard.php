@@ -24,11 +24,23 @@ class Dashboard {
 					</article>
 				</div>
 			</header>
-			<section id="headerSpacer">
-			</section>
+			<section id="headerSpacer"></section>
 			<section class="container">
-				<div id="graph">
-				</div>
+				<section class="row-fluid">
+					<div class="col-md-8 dataContainer">
+						<div id="completionProgress"></div>
+					</div>
+					<div class="col-md-4">
+						<div class="dataContainer">
+						</div>
+					</div>
+				</section>
+				<section class="row-fluid">
+					<div class="hiheight col-md-5">curriculum for teacher reference</div>
+					<div class="hiheight col-md-7">class roster</div>
+				</section>
+			</section>
+			<section id="footerSpacer">
 			</section>
 		</div>
 		<!-- wrapper : end -->
@@ -41,6 +53,5 @@ class Dashboard {
 				<a href="feedback.php"><span>Have feedback?</span></a>
 			</section>
 		</footer>';
-
 	}
 }
