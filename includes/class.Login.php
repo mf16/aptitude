@@ -31,8 +31,11 @@ class Login{
 			echo '<input type="password" id="password"/>';
 			echo '<div style="border:1px solid black" onclick="login();" />Login</div>';
 		echo '</div>';
+		drawFooter($this->foot());
 	}
 
+	function foot(){
+	}
 	function login(){
 		echo 'asdf';
 	}
