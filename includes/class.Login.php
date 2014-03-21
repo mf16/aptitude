@@ -9,7 +9,9 @@ class Login{
 			$action=$_REQUEST['action'];
 			$this->$action();
 		} else{
+			drawHeader($this->head());
 			$this->draw();
+			drawFooter($this->foot());
 		}
 	}
 
@@ -21,7 +23,6 @@ class Login{
 	}
 
 	function draw(){
-		drawHeader($this->head());
 		echo '<div id="pageContent">';
 			echo '<h1>draw function for Login</h1>';
 			echo 'email_address: ';
@@ -31,7 +32,6 @@ class Login{
 			echo '<input type="password" id="password"/>';
 			echo '<div style="border:1px solid black" onclick="login();" />Login</div>';
 		echo '</div>';
-		drawFooter($this->foot());
 	}
 
 	function foot(){
