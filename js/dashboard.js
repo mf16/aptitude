@@ -30,7 +30,6 @@ $(function () {
     ykeys: ['value'],
     // Labels for the ykeys -- will be displayed when you hover over the
     // chart.
-    fillOpacity: ['0.1'],
     labels: ['Percent completed'],
     hideHover: 'auto',
   });
