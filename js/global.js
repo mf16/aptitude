@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	$("body").fadeIn(650);
+	$('.loader').html('<section class="row-fluid" style="margin-top:100px;"><section class="col-md-2 col-md-offset-5"><img src="img/global/ajax-loader.gif"></section></section>');
 });
 
 ////////////Script for the sliding menu on side///////////////////

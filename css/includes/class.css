@@ -1,0 +1,13 @@
+@media only screen and (max-width: 800px) {
+	#roster table td:nth-child(3), 
+	#roster table th:nth-child(3) {display: none;}
+}
+@media only screen and (max-width: 640px) {
+	#roster table td:nth-child(1),
+	#roster table th:nth-child(1){display: none;}
+}
+
+@media only screen and (max-width: 640px) {
+	#completionDate table td:nth-child(3), 
+	#completionDate table th:nth-child(3) {display: none;}
+}

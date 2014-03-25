@@ -290,17 +290,10 @@ html, body {
 	width: 100%;
 	height: 100px;
 }
-#footerSpacer{
-	width: 100%;
-	height: 25px;
-}
 
 
 
 .top-buffer { margin-top:15px; }
-
-
-
 
 .morris-hover{position:absolute;z-index:2;}
 .morris-hover.morris-default-style {
@@ -314,7 +307,38 @@ border: solid 2px rgba(230, 230, 230, 0.8);
 	border: 1px solid #ccc;
 	box-shadow: 1px 1px 2px #eee;
 }
-.hiheight{
-	height: 400px;
-	border: solid black;
+text{
+	display:none;
+}
+.margin-top{
+	position: relative;	
+	top:25px;
+}
+.percentBehind{
+	text-align: center;
+	color:red;
+}
+td>img{
+	width: 35px;
+}
+tr>td{
+	vertical-align: middle !important;
+}
+.loader{display:none;}
+.roundedPhotoSmall{
+	width: 36px;
+	height: 36px;
+	border-radius: 18px;
+	-webkit-border-radius: 18px;
+	-moz-border-radius: 18px;
+}
+.positiveProgress{
+	color:green;
+}
+
+
+@media(max-width:768px){
+	.row-fluid div:nth-child(n+2) {
+	    margin-top:25px;
+	}
 }

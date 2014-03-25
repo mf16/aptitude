@@ -23,6 +23,7 @@ class Dashboard {
 				<a href="#services">Account Settings</a>
 				<span>Classes</span>
 				<hr style="margin:0px; border-top: 1px solid #F26522;">
+				<a href="class">Test Class</a>
 				<a href="#">+ Create new class</a>
 			</div>
 
@@ -37,23 +38,15 @@ class Dashboard {
 				</div>
 			</header>
 			<section id="headerSpacer"></section>
-			<section class="container">
+			<section class="container loader"></section>
+			<section class="container body">
 				<section class="row-fluid">
-					<div class="col-md-8 dataContainer">
-						<div id="completionProgress"></div>
-					</div>
-					<div class="col-md-4">
-						<div class="dataContainer">
-						</div>
-					</div>
-				</section>
-				<section class="row-fluid">
-					<div class="hiheight col-md-5">curriculum for teacher reference</div>
-					<div class="hiheight col-md-7">class roster</div>
+					<section class="col-md-6 col-md-offset-3">
+						<img src="img/global/watermark.png">
+					</section>
 				</section>
 			</section>
-			<section id="footerSpacer">
-			</section>
+
 		</div>
 		<!-- wrapper : end -->
 		<footer class="site-footer col-md-12">
