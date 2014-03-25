@@ -32,7 +32,7 @@ class Dashboard {
 					<section id="buttonSideMenu">
 					</section>
 					<article>
-						<span id="aptitude">Aptitude</span>
+						<span class="phoneHide" id="aptitude">Aptitude</span>
 					</article>
 				</div>
 			</header>

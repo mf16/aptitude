@@ -356,5 +356,9 @@ tr>td{
 	.phoneHide{
 		display: none;
 	}
+	header{
+		box-shadow: none;
+		background-color: transparent;
+	}
 }
 
