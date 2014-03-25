@@ -138,7 +138,7 @@ class Dashboard {
 											<td><img class="roundedPhotoSmall" src="img/global/profile_photo.png"></td>
 											<td>John Hancock</td>
 											<td class="positiveProgress">+2%</td>
-											<td>johnhancock@independant.us</td>
+											<td><span class="phoneHide">johnhancock@independant.us</span><span class="phoneShow"><a href="mailto:johnhancock@independant.us">Email</a></span></td>
 										</tr>';
 								}
 							echo '
@@ -147,6 +147,8 @@ class Dashboard {
 						</div>
 					</div>
 				</section>
+			</section>
+			<section class="footerSpacer">
 			</section>
 		</div>
 		<!-- wrapper : end -->

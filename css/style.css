@@ -336,9 +336,25 @@ tr>td{
 	color:green;
 }
 
+.footerSpacer{
+	height:50px;
+}
+.phoneShow{
+	display: none;
+}
+.phoneHide{
+	display: inline;
+}
 
 @media(max-width:768px){
 	.row-fluid div:nth-child(n+2) {
 	    margin-top:25px;
 	}
+	.phoneShow{
+		display: inline;
+	}
+	.phoneHide{
+		display: none;
+	}
 }
+
