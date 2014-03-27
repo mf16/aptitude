@@ -1,5 +1,5 @@
 body {
-  /*display: none; //enable this after dev*/
+  display: none;
   overflow-x: hidden;
 }
 #mathOperators{

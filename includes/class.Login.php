@@ -37,7 +37,15 @@ class Login{
 	function foot(){
 	}
 	function login(){
-		echo 'asdf';
+		$userid=1;
+		$this->loginSuccess($userid);
+	}
+	function loginSuccess($userid){
+		//load from db here - will create DAO's later
+		$_SESSION['userFirstname']='John';
+		$_SESSION['userLastname']='Doe';
+		$_SESSION['userEmail']='test@test.com';
+		echo '<a href="dashboard" >Dashboard</a>';
 	}
 }
 

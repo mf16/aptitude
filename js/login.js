@@ -1,5 +1,4 @@
 function login(){
-	alert('asdf');
 	//$('#pageContent').html(LOADING_BAR_GIF);
 	username=$('#username').val();
 	password=$('#password').val();
