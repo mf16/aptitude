@@ -43,7 +43,7 @@ if(isset($_SESSION['logged'])){
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include 'includes/class.'.$className.'.php';
+include 'includes/class.'.ucwords($className).'.php';
 echo '<script src="js/'.$className.'.js"></script>';
 echo '<link href="css/includes/'.$className.'.css" type="text/css" rel="stylesheet">';
 ?>
