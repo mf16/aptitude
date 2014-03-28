@@ -43,7 +43,7 @@ class Dashboard {
 			<header>
 				<div id="header">
 					<!--Button to expand slideout-->
-					<section id="buttonSideMenu">
+					<section onclick="displayMenu()" id="buttonSideMenu">
 					</section>
 					<article>
 						<span class="phoneHide" id="aptitude">Aptitude</span>
