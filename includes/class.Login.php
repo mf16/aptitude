@@ -42,6 +42,7 @@ class Login{
 	}
 	function loginSuccess($userid){
 		//load from db here - will create DAO's later
+		$_SESSION['userid']=1;
 		$_SESSION['userFirstname']='John';
 		$_SESSION['userLastname']='Doe';
 		$_SESSION['userEmail']='test@test.com';

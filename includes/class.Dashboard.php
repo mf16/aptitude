@@ -1,6 +1,9 @@
 <?php
+include_once "class.DashboardDAO.php";
 class Dashboard {
+	protected $DashboardDAO;
 	function __construct(){
+		$this->DashboardDAO = new DashboardDAO();
 		if(isset($_REQUEST['action'])){
 			$action=$_REQUEST['action'];
 			$this->$action();
@@ -28,7 +31,12 @@ class Dashboard {
 				<a href="#services">Account Settings</a>
 				<span>Classes</span>
 				<hr style="margin:0px; border-top: 1px solid #F26522;">
-				<a href="class">Test Class</a>
+				<?php
+				$classes=$this->DashboardDAO->getClassesByAdminid('math',1);
+				foreach($classes as $class){
+					echo '<a href="class'.$class['groupid'].'">'.$class['groupName'].'</a>';
+				}
+				?>
 				<a href="#">+ Create new class</a>
 			</div>
 
