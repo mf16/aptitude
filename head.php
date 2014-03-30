@@ -17,8 +17,7 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700" type="text/css" rel="stylesheet">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="js/jquery-1.11.0/jquery.min.js" type="text/javascript"></script>
-<script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
 <script src="css/bootstrap-3.1.1/js/bootstrap.min.js"></script> 
-<script src="js/global.js"></script> 
+<script src="js/global.js"></script>
 <?php
 ?>
