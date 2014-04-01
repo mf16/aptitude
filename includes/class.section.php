@@ -39,39 +39,19 @@ class Dashboard {
 			<section id="headerSpacer"></section>
 			<section class="container loader">
 			</section>
+
+
 			<section class="container body">
 				<section class="row-fluid">
 					<div class="col-md-8">
 						<div class="col-md-12 dataContainer">
 							<h3>Class Completion Progress</h3>
-							<div id="completionProgress" style="height: 322px;"></div>
+							<div id="completionProgress"></div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="col-md-12 dataContainer">
 							<h3>Struggling Students</h3>
-							<table class="table" style="border-color:#484848;">
-								<thead>
-									<tr>
-										<th></th>
-										<th>Student Name</th>
-										<th>Progress</th>
-									</tr>
-								</thead>
-								<tbody>';
-								$c = 0;
-								while ($c < 5){
-									echo '
-									<tr>
-										<td><img class="roundedPhotoSmall" src="img/global/profile_photo.png"></td>
-										<td>John Hancock</td>
-										<td class="percentBehind">-5%</td>
-									</tr>';
-									$c++;
-								}
-							echo '	
-								</tbody>
-							</table>
 						</div>
 					</div>
 				</section>
@@ -161,10 +141,7 @@ class Dashboard {
 				<a href="feedback.php"><span>Have feedback?</span></a>
 			</section>
 		</footer>';
-		echo '<script type="text/javascript" src="js/amcharts/amcharts.js"></script>';
-		echo '<script type="text/javascript" src="js/amcharts/serial.js"></script>';
-		echo '<script type="text/javascript" src="js/amcharts/themes/none.js"></script>';
-		echo '<script type="text/javascript" src="js/class.js"></script>';
+		echo '<script type="text/javascript" src="js/section.js"></script>';
 
 		drawFooter($this->foot());
 	}

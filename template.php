@@ -43,6 +43,7 @@ if(isset($_SESSION['logged'])){
 <!DOCTYPE html>
 <html lang="en">
 <?php
+//Load php file corresponding to page request
 include 'includes/class.'.ucwords($className).'.php';
 ?>
 </html>
