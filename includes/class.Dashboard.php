@@ -37,13 +37,13 @@ class Dashboard {
 					echo '<a href="class'.$class['groupid'].'">'.$class['groupName'].'</a>';
 				}
 				?>
-				<a href="#">+ Create new class</a>
+				<a href="#" onclick="newClass()" >+ Create new class</a>
 			</div>
 
 			<header>
 				<div id="header">
 					<!--Button to expand slideout-->
-					<section onclick="displayMenu()" id="buttonSideMenu">
+					<section onclick="toggleMenu()" id="buttonSideMenu">
 					</section>
 					<article>
 						<span class="phoneHide" id="aptitude">Aptitude</span>
@@ -85,6 +85,14 @@ class Dashboard {
 
 	function drawTimeline(){
 		echo 'timeline here';
+	}
+	
+	function newClass(){
+		?>
+		Subject: <select id='className'>
+		</select>
+		Class Name (Smith01 for example): <input id='className' type='text' />
+		<?php
 	}
 }
 $dashboard= new Dashboard();
