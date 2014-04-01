@@ -2,7 +2,7 @@
 include_once "class.GroupDAO.php";
 class Group {
 	protected $GroupDAO;
-	function __construct(){
+	function __construct($groupid){
 		$this->GroupDAO = new GroupDAO();
 		if(isset($_REQUEST['action'])){
 			$action=$_REQUEST['action'];
@@ -192,5 +192,8 @@ class Group {
 		echo 'timeline here';
 	}
 }
-$group= new Group();
+if(!isset($groupid)){
+	$groupid='';
+}
+$group= new Group($groupid);
 

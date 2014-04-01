@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors','1');
 /////////////////////////////////////////////////////////////
 //
 //				template.php
@@ -26,6 +28,13 @@ else{
 		array_shift($elements); // using localhost/aptitude
 		foreach($elements as $key => $element){
 			$className .= strtolower($element);
+			if(strtolower($className)=='class'){
+				$className='Group';
+				if(isset($elements[$key+1])){
+					$groupid=$elements[$key+1];
+				}
+				break;
+			}
 			if($key<sizeof($elements)-1){
 				$className .= '_';
 			}
