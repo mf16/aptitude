@@ -180,8 +180,8 @@ class Group {
 		<script type="text/javascript" src="js/amcharts/amcharts.js"></script>
 		<script type="text/javascript" src="js/amcharts/serial.js"></script>
 		<script type="text/javascript" src="js/amcharts/themes/none.js"></script>
-		<script type="text/javascript" src="js/class.js"></script>
 		<?php
+		echo '<script type="text/javascript" src="js/'.__CLASS__.'.js"></script>';
 
 		drawFooter($this->foot());
 	}
