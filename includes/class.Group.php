@@ -2,7 +2,7 @@
 include_once "class.GroupDAO.php";
 class Group {
 	protected $GroupDAO;
-	function __construct($groupid){
+	function __construct(){
 		$this->GroupDAO = new GroupDAO();
 		if(isset($_REQUEST['action'])){
 			$action=$_REQUEST['action'];
@@ -13,8 +13,8 @@ class Group {
 	}
 	function head(){
 		$headerText='';
-		$headerText.='<script src="js/'.strtolower(__CLASS__).'.js"></script>';
-		$headerText.='<link href="css/includes/'.strtolower(__CLASS__).'.css" type="text/css" rel="stylesheet">';
+		$headerText.='<script src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';
+		$headerText.='<link href="'.$_SERVER['DOCUMENT_ROOT'].'css/includes/'.strtolower(__CLASS__).'.css" type="text/css" rel="stylesheet">';
 		return $headerText;
 	}
 
@@ -25,7 +25,7 @@ class Group {
 		<div class="page-wrap">
 			<div id="slidingMenu">
 				<h1>Aptitude</h1>
-				<span id="studentName"><?php echo $_SESSION['userFirstname'].' '.$_SESSION['userLastname']; ?></span>
+				<span id="studentName"><?php echo $_SERVER['userFirstname'].' '.$_SERVER['userLastname']; ?></span>
 				<hr style="margin:0px; border-top: 1px solid #F26522;">
 				<a href="#services">Timeline</a>
 				<a href="#services">Account Settings</a>
@@ -77,7 +77,7 @@ class Group {
 								while ($c < 5){
 									echo '
 									<tr>
-										<td><img class="roundedPhotoSmall" src="img/global/profile_photo.png"></td>
+										<td><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
 										<td>John Hancock</td>
 										<td class="percentBehind">-5%</td>
 									</tr>';
@@ -150,7 +150,7 @@ class Group {
 									$c++;
 									echo '
 										<tr>
-											<td><img class="roundedPhotoSmall" src="img/global/profile_photo.png"></td>
+											<td><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
 											<td>John Hancock</td>
 											<td class="positiveProgress">+2%</td>
 											<td><span class="phoneHide">johnhancock@independant.us</span><span class="phoneShow"><a href="mailto:johnhancock@independant.us">Email</a></span></td>
@@ -170,18 +170,18 @@ class Group {
 		<!-- wrapper : end -->
 		<footer class="site-footer col-md-12">
 			<section>
-				<img src = "img/global/icon.ico" />
+				<img src = "<?php echo $_SERVER['DOCUMENT_ROOT']; ?>img/global/icon.ico" />
 				<span>Powered by Aptitude LLC.</span>
 			</section>
 			<section id="feedback">
 				<a href="feedback.php"><span>Have feedback?</span></a>
 			</section>
 		</footer>
-		<script type="text/javascript" src="js/amcharts/amcharts.js"></script>
-		<script type="text/javascript" src="js/amcharts/serial.js"></script>
-		<script type="text/javascript" src="js/amcharts/themes/none.js"></script>
+		<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/amcharts/amcharts.js"></script>
+		<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/amcharts/serial.js"></script>
+		<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/amcharts/themes/none.js"></script>
 		<?php
-		echo '<script type="text/javascript" src="js/'.__CLASS__.'.js"></script>';
+		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';
 
 		drawFooter($this->foot());
 	}
@@ -195,5 +195,4 @@ class Group {
 if(!isset($groupid)){
 	$groupid='';
 }
-$group= new Group($groupid);
-
+$group= new Group();
