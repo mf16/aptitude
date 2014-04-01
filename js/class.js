@@ -1,23 +1,53 @@
 var chart;
 
 var chartData = [
-    // Data set #1
     [
-        { country: "Czech Republic", litres: 156.90},
-        { country: "Ireland", litres: 131.10},
-        { country: "Germany", litres: 115.80},
-        { country: "Australia", litres: 109.90},
-        { country: "Austria", litres: 108.30},
-        { country: "UK", litres: 99.00}
-    ],
-    // Data set #2
-    [
-        { country: "Czech Republic", litres: 101.20},
-        { country: "Ireland", litres: 141.20},
-        { country: "Germany", litres: 91.80},
-        { country: "Australia", litres: 101.90},
-        { country: "Austria", litres: 125.30},
-        { country: "UK", litres: 101.50}
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 78},
+        { section: "Functions", completion: 90},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 90},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 78},
+        { section: "Functions", completion: 78},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 90},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 78},
+        { section: "Functions", completion: 90},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 90},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 78},
+        { section: "Functions", completion: 90},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 90},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 29},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 90},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 78},
+        { section: "Functions", completion: 90},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 90},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 78},
+        { section: "Functions", completion: 90},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 78},
+        { section: "Functions", completion: 90},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 29},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 100},
+        { section: "Functions", completion: 90},
+        { section: "Functions", completion: 15}
     ]
 ]
 
@@ -25,7 +55,7 @@ AmCharts.ready(function() {
     // RADAR CHART
     chart = new AmCharts.AmSerialChart();
     chart.dataProvider = chartData[0];
-    chart.categoryField = "country";
+    chart.categoryField = "section";
     chart.startDuration = 1;
     chart.sequencedAnimation = false;
 
@@ -39,9 +69,9 @@ AmCharts.ready(function() {
     // GRAPH
     var graph = new AmCharts.AmGraph();
     graph.type = "column";
-    graph.valueField = "litres";
+    graph.valueField = "completion";
     graph.fillAlphas = 0.6;
-    graph.balloonText = "[[value]] litres of beer per year";
+    graph.balloonText = "[[section]] <br> [[value]]% completed";
     chart.addGraph(graph);
 
     // WRITE
@@ -53,3 +83,4 @@ function selectDataset(d) {
     chart.validateData();
     chart.animateAgain();
 }
+

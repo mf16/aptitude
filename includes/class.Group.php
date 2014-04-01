@@ -1,6 +1,9 @@
 <?php
-class Dashboard {
+include_once "class.GroupDAO.php";
+class Group {
+	protected $GroupDAO;
 	function __construct(){
+		$this->GroupDAO = new GroupDAO();
 		if(isset($_REQUEST['action'])){
 			$action=$_REQUEST['action'];
 			$this->$action();
@@ -9,27 +12,38 @@ class Dashboard {
 		}
 	}
 	function head(){
+		$headerText='';
+		$headerText.='<script src="js/'.strtolower(__CLASS__).'.js"></script>';
+		$headerText.='<link href="css/includes/'.strtolower(__CLASS__).'.css" type="text/css" rel="stylesheet">';
+		return $headerText;
 	}
 
 	function draw(){
 		drawHeader($this->head());
-		echo '
+		?>
 		<!-- wrapper -->
 		<div class="page-wrap">
 			<div id="slidingMenu">
 				<h1>Aptitude</h1>
-				<span id="studentName">John Doe</span>
+				<span id="studentName"><?php echo $_SESSION['userFirstname'].' '.$_SESSION['userLastname']; ?></span>
 				<hr style="margin:0px; border-top: 1px solid #F26522;">
+				<a href="#services">Timeline</a>
 				<a href="#services">Account Settings</a>
 				<span>Classes</span>
 				<hr style="margin:0px; border-top: 1px solid #F26522;">
+				<?php
+				$classes=$this->GroupDAO->getGroupByAdminid('math',1);
+				foreach($classes as $class){
+					echo '<a href="class'.$class['groupid'].'">'.$class['groupName'].'</a>';
+				}
+				?>
 				<a href="#">+ Create new class</a>
 			</div>
 
 			<header>
 				<div id="header">
 					<!--Button to expand slideout-->
-					<section id="buttonSideMenu">
+					<section onclick="displayMenu()" id="buttonSideMenu">
 					</section>
 					<article>
 						<span class="phoneHide" id="aptitude">Aptitude</span>
@@ -37,8 +51,7 @@ class Dashboard {
 				</div>
 			</header>
 			<section id="headerSpacer"></section>
-			<section class="container loader">
-			</section>
+			<section class="container loader"></section>
 			<section class="container body">
 				<section class="row-fluid">
 					<div class="col-md-8">
@@ -58,7 +71,8 @@ class Dashboard {
 										<th>Progress</th>
 									</tr>
 								</thead>
-								<tbody>';
+								<tbody>
+								<?php
 								$c = 0;
 								while ($c < 5){
 									echo '
@@ -69,7 +83,7 @@ class Dashboard {
 									</tr>';
 									$c++;
 								}
-							echo '	
+								?>
 								</tbody>
 							</table>
 						</div>
@@ -93,7 +107,8 @@ class Dashboard {
 										</th>
 									</tr>
 								</thead>
-								<tbody>';
+								<tbody>
+								<?php
 									$sections=array('Inequalities', 'Absolute values', 'Functions', 'Cartesian plane', 'Pythagorean Theorem', 'Powers and Radicals', 'Scientific Notation', 'Scaling Problems', 'Quadratic Equations', 'Euclidean Algorithm', 'Factoring', 'Graphing Functions', 'Conic Sections', 'Linear Systems and Solutions');
 									foreach ($sections as $current){
 										echo '<tr>
@@ -111,8 +126,7 @@ class Dashboard {
 
 											</tr>';
 									}
-
-							echo '
+								?>
 								</tbody>
 							</table>
 						</div>
@@ -129,7 +143,8 @@ class Dashboard {
 										<th>Email</th>
 									</tr>
 								</thead>
-								<tbody>';
+								<tbody>
+								<?php 
 								$c = 0;
 								while ($c < 15){
 									$c++;
@@ -141,7 +156,7 @@ class Dashboard {
 											<td><span class="phoneHide">johnhancock@independant.us</span><span class="phoneShow"><a href="mailto:johnhancock@independant.us">Email</a></span></td>
 										</tr>';
 								}
-							echo '
+								?>
 								</tbody>
 							</table>
 						</div>
@@ -150,6 +165,7 @@ class Dashboard {
 			</section>
 			<section class="footerSpacer">
 			</section>
+
 		</div>
 		<!-- wrapper : end -->
 		<footer class="site-footer col-md-12">
@@ -160,16 +176,21 @@ class Dashboard {
 			<section id="feedback">
 				<a href="feedback.php"><span>Have feedback?</span></a>
 			</section>
-		</footer>';
-		echo '<script type="text/javascript" src="js/amcharts/amcharts.js"></script>';
-		echo '<script type="text/javascript" src="js/amcharts/serial.js"></script>';
-		echo '<script type="text/javascript" src="js/amcharts/themes/none.js"></script>';
-		echo '<script type="text/javascript" src="js/class.js"></script>';
+		</footer>
+		<script type="text/javascript" src="js/amcharts/amcharts.js"></script>
+		<script type="text/javascript" src="js/amcharts/serial.js"></script>
+		<script type="text/javascript" src="js/amcharts/themes/none.js"></script>
+		<script type="text/javascript" src="js/class.js"></script>
+		<?php
 
 		drawFooter($this->foot());
 	}
 	function foot(){
 	}
+
+	function drawTimeline(){
+		echo 'timeline here';
+	}
 }
-$dashboard= new Dashboard();
+$group= new Group();
 
