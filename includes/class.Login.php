@@ -38,7 +38,8 @@ class Login{
 	}
 	function login(){
 		$userid=1;
-		$this->loginSuccess($userid);
+		login();
+		//$this->loginSuccess($userid);
 	}
 	function loginSuccess($userid){
 		//load from db here - will create DAO's later

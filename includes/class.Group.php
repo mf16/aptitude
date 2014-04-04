@@ -2,7 +2,7 @@
 include_once "class.GroupDAO.php";
 class Group {
 	protected $GroupDAO;
-	function __construct(){
+	function __construct($groupid){
 		$this->GroupDAO = new GroupDAO();
 		if(isset($_REQUEST['action'])){
 			$action=$_REQUEST['action'];
@@ -25,7 +25,7 @@ class Group {
 		<div class="page-wrap">
 			<div id="slidingMenu">
 				<h1>Aptitude</h1>
-				<span id="studentName"><?php echo $_SERVER['userFirstname'].' '.$_SERVER['userLastname']; ?></span>
+				<span id="studentName"><?php echo $_SESSION['userFirstname'].' '.$_SESSION['userLastname']; ?></span>
 				<hr style="margin:0px; border-top: 1px solid #F26522;">
 				<a href="#services">Timeline</a>
 				<a href="#services">Account Settings</a>
@@ -195,4 +195,4 @@ class Group {
 if(!isset($groupid)){
 	$groupid='';
 }
-$group= new Group();
+$group= new Group($groupid);

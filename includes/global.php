@@ -10,6 +10,7 @@
 session_start();
 
 include_once "functions.php";
+include_once "class.mysqliAPI.php";
 
 /////////////////////////////////////////////////////////////
 //				Server Variables
@@ -24,10 +25,10 @@ if($_SERVER['REMOTE_ADDR']=='127.0.0.1' || $_SERVER['HTTP_HOST']=='localhost'){
 /////////////////////////////////////////////////////////////
 
 if($_SERVER['REMOTE_ADDR']=='127.0.0.1' || $_SERVER['HTTP_HOST']=='localhost'){
-	$db = new mysqli('localhost', 'root', '');
+	$db = new mysqliAPI('localhost', 'root', '');
 } 
 elseif($_SERVER['HTTP_HOST']=='dev.goaptitude.com'){
-	$db = new mysqli('localhost', 'goaptitude', 'Chicheme2013');
+	$db = new mysqliAPI('localhost', 'goaptitude', 'Chicheme2013');
 }
 else{ //other server info here
 	die("How did you get here? Really, we want to know. Email support@goaptitude.com");
