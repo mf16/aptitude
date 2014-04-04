@@ -26,7 +26,6 @@ class mysqliAPI extends mysqli{
 				}
 			}
 			array_unshift($whereArray,$typeString);
-			print_r($whereArray);
 
 			function refValues($arr)
 			{ 
