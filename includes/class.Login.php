@@ -37,7 +37,14 @@ class Login{
 	function foot(){
 	}
 	function login(){
-		login('test@test.com','passwordHere');
+		$username=$_REQUEST['email'];
+		$password=$_REQUEST['password'];
+		if(login($username,$password) | ($username=='' &&$password=='')){
+			echo '<a href="Dashboard">Dashboard</a>';
+		} else {
+			echo 'login failed';
+			//incorrect what?
+		}
 	}
 }
 

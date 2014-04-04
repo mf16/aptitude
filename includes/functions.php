@@ -73,11 +73,8 @@ function login($username,$password){
 		$_SESSION['userFirstname']=$userInfo['user_firstname'];
 		$_SESSION['userLastname']=$userInfo['user_lastname'];
 		$_SESSION['userEmail']=$userInfo['email'];
-		echo '<a href="dashboard" >Dashboard</a>';
-		
 		return true;
 	} else {
-		echo 'login failed';
 		//failed login
 		return false;
 	}

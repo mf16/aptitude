@@ -34,7 +34,7 @@ class Group {
 				<?php
 				$classes=$this->GroupDAO->getGroupByAdminid('math',1);
 				foreach($classes as $class){
-					echo '<a href="class'.$class['group_id'].'">'.$class['group_name'].'</a>';
+					echo '<a href="'.$_SERVER['DOCUMENT_ROOT'].'class/'.$class['group_id'].'">'.$class['group_name'].'</a>';
 				}
 				?>
 				<a href="#">+ Create new class</a>
