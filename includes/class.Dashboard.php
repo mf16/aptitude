@@ -34,7 +34,7 @@ class Dashboard {
 				<?php
 				$classes=$this->DashboardDAO->getClassesByAdminid('math',1);
 				foreach($classes as $class){
-					echo '<a href="class'.$class['groupid'].'">'.$class['groupName'].'</a>';
+					echo '<a href="class'.$class['group_id'].'">'.$class['group_name'].'</a>';
 				}
 				?>
 				<a href="#" onclick="newClass()" >+ Create new class</a>
