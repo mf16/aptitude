@@ -3,45 +3,52 @@ include_once "global.php";
 
 class mysqliAPI extends mysqli{
 
-	function get_rows($sql,$whereArray){
+	function query($query){
 		global $db;
-		$stmt = $db->stmt_init();
-		$stmt = $db->prepare($sql);
-		if($stmt === false) {
-			trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
-		}
-		if(isset($whereArray)){
-			if(!is_array($whereArray)){
-				$whereArray=array($whereArray);
-				//return 'Fail: 2nd param in get_rows is not array or empty';
+		$args = func_get_args();
+		if (count($args) == 1) {
+			$result = $db->query($query);
+			if ($result->num_rows) {
+				$out = array();
+				while (null != ($r = $result->fetch_array(MYSQLI_ASSOC)))
+					$out [] = $r;
+				return $out;
 			}
-			$typeString='';
-			foreach($whereArray as $key=>$var){
-				if(is_int($var)){
-					$typeString.='i';
-				} else if (is_string($var)){
-					$typeString.='s';
-				} else {
-					return 'Please cast your where variables as strings or integers';
+			return null;
+		} else {
+			if (!$stmt = $db->prepare($query))
+			trigger_error("Unable to prepare statement: {$query}, reason: " . $db->error . "");
+			array_shift($args); //remove $Query from args
+			//the following three lines are the only way to copy an array values in PHP
+			$a = array();
+			foreach ($args as $k => &$v)
+			$a[$k] = &$v;
+			$types = str_repeat("s", count($args)); //all params are strings, works well on MySQL and SQLite
+			array_unshift($a, $types);
+			call_user_func_array(array($stmt, 'bind_param'), $a);
+			$stmt->execute();
+			//fetching all results in a 2D array
+			$metadata = $stmt->result_metadata();
+			$out = array();
+			$fields = array();
+			if (!$metadata)
+			return null;
+			$length = 0;
+			while (null != ($field = mysqli_fetch_field($metadata))) {
+				$fields [] = &$out [$field->name];
+				$length+=$field->length;
+			}
+			call_user_func_array(array($stmt, "bind_result"), $fields);
+			$output = array();
+			$count = 0;
+			while ($stmt->fetch()) {
+				foreach ($out as $k => $v){
+					$output [$count] [$k] = $v;
 				}
+				$count++;
 			}
-			array_unshift($whereArray,$typeString);
-
-			function refValues($arr)
-			{ 
-				$refs = array();
-				foreach ($arr as $key => $value)
-				{
-				    $refs[$key] = &$arr[$key]; 
-				}
-				return $refs; 
-			}
-
-			call_user_func_array(array($stmt, "bind_param"), refValues($whereArray));
+			$stmt->free_result();
+			return ($count == 0) ? null : $output;
 		}
-		$stmt->execute();
-		$rs=$stmt->get_result();
-		$results= $rs->fetch_all(MYSQLI_ASSOC);
-		return $results;
 	}
 }
