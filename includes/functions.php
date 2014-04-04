@@ -9,6 +9,28 @@ function drawFooter($footerText){
 	include 'foot.php';
 }
 
+function login($username,$password){
+	global $functionsDAO;
+
+	if(isset($_SESSION['userEmail'])){
+		//return 'Already Logged In';
+	}
+	$hashedPassword=$functionsDAO->getPasswordByUsername($username);
+	if(password_verify($password,$hashedPassword)){
+		//login success
+		$userInfo=$functionsDAO->getUserInfoByUsername($username);
+		$userInfo=$userInfo[0];
+		$_SESSION['userid']=$userInfo['id'];
+		$_SESSION['userFirstname']=$userInfo['user_firstname'];
+		$_SESSION['userLastname']=$userInfo['user_lastname'];
+		$_SESSION['userEmail']=$userInfo['email'];
+		return true;
+	} else {
+		//failed login
+		return false;
+	}
+}
+
 function query($query) {
 	global $db;
 	$args = func_get_args();
@@ -55,27 +77,5 @@ function query($query) {
 		}
 		$stmt->free_result();
 		return ($count == 0) ? null : $output;
-	}
-}
-
-function login($username,$password){
-	global $functionsDAO;
-
-	if(isset($_SESSION['userEmail'])){
-		//return 'Already Logged In';
-	}
-	$hashedPassword=$functionsDAO->getPasswordByUsername($username);
-	if(password_verify($password,$hashedPassword)){
-		//login success
-		$userInfo=$functionsDAO->getUserInfoByUsername($username);
-		$userInfo=$userInfo[0];
-		$_SESSION['userid']=$userInfo['id'];
-		$_SESSION['userFirstname']=$userInfo['user_firstname'];
-		$_SESSION['userLastname']=$userInfo['user_lastname'];
-		$_SESSION['userEmail']=$userInfo['email'];
-		return true;
-	} else {
-		//failed login
-		return false;
 	}
 }

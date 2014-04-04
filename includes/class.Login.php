@@ -40,7 +40,9 @@ class Login{
 		$username=$_REQUEST['email'];
 		$password=$_REQUEST['password'];
 		if(login($username,$password) | ($username=='' &&$password=='')){
-			echo '<a href="Dashboard">Dashboard</a>';
+			?>
+			<script>location.href='dashboard'</script>.
+			<?php
 		} else {
 			echo 'login failed';
 			//incorrect what?
