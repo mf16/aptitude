@@ -39,10 +39,10 @@ class mysqliAPI extends mysqli{
 			}
 
 			call_user_func_array(array($stmt, "bind_param"), refValues($whereArray));
-			$stmt->execute();
-			$rs=$stmt->get_result();
-			$results= $rs->fetch_all(MYSQLI_ASSOC);
-			return $results;
 		}
+		$stmt->execute();
+		$rs=$stmt->get_result();
+		$results= $rs->fetch_all(MYSQLI_ASSOC);
+		return $results;
 	}
 }
