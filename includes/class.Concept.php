@@ -56,13 +56,13 @@ class Concept {
 				<section class="row-fluid concept_body">
 					<div class="col-md-8">
 						<div class="col-md-12 dataContainer">
-							<h3>Class Completion Progress</h3>
-							<div id="completionProgress" style="height: 322px;"></div>
+							<h3>Section Concept Breakdown</h3>
+							<div id="conceptBreakdown" style="height: 374px;"></div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="col-md-12 dataContainer">
-							<h3>Struggling Students</h3>
+							<h3 style="font-size: 23px;">Struggling/Excelling Students</h3>
 							<table class="table" style="border-color:#484848;">
 								<thead>
 									<tr>
@@ -74,12 +74,21 @@ class Concept {
 								<tbody>
 								<?php
 								$c = 0;
-								while ($c < 5){
+								while ($c < 3){
 									echo '
 									<tr>
 										<td><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
 										<td>John Hancock</td>
 										<td class="percentBehind">-5%</td>
+									</tr>';
+									$c++;
+								}
+								while ($c < 6){
+									echo '
+									<tr>
+										<td><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
+										<td>John Hancock</td>
+										<td class="percentAhead">+15%</td>
 									</tr>';
 									$c++;
 								}
@@ -90,85 +99,22 @@ class Concept {
 					</div>
 				</section>
 				<section class="row-fluid margin-top">
-					<div class="col-md-5">
+					<div class="col-md-4">
 						<div class="col-md-12 dataContainer" id="completionDate">
-							<h3>Course Progress</h3>
-							<table class="table">
-								<thead>
-									<tr>
-										<th>
-											Completed?
-										</th>
-										<th>
-											Section
-										</th>
-										<th>
-											Completion Date
-										</th>
-									</tr>
-								</thead>
-								<tbody>
-								<?php
-									$sections=array('Inequalities', 'Absolute values', 'Functions', 'Cartesian plane', 'Pythagorean Theorem', 'Powers and Radicals', 'Scientific Notation', 'Scaling Problems', 'Quadratic Equations', 'Euclidean Algorithm', 'Factoring', 'Graphing Functions', 'Conic Sections', 'Linear Systems and Solutions');
-									foreach ($sections as $current){
-										echo '<tr>
-												<td>
-													<div class="checkbox">
-														<input type="checkbox" checked>
-													</div>
-												</td>
-												<td>
-													'.$current.'
-												</td>
-												<td>
-													August 7th
-												</td>
-
-											</tr>';
-									}
-								?>
-								</tbody>
-							</table>
+							<h3>Concepts to Review</h3>
+							<div id="pieChart" style="height: 350px;"></div>
 						</div>
 					</div>
-					<div class="col-md-7">
+					<div class="col-md-8">
 						<div class="col-md-12 dataContainer" id="roster">
-							<h3>Class Roster</h3>
-							<table class="table">
-								<thead>
-									<tr>
-										<th><!--Photo--></th>
-										<th>Student Name</th>
-										<th>Progress</th>
-										<th>Email</th>
-									</tr>
-								</thead>
-								<tbody>
-								<?php 
-								$c = 0;
-								while ($c < 15){
-									$c++;
-									echo '
-										<tr>
-											<td><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
-											<td>John Hancock</td>
-											<td class="positiveProgress">+2%</td>
-											<td><span class="phoneHide">johnhancock@independant.us</span><span class="phoneShow"><a href="mailto:johnhancock@independant.us">Email</a></span></td>
-										</tr>';
-								}
-								?>
-								</tbody>
-							</table>
+							<h3>Most Challenging Problems</h3>
+							
 						</div>
 					</div>
-				</section>
-				<section class="row-fluid">
-					<section class="col-md-6 col-md-offset-3">
-						<img src="img/global/watermark.png">
-					</section>
 				</section>
 			</section>
-
+			<section class="footerSpacer">
+			</section>
 		</div>
 		<!-- wrapper : end -->
 		<footer class="site-footer col-md-12">
@@ -181,6 +127,7 @@ class Concept {
 			</section>
 		</footer>
 		<?php
+		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';
 
 		drawFooter($this->foot());
 	}

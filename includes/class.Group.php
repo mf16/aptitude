@@ -188,8 +188,6 @@ class Group {
 				<a href="feedback.php"><span>Have feedback?</span></a>
 			</section>
 		</footer>
-		<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/amcharts/amcharts.js"></script>
-		<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/amcharts/serial.js"></script>
 		<script type="text/javascript">
 			var conceptPage = "<?php echo $_SERVER['DOCUMENT_ROOT'];?>concept";
 		</script>
