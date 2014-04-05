@@ -52,7 +52,7 @@ class Concept {
 			</header>
 			<section id="headerSpacer"></section>
 			<section class="container loader"></section>
-			<section class="container body" style="padding-left:150px;">
+			<section class="container body">
 				<section class="row-fluid concept_body">
 					<div class="col-md-8">
 						<div class="col-md-12 dataContainer">
