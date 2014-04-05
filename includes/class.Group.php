@@ -2,7 +2,9 @@
 include_once "class.GroupDAO.php";
 class Group {
 	protected $GroupDAO;
+	protected $groupid;
 	function __construct($groupid){
+		$this->groupid=$groupid;
 		$this->GroupDAO = new GroupDAO();
 		if(isset($_REQUEST['action'])){
 			$action=$_REQUEST['action'];
@@ -145,6 +147,15 @@ class Group {
 								</thead>
 								<tbody>
 								<?php 
+								$students=$this->GroupDAO->getStudentsByClassid($this->groupid);
+								foreach($students as $key=>$student){
+									echo '<tr>';
+									echo '<td><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>';
+									echo '<td>'.$student['user_lastname'].', '.$student['user_firstname'].'</td>';
+									echo '<td class="positiveProgress">+2%</td>';
+									echo '<td><span class="phoneHide">'.$student['email'].'</span><span class="phoneShow"><a href="mailto:'.$student['email'].'">Email</a></span></td>';
+									echo '</tr>';
+								}
 								$c = 0;
 								while ($c < 15){
 									$c++;
