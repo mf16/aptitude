@@ -15,7 +15,6 @@
 <link href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>includes/fonts/fonts.css" type="text/css" rel="stylesheet">
 <!--Google fonts-->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700" type="text/css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/jquery-1.11.0/jquery.min.js" type="text/javascript"></script>
 <script src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>css/bootstrap-3.1.1/js/bootstrap.min.js"></script> 
 <script src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/global.js"></script>

@@ -1,9 +1,9 @@
 <?php
-include_once "class.GroupDAO.php";
-class Group {
-	protected $GroupDAO;
-	function __construct($groupid){
-		$this->GroupDAO = new GroupDAO();
+include_once "class.ConceptDAO.php";
+class Concept {
+	protected $ConceptDAO;
+	function __construct(){
+		$this->ConceptDAO = new ConceptDAO();
 		if(isset($_REQUEST['action'])){
 			$action=$_REQUEST['action'];
 			$this->$action();
@@ -32,18 +32,18 @@ class Group {
 				<span>Classes</span>
 				<hr style="margin:0px; border-top: 1px solid #F26522;">
 				<?php
-				$classes=$this->GroupDAO->getGroupByAdminid('math',1);
+				$classes=$this->ConceptDAO->getClassesByAdminid('math',1);
 				foreach($classes as $class){
 					echo '<a href="'.$_SERVER['DOCUMENT_ROOT'].'class/'.$class['group_id'].'">'.$class['group_name'].'</a>';
 				}
 				?>
-				<a href="#">+ Create new class</a>
+				<a href="#" onclick="newClass()" >+ Create new class</a>
 			</div>
 
 			<header>
 				<div id="header">
 					<!--Button to expand slideout-->
-					<section onclick="displayMenu()" id="buttonSideMenu">
+					<section onclick="toggleMenu()" id="buttonSideMenu">
 					</section>
 					<article>
 						<span class="phoneHide" id="aptitude">Aptitude</span>
@@ -52,8 +52,8 @@ class Group {
 			</header>
 			<section id="headerSpacer"></section>
 			<section class="container loader"></section>
-			<section class="container body">
-				<section class="row-fluid">
+			<section class="container body" style="padding-left:150px;">
+				<section class="row-fluid concept_body">
 					<div class="col-md-8">
 						<div class="col-md-12 dataContainer">
 							<h3>Class Completion Progress</h3>
@@ -162,28 +162,25 @@ class Group {
 						</div>
 					</div>
 				</section>
-			</section>
-			<section class="footerSpacer">
+				<section class="row-fluid">
+					<section class="col-md-6 col-md-offset-3">
+						<img src="img/global/watermark.png">
+					</section>
+				</section>
 			</section>
 
 		</div>
 		<!-- wrapper : end -->
 		<footer class="site-footer col-md-12">
 			<section>
-				<img src = "<?php echo $_SERVER['DOCUMENT_ROOT']; ?>img/global/icon.ico" />
+				<img src = "img/global/icon.ico" />
 				<span>Powered by Aptitude LLC.</span>
 			</section>
 			<section id="feedback">
 				<a href="feedback.php"><span>Have feedback?</span></a>
 			</section>
 		</footer>
-		<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/amcharts/amcharts.js"></script>
-		<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/amcharts/serial.js"></script>
-		<script type="text/javascript">
-			var conceptPage = "<?php echo $_SERVER['DOCUMENT_ROOT'];?>concept";
-		</script>
 		<?php
-		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';
 
 		drawFooter($this->foot());
 	}
@@ -193,8 +190,14 @@ class Group {
 	function drawTimeline(){
 		echo 'timeline here';
 	}
+	
+	function newClass(){
+		?>
+		Subject: <select id='className'>
+		</select>
+		Class Name (Smith01 for example): <input id='className' type='text' />
+		<?php
+	}
 }
-if(!isset($groupid)){
-	$groupid='';
-}
-$group= new Group($groupid);
+$concept= new Concept();
+
