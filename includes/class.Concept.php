@@ -103,12 +103,39 @@ class Concept {
 						<div class="col-md-12 dataContainer" id="completionDate">
 							<h3>Concepts to Review</h3>
 							<div id="pieChart" style="height: 350px;"></div>
-						</div>
+						</div>	
 					</div>
 					<div class="col-md-8">
-						<div class="col-md-12 dataContainer" id="roster">
-							<h3>Most Challenging Problems</h3>
-							
+						<div class="col-md-12 dataContainer" style="padding-bottom: 20px;">
+							<section class="row-fluid">
+								<div class="col-md-10"><h3>Most Challenging Problems</h3></div>
+								<div class="col-md-2" style="margin-top: 25px;"><span>- show more -</span></div>
+							</section>
+							<section class="row-fluid">
+								<div class="col-md-12">
+									<hr style="margin-top:0px;">
+								</div>
+							</section>
+							<section class="row-fluid" style="font-size: 17px;">
+								<?php
+								$x=0; 
+								while ($x < 3){
+									echo '<article class="col-md-4">
+									<h4>Domain of functions</h4>
+									<article>
+										<span>y = 5x - 12<sup>2</sup><br>
+										<span>when x = 5</span><br>
+										<br>
+										<span style = "color:green;">y = 5(5) - 12<sup>2</sup><br>
+										<span style = "color:green;">y = 25 - </span><span  style = "color:red;">12<sup>2</sup><br>
+										<span style = "color:green;">y = 25 - 144<sup></sup><br>
+										<span style = "color:green;">y = -119
+									</article>
+								</article>';
+								$x++;
+								}
+								?>
+							</section>
 						</div>
 					</div>
 				</section>
