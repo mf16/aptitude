@@ -2,6 +2,14 @@ body {
   /*display: none; //enable this after dev*/
   overflow-x: hidden;
 }
+a:link {text-decoration:none !important; color:#333 !important; }
+a:visited {text-decoration:none !important; color:#333 !important; }
+a:hover {text-decoration:none !important; color:#ACACAC !important; }
+a:active {text-decoration:none !important; color:#ACACAC !important; }
+
+.link{
+	cursor: pointer;
+}
 #mathOperators{
 	position: absolute;
 	padding: 13px 10px 9px 4px;
@@ -302,6 +310,9 @@ html, body {
 #conceptBreakdown>div>div>svg>g>g>text{
 	display:none;
 }
+#completionProgress>div>div>svg>g>g>text{
+	display:none;
+}
 .margin-top{
 	position: relative;	
 	top:25px;
@@ -357,4 +368,6 @@ tr>td{
 		background-color: transparent;
 	}
 }
-
+.noMarginTop{
+	margin-top:0px;
+}

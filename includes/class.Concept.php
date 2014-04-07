@@ -113,7 +113,7 @@ class Concept {
 							</section>
 							<section class="row-fluid">
 								<div class="col-md-12">
-									<hr style="margin-top:0px;">
+									<hr class="noMarginTop">
 								</div>
 							</section>
 							<section class="row-fluid" style="font-size: 17px;">

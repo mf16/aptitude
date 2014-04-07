@@ -93,3 +93,6 @@ function selectDataset(d) {
     chart.animateAgain();
 }
 
+function profilePageChange(){
+    window.location.href = profilePage;
+}

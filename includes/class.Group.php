@@ -147,22 +147,23 @@ class Group {
 								</thead>
 								<tbody>
 								<?php 
+								/* ADD THIS IN WHEN THERE IS DATA TO PULL
 								$students=$this->GroupDAO->getStudentsByClassid($this->groupid);
 								foreach($students as $key=>$student){
 									echo '<tr>';
-									echo '<td><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>';
-									echo '<td>'.$student['user_lastname'].', '.$student['user_firstname'].'</td>';
+									echo '<td class="link"><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>';
+									echo '<td class="link">'.$student['user_lastname'].', '.$student['user_firstname'].'</td>';
 									echo '<td class="positiveProgress">+2%</td>';
 									echo '<td><span class="phoneHide">'.$student['email'].'</span><span class="phoneShow"><a href="mailto:'.$student['email'].'">Email</a></span></td>';
 									echo '</tr>';
-								}
+								}*/
 								$c = 0;
 								while ($c < 15){
 									$c++;
 									echo '
 										<tr>
-											<td><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
-											<td>John Hancock</td>
+											<td onclick="profilePageChange()" class="link"><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
+											<td onclick="profilePageChange()" class="link">John Hancock</td>
 											<td class="positiveProgress">+2%</td>
 											<td><span class="phoneHide">johnhancock@independant.us</span><span class="phoneShow"><a href="mailto:johnhancock@independant.us">Email</a></span></td>
 										</tr>';
@@ -190,6 +191,7 @@ class Group {
 		</footer>
 		<script type="text/javascript">
 			var conceptPage = "<?php echo $_SERVER['DOCUMENT_ROOT'];?>concept";
+			var profilePage = "<?php echo $_SERVER['DOCUMENT_ROOT'];?>profile";
 		</script>
 		<?php
 		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';

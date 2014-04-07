@@ -1,0 +1,29 @@
+.roundedProfile{
+	width: 100%;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+}
+
+/*Activity table styling*/
+.activityTable>tbody>tr>td{
+	width: 16px;
+	height: 16px;
+	padding: 1px; 
+}
+.activityTable>tbody>tr>td>div{
+	width: 100%;
+	height: 100%;
+}
+.activityTable>tbody>tr>td:hover{
+	border:1px solid;
+}
+.activityLow{
+	background-color: #AFAFAF;
+}
+.activityHigh{
+	background-color: #5D6A8A;
+}
+.activityNone{
+	background-color: rgb(231, 231, 231);
+}
