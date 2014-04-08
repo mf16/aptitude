@@ -1,5 +1,3 @@
-<?php
-?>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Aptitude | Empowering the learner</title>
@@ -25,5 +23,6 @@
 <!--TOOLTIPSTER-->
 <link rel="stylesheet" type="text/css" href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/tooltipster/tooltipster.css" />
 <script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/tooltipster/jquery.tooltipster.min.js"></script>
-<?php
-?>
+<!--JQUERY UI-->
+<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/jquery-ui/css/container/jquery-ui-1.10.4.css" />

@@ -76,7 +76,7 @@ class Concept {
 								$c = 0;
 								while ($c < 3){
 									echo '
-									<tr>
+									<tr class="link" onclick="profilePageChange()">
 										<td><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
 										<td>John Hancock</td>
 										<td class="percentBehind">-5%</td>
@@ -85,7 +85,7 @@ class Concept {
 								}
 								while ($c < 6){
 									echo '
-									<tr>
+									<tr class="link" onclick="profilePageChange()">
 										<td><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
 										<td>John Hancock</td>
 										<td class="percentAhead">+15%</td>
@@ -153,6 +153,9 @@ class Concept {
 				<a href="feedback.php"><span>Have feedback?</span></a>
 			</section>
 		</footer>
+		<script type="text/javascript">
+			var profilePage = "<?php echo $_SERVER['DOCUMENT_ROOT'];?>profile";
+		</script>
 		<?php
 		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';
 

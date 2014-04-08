@@ -75,17 +75,17 @@ class Profile {
 								<br>
 								<div>
 									<h4>Recent Topics</h4>
-									<a href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>concept"><span>Chapter 5: Section 1.3</span><br>
+									<a href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>concept"><span>Chapter 5: Section 1.2</span><br>
 									<span>&emsp; Evaluating domain of functions</span></a><br>
-									<a href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>concept"><span>Chapter 5: Section 1.4</span><br>
+									<a href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>concept"><span>Chapter 5: Section 1.2</span><br>
 									<span>&emsp; Combination of functions</span></a><br>
-									<a href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>concept"><span>Chapter 5: Section 1.4</span><br>
+									<a href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>concept"><span>Chapter 5: Section 1.3</span><br>
 									<span>&emsp; Composition of functions</span></a><br>
 								</div>
 								<br>
 								<div>
 									<h4>Credits</h4>
-									<span>Credits this semester: 14</span>
+									<span>Credits this semester: 15</span>
 								</div>
 								<br>
 								<div>
@@ -114,13 +114,13 @@ class Profile {
 												$rand = rand(1,4);
 												switch ($rand) {
 													case 1:
-														echo '	<td><div class="activityHigh"></div></td>';
+														echo '	<td title="June 12: High Activity"><div class="activityHigh"></div></td>';
 														break;
 													case 2:
-														echo '	<td><div class="activityLow"></div></td>';
+														echo '	<td title="September 7: Moderate Activity"><div class="activityLow"></div></td>';
 														break;
 													default:
-														echo '	<td><div class="activityNone"></div></td>';
+														echo '	<td title="April 20: No activity"><div class="activityNone"></div></td>';
 														break;
 												}
 											}
@@ -132,7 +132,7 @@ class Profile {
 							</article>
 						</section>
 						<section class="row-fluid margin-top">
-							<article class="col-md-12">
+							<article class="col-md-12 dataContainer" style="padding-top:15px; padding-bottom:15px;">
 								<article id="profileHeroChart" style="height: 500px;"></article>
 							</article>
 						</section>

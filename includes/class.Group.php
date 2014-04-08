@@ -78,8 +78,8 @@ class Group {
 								$c = 0;
 								while ($c < 5){
 									echo '
-									<tr>
-										<td><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
+									<tr class="link" onclick="profilePageChange()">
+										<td ><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
 										<td>John Hancock</td>
 										<td class="percentBehind">-5%</td>
 									</tr>';
