@@ -136,6 +136,10 @@ class Profile {
 								<article id="profileHeroChart" style="height: 500px;"></article>
 							</article>
 						</section>
+						<section class="row-fluid margin-top">
+							<article class="col-md-12 dataContainer" style="padding-top:15px; padding-bottom:15px;">
+							</article>
+						</section>
 					</div>
 				</section>
 			</section>

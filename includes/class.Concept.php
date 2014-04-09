@@ -158,7 +158,7 @@ class Concept {
 		</script>
 		<?php
 		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';
-
+		
 		drawFooter($this->foot());
 	}
 	function foot(){
