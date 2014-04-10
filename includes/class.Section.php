@@ -48,11 +48,11 @@ class Section {
 			<section class="container loader"></section>
 			<section class="container body">
 				<section class="row-fluid">
-					<section class="col-md-9">
+					<section class="col-lg-9 col-sm-12 col-sm-12">
 					</section>
-					<section class="col-md-3 rightSideBar">
+					<section class="col-lg-3 col-sm-12 col-sm-12 rightSideBar">
 						<section class="row-fluid">
-							<article class="col-md-12 text-center">
+							<article class="col-md-12">
 								<span class="header">Introduction</span>
 							</article><br>
 							<article class="divider"></article>
@@ -69,7 +69,7 @@ class Section {
 				<img src = "img/global/icon.ico" />
 				<span>Powered by Aptitude LLC.</span>
 			</section>
-			<section class="col-md-2 col-md-offset-4" id="feedback">
+			<section class="col-md-2 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-6" id="feedback">
 				<a href="feedback.php"><span>Have feedback?</span></a>
 			</section>
 		</footer>

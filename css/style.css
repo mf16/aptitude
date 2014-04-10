@@ -347,7 +347,9 @@ tr>td{
 	display: inline;
 }
 
-@media(max-width:768px){
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (max-device-width : 1024px) {
 	.row-fluid div:nth-child(n+2) {
 	    margin-top:25px;
 	}
@@ -372,8 +374,16 @@ tr>td{
 /************************************
 ******  Right Side Bar Styling ******
 ************************************/
+
 /* Desktops and laptops ----------- */
 @media only screen and (min-width : 1224px) {
+/* Styles */
+}
+
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 1024px) {
 /* Styles */
 	.rightSideBar{
 		z-index: 1;
@@ -382,49 +392,66 @@ tr>td{
 		padding-top: 15px;
 		background-color: rgb(58, 58, 58);
 		height: 100%;
+		text-align: center;
 	}
-}
-.rightSideBar>section>article>span.header{
-	color: white;
-	font-family: 'NexaBold';
-	font-size: 19px;
-	font-weight: 800;
-	letter-spacing: 0.15em;
-	line-height: 30px;
-	text-transform: uppercase;
-}
-.rightSideBar>section>.divider{
-	background: url('../img/global/mask/raster-light.png') repeat;
-	height: 14px;
-	margin-top:15px;
-}
-
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-/* Styles */
+	.rightSideBar>section>article>span.header{
+		color: white;
+		font-family: 'NexaBold';
+		font-size: 19px;
+		font-weight: 800;
+		letter-spacing: 0.15em;
+		line-height: 30px;
+		text-transform: uppercase;
+	}
+	.rightSideBar>section>.divider{
+		background: url('../img/global/mask/raster-light.png') repeat;
+		height: 14px;
+		margin-top:15px;
+	}
 }
 
 /* iPads (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-/* Styles */
-}
-
-/* iPads (landscape) ----------- */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
-/* Styles */
-}
-
-/* iPads (portrait) ----------- */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+@media only screen and (max-device-width : 1024px) {
 /* Styles */
 	.rightSideBar{
 		z-index: 1;
 		position: fixed !important;
 		width: 100%;
-		padding-top: 15px;
+		padding-top: 10px;
 		background-color: rgb(58, 58, 58);
-		height: 70px;
-		margin-top: 70px;
+		height: 150px;
+		left: 0px;
+		top: 0px;
+		text-align: left;
+	}
+	.rightSideBar>section>article>span.header{
+		color: white;
+		font-family: 'NexaBold';
+		font-size: 19px;
+		font-weight: 800;
+		letter-spacing: 0.15em;
+		line-height: 30px;
+		text-transform: uppercase;
+		padding-left: 50px;
+	}
+	.rightSideBar>section>.divider{
+		background: url('../img/global/mask/raster-light.png') repeat;
+		height: 14px;
+		margin-top:-20px;
+		width: 90%;
+		margin-left: 7%;
+	}
+}
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+/* Styles */
+	.rightSideBar>section>.divider{
+		background: url('../img/global/mask/raster-light.png') repeat;
+		height: 14px;
+		width: 90%;
+		margin-left: 5%;
+		margin-top: 10px;
+
 	}
 }
 
