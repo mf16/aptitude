@@ -2,10 +2,10 @@ body {
   /*display: none; //enable this after dev*/
   overflow-x: hidden;
 }
-a:link {text-decoration:none !important; color:#333 !important; }
-a:visited {text-decoration:none !important; color:#333 !important; }
-a:hover {text-decoration:none !important; color:#ACACAC !important; }
-a:active {text-decoration:none !important; color:#ACACAC !important; }
+a:not(#slidingMenu>a):link {text-decoration:none !important; color:#333 !important; }
+a:not(#slidingMenu>a):visited {text-decoration:none !important; color:#333 !important; }
+a:not(#slidingMenu>a):hover {text-decoration:none !important; color:#ACACAC !important; }
+a:not(#slidingMenu>a):active {text-decoration:none !important; color:#ACACAC !important; }
 
 .link{
 	cursor: pointer;
@@ -151,7 +151,7 @@ header + .spacer{
 #slidingMenu>a {
 	margin: 0px;
 	margin-bottom: 2px;
-	color: #9E9E9E;
+	color: #D5D5D5;
 	display: block;
 	font-size: 12px;
 	letter-spacing: 2px;

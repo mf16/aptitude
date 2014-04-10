@@ -112,21 +112,45 @@ class Group {
 								<tbody>
 								<?php
 									$sections=array('Inequalities', 'Absolute values', 'Functions', 'Cartesian plane', 'Pythagorean Theorem', 'Powers and Radicals', 'Scientific Notation', 'Scaling Problems', 'Quadratic Equations', 'Euclidean Algorithm', 'Factoring', 'Graphing Functions', 'Conic Sections', 'Linear Systems and Solutions');
-									foreach ($sections as $current){
-										echo '<tr>
-												<td>
-													<div class="checkbox">
-														<input type="checkbox" checked>
-													</div>
-												</td>
-												<td>
-													'.$current.'
-												</td>
-												<td>
-													August 7th
-												</td>
+									//Just for show purposes. Start at 4 and go for a few checkboxes, 
 
-											</tr>';
+									////////////////
+									//	DUMMY DATA
+									////////////////
+									$c = 4;
+									foreach ($sections as $current){
+										if($c < 16){
+											echo '<tr>
+													<td>
+														<div class="checkbox">
+															<input type="checkbox" checked>
+														</div>
+													</td>
+													<td>
+														'.$current.'
+													</td>
+													<td>
+														March '.$c.'th
+													</td>
+												</tr>';
+												$c = $c + 3;
+										}
+										else{
+											echo '<tr>
+													<td>
+														<div class="checkbox" onclick="toggleDate(\''.$c.'\');">
+															<input type="checkbox">
+														</div>
+													</td>
+													<td>
+														'.$current.'
+													</td>
+													<td>
+													<span id="date_'.$c.'" style="display:none;">April 9th<span>
+													</td>
+												</tr>';
+												$c++;
+										}
 									}
 								?>
 								</tbody>

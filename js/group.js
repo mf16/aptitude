@@ -96,3 +96,7 @@ function selectDataset(d) {
 function profilePageChange(){
     window.location.href = profilePage;
 }
+
+function toggleDate(id){
+    $( "#date_"+id).toggle();
+}

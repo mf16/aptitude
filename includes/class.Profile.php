@@ -99,7 +99,7 @@ class Profile {
 						</section>
 					</div>
 					<div class="col-md-9">
-						<section class="row-fluid">
+						<section class="row-fluid phoneHide">
 							<article class="col-md-12">
 								<table class="activityTable">
 									<tbody>
