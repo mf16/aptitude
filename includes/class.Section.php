@@ -300,6 +300,8 @@ class Section {
 		<?php
 		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';
 		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/fitVid/fitVid.js"></script>';
+		echo '<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>';
+		
 		drawFooter($this->foot());
 	}
 	function foot(){
