@@ -311,6 +311,11 @@ html, body {
 	position: relative;	
 	margin-top:25px;
 }
+.margin-bottom{
+	position: relative;	
+	margin-bottom:25px;
+}
+
 .percentBehind{
 	text-align: center;
 	color:red;
@@ -510,4 +515,17 @@ font-size: 18px;
 	background: url('../img/global/mask/raster-light.png') repeat;
 	height: 14px;
 	margin: 15px 0px;
+}
+
+
+/***********************************************
+*********MISC ELEMENT VISUAL STYLING************
+***********************************************/
+.contentDividerLine{
+	border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, #ccc, #F26522, #ccc); 
+    background-image:    -moz-linear-gradient(left, #ccc, #F26522, #ccc); 
+    background-image:     -ms-linear-gradient(left, #ccc, #F26522, #ccc); 
+    background-image:      -o-linear-gradient(left, #ccc, #F26522, #ccc);
 }

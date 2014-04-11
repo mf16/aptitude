@@ -75,8 +75,7 @@ class Section {
 							<section class="col-xs-6 margin-top">
 								<article>
 									<p>For example, the collection of letters that make up the word “smolko” is well-deﬁned and is a set, but the collection of the worst math teachers in the world is not well-deﬁned, and so is not a set. In general, there are three ways to describe sets. They are:</p>
-									
-									<section class="col-lg-12 dataContainer">
+									<section class="col-xs-12 dataContainer">
 										<h3>Ways to describe sets</h3>
 										<ol>
 											<li>The Verbal Method: Use a sentence to deﬁne a set.</li>
@@ -85,24 +84,14 @@ class Section {
 										</ol>
 									</section>
 								</article>
+								<article style="top: 25px; position:relative;">
+									<p>For example, let S be the set described verbally as the set of letters that make up the word “smolko”. A roster description of S would be {s,m,o,l,k}. Note that we listed ‘o’ only once, even though it appears twice in “smolko.” Also, the order of the elements doesn’t matter, so {k,l,m,o,s} is also a roster description of S. A set-builder description of S is:</p>
+									<br><p class="text-center standoutText">{x|x is a letter in the word “smolko”.}</p>
+								</article>
 							</section>
-							<section class="col-xs-6 margin-top">
-								<p>For example, let S be the set described verbally as the set of letters that make up the word “smolko”. A roster description of S would be {s,m,o,l,k}. Note that we listed ‘o’ only once, even though it appears twice in “smolko.” Also, the order of the elements doesn’t matter, so {k,l,m,o,s} is also a roster description of S. A set-builder description of S is:</p>
-								<br><p class="text-center standoutText">{x|x is a letter in the word “smolko”.}</p>
-							</section>
-						</section>
-						<section class="row-fluid">
-							<article class="col-xs-12 contentDivider">
-							</article>
-						</section>
-						<section class="row-fluid">
-							<article class="col-xs-12">
+							<section class="col-xs-6 margin-top">	
 								<p>The way to read this is: ‘The set of elements x such that x is a letter in the word “smolko.”’ In each of the above cases, we may use the familiar equals sign ‘=’ and write S = {s,m,o,l,k} or S = {x|x is a letter in the word “smolko”.}. Clearly m is in S and q is not in S. We express these sentiments mathematically by writing m ∈ S and q / ∈ S. Throughout your mathematical upbringing, you have encountered several famous sets of numbers. They are listed below:</p>
-							</article>
-						</section>
-						<section class="row-fluid">
-							<article class="col-xs-12">
-								<ol>
+								<ol class="link">
 								    <li data-toggle="collapse" data-target="#setOfNumbers1">
 								    	<span class="standoutText">Empty Set</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers1">
@@ -148,13 +137,91 @@ class Section {
 								    <li data-toggle="collapse" data-target="#setOfNumbers8"> 
 								    	<span class="standoutText">Complex Numbers</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers8">
-								            <li>C = {a + bi|a,b ∈R and i = √−1} Despite their importance, the complex numbers play only a minor role in the text.<sup data-footnote="empty">d</sup>
-</li>
+								            <li>C = {a + bi|a,b ∈R and i = √−1} Despite their importance, the complex numbers play only a minor role in the text.<sup data-footnote="empty">d</sup></li>
 								        </ul>
 								    </li>
-								     
 								</ol>
+							</section>
+						</section>
+						<section class="row-fluid">
+							<article class="col-xs-12 contentDivider" style="margin-top:30px;">
 							</article>
+						</section>
+						<section class="row-fluid">
+							<article class="col-xs-12">
+								
+							</article>
+						</section>
+						<section class="row-fluid">
+							<article class="col-xs-12">
+								<p>It is important to note that every natural number is a whole number, which, in turn, is an integer. Each integer is a rational number (take b = 1 in the above deﬁnition for Q) and the rational numbers are all real numbers, since they possess decimal representations.3 If we take b = 0 in the above deﬁnition of C, we see that every real number is a complex number. In this sense, the sets N, W, Z, Q, R, and C are ‘nested’ like Matryoshka dolls.</p>
+								<p>For the most part, this textbook focuses on sets whose elements come from the real numbers R. Recall that we may visualize R as a line. Segments of this line are called intervals of numbers. Below is a summary of the so-called interval notation associated with given sets of numbers. For intervals with ﬁnite endpoints, we list the left endpoint, then the right endpoint. We use square brackets, ‘[’ or ‘]’, if the endpoint is included in the interval and use a ﬁlled-in or ‘closed’ dot to indicate membership in the interval. Otherwise, we use parentheses, ‘(’ or ‘)’ and an ‘open’ circle to indicate that the endpoint is not part of the set. If the interval does not have ﬁnite endpoints, we use the symbols −∞ to indicate that the interval extends indeﬁnitely to the left and ∞ to indicate that the interval extends indeﬁnitely to the right. Since inﬁnity is a concept, and not a number, we always use parentheses when using these symbols in interval notation, and use an appropriate arrow to indicate that the interval extends indeﬁnitely in one (or both) directions.</p>
+							</article>
+						</section>
+						<section class="row-fluid">
+							<article class="col-xs-12">
+								<hr class="contentDividerLine">
+							</article>
+						</section>
+						<section class="row-fluid">
+							<section class="col-sm-12 col-lg-9 col-lg-offset-1">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>Set of Real Numbers</th>
+											<th>Interval Notation</th>
+											<th>Region on the Real Number Line</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>{x|a < x < b}</td>
+											<td>(a,b)</td>
+											<td>a o----------o b</td>
+										</tr>
+										<tr>
+											<td>{x|a ≤ x < b}</td>
+											<td>[a,b)</td>
+											<td>a o----------o b</td>
+										</tr>
+										<tr>
+											<td>{x|a < x ≤ b}</td>
+											<td>(a,b]</td>
+											<td>a o----------o b</td>
+										</tr>
+										<tr>
+											<td>{x|a ≤ x ≤ b}</td>
+											<td>(a,b]</td>
+											<td>a o----------o b</td>
+										</tr>
+										<tr>
+											<td>{x|x < b}</td>
+											<td>(a,b]</td>
+											<td>a o----------o b</td>
+										</tr>
+										<tr>
+											<td>{x|x ≤ b}</td>
+											<td>(a,b]</td>
+											<td>a o----------o b</td>
+										</tr>
+										<tr>
+											<td>{x|x > a}</td>
+											<td>(a,b]</td>
+											<td>a o----------o b</td>
+										</tr>
+										<tr>
+											<td>{x|x ≥ a}</td>
+											<td>(a,b]</td>
+											<td>a o----------o b</td>
+										</tr>
+										<tr>
+											<td>R</td>
+											<td>(a,b]</td>
+											<td>a o----------o b</td>
+										</tr>
+									</tbody>
+								</table>
+							</section>
 						</section>
 
 					</section>
