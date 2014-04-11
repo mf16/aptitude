@@ -100,13 +100,13 @@ class Concept {
 				</section>
 				<section class="row-fluid margin-top">
 					<div class="col-md-4">
-						<div class="col-md-12 dataContainer" id="completionDate">
+						<div class="col-md-12 dataContainer margin-top" id="completionDate">
 							<h3>Concepts to Review</h3>
 							<div id="pieChart" style="height: 350px;"></div>
 						</div>	
 					</div>
 					<div class="col-md-8">
-						<div class="col-md-12 dataContainer" style="padding-bottom: 20px;">
+						<div class="col-md-12 dataContainer margin-top" style="padding-bottom: 20px;">
 							<section class="row-fluid">
 								<div class="col-md-10"><h3>Most Challenging Problems</h3></div>
 								<div class="col-md-2" style="margin-top: 25px;"><span>- show more -</span></div>

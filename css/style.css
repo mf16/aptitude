@@ -263,7 +263,7 @@ footer>section{
 }
 html, body {
   height: 100%;
-  font-family: Nexa Light;
+  font-family: nexalight;
 }
 .page-wrap {
   min-height: 100%;
@@ -309,7 +309,7 @@ html, body {
 }
 .margin-top{
 	position: relative;	
-	top:25px;
+	margin-top:25px;
 }
 .percentBehind{
 	text-align: center;
@@ -375,9 +375,23 @@ tr>td{
 ******  Right Side Bar Styling ******
 ************************************/
 
+.rightSideBar>section>.content{
+	text-align: left;
+}
+.rightSideBar>section>section>article>.row:not(:first-child){
+	margin-top:15px;
+}
+
 /* Desktops and laptops ----------- */
-@media only screen and (min-width : 1224px) {
+@media only screen and (min-width : 1024px) {
 /* Styles */
+	.sideBarHighlights{
+		margin-top:20px;
+		padding:0px !important;
+	}
+	.pointers{
+		margin-top:0px !important;
+	}
 }
 
 
@@ -393,6 +407,8 @@ tr>td{
 		background-color: rgb(58, 58, 58);
 		height: 100%;
 		text-align: center;
+		color:#F0FFFF;
+		font-family: Open Sans;
 	}
 	.rightSideBar>section>article>span.header{
 		color: white;
@@ -423,6 +439,8 @@ tr>td{
 		left: 0px;
 		top: 0px;
 		text-align: left;
+		color:#F0FFFF;
+		font-family: Open Sans;
 	}
 	.rightSideBar>section>article>span.header{
 		color: white;
@@ -441,6 +459,9 @@ tr>td{
 		width: 90%;
 		margin-left: 7%;
 	}
+	.sideBarHighlights{
+		margin-top:-20px;
+	}
 }
 /* iPads (landscape) ----------- */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
@@ -451,9 +472,42 @@ tr>td{
 		width: 90%;
 		margin-left: 5%;
 		margin-top: 10px;
-
 	}
 }
 
 
 
+
+
+
+
+
+
+/*******************************************************************************************
+*************************FORMATTING OF APTITUDE LEARNING ***********************************
+*******************************************************************************************/
+
+
+/***********************************************
+******************TEXT FORMATTING***************
+***********************************************/
+.standoutText{
+font-weight: 700;
+font-size: 18px;
+}
+.clearListFormat{
+	list-style:none;
+}
+
+
+
+
+
+/***********************************************
+***********CONTAINER VISUAL STYLING*************
+***********************************************/
+.contentDivider{
+	background: url('../img/global/mask/raster-light.png') repeat;
+	height: 14px;
+	margin: 15px 0px;
+}

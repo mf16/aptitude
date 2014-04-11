@@ -93,7 +93,7 @@ class Group {
 				</section>
 				<section class="row-fluid margin-top">
 					<div class="col-md-5">
-						<div class="col-md-12 dataContainer" id="completionDate">
+						<div class="col-md-12 dataContainer margin-top" id="completionDate">
 							<h3>Course Progress</h3>
 							<table class="table">
 								<thead>
@@ -158,7 +158,7 @@ class Group {
 						</div>
 					</div>
 					<div class="col-md-7">
-						<div class="col-md-12 dataContainer" id="roster">
+						<div class="col-md-12 dataContainer margin-top" id="roster">
 							<h3>Class Roster</h3>
 							<table class="table">
 								<thead>

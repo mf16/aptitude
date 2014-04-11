@@ -1,0 +1,17 @@
+.headerOutline{
+	font-size: 34px;
+	letter-spacing: 0.15em;
+	line-height: 30px;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 11px 0px 7px 0px;
+	border-top: solid 1px #f26522;
+	border-bottom: solid 1px #f26522;
+}
+.definition{
+	background-color: #EBEBEB;
+	padding:20px;
+}
+.definition>blockquote{
+	margin:0px;
+}
