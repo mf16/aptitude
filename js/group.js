@@ -106,12 +106,11 @@ function changeCompleteStatus(sectionid,groupid){
 	if($("#checkbox_section"+sectionid).prop('checked')){
 		checked='true';
 		$.ajax({url:"includes/class.Group.php?action=changeCompleteStatus&sectionid="+sectionid+"&checked="+checked+"&groupid="+groupid,success:function(result){
-			//$(".container").html(result);
+			$("#compDate_section"+sectionid).html($.datepicker.formatDate('M-dd-yy', new Date()));
 		}});
 	} else {
-		//alert('remove completed date: \n1.uncheck box\n2.remove completed date');
 		$.ajax({url:"includes/class.Group.php?action=changeCompleteStatus&sectionid="+sectionid+"&checked="+checked+"&groupid="+groupid,success:function(result){
-			//$(".container").html(result);
+			$("#compDate_section"+sectionid).html('-');
 		}});
 	}
 }

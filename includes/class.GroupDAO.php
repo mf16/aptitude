@@ -24,8 +24,9 @@ class GroupDAO{
 	function setCompleteBySectionidGroupid($sectionid,$checked,$groupid){
 		//use query for update? or only select?
 		if($checked=='true'){
-			//$results=query('UPDATE math.group_included_sections SET completion_date=? WHERE group_id=? AND section_id=?',date(),$groupid,$sectionid);
+			query('UPDATE math.group_included_sections SET completion_date=? WHERE group_id=? AND section_id=?',time(),$groupid,$sectionid);
 		} else {
+			query('UPDATE math.group_included_sections SET completion_date=NULL WHERE group_id=? AND section_id=?',$groupid,$sectionid);
 			//$results=query('UPDATE math.group_included_sections SET completion_date=NULL WHERE group_id=? AND section_id=?',$groupid,$sectionid);
 		}
 	}

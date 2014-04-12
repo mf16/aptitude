@@ -125,7 +125,7 @@ class Group extends GroupDAO {
 											echo '<td>';
 												echo $section['section_name'];
 											echo '</td>';
-											echo '<td>';
+											echo '<td id="compDate_section'.$section['section_id'].'">';
 												if(isset($section['completion_date'])){
 													echo date('M-d-Y',$section['completion_date']);
 												} else {
