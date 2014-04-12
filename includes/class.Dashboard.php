@@ -1,5 +1,6 @@
 <?php
 include_once "class.DashboardDAO.php";
+include_once "class.SidebarMenu.php";
 class Dashboard {
 	protected $DashboardDAO;
 	function __construct(){
@@ -19,37 +20,12 @@ class Dashboard {
 	}
 
 	function draw(){
+		global $sidebarMenu;
 		drawHeader($this->head());
+		$sidebarMenu->draw();
 		?>
 		<!-- wrapper -->
 		<div class="page-wrap">
-			<div id="slidingMenu">
-				<h1>Aptitude</h1>
-				<span id="studentName"><?php echo $_SESSION['userFirstname'].' '.$_SESSION['userLastname']; ?></span>
-				<hr style="margin:0px; border-top: 1px solid #F26522;">
-				<a href="#services">Timeline</a>
-				<a href="#services">Account Settings</a>
-				<span>Classes</span>
-				<hr style="margin:0px; border-top: 1px solid #F26522;">
-				<?php
-				$classes=$this->DashboardDAO->getClassesByAdminid('math',1);
-				foreach($classes as $class){
-					echo '<a href="'.$_SERVER['DOCUMENT_ROOT'].'group/'.$class['group_id'].'">'.$class['group_name'].'</a>';
-				}
-				?>
-				<a href="#" onclick="newClass()" >+ Create new class</a>
-			</div>
-
-			<header>
-				<div id="header">
-					<!--Button to expand slideout-->
-					<section onclick="toggleMenu()" id="buttonSideMenu">
-					</section>
-					<article>
-						<span class="phoneHide" id="aptitude">Aptitude</span>
-					</article>
-				</div>
-			</header>
 			<section id="headerSpacer"></section>
 			<section class="container loader"></section>
 			<section class="container body" style="padding-left:150px;">

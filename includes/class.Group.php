@@ -1,11 +1,11 @@
 <?php
 include_once "class.GroupDAO.php";
-class Group {
-	protected $GroupDAO;
+include_once "class.SidebarMenu.php";
+class Group extends GroupDAO {
 	protected $groupid;
 	function __construct($groupid){
+		date_default_timezone_set('UTC'); //set timezone -> will save per class eventually
 		$this->groupid=$groupid;
-		$this->GroupDAO = new GroupDAO();
 		if(isset($_REQUEST['action'])){
 			$action=$_REQUEST['action'];
 			$this->$action();
@@ -21,37 +21,12 @@ class Group {
 	}
 
 	function draw(){
+		global $sidebarMenu;
 		drawHeader($this->head());
+		$sidebarMenu->draw();
 		?>
 		<!-- wrapper -->
 		<div class="page-wrap">
-			<div id="slidingMenu">
-				<h1>Aptitude</h1>
-				<span id="studentName"><?php echo $_SESSION['userFirstname'].' '.$_SESSION['userLastname']; ?></span>
-				<hr style="margin:0px; border-top: 1px solid #F26522;">
-				<a href="#services">Timeline</a>
-				<a href="#services">Account Settings</a>
-				<span>Classes</span>
-				<hr style="margin:0px; border-top: 1px solid #F26522;">
-				<?php
-				$classes=$this->GroupDAO->getGroupByAdminid('math',1);
-				foreach($classes as $class){
-					echo '<a href="'.$_SERVER['DOCUMENT_ROOT'].'class/'.$class['group_id'].'">'.$class['group_name'].'</a>';
-				}
-				?>
-				<a href="#">+ Create new class</a>
-			</div>
-
-			<header>
-				<div id="header">
-					<!--Button to expand slideout-->
-					<section onclick="displayMenu()" id="buttonSideMenu">
-					</section>
-					<article>
-						<span class="phoneHide" id="aptitude">Aptitude</span>
-					</article>
-				</div>
-			</header>
 			<section id="headerSpacer"></section>
 			<section class="container loader"></section>
 			<section class="container body">
@@ -110,49 +85,32 @@ class Group {
 									</tr>
 								</thead>
 								<tbody>
-								<?php
-									$sections=array('Inequalities', 'Absolute values', 'Functions', 'Cartesian plane', 'Pythagorean Theorem', 'Powers and Radicals', 'Scientific Notation', 'Scaling Problems', 'Quadratic Equations', 'Euclidean Algorithm', 'Factoring', 'Graphing Functions', 'Conic Sections', 'Linear Systems and Solutions');
-									//Just for show purposes. Start at 4 and go for a few checkboxes, 
-
-									////////////////
-									//	DUMMY DATA
-									////////////////
-									$c = 4;
-									foreach ($sections as $current){
-										if($c < 16){
-											echo '<tr>
-													<td>
-														<div class="checkbox">
-															<input type="checkbox" checked>
-														</div>
-													</td>
-													<td>
-														'.$current.'
-													</td>
-													<td>
-														March '.$c.'th
-													</td>
-												</tr>';
-												$c = $c + 3;
+									<?php
+									$sections=$this->getCourseProgressByGroupid($this->groupid);
+									foreach($sections as $section){
+										$checked='';
+										if(isset($section['completion_date'])){
+											$checked='checked';
 										}
-										else{
-											echo '<tr>
-													<td>
-														<div class="checkbox" onclick="toggleDate(\''.$c.'\');">
-															<input type="checkbox">
-														</div>
-													</td>
-													<td>
-														'.$current.'
-													</td>
-													<td>
-													<span id="date_'.$c.'" style="display:none;">April 9th<span>
-													</td>
-												</tr>';
-												$c++;
-										}
+										echo '<tr>';
+											echo '<td>';
+												echo '<div class="checkbox">';
+													echo '<input id="checkbox_section'.$section['section_id'].'" type="checkbox" '.$checked.' onChange="changeCompleteStatus('.$section['section_id'].','.$this->groupid.')" >';
+												echo '</div>';
+											echo '</td>';
+											echo '<td>';
+												echo $section['section_name'];
+											echo '</td>';
+											echo '<td id="compDate_section'.$section['section_id'].'">';
+												if(isset($section['completion_date'])){
+													echo date('M-d-Y',$section['completion_date']);
+												} else {
+													echo '-';
+												}
+											echo '</td>';
+										echo '</tr>';
 									}
-								?>
+									?>
 								</tbody>
 							</table>
 						</div>
@@ -172,7 +130,7 @@ class Group {
 								<tbody>
 								<?php 
 								/* ADD THIS IN WHEN THERE IS DATA TO PULL
-								$students=$this->GroupDAO->getStudentsByClassid($this->groupid);
+								$students=$this->getStudentsByClassid($this->groupid);
 								foreach($students as $key=>$student){
 									echo '<tr>';
 									echo '<td class="link"><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>';
@@ -222,6 +180,15 @@ class Group {
 
 		drawFooter($this->foot());
 	}
+
+	function changeCompleteStatus(){
+		if(isset($_REQUEST['checked']) && isset($_REQUEST['sectionid']) && isset($_REQUEST['groupid'])){
+			$this->setCompleteBySectionidGroupid($_REQUEST['sectionid'],$_REQUEST['checked'],$_REQUEST['groupid']);
+		} else {
+			//problem
+		}
+	}
+
 	function foot(){
 	}
 

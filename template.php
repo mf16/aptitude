@@ -28,7 +28,7 @@ else{
 		array_shift($elements); // using localhost/aptitude
 		foreach($elements as $key => $element){
 			$className .= strtolower($element);
-			if(strtolower($className)=='class'){
+			if(strtolower($className)=='class'||strtolower($className)=='group'){
 				$className='Group';
 				if(isset($elements[$key+1])){
 					$groupid=$elements[$key+1];
