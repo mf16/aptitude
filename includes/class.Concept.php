@@ -1,9 +1,8 @@
 <?php
 include_once "class.ConceptDAO.php";
-class Concept {
-	protected $ConceptDAO;
+include_once "class.SidebarMenu.php";
+class Concept extends ConceptDAO {
 	function __construct(){
-		$this->ConceptDAO = new ConceptDAO();
 		if(isset($_REQUEST['action'])){
 			$action=$_REQUEST['action'];
 			$this->$action();
@@ -19,7 +18,9 @@ class Concept {
 	}
 
 	function draw(){
+		global $sidebarMenu;
 		drawHeader($this->head());
+		$sidebarMenu->draw();
 		?>
 		<!-- wrapper -->
 		<div class="page-wrap">
@@ -32,7 +33,7 @@ class Concept {
 				<span>Classes</span>
 				<hr style="margin:0px; border-top: 1px solid #F26522;">
 				<?php
-				$classes=$this->ConceptDAO->getClassesByAdminid('math',1);
+				$classes=$this->getClassesByAdminid('math',1);
 				foreach($classes as $class){
 					echo '<a href="'.$_SERVER['DOCUMENT_ROOT'].'class/'.$class['group_id'].'">'.$class['group_name'].'</a>';
 				}
@@ -40,16 +41,6 @@ class Concept {
 				<a href="#" onclick="newClass()" >+ Create new class</a>
 			</div>
 
-			<header>
-				<div id="header">
-					<!--Button to expand slideout-->
-					<section onclick="toggleMenu()" id="buttonSideMenu">
-					</section>
-					<article>
-						<span class="phoneHide" id="aptitude">Aptitude</span>
-					</article>
-				</div>
-			</header>
 			<section id="headerSpacer"></section>
 			<section class="container loader"></section>
 			<section class="container body">

@@ -24,6 +24,7 @@ function login($username,$password){
 		$_SESSION['userFirstname']=$userInfo['user_firstname'];
 		$_SESSION['userLastname']=$userInfo['user_lastname'];
 		$_SESSION['userEmail']=$userInfo['email'];
+		$_SESSION['userType']=$userInfo['user_type'];
 		return true;
 	} else {
 		//failed login
