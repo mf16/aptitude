@@ -100,3 +100,20 @@ function profilePageChange(){
 function toggleDate(id){
     $( "#date_"+id).toggle();
 }
+
+function changeCompleteStatus(sectionid,groupid){
+	checked='false';
+	if($("#checkbox_section"+sectionid).prop('checked')){
+		checked='true';
+		$.ajax({url:"includes/class.Group.php?action=changeCompleteStatus&sectionid="+sectionid+"&checked="+checked+"&groupid="+groupid,success:function(result){
+			//$(".container").html(result);
+		}});
+	} else {
+		//alert('remove completed date: \n1.uncheck box\n2.remove completed date');
+		$.ajax({url:"includes/class.Group.php?action=changeCompleteStatus&sectionid="+sectionid+"&checked="+checked+"&groupid="+groupid,success:function(result){
+			//$(".container").html(result);
+		}});
+	}
+}
+
+
