@@ -376,20 +376,123 @@ tr>td{
 
 
 
-/************************************
-******  Right Side Bar Styling ******
-************************************/
+/******************************************************************
+***********************  Right Side Bar Styling** *****************
+******************************************************************/
 
+/********Universal Layout********
+********************************/
 .rightSideBar>section>.content{
 	text-align: left;
 }
 .rightSideBar>section>section>article>.row:not(:first-child){
 	margin-top:15px;
 }
+.sideBarHighlights>article>img{
+	width:100%; 
+	min-width:50px;
+}
 
-/* Desktops and laptops ----------- */
+/*****Phone**********************
+******Portrait*******************
+********************************/
+@media only screen and (max-width : 320px) {
+	.rightSideBar{
+		height: 115px !important;
+	}
+	.content>article{
+		margin-top: 25px;
+	}
+	.rightSideBar>section>.divider{
+		height: 14px;
+		top: 20px;
+	}
+}
+/*****Phone**********************
+******Landscape******************
+********************************/
+@media only screen and (min-width : 321px) and (max-width : 768px) {
+	.rightSideBar{
+		height: 80px !important;
+	}
+	.sideBarHighlights>article>img{
+		margin-top: 3px;
+		max-height:39px;
+		min-width:39px;
+		max-width:39px;
+		width:39px;
+	}
+	.sideBarHighlights>article{
+		text-align: right;
+	}
+	.rightSideBar>section>.divider{
+		max-height: 2px;
+		top:13px;
+	}
+	#initialSpacer{
+		padding-top: 0px !important;
+	}
+}
+/*****Tablet*********************
+******Portrait*******************
+********************************/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2) {
+	.rightSideBar{
+		height: 115px !important;
+	}
+	.content>article{
+		margin-top: 15px;
+	}
+	.rightSideBar>section>.divider{
+		max-height: 14px;
+		top: 20px;
+	}
+	.sideBarHighlights>article{
+		text-align: right;
+		top: 15px;
+	}
+	.sideBarHighlights>article>img{
+		margin-top: 0px;
+		height:39px;
+		max-width:39px;
+		min-width:39px;
+	}
+	#initialSpacer{
+		padding-top: 40px !important;
+	}
+}
+/*****Tablet**********************
+******Landscape*******************
+*********************************/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+	.rightSideBar{
+		height: 115px !important;
+	}
+	.content>article{
+		margin-top: 25px;
+	}
+	.rightSideBar>section>.divider{
+		max-height: 14px;
+		top: 20px;
+	}
+	.sideBarHighlights>article{
+		text-align: center;
+		top: 15px;
+	}
+	.sideBarHighlights>article>img{
+		margin-top: 3px;
+		height:39px;
+		max-width:39px;
+		min-width:39px;
+	}
+	#initialSpacer{
+		padding-top: 40px !important;
+	}
+}
+
+/******Desktops and laptops******
+********************************/
 @media only screen and (min-width : 1024px) {
-/* Styles */
 	.sideBarHighlights{
 		margin-top:20px;
 		padding:0px !important;
@@ -399,11 +502,10 @@ tr>td{
 	}
 }
 
-
-
-/* Smartphones (portrait and landscape) ----------- */
+/*****Desktop********************
+******Landscape & Portrait*******
+********************************/
 @media only screen and (min-device-width : 1024px) {
-/* Styles */
 	.rightSideBar{
 		z-index: 1;
 		position: fixed !important;
@@ -425,15 +527,18 @@ tr>td{
 		text-transform: uppercase;
 	}
 	.rightSideBar>section>.divider{
+		position: relative;
 		background: url('../img/global/mask/raster-light.png') repeat;
 		height: 14px;
-		margin-top:15px;
+		margin-bottom: 15px;
+		margin-top: 
 	}
 }
 
-/* iPads (portrait and landscape) ----------- */
+/*************************************
+******Not quite sure how to fix this but it works. Its selecting everything smaller than 1024 though****
+********************************/
 @media only screen and (max-device-width : 1024px) {
-/* Styles */
 	.rightSideBar{
 		z-index: 1;
 		position: fixed !important;
@@ -468,31 +573,57 @@ tr>td{
 		margin-top:-20px;
 	}
 }
-/* iPads (landscape) ----------- */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
+
+
+
+/*****Phone**********************
+******Landscape & Portrail*******
+********************************/
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 /* Styles */
-	.rightSideBar>section>.divider{
-		background: url('../img/global/mask/raster-light.png') repeat;
-		height: 14px;
-		width: 90%;
-		margin-left: 5%;
-		margin-top: 10px;
-	}
+}
+
+/*****Phone**********************
+******Landscape******************
+********************************/
+@media only screen and (min-width : 321px) {
+/* Styles */
+}
+/*****Phone**********************
+******Portrait*******************
+********************************/
+@media only screen and (max-width : 320px) {
+/* Styles */
+}
+/*****Tablet*********************
+******Landscape & Portrait*******
+********************************/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/*****Tablet*********************
+******Portrait*******************
+********************************/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+/* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+/* Styles */
 }
 
 
 
-
-
-
-
-
-
 /*******************************************************************************************
-*************************FORMATTING OF APTITUDE LEARNING ***********************************
+************************ FORMATTING OF APTITUDE LEARNING ***********************************
 *******************************************************************************************/
 
-
+#initialSpacer>section{
+	margin-top:0px;
+}
 /***********************************************
 ******************TEXT FORMATTING***************
 ***********************************************/
@@ -528,4 +659,46 @@ font-size: 18px;
     background-image:    -moz-linear-gradient(left, #ccc, #F26522, #ccc); 
     background-image:     -ms-linear-gradient(left, #ccc, #F26522, #ccc); 
     background-image:      -o-linear-gradient(left, #ccc, #F26522, #ccc);
+}
+
+/******Desktops and laptops******
+********************************/
+@media only screen and (min-width : 1024px) {
+}
+/*****Phone**********************
+******Landscape & Portrait*******
+********************************/
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+	#initialSpacer>section{
+		margin-top:15px;
+	}
+	#initialSpacer{
+		padding-top: 20px;
+	}
+}
+/*****Phone**********************
+******Portrait*******************
+********************************/
+@media only screen and (max-width : 320px) {
+}
+/*****Phone**********************
+******Landscape******************
+********************************/
+@media only screen and (min-width : 321px) {
+}
+/*****Tablet*********************
+******Landscape & Portrait*******
+********************************/
+@media only screen and (max-device-width : 1024px) {
+}
+/*****Tablet*********************
+******Portrait*******************
+********************************/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+
+}
+/*****Tablet**********************
+******Landscape*******************
+*********************************/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
 }

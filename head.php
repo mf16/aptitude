@@ -25,4 +25,3 @@
 <script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/tooltipster/jquery.tooltipster.min.js"></script>
 <!--JQUERY UI-->
 <script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/jquery-ui/css/container/jquery-ui-1.10.4.css" />

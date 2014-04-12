@@ -48,8 +48,8 @@ class Section {
 			<section class="container loader"></section>
 			<section class="body">
 				<section class="row-fluid">
-					<section class="col-lg-9 col-sm-12 col-sm-12">
-						<section class="row-fluid" style="margin-top:25px;">
+					<section class="col-lg-9 col-xs-12">
+						<section class="row-fluid margin-top" id="initialSpacer">
 							<section class="col-sm-12 col-lg-6 video">
 								<iframe src="//player.vimeo.com/video/77449705" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 							</section>
@@ -58,7 +58,7 @@ class Section {
 									<span>Sets of Numbers</span>
 								</article><br>
 								<article>
-									<p>While the authors would like nothing more than to delve quickly and deeply into the sheer excitement that is Precalculus, experience has taught us that a brief refresher on some basic notions is welcome, if not completely necessary, at this stage. To that end, we present a brief summary of ‘set theory’ and some of the associated vocabulary and notations we use in the text. Like all good Math books, we begin with a deﬁnition</p>
+									<p>While we would like nothing more than to delve quickly and deeply into the sheer excitement that is Precalculus, experience has taught us that a brief refresher on some basic notions is welcome, if not completely necessary, at this stage. To that end, we present a brief summary of ‘set theory’ and some of the associated vocabulary and notations we use in the text. Like all good Math books, we begin with a deﬁnition</p>
 								</article>
 							</section>
 						</section>
@@ -72,7 +72,7 @@ class Section {
 							</article>
 						</section>
 						<section class="row-fluid">
-							<section class="col-xs-6 margin-top">
+							<section class="col-xs-12 col-lg-6 margin-top">
 								<article>
 									<p>For example, the collection of letters that make up the word “smolko” is well-deﬁned and is a set, but the collection of the worst math teachers in the world is not well-deﬁned, and so is not a set. In general, there are three ways to describe sets. They are:</p>
 									<section class="col-xs-12 dataContainer">
@@ -89,7 +89,7 @@ class Section {
 									<br><p class="text-center standoutText">{x|x is a letter in the word “smolko”.}</p>
 								</article>
 							</section>
-							<section class="col-xs-6 margin-top">	
+							<section class="col-xs-12 col-lg-6 margin-top">	
 								<p>The way to read this is: ‘The set of elements x such that x is a letter in the word “smolko.”’ In each of the above cases, we may use the familiar equals sign ‘=’ and write S = {s,m,o,l,k} or S = {x|x is a letter in the word “smolko”.}. Clearly m is in S and q is not in S. We express these sentiments mathematically by writing m ∈ S and q / ∈ S. Throughout your mathematical upbringing, you have encountered several famous sets of numbers. They are listed below:</p>
 								<ol class="link">
 								    <li data-toggle="collapse" data-target="#setOfNumbers1">
@@ -231,45 +231,45 @@ class Section {
 					<!--RIGHT SIDEBAR: BEGIN-->
 					<section class="col-lg-3 col-sm-12 col-sm-12 rightSideBar">
 						<section class="row-fluid">
-							<article class="col-md-12">
+							<article class="col-xs-12">
 								<span class="header">Introduction</span>
 							</article><br>
-							<article class="divider"></article><br>
+							<article class="divider col-xs-12"></article>
 							<section class="row-fluid content">
 								<article class="col-xs-12">
-									<article class="row hidden-sm hidden-xs hidden-md">
+									<article class="row hidden-md hidden-sm hidden-xs">
 										<span>This is your go-to source for important imformation. If you pay attention to what this sidebar highlights you will retain information better and learn even faster. Here are some things to look for:</span>
 									</article>
 									<article class="row pointers">
-										<section class="col-xs-4 col-lg-12 sideBarHighlights" id="importantInformation">
-											<article class="col-xs-12 col-sm-3">
-												<img src="img/global/icons/info.png" style="width:100%; min-width:50px;">
+										<section class="col-xs-4 col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="importantInformation">
+											<article class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+												<img src="img/global/icons/info.png">
 											</article>
-											<article class="hidden-xs col-sm-9">
+											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
 												This represents important information that is relevant to your current topic.
 											</article>
 										</section>
-										<section class="col-xs-4 col-lg-12 sideBarHighlights" id="expectedPitfalls">
-											<article class="col-xs-12 col-sm-3">
-												<img src="img/global/icons/warning.png" style="width:100%; min-width:50px;">
+										<section class="col-xs-4 col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="expectedPitfalls">
+											<article class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+												<img src="img/global/icons/warning.png">
 											</article>
-											<article class="hidden-xs col-sm-9">
+											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
 												This represents common pitfalls and errors that if you read, you can avoid in assessments.
 											</article>
 										</section>
-										<section class="col-xs-4 col-lg-12 sideBarHighlights" id="moreInformation">
-											<article class="col-xs-12 col-sm-3">
-												<img src="img/global/icons/cluster.png" style="width:100%; min-width:50px;">
+										<section class="col-xs-4 col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="moreInformation">
+											<article class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+												<img src="img/global/icons/cluster.png">
 											</article>
-											<article class="hidden-xs col-sm-9">
+											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
 												This represents where you can stop and go to another location for more learning resources.
 											</article>
 										</section>
-										<section class="hidden-md hidden-sm hidden-xs col-lg-12 sideBarHighlights" id="recycledConcept">
-											<article class="col-xs-12 col-sm-3">
-												<img src="img/global/icons/refresh.png" style="width:100%; min-width:50px;">
+										<section class="hidden-xs col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="recycledConcept">
+											<article class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+												<img src="img/global/icons/refresh.png">
 											</article>
-											<article class="hidden-xs col-sm-9">
+											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
 												This represents that you already know the topic and it's just modified or asked in a different way.
 											</article>
 										</section>
@@ -300,7 +300,7 @@ class Section {
 		<?php
 		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';
 		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/fitVid/fitVid.js"></script>';
-		echo '<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>';
+		//echo '<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>';
 		
 		drawFooter($this->foot());
 	}
