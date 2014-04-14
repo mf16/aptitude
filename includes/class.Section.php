@@ -42,7 +42,7 @@ class Section extends SectionDAO {
 								</article>
 							</section>
 						</section>
-						<section class="row-fluid">
+						<section class="row-fluid"><!--DEFINITION: START-->
 							<article class="col-xs-12 margin-top">
 								<article class="definition">
 									<blockquote>
@@ -50,7 +50,7 @@ class Section extends SectionDAO {
 									</blockquote>
 								</article>
 							</article>
-						</section>
+						</section><!--DEFINITION: END-->
 						<section class="row-fluid">
 							<section class="col-xs-12 col-lg-6 margin-top">
 								<article>
@@ -73,49 +73,49 @@ class Section extends SectionDAO {
 								<p>The way to read this is: ‘The set of elements x such that x is a letter in the word “smolko.”’ In each of the above cases, we may use the familiar equals sign ‘=’ and write S = {s,m,o,l,k} or S = {x|x is a letter in the word “smolko”.}. Clearly m is in S and q is not in S. We express these sentiments mathematically by writing m ∈ S and q / ∈ S. Throughout your mathematical upbringing, you have encountered several famous sets of numbers. They are listed below:</p>
 								<ol class="link">
 								    <li data-toggle="collapse" data-target="#setOfNumbers1">
-								    	<span class="standoutText">Empty Set</span>
+								    	<span class="standoutText standoutTextLink">Empty Set</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers1">
 								            <li>&#216; = {} = {x|x 6= x}. This is the set with no elements. Like the number ‘0,’ it plays a vital role in mathematics.<sup data-footnote="empty">a</sup></li>
 								        </ul>
 								    </li>
 								    <li data-toggle="collapse" data-target="#setOfNumbers2">
-								    	<span class="standoutText">Natural Numbers</span>
+								    	<span class="standoutText standoutTextLink">Natural Numbers</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers2">
 								            <li>N = {1,2,3,...} The periods of ellipsis here indicate that the natural numbers contain 1, 2, 3, ‘and so forth’.</li>
 								        </ul>
 								    </li>
 								    <li data-toggle="collapse" data-target="#setOfNumbers3">
-								    	<span class="standoutText">Whole Numbers</span>
+								    	<span class="standoutText standoutTextLink">Whole Numbers</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers3">
 								            <li>W = {0,1,2,...} </li>
 								        </ul>
 								    </li>
 								    <li data-toggle="collapse" data-target="#setOfNumbers4">
-								    	<span class="standoutText">Integers</span>
+								    	<span class="standoutText standoutTextLink">Integers</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers4">
 								            <li>Z = {...,−3,−2,−1,0,1,2,3,...}</li>
 								        </ul>
 								    </li>
 								    <li data-toggle="collapse" data-target="#setOfNumbers5">
-								    	<span class="standoutText">Rational Numbers</span>
+								    	<span class="standoutText standoutTextLink">Rational Numbers</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers5">
 								            <li> Q = {<sup>a</sup>&frasl;<sub>b</sub> |a ∈Z and b ∈Z	. Rational numbers are the ratios of integers (provided the denominator is not zero!) It turns out that another way to describe the rational numbers<sup data-footnote="empty">b</sup> is:<ul class="clearListFormat"><li>Q = {x|x possesses a repeating or terminating decimal representation.}</li></ul></li>
 								        </ul>
 								    </li>
 								    <li data-toggle="collapse" data-target="#setOfNumbers6">
-								    	<span class="standoutText">Real Numbers</span>
+								    	<span class="standoutText standoutTextLink">Real Numbers</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers6">
 								            <li>R = {x|x possesses a decimal representation.} </li>
 								        </ul>
 								    </li>
 								    <li data-toggle="collapse" data-target="#setOfNumbers7"> 
-								    	<span class="standoutText">Irrational Numbers</span>
+								    	<span class="standoutText standoutTextLink">Irrational Numbers</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers7">
 								            <li>P = {x|x is a non-rational real number.} Said another way, an irrational number is a decimal which neither repeats nor terminates.<sup data-footnote="empty">c</sup> </li>
 								        </ul>
 								    </li>
 								    <li data-toggle="collapse" data-target="#setOfNumbers8"> 
-								    	<span class="standoutText">Complex Numbers</span>
+								    	<span class="standoutText standoutTextLink">Complex Numbers</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers8">
 								            <li>C = {a + bi|a,b ∈R and i = √−1} Despite their importance, the complex numbers play only a minor role in the text.<sup data-footnote="empty">d</sup></li>
 								        </ul>
@@ -124,12 +124,7 @@ class Section extends SectionDAO {
 							</section>
 						</section>
 						<section class="row-fluid">
-							<article class="col-xs-12 contentDivider" style="margin-top:30px;">
-							</article>
-						</section>
-						<section class="row-fluid">
-							<article class="col-xs-12">
-								
+							<article class="col-xs-12 contentDivider" style="margin-top:50px;">
 							</article>
 						</section>
 						<section class="row-fluid">
@@ -139,13 +134,15 @@ class Section extends SectionDAO {
 							</article>
 						</section>
 						<section class="row-fluid">
-							<article class="col-xs-12">
-								<hr class="contentDividerLine">
+							<article class="col-xs-12 contentDivider">
 							</article>
 						</section>
-						<section class="row-fluid">
-							<section class="col-sm-12 col-lg-9 col-lg-offset-1">
-								<table class="table">
+						<section class="row-fluid"><!--TABLE OF REAL NUMBERS-->
+							<section id="river" class="col-lg-3 hidden-md hidden-sm hidden-xs">
+								<span>Fill this with visually engagin peice</span>
+							</section>
+							<section class="col-sm-12 col-lg-9">
+								<table class="table orangeTable">
 									<thead>
 										<tr>
 											<th>Set of Real Numbers</th>
@@ -201,6 +198,97 @@ class Section extends SectionDAO {
 										</tr>
 									</tbody>
 								</table>
+								<div class="contentDividerLine"></div><br>
+								<p>For an example, consider the sets of real numbers described below.</p><br>
+								<table class="table orangeTable">
+									<thead>
+										<tr>
+											<th>Set of Real Numbers</th>
+											<th>Interval Notation</th>
+											<th>Region on the Real Number Line</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>{x|1 < x < 3}</td>
+											<td>[1,3)</td>
+											<td>a o----------o b</td>
+										</tr>
+										<tr>
+											<td>{x| -1 < x < 4}</td>
+											<td>[-1,4]</td>
+											<td>a o----------o b</td>
+										</tr>
+										<tr>
+											<td>{x|x < 5}</td>
+											<td>[-1, 5]</td>
+											<td>a o----------o b</td>
+										</tr>
+										<tr>
+											<td>{x|x > -2}</td>
+											<td>(a,b]</td>
+											<td>a o----------o b</td>
+										</tr>
+									</tbody>
+								</table>
+							</section>
+						</section><!--TABLE OF REAL NUMBERS: END-->
+						<section class="row-fluid">
+							<section class="col-lg-12">
+								<div class="contentDividerLine"></div><br>
+							</section>
+							<section class="col-lg-12">
+								<p>We will often have occasion to combine sets. There are two basic ways to combine sets: intersec-tion and union. We define both of these concepts below.</p>
+								<section class="col-lg-12 definition">
+									<blockquote>
+										<p>Suppose A and B are two sets.</p>
+		 									<ul>
+												<li><strong>Interstion</strong> of A and B: A \ B = fx j x 2 Aand x 2 Bg</li>
+				   								<li><strong>Union</strong> of A and B: A [ B = fx j x 2 Aor x 2 B (or both)g</li>
+											</ul>
+									</blockquote>
+								</section>
+							</section>
+						</section>
+						<section class="row-fluid">
+							<article class="col-xs-12 contentDivider">
+							</article>
+						</section>
+						<section class="row-fluid">
+
+							<section class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+								<p>Said dierently, the intersection of two sets is the overlap of the two sets { the elements which the sets have in common. The union of two sets consists of the totality of the elements in each of the sets, collected together.4 For example, if A = f1; 2; 3g and B = f2; 4; 6g, then A \ B = f2g and A[B = f1; 2; 3; 4; 6g. If A = [􀀀5; 3) and B = (1;1), then we can nd A\B and A[B graphically. To nd A\B, we shade the overlap of the two and obtain A\B = (1; 3). To nd A[B, we shade each of A and B and describe the resulting shaded region to nd A [ B = [􀀀5;1).</p>
+								<br>
+								<p>While both intersection and union are important, we have more occasion to use union in this text than intersection, simply because most of the sets of real numbers we will be working with are either intervals or are unions of intervals, as the following example illustrates.</p>
+							</section>
+							<section class="col-lg-6 col-md-12 col-sm-12 col-xs-12 video">
+								<iframe src="//player.vimeo.com/video/77449705" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+							</section>
+						</section>
+						<section class="row-fluid">
+							<section class="col-lg-12 margin-top">
+								<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+									<div class="col-md-12 dataContainer practiceProblems">
+										<p>1. fx j x  􀀀2 or x  2g</p>
+										<span class="link">Try it out!</span><br>
+										<p class="link">Explain more</p><br>
+										<p>2. fx j x 6= 3g</p>
+										<span class="link">Try it out!</span><br>
+										<span class="link">Explain more</span><br>
+									</div>	
+								</div>
+								<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+									<div class="col-md-12 dataContainer practiceProblems">	
+										<p>1. fx j x  􀀀2 or x  2g</p>
+										<span class="link">Try it out!</span><br>
+										<p class="link">Explain more</p><br>
+										<p>2. fx j x 6= 3g</p>
+										<span class="link">Try it out!</span><br>
+										<span class="link">Explain more</span><br>
+									</div>
+								</div>
+								<div class="margin-top"></div>
+
 							</section>
 						</section>
 

@@ -309,7 +309,7 @@ html, body {
 }
 .margin-top{
 	position: relative;	
-	margin-top:25px;
+	margin-top:35px;
 }
 .margin-bottom{
 	position: relative;	
@@ -631,6 +631,9 @@ tr>td{
 font-weight: 700;
 font-size: 18px;
 }
+.standoutTextLink:hover{
+	color:#757575;
+}
 .clearListFormat{
 	list-style:none;
 }
@@ -645,7 +648,7 @@ font-size: 18px;
 .contentDivider{
 	background: url('../img/global/mask/raster-light.png') repeat;
 	height: 14px;
-	margin: 15px 0px;
+	margin: 40px 0px;
 }
 
 
@@ -655,16 +658,35 @@ font-size: 18px;
 .contentDividerLine{
 	border: 0;
     height: 1px;
-    background-image: -webkit-linear-gradient(left, #ccc, #F26522, #ccc); 
-    background-image:    -moz-linear-gradient(left, #ccc, #F26522, #ccc); 
-    background-image:     -ms-linear-gradient(left, #ccc, #F26522, #ccc); 
-    background-image:      -o-linear-gradient(left, #ccc, #F26522, #ccc);
+    background-image: -webkit-linear-gradient(left, #F26522, #F26522, #F26522); 
+    background-image:    -moz-linear-gradient(left, #F26522, #F26522, #F26522); 
+    background-image:     -ms-linear-gradient(left, #F26522, #F26522, #F26522); 
+    background-image:      -o-linear-gradient(left, #F26522, #F26522, #F26522);
+}
+.darkTable{
+	background-color: #EBEBEB;
+}
+
+.orangeTable th{
+	background-color: #F26522;
+	border-bottom: solid 2px white !important;
+	border: solid 2px white;
+	color: white;
+	text-align: center;
+}
+.orangeTable td{
+	border-top: none;
+	border: solid 2px white;
+	background-color: rgb(238, 238, 238);
+	color: rgb(111, 111, 111);
 }
 
 /******Desktops and laptops******
 ********************************/
 @media only screen and (min-width : 1024px) {
 }
+
+
 /*****Phone**********************
 ******Landscape & Portrait*******
 ********************************/
@@ -675,30 +697,4 @@ font-size: 18px;
 	#initialSpacer{
 		padding-top: 20px;
 	}
-}
-/*****Phone**********************
-******Portrait*******************
-********************************/
-@media only screen and (max-width : 320px) {
-}
-/*****Phone**********************
-******Landscape******************
-********************************/
-@media only screen and (min-width : 321px) {
-}
-/*****Tablet*********************
-******Landscape & Portrait*******
-********************************/
-@media only screen and (max-device-width : 1024px) {
-}
-/*****Tablet*********************
-******Portrait*******************
-********************************/
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
-
-}
-/*****Tablet**********************
-******Landscape*******************
-*********************************/
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
 }
