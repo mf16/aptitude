@@ -36,7 +36,7 @@ elseif($_SERVER['HTTP_HOST']=='dev.goaptitude.com'){
 	$_SESSION['userFirstname'] = 'Albert';
 	$_SESSION['userLastname'] = 'Einstein';
 	$_SESSION['userid'] = 1;
-	$_SESSION['userid'] = 'professor';
+	$_SESSION['userType'] = 'professor';
 }
 else{ //other server info here
 	die("How did you get here? Really, we want to know. Email support@goaptitude.com");
