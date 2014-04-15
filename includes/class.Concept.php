@@ -18,7 +18,7 @@ class Concept extends ConceptDAO {
 	}
 
 	function draw(){
-		global $sidebarMenu;
+		$sidebarMenu = new SidebarMenu();
 		drawHeader($this->head());
 		$sidebarMenu->draw();
 		?>

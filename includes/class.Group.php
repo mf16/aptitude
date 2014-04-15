@@ -21,7 +21,7 @@ class Group extends GroupDAO {
 	}
 
 	function draw(){
-		global $sidebarMenu;
+		$sidebarMenu = new SidebarMenu();
 		drawHeader($this->head());
 		$sidebarMenu->draw();
 		?>
@@ -182,6 +182,7 @@ class Group extends GroupDAO {
 	}
 
 	function changeCompleteStatus(){
+		echo 'asdf';
 		if(isset($_REQUEST['checked']) && isset($_REQUEST['sectionid']) && isset($_REQUEST['groupid'])){
 			$this->setCompleteBySectionidGroupid($_REQUEST['sectionid'],$_REQUEST['checked'],$_REQUEST['groupid']);
 		} else {
