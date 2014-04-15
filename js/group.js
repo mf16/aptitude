@@ -110,7 +110,6 @@ function changeCompleteStatus(sectionid,groupid){
 		}});
 	} else {
 		$.ajax({url:"includes/class.Group.php?action=changeCompleteStatus&sectionid="+sectionid+"&checked="+checked+"&groupid="+groupid,success:function(result){
-		alert(result);
 			$("#compDate_section"+sectionid).html('-');
 		}});
 	}
