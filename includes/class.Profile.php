@@ -99,36 +99,33 @@ class Profile {
 						</section>
 					</div>
 					<div class="col-md-9">
-						<section class="row-fluid phoneHide">
-							<article class="col-md-12">
-								<table class="activityTable">
-									<tbody>
-										<?php
-										$days = 0;
-										while ($days < 7){
-											$days++;
-											echo '<tr>';
-											$weeks = 0;
-											while ($weeks < 49){
-												$weeks++;
-												$rand = rand(1,4);
-												switch ($rand) {
-													case 1:
-														echo '	<td title="June 12: High Activity"><div class="activityHigh"></div></td>';
-														break;
-													case 2:
-														echo '	<td title="September 7: Moderate Activity"><div class="activityLow"></div></td>';
-														break;
-													default:
-														echo '	<td title="April 20: No activity"><div class="activityNone"></div></td>';
-														break;
-												}
+						<section class="row-fluid">
+							<article class="col-lg-12 hidden-xs hidden-sm hidden-md">
+								<section class="activityChart">
+									<?php
+									$days = 0;
+									while ($days < 7){
+										$days++;
+										$weeks = 0;
+										while ($weeks < 49){
+											$weeks++;
+											$rand = rand(1,4);
+											switch ($rand) {
+												case 1:
+													echo '	<div><div class="activityHigh"><div class="tooltip" title="June 12: High Activity"></div></div></div>';
+													break;
+												case 2:
+													echo '	<div><div class="activityLow"><div class="tooltip" title="September 7: Moderate Activity"></div></div></div>';
+													break;
+												default:
+													echo '	<div><div class="activityNone"><div class="tooltip" title="April 20: No activity"></div></div></div>';
+													break;
 											}
-											echo '</tr>';
 										}
-										?>
-									</tbody>
-								</table>
+										echo '<br>';
+									}
+									?>
+								</section>
 							</article>
 						</section>
 						<section class="row-fluid margin-top">

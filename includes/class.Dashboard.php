@@ -60,7 +60,6 @@ class Dashboard {
 	}
 
 	function drawTimeline(){
-		echo 'timeline here';
 	}
 	
 	function newClass(){

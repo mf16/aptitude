@@ -38,7 +38,7 @@ class Section extends SectionDAO {
 									<span>Sets of Numbers</span>
 								</article><br>
 								<article>
-									<p>While we would like nothing more than to delve quickly and deeply into the sheer excitement that is Precalculus, experience has taught us that a brief refresher on some basic notions is welcome, if not completely necessary, at this stage. To that end, we present a brief summary of ‘set theory’ and some of the associated vocabulary and notations we use in the text. Like all good Math books, we begin with a deﬁnition</p>
+									<p>While we would like nothing more than to delve quickly and deeply into the sheer excitement that is <i>Precalculus</i>, experience has taught us that a brief refresher on some basic notions is welcome, if not completely necessary, at this stage. To that end, we present a brief summary of ‘set theory’ and some of the associated vocabulary and notations we use in the text. Like all good Math books, we begin with a deﬁnition</p>
 								</article>
 							</section>
 						</section>
@@ -46,7 +46,7 @@ class Section extends SectionDAO {
 							<article class="col-xs-12 margin-top">
 								<article class="definition">
 									<blockquote>
-										<p>A set is a well-deﬁned collection of objects which are called the ‘elements’ of the set. Here, ‘well-deﬁned’ means that it is possible to determine if something belongs to the collection or not, without prejudice.</p>
+										<p>A <strong>set</strong> is a well-deﬁned collection of objects which are called the ‘elements’ of the set. Here, ‘well-deﬁned’ means that it is possible to determine if something belongs to the collection or not, without prejudice.</p>
 									</blockquote>
 								</article>
 							</article>
@@ -54,28 +54,28 @@ class Section extends SectionDAO {
 						<section class="row-fluid">
 							<section class="col-xs-12 col-lg-6 margin-top">
 								<article>
-									<p>For example, the collection of letters that make up the word “smolko” is well-deﬁned and is a set, but the collection of the worst math teachers in the world is not well-deﬁned, and so is not a set. In general, there are three ways to describe sets. They are:</p>
+									<p>For example, the collection of letters that make up the word “smolko” is well-deﬁned and is a set, but the collection of the worst math teachers in the world is <strong>not</strong> well-deﬁned, and so is <strong>not</strong> a set. In general, there are three ways to describe sets. They are:</p>
 									<section class="col-xs-12 dataContainer">
 										<h3>Ways to describe sets</h3>
 										<ol>
 											<li>The Verbal Method: Use a sentence to deﬁne a set.</li>
-											<li>The Roster Method: Begin with a left brace ‘{’, list each element of the set only once and then end with a right brace ‘}’.</li>
-											<li>The Set-Builder Method: A combination of the verbal and roster methods using a “dummy variable” such as x.</li>
+											<li>The Roster Method: Begin with a left brace ‘{’, list each element of the set <i>only once</i> and then end with a right brace ‘}’.</li>
+											<li>The Set-Builder Method: A combination of the verbal and roster methods using a “dummy variable” such as \(x\).</li>
 										</ol>
 									</section>
 								</article>
 								<article style="top: 25px; position:relative;">
-									<p>For example, let S be the set described verbally as the set of letters that make up the word “smolko”. A roster description of S would be {s,m,o,l,k}. Note that we listed ‘o’ only once, even though it appears twice in “smolko.” Also, the order of the elements doesn’t matter, so {k,l,m,o,s} is also a roster description of S. A set-builder description of S is:</p>
+									<p>For example, let \(S\) be the set described <i>verbally</i> as the set of letters that make up the word “smolko”. A <strong>roster</strong> description of \(S\) would be {<i>s,m,o,l,k</i>}. Note that we listed ‘o’ only once, even though it appears twice in “smolko.” Also, the <i>order</i> of the elements doesn’t matter, so {<i>k,l,m,o,s</i>} is also a roster description of S. A <strong>set-builder</strong> description of \(S\) is:</p>
 									<br><p class="text-center standoutText">{x|x is a letter in the word “smolko”.}</p>
 								</article>
 							</section>
 							<section class="col-xs-12 col-lg-6 margin-top">	
-								<p>The way to read this is: ‘The set of elements x such that x is a letter in the word “smolko.”’ In each of the above cases, we may use the familiar equals sign ‘=’ and write S = {s,m,o,l,k} or S = {x|x is a letter in the word “smolko”.}. Clearly m is in S and q is not in S. We express these sentiments mathematically by writing m ∈ S and q / ∈ S. Throughout your mathematical upbringing, you have encountered several famous sets of numbers. They are listed below:</p>
+								<p>The way to read this is: ‘The set of elements \(x\) <u>such that</u> \(x\) is a letter in the word “smolko.”’ In each of the above cases, we may use the familiar equals sign ‘=’ and write \(S\) = {<i>s,m,o,l,k</i>} or \(S\) = {x|x is a letter in the word “smolko”.}. Clearly \(m\) is in \(S\) and \(q\) is not in \(S\). We express these sentiments mathematically by writing  \(m  \in S\) and \(q \notin S\). Throughout your mathematical upbringing, you have encountered several famous sets of numbers. They are listed below:</p>
 								<ol class="link">
 								    <li data-toggle="collapse" data-target="#setOfNumbers1">
 								    	<span class="standoutText standoutTextLink">Empty Set</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers1">
-								            <li>&#216; = {} = {x|x 6= x}. This is the set with no elements. Like the number ‘0,’ it plays a vital role in mathematics.<sup data-footnote="empty">a</sup></li>
+								            <li>\(\index{set ! empty}\). This is the set with no elements. Like the number ‘0,’ it plays a vital role in mathematics.<sup data-footnote="empty">a</sup></li>
 								        </ul>
 								    </li>
 								    <li data-toggle="collapse" data-target="#setOfNumbers2">

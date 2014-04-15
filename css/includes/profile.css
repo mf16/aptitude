@@ -5,17 +5,25 @@
 	-moz-border-radius: 50%;
 }
 
-/*Activity table styling*/
-.activityTable>tbody>tr>td{
+/*Activity chart styling*/
+.activityChart{
+	line-height: 0em !important;
+}
+.activityChart>div{
 	width: 16px;
 	height: 16px;
 	padding: 1px; 
+	float: left;
 }
-.activityTable>tbody>tr>td>div{
-	width: 100%;
-	height: 100%;
+.activityChart>div>div{
+	width: 14px;
+	height: 14px;
 }
-.activityTable>tbody>tr>td:hover{
+.activityChart>div>div>div{
+	width: 14px;
+	height: 14px;
+}
+.activityChart>div>div:hover{
 	border:1px solid;
 }
 .activityLow{
