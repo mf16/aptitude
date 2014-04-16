@@ -9,8 +9,6 @@
 <!-- Bootstrap CSS Files -->
 <link href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>css/bootstrap-3.1.1/css/bootstrap.min.css" type="text/css" rel="stylesheet">
 <link href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>css/bootstrap-3.1.1/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet">
-<!-- Bootstrap JS File -->
-<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>css/bootstrap-3.1.1/js/bootstrap.min.js"></script> 
 <!-- Custom Fonts Setup via Font-face CSS3 -->
 <link href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>includes/fonts/fonts.css" type="text/css" rel="stylesheet">
 <!--Google fonts-->
@@ -18,6 +16,9 @@
 <!--JQUERY-->
 <script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/jquery-1.11.0/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/global.js"></script>
+
+<!-- Bootstrap JS File -->
+<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>css/bootstrap-3.1.1/js/bootstrap.min.js"></script> 
 <!--AM CHARTS AND CHART TYPES-->
 <script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/amcharts/amcharts.js"></script>
 <script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/amcharts/serial.js"></script>

@@ -75,19 +75,19 @@ class Section extends SectionDAO {
 								    <li data-toggle="collapse" data-target="#setOfNumbers1">
 								    	<span class="standoutText standoutTextLink">Empty Set</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers1">
-								            <li>\(\index{set ! empty}\). This is the set with no elements. Like the number ‘0,’ it plays a vital role in mathematics.<sup data-footnote="empty">a</sup></li>
+								            <li>\(\emptyset=\{ \}=\{x\,|\,\mbox{$x \neq x$}\}\). This is the set with no elements. Like the number ‘0,’ it plays a vital role in mathematics.<sup data-footnote="empty">a</sup></li>
 								        </ul>
 								    </li>
 								    <li data-toggle="collapse" data-target="#setOfNumbers2">
 								    	<span class="standoutText standoutTextLink">Natural Numbers</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers2">
-								            <li>N = {1,2,3,...} The periods of ellipsis here indicate that the natural numbers contain 1, 2, 3, ‘and so forth’.</li>
+								            <li>\(\mathbb N= \{ 1, 2, 3,  \ldots\}\) The periods of ellipsis here indicate that the natural numbers contain 1, 2, 3, ‘and so forth’.</li>
 								        </ul>
 								    </li>
 								    <li data-toggle="collapse" data-target="#setOfNumbers3">
 								    	<span class="standoutText standoutTextLink">Whole Numbers</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers3">
-								            <li>W = {0,1,2,...} </li>
+								            <li>\(\mathbb W = \{ 0, 1, 2, \ldots \}\)</li>
 								        </ul>
 								    </li>
 								    <li data-toggle="collapse" data-target="#setOfNumbers4">
@@ -138,8 +138,7 @@ class Section extends SectionDAO {
 							</article>
 						</section>
 						<section class="row-fluid"><!--TABLE OF REAL NUMBERS-->
-							<section id="river" class="col-lg-3 hidden-md hidden-sm hidden-xs">
-								<span>Fill this with visually engagin peice</span>
+							<section class="col-lg-3 dataContainer hidden-md hidden-sm hidden-xs">
 							</section>
 							<section class="col-sm-12 col-lg-9">
 								<table class="table orangeTable">

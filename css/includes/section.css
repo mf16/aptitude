@@ -15,12 +15,7 @@
 .definition>blockquote{
 	margin:0px;
 }
-#river{
-	overflow: hidden;
-	height: 650px;
-	background-color: gray;
-	color: white;
-}
+
 .practiceProblems{
 	padding:10px;
 }
