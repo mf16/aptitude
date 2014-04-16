@@ -75,7 +75,7 @@ class Section extends SectionDAO {
 								    <li data-toggle="collapse" data-target="#setOfNumbers1">
 								    	<span class="standoutText standoutTextLink">Empty Set</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers1">
-								            <li>\(\emptyset=\{ \}=\{x\,|\,\mbox{$x \neq x$}\}\). This is the set with no elements. Like the number ‘0,’ it plays a vital role in mathematics.<sup data-footnote="empty">a</sup></li>
+								            <li>\(\emptyset=\{ \}=\{x\,|\,\mbox{$x \neq x$}\}\). This is the set with no elements. Like the number ‘0,’ it plays a vital role in mathematics.</li>
 								        </ul>
 								    </li>
 								    <li data-toggle="collapse" data-target="#setOfNumbers2">
@@ -93,31 +93,31 @@ class Section extends SectionDAO {
 								    <li data-toggle="collapse" data-target="#setOfNumbers4">
 								    	<span class="standoutText standoutTextLink">Integers</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers4">
-								            <li>Z = {...,−3,−2,−1,0,1,2,3,...}</li>
+								            <li>\(\mathbb Z=\{ \ldots, -1, -2, -1, 0, 1, 2, 3, \ldots \}\)</li>
 								        </ul>
 								    </li>
 								    <li data-toggle="collapse" data-target="#setOfNumbers5">
 								    	<span class="standoutText standoutTextLink">Rational Numbers</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers5">
-								            <li> Q = {<sup>a</sup>&frasl;<sub>b</sub> |a ∈Z and b ∈Z	. Rational numbers are the ratios of integers (provided the denominator is not zero!) It turns out that another way to describe the rational numbers<sup data-footnote="empty">b</sup> is:<ul class="clearListFormat"><li>Q = {x|x possesses a repeating or terminating decimal representation.}</li></ul></li>
+								            <li>\(\mathbb Q=\left\{\frac{a}{b} \, | \, a \in \mathbb Z \, \mbox{and} \, b \in \mathbb Z \right\}\). Rational numbers are the ratios of integers (provided the denominator is not zero!) It turns out that another way to describe the rational numbers is: \mathbb Q=\{x\,|\,\mbox{$x$ possesses a repeating or terminating decimal representation.}\}</li>
 								        </ul>
 								    </li>
 								    <li data-toggle="collapse" data-target="#setOfNumbers6">
 								    	<span class="standoutText standoutTextLink">Real Numbers</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers6">
-								            <li>R = {x|x possesses a decimal representation.} </li>
+								            <li>\(\mathbb R = \{ x\,|\,\mbox{$x$ possesses a decimal representation.}\}\)</li>
 								        </ul>
 								    </li>
 								    <li data-toggle="collapse" data-target="#setOfNumbers7"> 
 								    	<span class="standoutText standoutTextLink">Irrational Numbers</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers7">
-								            <li>P = {x|x is a non-rational real number.} Said another way, an irrational number is a decimal which neither repeats nor terminates.<sup data-footnote="empty">c</sup> </li>
+								            <li>\(\mathbb P = \{x\,|\,\mbox{$x$ is a non-rational real number.}\}\) Said another way, an irrational number is a decimal which neither repeats nor terminates.</li>
 								        </ul>
 								    </li>
 								    <li data-toggle="collapse" data-target="#setOfNumbers8"> 
 								    	<span class="standoutText standoutTextLink">Complex Numbers</span>
 								        <ul class="collapse clearListFormat" id="setOfNumbers8">
-								            <li>C = {a + bi|a,b ∈R and i = √−1} Despite their importance, the complex numbers play only a minor role in the text.<sup data-footnote="empty">d</sup></li>
+								            <li>\(\mathbb C=\{a+bi\,|\,\mbox{$a$,$b \in \mathbb R$ and $i=\sqrt{-1}$}\}\) Despite their importance, the complex numbers play only a minor role in the text.</li>
 								        </ul>
 								    </li>
 								</ol>
@@ -129,8 +129,8 @@ class Section extends SectionDAO {
 						</section>
 						<section class="row-fluid">
 							<article class="col-xs-12">
-								<p>It is important to note that every natural number is a whole number, which, in turn, is an integer. Each integer is a rational number (take b = 1 in the above deﬁnition for Q) and the rational numbers are all real numbers, since they possess decimal representations.3 If we take b = 0 in the above deﬁnition of C, we see that every real number is a complex number. In this sense, the sets N, W, Z, Q, R, and C are ‘nested’ like Matryoshka dolls.</p>
-								<p>For the most part, this textbook focuses on sets whose elements come from the real numbers R. Recall that we may visualize R as a line. Segments of this line are called intervals of numbers. Below is a summary of the so-called interval notation associated with given sets of numbers. For intervals with ﬁnite endpoints, we list the left endpoint, then the right endpoint. We use square brackets, ‘[’ or ‘]’, if the endpoint is included in the interval and use a ﬁlled-in or ‘closed’ dot to indicate membership in the interval. Otherwise, we use parentheses, ‘(’ or ‘)’ and an ‘open’ circle to indicate that the endpoint is not part of the set. If the interval does not have ﬁnite endpoints, we use the symbols −∞ to indicate that the interval extends indeﬁnitely to the left and ∞ to indicate that the interval extends indeﬁnitely to the right. Since inﬁnity is a concept, and not a number, we always use parentheses when using these symbols in interval notation, and use an appropriate arrow to indicate that the interval extends indeﬁnitely in one (or both) directions.</p>
+								<p>It is important to note that every natural number is a whole number, which, in turn, is an integer. Each integer is a rational number (take \(b =1\) in the above deﬁnition for \(\mathbb Q\)) and the rational numbers are all real numbers, since they possess decimal representations.3 If we take \(b=0\) in the above deﬁnition of \(\mathbb C\), we see that every real number is a complex number. In this sense, the sets \(\mathbb N\), \(\mathbb W\), \(\mathbb Z\), \(\mathbb Q\), \(\mathbb R\), and \(\mathbb C\) are ‘nested’ like Matryoshka dolls.</p>
+								<p>For the most part, this textbook focuses on sets whose elements come from the real numbers \(\mathbb R\). Recall that we may visualize \(\mathbb R\) as a line. Segments of this line are called intervals of numbers. Below is a summary of the so-called interval notation associated with given sets of numbers. For intervals with ﬁnite endpoints, we list the left endpoint, then the right endpoint. We use square brackets, ‘\([\)’ or ‘\(]\)’, if the endpoint is included in the interval and use a ﬁlled-in or ‘closed’ dot to indicate membership in the interval. Otherwise, we use parentheses, ‘\((\)’ or ‘\()\)’ and an ‘open’ circle to indicate that the endpoint is not part of the set. If the interval does not have ﬁnite endpoints, we use the symbols \(-\infty\) to indicate that the interval extends indeﬁnitely to the left and \(\infty\) to indicate that the interval extends indeﬁnitely to the right. Since inﬁnity is a concept, and not a number, we always use parentheses when using these symbols in interval notation, and use an appropriate arrow to indicate that the interval extends indeﬁnitely in one (or both) directions.</p>
 							</article>
 						</section>
 						<section class="row-fluid">
@@ -151,8 +151,8 @@ class Section extends SectionDAO {
 									</thead>
 									<tbody>
 										<tr>
-											<td>{x|a < x < b}</td>
-											<td>(a,b)</td>
+											<td>{x|a ≤ x < b}</td>
+											<td>[a,b)</td>
 											<td>a o----------o b</td>
 										</tr>
 										<tr>
@@ -240,10 +240,10 @@ class Section extends SectionDAO {
 								<p>We will often have occasion to combine sets. There are two basic ways to combine sets: intersec-tion and union. We define both of these concepts below.</p>
 								<section class="col-lg-12 definition">
 									<blockquote>
-										<p>Suppose A and B are two sets.</p>
+										<p>Suppose \(A\) and \(B\) are two sets.</p>
 		 									<ul>
-												<li><strong>Interstion</strong> of A and B: A \ B = fx j x 2 Aand x 2 Bg</li>
-				   								<li><strong>Union</strong> of A and B: A [ B = fx j x 2 Aor x 2 B (or both)g</li>
+												<li><strong>Interstion</strong> of \(A\) and \(B\): \(A \cap B = \{ x \, | \, x \in A \, \text{and} \,\, x \in B \}\)</li>
+				   								<li><strong>Union</strong> of \(A\) and \(B\): \(A \cup B = \{ x \, | \, x \in A \, \text{or} \,\, x \in B \, \, \text{(or both)} \}\)</li>
 											</ul>
 									</blockquote>
 								</section>
@@ -256,7 +256,7 @@ class Section extends SectionDAO {
 						<section class="row-fluid">
 
 							<section class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-								<p>Said dierently, the intersection of two sets is the overlap of the two sets { the elements which the sets have in common. The union of two sets consists of the totality of the elements in each of the sets, collected together.4 For example, if A = f1; 2; 3g and B = f2; 4; 6g, then A \ B = f2g and A[B = f1; 2; 3; 4; 6g. If A = [􀀀5; 3) and B = (1;1), then we can nd A\B and A[B graphically. To nd A\B, we shade the overlap of the two and obtain A\B = (1; 3). To nd A[B, we shade each of A and B and describe the resulting shaded region to nd A [ B = [􀀀5;1).</p>
+								<p>Said differently, the intersection of two sets is the overlap of the two sets - the elements which the sets have in common. The union of two sets consists of the totality of the elements in each of the sets, collected together. For example, if \(A = \{ 1,2,3 \}\) and \(B = \{2,4,6 \}\), then \(A \cap B = \{2\}\) and \(A \cup B = \{1,2,3,4,6\}\). If \(A = [-5,3)\) and \(B = (1, \infty)\), then we can find \(A \cap B\) and \(A\cup B\) graphically. To find \(A\cap B\), we shade the overlap of the two and obtain \(A \cap B = (1,3)\). To find \(A \cup B\), we shade each of \(A\) and \(B\) and describe the resulting shaded region to find \(A \cup B = [-5,\infty)\).</p>
 								<br>
 								<p>While both intersection and union are important, we have more occasion to use union in this text than intersection, simply because most of the sets of real numbers we will be working with are either intervals or are unions of intervals, as the following example illustrates.</p>
 							</section>
@@ -268,20 +268,20 @@ class Section extends SectionDAO {
 							<section class="col-lg-12 margin-top">
 								<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
 									<div class="col-md-12 dataContainer practiceProblems">
-										<p>1. fx j x  􀀀2 or x  2g</p>
+										<p>1. \(\{ x \, | \, x \leq -2 \, \, \text{or} \, \,  x \geq 2 \}\)</p>
 										<span class="link">Try it out!</span><br>
 										<p class="link">Explain more</p><br>
-										<p>2. fx j x 6= 3g</p>
+										<p>2. \(\{ x \, | \, x \neq 3 \}\)</p>
 										<span class="link">Try it out!</span><br>
 										<span class="link">Explain more</span><br>
 									</div>	
 								</div>
 								<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
 									<div class="col-md-12 dataContainer practiceProblems">	
-										<p>1. fx j x  􀀀2 or x  2g</p>
+										<p>3. \(\{ x \, | \, x \neq \pm 3 \}\)</p>
 										<span class="link">Try it out!</span><br>
 										<p class="link">Explain more</p><br>
-										<p>2. fx j x 6= 3g</p>
+										<p>4. \(\{ x \, | \, -1 < x \leq 3 \,\, \text{or} \,\, x = 5\}\)</p>
 										<span class="link">Try it out!</span><br>
 										<span class="link">Explain more</span><br>
 									</div>
