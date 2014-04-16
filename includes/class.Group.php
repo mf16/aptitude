@@ -21,7 +21,7 @@ class Group extends GroupDAO {
 	}
 
 	function draw(){
-		global $sidebarMenu;
+		$sidebarMenu = new SidebarMenu();
 		drawHeader($this->head());
 		$sidebarMenu->draw();
 		?>

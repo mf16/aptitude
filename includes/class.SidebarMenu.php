@@ -48,4 +48,3 @@ class SidebarMenu extends SidebarMenuDAO {
 	<?php
 	}
 }
-$sidebarMenu=new SidebarMenu();

@@ -34,6 +34,11 @@ else{
 					$groupid=$elements[$key+1];
 				}
 				break;
+			} else if(strtolower($className)=='math'){
+				if(isset($elements[$key+1])){
+					$sectionid=$elements[$key+1];
+				}
+				break;
 			}
 			if($key<sizeof($elements)-1){
 				$className .= '_';

@@ -26,6 +26,6 @@
 <!--TOOLTIPSTER-->
 <link rel="stylesheet" type="text/css" href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/tooltipster/tooltipster.css" />
 <script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/tooltipster/jquery.tooltipster.min.js"></script>
-<!--JQUERY UI
-<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>-->
+<!--JQUERY UI-->
+<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

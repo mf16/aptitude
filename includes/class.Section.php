@@ -18,7 +18,7 @@ class Section extends SectionDAO {
 	}
 
 	function draw(){
-		global $sidebarMenu;
+		$sidebarMenu = new SidebarMenu();
 		drawHeader($this->head());
 		$sidebarMenu->draw();
 		?>
