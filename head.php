@@ -27,3 +27,5 @@
 <link rel="stylesheet" type="text/css" href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/tooltipster/tooltipster.css" />
 <script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/tooltipster/jquery.tooltipster.min.js"></script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<style type="text/css" src="js/jsxgraph/jsxgraph.css"></style>
+<script type="text/javascript" src="js/jsxgraph/jsxgraphcore.js"></script>

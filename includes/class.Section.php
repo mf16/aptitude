@@ -23,8 +23,7 @@ class Section extends SectionDAO {
 		$sidebarMenu->draw();
 		?>
 		<!-- wrapper -->
-		<style type="text/css" src="js/jsxgraph/jsxgraph.css"></style>
-		<script type="text/javascript" src="js/jsxgraph/jsxgraphcore.js"></script>
+		
 		<div class="page-wrap">
 			<section id="headerSpacerSmall"></section>
 			<section class="container loader"></section>
@@ -320,7 +319,7 @@ class Section extends SectionDAO {
 									<article class="row pointers">
 										<section class="col-xs-4 col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="importantInformation">
 											<article class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
-												<img src="img/global/icons/info.png">
+												<img onclick="changeModal('Important Information', 'This represents important information that is relevant to your current topic.')" data-toggle="modal" data-target="#importantInformationModal" src="img/global/icons/info.png">
 											</article>
 											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
 												This represents important information that is relevant to your current topic.
@@ -328,7 +327,7 @@ class Section extends SectionDAO {
 										</section>
 										<section class="col-xs-4 col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="expectedPitfalls">
 											<article class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
-												<img src="img/global/icons/warning.png">
+												<img onclick="changeModal('Common Pitfalls', 'This represents common pitfalls and errors that if you read, you can avoid in assessments.')"  data-toggle="modal" data-target="#importantInformationModal" src="img/global/icons/warning.png">
 											</article>
 											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
 												This represents common pitfalls and errors that if you read, you can avoid in assessments.
@@ -336,7 +335,7 @@ class Section extends SectionDAO {
 										</section>
 										<section class="col-xs-4 col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="moreInformation">
 											<article class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
-												<img src="img/global/icons/cluster.png">
+												<img onclick="changeModal('Additional Resources', 'This represents where you can stop and go to another location for more learning resources.')" data-toggle="modal" data-target="#importantInformationModal"  src="img/global/icons/cluster.png">
 											</article>
 											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
 												This represents where you can stop and go to another location for more learning resources.
@@ -344,7 +343,7 @@ class Section extends SectionDAO {
 										</section>
 										<section class="hidden-xs col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="recycledConcept">
 											<article class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
-												<img src="img/global/icons/refresh.png">
+												<img onclick="changeModal('Recycled Content', 'This represents that you already know the topic and it's just modified or asked in a different way.')" data-toggle="modal" data-target="#importantInformationModal"  src="img/global/icons/refresh.png">
 											</article>
 											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
 												This represents that you already know the topic and it's just modified or asked in a different way.
@@ -371,26 +370,28 @@ class Section extends SectionDAO {
 				<a href="feedback.php"><span>Have feedback?</span></a>
 			</section>
 		</footer>
+
+		<!-- Important Imformation Modal -->
+		<div class="modal fade" id="importantInformationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title" id="myModalLabel">Important Information</h4>
+		      </div>
+		      <div class="modal-body">
+		       	...
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
 		<script type="text/javascript">
 			var profilePage = "<?php echo $_SERVER['DOCUMENT_ROOT'];?>profile";
-		</script>
-		<script type="text/javascript">
-			JXG.Options.grid.snapToGrid = true;
-			var brd = JXG.JSXGraph.initBoard('jxgbox', {boundingbox:[-6,2,6,-2]});
-			var axisx = brd.create('axis', [[0,0], [1,0]], 
-			  {
-			    firstArrow: true,
-			    lastArrow: true,
-			    ticks: {
-			      drawZero: true,
-			      ticksDistance: 1,
-			      majorHeight: 30,
-			      tickEndings: [1,1],
-			      minorTicks: 0
-			    }
-			  });
-			var p = brd.create('glider', [2, 0, axisx], {snapWidth:1});
-			var p = brd.create('glider', [4, 0, axisx], {snapWidth:1});
 		</script>
 
 		<?php
