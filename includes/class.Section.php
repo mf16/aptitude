@@ -23,6 +23,8 @@ class Section extends SectionDAO {
 		$sidebarMenu->draw();
 		?>
 		<!-- wrapper -->
+		<style type="text/css" src="js/jsxgraph/jsxgraph.css"></style>
+		<script type="text/javascript" src="js/jsxgraph/jsxgraphcore.js"></script>
 		<div class="page-wrap">
 			<section id="headerSpacerSmall"></section>
 			<section class="container loader"></section>
@@ -286,9 +288,17 @@ class Section extends SectionDAO {
 										<span class="link">Explain more</span><br>
 									</div>
 								</div>
-								<div class="margin-top"></div>
-
 							</section>
+						</section>
+						<section class="row-fluid">
+							<section class="col-lg-6">
+								<section class="col-lg-12">	
+									<div style="height:300px; width:100%;" id="jxgbox"></div>
+								</section>								
+							</section>
+							<section class="col-lg-6">
+							</section>
+							<div class="margin-top"></div>
 						</section>
 
 					</section>
@@ -364,6 +374,25 @@ class Section extends SectionDAO {
 		<script type="text/javascript">
 			var profilePage = "<?php echo $_SERVER['DOCUMENT_ROOT'];?>profile";
 		</script>
+		<script type="text/javascript">
+			JXG.Options.grid.snapToGrid = true;
+			var brd = JXG.JSXGraph.initBoard('jxgbox', {boundingbox:[-6,2,6,-2]});
+			var axisx = brd.create('axis', [[0,0], [1,0]], 
+			  {
+			    firstArrow: true,
+			    lastArrow: true,
+			    ticks: {
+			      drawZero: true,
+			      ticksDistance: 1,
+			      majorHeight: 30,
+			      tickEndings: [1,1],
+			      minorTicks: 0
+			    }
+			  });
+			var p = brd.create('glider', [2, 0, axisx], {snapWidth:1});
+			var p = brd.create('glider', [4, 0, axisx], {snapWidth:1});
+		</script>
+
 		<?php
 		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';
 		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/fitVid/fitVid.js"></script>';
