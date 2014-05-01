@@ -67,7 +67,7 @@ class Concept extends ConceptDAO {
 								$c = 0;
 								while ($c < 3){
 									echo '
-									<tr class="link" onclick="profilePageChange()">
+									<tr class="link darkHover" onclick="profilePageChange()">
 										<td><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
 										<td>John Hancock</td>
 										<td class="percentBehind">-5%</td>
@@ -76,7 +76,7 @@ class Concept extends ConceptDAO {
 								}
 								while ($c < 6){
 									echo '
-									<tr class="link" onclick="profilePageChange()">
+									<tr class="link darkHover" onclick="profilePageChange()">
 										<td><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
 										<td>John Hancock</td>
 										<td class="percentAhead">+15%</td>

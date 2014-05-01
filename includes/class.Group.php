@@ -25,6 +25,16 @@ class Group extends GroupDAO {
 		drawHeader($this->head());
 		$sidebarMenu->draw();
 		?>
+
+		<?php
+		//Quick fix for demo purposes (auo-login)
+		$_SESSION['userid']=1;
+		$_SESSION['userFirstname']='Josh';
+		$_SESSION['userLastname']='Doe';
+		$_SESSION['userEmail']='test@test.com';
+		$_SESSION['userType']='professor';
+		$this->groupid = 1;
+		?>
 		<!-- wrapper -->
 		<div class="page-wrap">
 			<section id="headerSpacer"></section>
@@ -53,7 +63,7 @@ class Group extends GroupDAO {
 								$c = 0;
 								while ($c < 5){
 									echo '
-									<tr class="link" onclick="profilePageChange()">
+									<tr class="link darkHover" onclick="profilePageChange()">
 										<td ><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
 										<td>John Hancock</td>
 										<td class="percentBehind">-5%</td>
@@ -132,7 +142,7 @@ class Group extends GroupDAO {
 								/* ADD THIS IN WHEN THERE IS DATA TO PULL
 								$students=$this->getStudentsByClassid($this->groupid);
 								foreach($students as $key=>$student){
-									echo '<tr>';
+									echo '<tr class="darkHover">';
 									echo '<td class="link"><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>';
 									echo '<td class="link">'.$student['user_lastname'].', '.$student['user_firstname'].'</td>';
 									echo '<td class="positiveProgress">+2%</td>';
@@ -143,7 +153,7 @@ class Group extends GroupDAO {
 								while ($c < 15){
 									$c++;
 									echo '
-										<tr>
+										<tr class="darkHover">
 											<td onclick="profilePageChange()" class="link"><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
 											<td onclick="profilePageChange()" class="link">John Hancock</td>
 											<td class="positiveProgress">+2%</td>
