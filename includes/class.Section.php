@@ -32,7 +32,7 @@ class Section extends SectionDAO {
 					<section class="col-lg-9 col-xs-12">
 						<section class="row-fluid margin-top" id="initialSpacer">
 							<section class="col-sm-12 col-lg-6 video">
-								<iframe src="//player.vimeo.com/video/77449705" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+								<iframe src="//www.youtube.com/embed/Ksu1lo312BM" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 							</section>
 							<section class="col-sm-12 col-lg-6">
 								<article class="headerOutline">
@@ -152,49 +152,49 @@ class Section extends SectionDAO {
 									</thead>
 									<tbody>
 										<tr>
-											<td>{x|a ≤ x < b}</td>
-											<td>[a,b)</td>
-											<td>a o----------o b</td>
+											<td>\(\{x\,|\, a < x < b\}\)</td>
+											<td>\((a,b)\)</td>
+											<td><div class="numberLine" id="numberLine1"></div></td>
 										</tr>
 										<tr>
-											<td>{x|a ≤ x < b}</td>
-											<td>[a,b)</td>
-											<td>a o----------o b</td>
+											<td>\(\{x\,|\,a\leq x< b\}\)</td>
+											<td>\([a,b)\)</td>
+											<td><div class="numberLine" id="numberLine2"></div></td>
 										</tr>
 										<tr>
-											<td>{x|a < x ≤ b}</td>
-											<td>(a,b]</td>
-											<td>a o----------o b</td>
+											<td>\(\{x\,|\, a < x\leq b\}\)</td>
+											<td>\((a,b]\)</td>
+											<td><div class="numberLine" id="numberLine3"></div></td>
 										</tr>
 										<tr>
-											<td>{x|a ≤ x ≤ b}</td>
-											<td>(a,b]</td>
-											<td>a o----------o b</td>
+											<td>\(\{x\,|\,a\leq x \leq b\}\)</td>
+											<td>\([a,b]\)</td>
+											<td><div class="numberLine" id="numberLine4"></div></td>
 										</tr>
 										<tr>
-											<td>{x|x < b}</td>
-											<td>(a,b]</td>
-											<td>a o----------o b</td>
+											<td>\(\{x\,| \, x< b\}\)</td>
+											<td>\((-\infty,b)\)</td>
+											<td><div class="numberLine" id="numberLine5"></div></td>
 										</tr>
 										<tr>
-											<td>{x|x ≤ b}</td>
-											<td>(a,b]</td>
-											<td>a o----------o b</td>
+											<td>\(\{x\,| \, x \leq b\}\)</td>
+											<td>\((-\infty,b]\)</td>
+											<td><div class="numberLine" id="numberLine6"></div></td>
 										</tr>
 										<tr>
-											<td>{x|x > a}</td>
-											<td>(a,b]</td>
-											<td>a o----------o b</td>
+											<td>\(\{x\,| \, x>a\}\)</td>
+											<td>\((a,\infty)\)</td>
+											<td><div class="numberLine" id="numberLine7"></div></td>
 										</tr>
 										<tr>
-											<td>{x|x ≥ a}</td>
-											<td>(a,b]</td>
-											<td>a o----------o b</td>
+											<td>\(\{x\,| \, x \geq a \}\)</td>
+											<td>\([a,\infty)\)</td>
+											<td><div class="numberLine" id="numberLine8"></div></td>
 										</tr>
 										<tr>
-											<td>R</td>
-											<td>(a,b]</td>
-											<td>a o----------o b</td>
+											<td>\(\mathbb R\)</td>
+											<td>\((-\infty,\infty)\)</td>
+											<td><div class="numberLine" id="numberLine9"></div></td>
 										</tr>
 									</tbody>
 								</table>
@@ -210,24 +210,24 @@ class Section extends SectionDAO {
 									</thead>
 									<tbody>
 										<tr>
-											<td>{x|1 < x < 3}</td>
-											<td>[1,3)</td>
-											<td>a o----------o b</td>
+											<td>\(\{x\,|\,1\leq x< 3\}\)</td>
+											<td>\([1,3)\)</td>
+											<td><div class="numberLine" id="numberLine13"></div></td>
 										</tr>
 										<tr>
-											<td>{x| -1 < x < 4}</td>
-											<td>[-1,4]</td>
-											<td>a o----------o b</td>
+											<td>\(\{x\,|\,-1\leq x \leq 4\}\)</td>
+											<td>\([-1,4]\)</td>
+											<td><div class="numberLine" id="numberLine10"></div></td>
 										</tr>
 										<tr>
-											<td>{x|x < 5}</td>
-											<td>[-1, 5]</td>
-											<td>a o----------o b</td>
+											<td>\(\{x\,| \, x \leq 5 \}\)</td>
+											<td>\((\infty, 5]\)</td>
+											<td><div class="numberLine" id="numberLine11"></div></td>
 										</tr>
 										<tr>
-											<td>{x|x > -2}</td>
-											<td>(a,b]</td>
-											<td>a o----------o b</td>
+											<td>\(\{x\,| \, x > -2 \}\)</td>
+											<td>\((-2, \infty)\)</td>
+											<td><div class="numberLine" id="numberLine12"></div></td>
 										</tr>
 									</tbody>
 								</table>
@@ -262,7 +262,7 @@ class Section extends SectionDAO {
 								<p>While both intersection and union are important, we have more occasion to use union in this text than intersection, simply because most of the sets of real numbers we will be working with are either intervals or are unions of intervals, as the following example illustrates.</p>
 							</section>
 							<section class="col-lg-6 col-md-12 col-sm-12 col-xs-12 video">
-								<iframe src="//player.vimeo.com/video/77449705" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+								<iframe src="//www.youtube.com/embed/jAfNg3ylZAI" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 							</section>
 						</section>
 						<section class="row-fluid">
@@ -289,7 +289,6 @@ class Section extends SectionDAO {
 								</div>
 							</section>
 						</section>
-						<!--Hidden on demo
 						<section class="row-fluid">
 							<section class="col-lg-6">
 								<section class="col-lg-12">	
@@ -300,7 +299,7 @@ class Section extends SectionDAO {
 							</section>
 							<div class="margin-top"></div>
 						</section>
-					-->
+					
 
 					</section>
 
@@ -399,7 +398,6 @@ class Section extends SectionDAO {
 		<?php
 		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';
 		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/fitVid/fitVid.js"></script>';
-		//echo '<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>';
 		
 		drawFooter($this->foot());
 	}
