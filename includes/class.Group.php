@@ -65,8 +65,11 @@ class Group extends GroupDAO {
 									echo '
 									<tr class="link darkHover" onclick="profilePageChange()">
 										<td ><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
-										<td>John Hancock</td>
-										<td class="percentBehind">-5%</td>
+										<td>John Hancock</td>';
+											$input = array("<td class='percentBehind' style='color:green;'>+", "<td class='percentBehind'>-");
+											echo $input[array_rand($input)];
+											echo mt_rand(1,24).'%</td>
+										</td>
 									</tr>';
 									$c++;
 								}
@@ -155,8 +158,10 @@ class Group extends GroupDAO {
 									echo '
 										<tr class="darkHover">
 											<td onclick="profilePageChange()" class="link"><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
-											<td onclick="profilePageChange()" class="link">John Hancock</td>
-											<td class="positiveProgress">+2%</td>
+											<td onclick="profilePageChange()" class="link">John Hancock</td>';
+											$input = array("<td class='positiveProgress'>+", "<td style='color:red;' class='positiveProgress'>-");
+											echo $input[array_rand($input)];
+											echo mt_rand(1,24).'%</td>
 											<td><span class="phoneHide">johnhancock@independant.us</span><span class="phoneShow"><a href="mailto:johnhancock@independant.us">Email</a></span></td>
 										</tr>';
 								}
