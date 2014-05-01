@@ -139,9 +139,9 @@ class Section extends SectionDAO {
 							</article>
 						</section>
 						<section class="row-fluid"><!--TABLE OF REAL NUMBERS-->
-							<section class="col-lg-3 dataContainer hidden-md hidden-sm hidden-xs">
-							</section>
-							<section class="col-sm-12 col-lg-9">
+							<!--<section class="col-lg-3 dataContainer hidden-md hidden-sm hidden-xs">
+							</section>-->
+							<section class="col-sm-12 col-lg-9 col-lg-offset-1">
 								<table class="table orangeTable">
 									<thead>
 										<tr>
@@ -289,16 +289,18 @@ class Section extends SectionDAO {
 								</div>
 							</section>
 						</section>
+						<!--Hidden on demo
 						<section class="row-fluid">
 							<section class="col-lg-6">
 								<section class="col-lg-12">	
-									<div style="height:300px; width:100%;" id="jxgbox"></div>
+									<div id="testSlider"></div>
 								</section>								
 							</section>
 							<section class="col-lg-6">
 							</section>
 							<div class="margin-top"></div>
 						</section>
+					-->
 
 					</section>
 
