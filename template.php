@@ -17,7 +17,21 @@ $elements = explode('/', $path);
 
 $className = '';
 if($_SERVER['HTTP_HOST']=='dev.goaptitude.com'){
-	$className = strtolower($elements[0]);
+	foreach($elements as $key => $element){
+		$className = strtolower($elements[0]);
+		if(strtolower($className)=='class'||strtolower($className)=='group'){
+			$className='Group';
+			if(isset($elements[$key+1])){
+				$groupid=$elements[$key+1];
+			}
+			break;
+		} else if(strtolower($className)=='math'){
+			if(isset($elements[$key+1])){
+				$sectionid=$elements[$key+1];
+			}
+			break;
+		}
+	}
 }
 else{
 	if(count($elements) == 0 || (count($elements)==2 && !$elements[1])){                       

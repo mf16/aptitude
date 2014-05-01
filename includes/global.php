@@ -31,7 +31,7 @@ if($_SERVER['REMOTE_ADDR']=='127.0.0.1' || $_SERVER['HTTP_HOST']=='localhost'){
 } 
 elseif($_SERVER['HTTP_HOST']=='dev.goaptitude.com'){
 	$db = new mysqli('localhost', 'goaptitude', 'Chicheme2013');
-	$_SERVER['DOCUMENT_ROOT']='';
+	$_SERVER['DOCUMENT_ROOT']='/';
 	$_SESSION['userEmail'] = 'professor@feeny.com';
 	$_SESSION['userFirstname'] = 'Albert';
 	$_SESSION['userLastname'] = 'Einstein';

@@ -29,4 +29,4 @@
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <style type="text/css" src="js/jsxgraph/jsxgraph.css"></style>
 
-<script type="text/javascript" src="js/jsxgraph/jsxgraphcore.js"></script>
+<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/JSXGraph/jsxgraphcore.js"></script>
