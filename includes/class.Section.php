@@ -313,7 +313,7 @@ class Section extends SectionDAO {
 							</article><br>
 							<article class="divider col-xs-12"></article>
 							<section class="row-fluid content">
-								<article class="col-xs-12">
+								<article class="col-xs-12 col-lg-10 col-lg-offset-1">
 									<article class="row hidden-md hidden-sm hidden-xs">
 										<span>This is your go-to source for important imformation. If you pay attention to what this sidebar highlights you will retain information better and learn even faster. Here are some things to look for:</span>
 									</article>
