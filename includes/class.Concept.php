@@ -65,21 +65,15 @@ class Concept extends ConceptDAO {
 								<tbody>
 								<?php
 								$c = 0;
-								while ($c < 3){
-									echo '
-									<tr class="link darkHover" onclick="profilePageChange()">
-										<td><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
-										<td>John Hancock</td>
-										<td class="percentBehind">-5%</td>
-									</tr>';
-									$c++;
-								}
 								while ($c < 6){
 									echo '
 									<tr class="link darkHover" onclick="profilePageChange()">
 										<td><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
-										<td>John Hancock</td>
-										<td class="percentAhead">+15%</td>
+										<td>John Hancock</td>';
+											$input = array("<td class='percentBehind' style='color:green;'>+", "<td class='percentBehind'>-");
+											echo $input[array_rand($input)];
+											echo mt_rand(1,24).'%</td>
+										
 									</tr>';
 									$c++;
 								}
