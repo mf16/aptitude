@@ -25,9 +25,25 @@ if($_SERVER['HTTP_HOST']=='dev.goaptitude.com'){
 				$groupid=$elements[$key+1];
 			}
 			break;
-		} else if(strtolower($className)=='math'){
+		} 
+		else if(strtolower($className)=='math'){
 			if(isset($elements[$key+1])){
-				$sectionid=$elements[$key+1];
+				$subjectName=$elements[$key+1];
+				if(isset($elements[$key+2])){
+					$chapterid=$elements[$key+2];
+					if(isset($elements[$key+3])){
+						$sectionid=$elements[$key+3];
+					}
+					else{
+						$sectionid = 1;
+					}
+				}
+				else{
+					$chapterName=1;
+				}
+			}
+			else{
+				$subjectName='math-1050';
 			}
 			break;
 		}
@@ -48,9 +64,23 @@ else{
 					$groupid=$elements[$key+1];
 				}
 				break;
-			} else if(strtolower($className)=='math'){
-				if(isset($elements[$key+1])){
-					$sectionid=$elements[$key+1];
+			} 
+			else if(strtolower($className)=='section'){
+				if(isset($elements[$key+1]) && !$elements[$key+1]==''){
+					$subjectName=$elements[$key+1];
+					if(isset($elements[$key+2]) && !$elements[$key+2]==''){
+						$chapterid=$elements[$key+2];
+						if(isset($elements[$key+3]) && !$elements[$key+3]==''){
+							$sectionid=$elements[$key+3];
+						} else{
+							$sectionid = 1;
+						}
+					} else{
+						$chapterid=1;
+						$sectionid=1;
+					}
+				} else{
+					$subjectName='math-1050';
 				}
 				break;
 			}
