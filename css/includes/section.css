@@ -7,6 +7,7 @@
 	padding: 11px 0px 7px 0px;
 	border-top: solid 1px #f26522;
 	border-bottom: solid 1px #f26522;
+	margin-bottom: 15px;
 }
 .definition{
 	background-color: #EBEBEB;
@@ -30,7 +31,14 @@ td>div{
 	margin-left: auto;
 	margin-right: auto;
 }
+.video{
+	margin-bottom: 5px;
+}
 
+.graphImage{
+	width: 60%;
+	margin-left: 20%;
+}
 
 /* Large screens ----------- */
 @media only screen and (min-width : 1824px) {

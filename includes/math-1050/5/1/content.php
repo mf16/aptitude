@@ -6,97 +6,31 @@
 				<section class="row-fluid">
 					<section class="col-lg-9 col-xs-12">
 						<section class="row-fluid margin-top" id="initialSpacer">
-							<section class="col-sm-12 col-lg-6 video">
-								<iframe src="//www.youtube.com/embed/VhokQhjl5t0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-							</section>
-							<section class="col-sm-12 col-lg-6">
-								<article class="headerOutline">
+							<section class="col-lg-12">
+								<section class="col-sm-12 col-lg-6 video">
+									<iframe src="//www.youtube.com/embed/VhokQhjl5t0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+								</section>
+								<article class="col-lg-6 headerOutline">
 									<span>Sets of Numbers</span>
-								</article><br>
-								<article>
-									<p>Before we embark upon any further adventures with functions, we need to take some time to gather our thoughts and gain some perspective. Chapter 1 rst introduced us to functions in Section 1.3. At that time, functions were specic kinds of relations - sets of points in the plane which passed the Vertical Line Test, Theorem 1.1. In Section 1.4, we developed the idea that functions are processes - rules which match inputs to outputs - and this gave rise to the concepts of domain and range. We spoke about how functions could be combined in Section 1.5 using the four basic arithmetic operations, took a more detailed look at their graphs in Section 1.6 and studied how their graphs behaved under certain classes of transformations in Section 1.7. In Chapter 2, we took a closer look at three families of functions: linear functions (Section 2.1), absolute value functions1 (Section 2.2), and quadratic functions (Section 2.3). Linear and quadratic functions were special cases of polynomial functions, which we studied in generality in Chapter 3. Chapter 3 culminated with the Real Factorization Theorem, Theorem 3.16, which says that all polynomial functions with real coecients can be thought of as products of linear and quadratic functions. Our next step was to enlarge our eld2 of study to rational functions in Chapter 4. Being quotients of polynomials, we can ultimately view this family of functions as being built up of linear and quadratic functions as well. So in some sense, Chapters 2, 3, and 4 can be thought of as an exhaustive study of linear and quadratic3 functions and their arithmetic combinations as described in Section 1.5. We now wish to study other algebraic functions, such as f(x) = p x and g(x) = x2=3, and the purpose of the rst two sections of this chapter is to see how these kinds of functions arise from polynomial and rational functions. To that end, we rst study a new way to combine functions as dened below.</p>
 								</article>
+								<p>Before we embark upon any further adventures with functions, we need to take some time to gather our thoughts and gain some perspective. Chapter 1 rst introduced us to functions in Section 1.3. At that time, functions were specic kinds of relations - sets of points in the plane which passed the Vertical Line Test, Theorem 1.1. In Section 1.4, we developed the idea that functions are processes - rules which match inputs to outputs - and this gave rise to the concepts of domain and range. We spoke about how functions could be combined in Section 1.5 using the four basic arithmetic operations, took a more detailed look at their graphs in Section 1.6 and studied how their graphs behaved under certain classes of transformations in Section 1.7. In Chapter 2, we took a closer look at three families of functions: linear functions (Section 2.1), absolute value functions1 (Section 2.2), and quadratic functions (Section 2.3). Linear and quadratic functions were special cases of polynomial functions, which we studied in generality in Chapter 3. Chapter 3 culminated with the Real Factorization Theorem, Theorem 3.16, which says that all polynomial functions with real coecients can be thought of as products of linear and quadratic functions. Our next step was to enlarge our eld2 of study to rational functions in Chapter 4. Being quotients of polynomials, we can ultimately view this family of functions as being built up of linear and quadratic functions as well. So in some sense, Chapters 2, 3, and 4 can be thought of as an exhaustive study of linear and quadratic3 functions and their arithmetic combinations as described in Section 1.5. We now wish to study other algebraic functions, such as f(x) = p x and g(x) = x2=3, and the purpose of the rst two sections of this chapter is to see how these kinds of functions arise from polynomial and rational functions. To that end, we rst study a new way to combine functions as dened below.</p>
 							</section>
 						</section>
 						<section class="row-fluid"><!--DEFINITION: START-->
 							<article class="col-xs-12 margin-top">
 								<article class="definition">
 									<blockquote>
-										<p>A <strong>set</strong> is a well-deﬁned collection of objects which are called the ‘elements’ of the set. Here, ‘well-deﬁned’ means that it is possible to determine if something belongs to the collection or not, without prejudice.</p>
+										<p>Suppose f and g are two functions. The <strong>composite</strong> of g with f, denoted g◦f, is deﬁned by the formula (g◦f)(x) = g(f(x)), provided x is an element of the domain of f and f(x) is an element of the domain of g.</p>
 									</blockquote>
 								</article>
 							</article>
 						</section><!--DEFINITION: END-->
 						<section class="row-fluid">
-							<section class="col-xs-12 col-lg-6 margin-top">
-								<article>
-									<p>For example, the collection of letters that make up the word “smolko” is well-deﬁned and is a set, but the collection of the worst math teachers in the world is <strong>not</strong> well-deﬁned, and so is <strong>not</strong> a set. In general, there are three ways to describe sets. They are:</p>
-									<section class="col-xs-12 dataContainer">
-										<h3>Ways to describe sets</h3>
-										<ol>
-											<li>The Verbal Method: Use a sentence to deﬁne a set.</li>
-											<li>The Roster Method: Begin with a left brace ‘{’, list each element of the set <i>only once</i> and then end with a right brace ‘}’.</li>
-											<li>The Set-Builder Method: A combination of the verbal and roster methods using a “dummy variable” such as \(x\).</li>
-										</ol>
-									</section>
-								</article>
-								<article style="top: 25px; position:relative;">
-									<p>For example, let \(S\) be the set described <i>verbally</i> as the set of letters that make up the word “smolko”. A <strong>roster</strong> description of \(S\) would be {<i>s,m,o,l,k</i>}. Note that we listed ‘o’ only once, even though it appears twice in “smolko.” Also, the <i>order</i> of the elements doesn’t matter, so {<i>k,l,m,o,s</i>} is also a roster description of S. A <strong>set-builder</strong> description of \(S\) is:</p>
-									<br><p class="text-center standoutText">{x|x is a letter in the word “smolko”.}</p>
-								</article>
+							<section class="col-xs-12 margin-top">
+								<p>The quantity g  f is also read `g composed with f' or, more simply `g of f.' At its most basic level, Denition 5.1 tells us to obtain the formula for (g  f) (x), we replace every occurrence of x in the formula for g(x) with the formula we have for f(x). If we take a step back and look at this from a procedural, `inputs and outputs' perspective, Dention 5.1 tells us the output from g  f is found by taking the output from f, f(x), and then making that the input to g. The result, g(f(x)), is the output from g  f. From this perspective, we see g  f as a two step process taking an input x and rst applying the procedure f then applying the procedure g. Abstractly, we have</p>
 							</section>
-							<section class="col-xs-12 col-lg-6 margin-top">	
-								<p>The way to read this is: ‘The set of elements \(x\) <u>such that</u> \(x\) is a letter in the word “smolko.”’ In each of the above cases, we may use the familiar equals sign ‘=’ and write \(S\) = {<i>s,m,o,l,k</i>} or \(S\) = {x|x is a letter in the word “smolko”.}. Clearly \(m\) is in \(S\) and \(q\) is not in \(S\). We express these sentiments mathematically by writing  \(m  \in S\) and \(q \notin S\). Throughout your mathematical upbringing, you have encountered several famous sets of numbers. They are listed below:</p>
-								<ol class="link">
-								    <li data-toggle="collapse" data-target="#setOfNumbers1">
-								    	<span class="standoutText standoutTextLink">Empty Set</span>
-								        <ul class="collapse clearListFormat" id="setOfNumbers1">
-								            <li>\(\emptyset=\{ \}=\{x\,|\,\mbox{$x \neq x$}\}\). This is the set with no elements. Like the number ‘0,’ it plays a vital role in mathematics.</li>
-								        </ul>
-								    </li>
-								    <li data-toggle="collapse" data-target="#setOfNumbers2">
-								    	<span class="standoutText standoutTextLink">Natural Numbers</span>
-								        <ul class="collapse clearListFormat" id="setOfNumbers2">
-								            <li>\(\mathbb N= \{ 1, 2, 3,  \ldots\}\) The periods of ellipsis here indicate that the natural numbers contain 1, 2, 3, ‘and so forth’.</li>
-								        </ul>
-								    </li>
-								    <li data-toggle="collapse" data-target="#setOfNumbers3">
-								    	<span class="standoutText standoutTextLink">Whole Numbers</span>
-								        <ul class="collapse clearListFormat" id="setOfNumbers3">
-								            <li>\(\mathbb W = \{ 0, 1, 2, \ldots \}\)</li>
-								        </ul>
-								    </li>
-								    <li data-toggle="collapse" data-target="#setOfNumbers4">
-								    	<span class="standoutText standoutTextLink">Integers</span>
-								        <ul class="collapse clearListFormat" id="setOfNumbers4">
-								            <li>\(\mathbb Z=\{ \ldots, -1, -2, -1, 0, 1, 2, 3, \ldots \}\)</li>
-								        </ul>
-								    </li>
-								    <li data-toggle="collapse" data-target="#setOfNumbers5">
-								    	<span class="standoutText standoutTextLink">Rational Numbers</span>
-								        <ul class="collapse clearListFormat" id="setOfNumbers5">
-								            <li>\(\mathbb Q=\left\{\frac{a}{b} \, | \, a \in \mathbb Z \, \mbox{and} \, b \in \mathbb Z \right\}\). Rational numbers are the ratios of integers (provided the denominator is not zero!) It turns out that another way to describe the rational numbers is: \mathbb Q=\{x\,|\,\mbox{$x$ possesses a repeating or terminating decimal representation.}\}</li>
-								        </ul>
-								    </li>
-								    <li data-toggle="collapse" data-target="#setOfNumbers6">
-								    	<span class="standoutText standoutTextLink">Real Numbers</span>
-								        <ul class="collapse clearListFormat" id="setOfNumbers6">
-								            <li>\(\mathbb R = \{ x\,|\,\mbox{$x$ possesses a decimal representation.}\}\)</li>
-								        </ul>
-								    </li>
-								    <li data-toggle="collapse" data-target="#setOfNumbers7"> 
-								    	<span class="standoutText standoutTextLink">Irrational Numbers</span>
-								        <ul class="collapse clearListFormat" id="setOfNumbers7">
-								            <li>\(\mathbb P = \{x\,|\,\mbox{$x$ is a non-rational real number.}\}\) Said another way, an irrational number is a decimal which neither repeats nor terminates.</li>
-								        </ul>
-								    </li>
-								    <li data-toggle="collapse" data-target="#setOfNumbers8"> 
-								    	<span class="standoutText standoutTextLink">Complex Numbers</span>
-								        <ul class="collapse clearListFormat" id="setOfNumbers8">
-								            <li>\(\mathbb C=\{a+bi\,|\,\mbox{$a$,$b \in \mathbb R$ and $i=\sqrt{-1}$}\}\) Despite their importance, the complex numbers play only a minor role in the text.</li>
-								        </ul>
-								    </li>
-								</ol>
+							<section class="col-xs-12 margin-top">
+								<img class="graphImage" src="<?php echo $_SERVER['DOCUMENT_ROOT']?>img/math-1050/5/1/graph.png">
 							</section>
 						</section>
 						<section class="row-fluid">
