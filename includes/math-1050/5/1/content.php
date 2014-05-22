@@ -1,3 +1,11 @@
+<style type="text/css">
+.fullDarkContainer{
+	width: 103%;
+background-color: rgb(233, 233, 233);
+margin-left: -15px;
+}
+</style>
+
 <!-- wrapper -->
 <div class="page-wrap">
 			<section id="headerSpacerSmall"></section>
@@ -35,12 +43,26 @@
 						</section>
 						<section class="row-fluid">
 							<article class="col-xs-12">
-								<p>In the expression \(g(f(x))\), the function \(f\) is often called the `inside' function while \(g\) is often called the `outside' function. There are two ways to go about evaluating composite functions - `inside out' and `outside in' - depending on which function we replace with its formula first. Both ways are demonstrated in the following example.</p>
+								<p>In the expression \(g(f(x))\), the function \(f\) is often called the 'inside' function while \(g\) is often called the 'outside' function. There are two ways to go about evaluating composite functions - 'inside out' and 'outside in' - depending on which function we replace with its formula first. Both ways are demonstrated in the following example.</p>
 							</article>
 						</section>
 						<section class="row-fluid">
-							<article class="col-xs-12 contentDivider">
-							</article>
+							<div class="col-xs-12 margin-top fullDarkContainer">
+								<div class="col-md-12 margin-top practiceProblems">
+									<div class="col-sm-12 col-lg-1">
+										<span>Let</span><br> 
+									</div>
+									<div class="col-sm-12 col-lg-3">
+										<span>\(f(x) = x^2-4x\)</span><br>
+									</div>
+									<div class="col-sm-12 col-lg-3">
+										<span>\(g(x) = 2-\sqrt{x+3}\)</span><br>
+									</div>
+									<div class="col-sm-12 col-lg-3">
+										<span>\(h(x) = \dfrac{2x}{x+1}\)</span><br>
+									</div>
+								</div>	
+							</div>
 						</section>
 					</section>
 
