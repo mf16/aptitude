@@ -1,7 +1,7 @@
 <style type="text/css">
 .fullDarkContainer{
 	width: 103%;
-background-color: rgb(233, 233, 233);
+background-color: #EBEBEB;
 margin-left: -15px;
 }
 </style>
@@ -62,6 +62,17 @@ margin-left: -15px;
 										<span>\(h(x) = \dfrac{2x}{x+1}\)</span><br>
 									</div>
 								</div>	
+								<div class="dataContainer col-sm-12">
+									<div class="col-xs-12 col-lg-4">
+										test
+									</div> 
+									<div class="col-xs-12 col-lg-4">
+										test
+									</div> 
+									<div class="col-xs-12 col-lg-4">
+										test
+									</div> 
+								</div>
 							</div>
 						</section>
 					</section>
@@ -83,12 +94,12 @@ margin-left: -15px;
 										<span></span>
 									</article>
 									<article class="row pointers">
-										<section class="col-xs-4 col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="importantInformation">
+										<!--<section class="col-xs-4 col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="importantInformation">
 											<article class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
 												<img onclick="changeModal('', '')" data-toggle="modal" data-target="#importantInformationModal" src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/icons/info.png">
 											</article>
 											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
-												<!--Important info section-->
+												<!--Important info section
 											</article>
 										</section>
 										<section class="col-xs-4 col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="expectedPitfalls">
@@ -96,7 +107,7 @@ margin-left: -15px;
 												<img onclick="changeModal('', '')"  data-toggle="modal" data-target="#importantInformationModal" src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/icons/warning.png">
 											</article>
 											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
-												<!--Pitfalls section-->
+												<!--Pitfalls section
 											</article>
 										</section>
 										<section class="col-xs-4 col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="moreInformation">
@@ -104,7 +115,7 @@ margin-left: -15px;
 												<img onclick="changeModal('', '')" data-toggle="modal" data-target="#importantInformationModal"  src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/icons/cluster.png">
 											</article>
 											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
-												<!--Additional resources section-->
+												<!--Additional resources section
 											</article>
 										</section>
 										<section class="hidden-xs col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="recycledConcept">
@@ -112,9 +123,9 @@ margin-left: -15px;
 												<img onclick="changeModal('', '')" data-toggle="modal" data-target="#importantInformationModal"  src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/icons/refresh.png">
 											</article>
 											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
-												<!--Recycled section-->
+												<!--Recycled section
 											</article>
-										</section>
+										</section>-->
 									</article>
 								</article>
 							</section>
