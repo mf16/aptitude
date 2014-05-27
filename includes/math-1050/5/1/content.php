@@ -6,8 +6,22 @@ margin-left: -15px;
 }
 p, span{line-height: 25px;}
 .padding-vertical{padding-top:30px; padding-bottom: 30px;}
+.clearPadding{
+	padding: 0px;
+}
+#workArea{
+	height: 70px;
+	width: 100%;
+	background-color: white;
+	position: absolute;
+	top: -70px;
+	left: 0px;
+	z-index: 10;
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
 </style>
 
+<div id="workArea"></div>
 <!-- wrapper -->
 <div class="page-wrap">
 			<section id="headerSpacerSmall"></section>
@@ -67,13 +81,25 @@ p, span{line-height: 25px;}
 								</div>	
 								<div class="dataContainer padding-vertical col-sm-12">
 									<div class="col-xs-12 col-lg-4">
-										\((g \circ f)(1)\)
+										<span>\((g \circ f)(1)\)</span><br><br>
+										<div class="col-xs-12 col-lg-8 clearPadding">
+											<span>Answer</span>
+											<input type="text" class="form-control">
+										</div>
 									</div> 
 									<div class="col-xs-12 col-lg-4">
-										\((f \circ g)(1)\)
+										<span>\((f \circ g)(1)\)</span><br><br>
+										<div class="col-xs-12 col-lg-8 clearPadding">
+											<span>Answer</span>
+											<input type="text" class="form-control">
+										</div>
 									</div> 
 									<div class="col-xs-12 col-lg-4">
-										\((g \circ g)(6)\)
+										<span>\((g \circ g)(6)\)</span><br><br>
+										<div class="col-xs-12 col-lg-8 clearPadding">
+											<span>Answer</span>
+											<input type="text" class="form-control">
+										</div>
 									</div> 
 								</div>
 								<article class="col-xs-12 contentDivider"></article>
@@ -84,25 +110,83 @@ p, span{line-height: 25px;}
 								</section>
 								<section class="dataContainer padding-vertical margin-top col-sm-12">
 									<div class="col-xs-12 col-lg-4">
-										\((g \circ f)(x)\)
+										\((g \circ f)(x)\)<br><br>
+										<div class="col-xs-12 col-lg-3 clearPadding">
+											<span>Domain</span>
+											<input type="text" class="form-control">
+										</div>
+										<div class="col-xs-12 col-lg-8 col-lg-offset-1 clearPadding">
+											<span>Answer</span>
+											<input type="text" class="form-control">
+										</div>
 									</div> 
 									<div class="col-xs-12 col-lg-4">
-										\((f \circ g)(x)\)
+										\((f \circ g)(x)\)<br><br>
+										<div class="col-xs-12 col-lg-3 clearPadding">
+											<span>Domain</span>
+											<input type="text" class="form-control">
+										</div>
+										<div class="col-xs-12 col-lg-8 col-lg-offset-1 clearPadding">
+											<span>Answer</span>
+											<input type="text" class="form-control">
+										</div>
 									</div> 
 									<div class="col-xs-12 col-lg-4">
-										\((g \circ h)(x)\)
+										\((g \circ h)(x)\)<br><br>
+										<div class="col-xs-12 col-lg-3 clearPadding">
+											<span>Domain</span>
+											<input type="text" class="form-control">
+										</div>
+										<div class="col-xs-12 col-lg-8 col-lg-offset-1 clearPadding">
+											<span>Answer</span>
+											<input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="col-xs-12 margin-top contentDividerLine"></div>
+									<div class="col-xs-12 col-lg-4 margin-top">
+										\((h \circ g)(x)\)<br><br>
+										<div class="col-xs-12 col-lg-3 clearPadding">
+											<span>Domain</span>
+											<input type="text" class="form-control">
+										</div>
+										<div class="col-xs-12 col-lg-8 col-lg-offset-1 clearPadding">
+											<span>Answer</span>
+											<input type="text" class="form-control">
+										</div>
 									</div>
 									<div class="col-xs-12 col-lg-4 margin-top">
-										\((h \circ g)(x)\)
+										\((h \circ h)(x)\)<br><br>
+										<div class="col-xs-12 col-lg-3 clearPadding">
+											<span>Domain</span>
+											<input type="text" class="form-control">
+										</div>
+										<div class="col-xs-12 col-lg-8 col-lg-offset-1 clearPadding">
+											<span>Answer</span>
+											<input type="text" class="form-control">
+										</div>
 									</div>
 									<div class="col-xs-12 col-lg-4 margin-top">
-										\((h \circ h)(x)\)
+										\((h \circ (g \circ f))(x)\)<br><br>
+										<div class="col-xs-12 col-lg-3 clearPadding">
+											<span>Domain</span>
+											<input type="text" class="form-control">
+										</div>
+										<div class="col-xs-12 col-lg-8 col-lg-offset-1 clearPadding">
+											<span>Answer</span>
+											<input type="text" class="form-control">
+										</div>
 									</div>
+									<div class="col-xs-12 margin-top contentDividerLine"></div>
 									<div class="col-xs-12 col-lg-4 margin-top">
-										\((h \circ (g \circ f))(x)\)
-									</div>
-									<div class="col-xs-12 col-lg-4 margin-top">
-										\(((h \circ g) \circ f)(x)\)
+										\(((h \circ g) \circ f)(x)\)<br><br>
+										<div class="col-xs-12 col-lg-3 clearPadding">
+											<span>Domain</span>
+											<input type="text" class="form-control">
+										</div>
+										<div class="col-xs-12 col-lg-8 col-lg-offset-1 clearPadding">
+											<span>Answer</span>
+											<input type="text" class="form-control">
+										</div>
 									</div> 
 								</section>
 							</div>
@@ -201,6 +285,14 @@ p, span{line-height: 25px;}
 
 		<script type="text/javascript">
 			var profilePage = "<?php echo $_SERVER['DOCUMENT_ROOT'];?>profile";
+
+			$( "input" ).click(function() {
+				$('#workArea').animate({
+						top: '0px'
+					}, 1000, function(){
+						//end animation
+					});
+			});
 		</script>
 
 		<?php

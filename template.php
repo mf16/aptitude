@@ -15,6 +15,7 @@ include_once "includes/global.php";
 $path = ltrim(str_replace('//','/',$_SERVER['REQUEST_URI']), '/');
 $elements = explode('/', $path);
 
+//Code strictly for server side
 $className = '';
 if($_SERVER['HTTP_HOST']=='dev.goaptitude.com'){
 	foreach($elements as $key => $element){
@@ -49,6 +50,7 @@ if($_SERVER['HTTP_HOST']=='dev.goaptitude.com'){
 		}
 	}
 }
+//Code for localhost development
 else{
 	if(count($elements) == 0 || (count($elements)==2 && !$elements[1])){                       
 		echo 'homepage';
