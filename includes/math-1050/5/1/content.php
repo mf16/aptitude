@@ -1,9 +1,11 @@
 <style type="text/css">
 .fullDarkContainer{
-	width: 103%;
+	width: calc(100% + 30px);
 background-color: #EBEBEB;
 margin-left: -15px;
 }
+p, span{line-height: 25px;}
+.padding-vertical{padding-top:30px; padding-bottom: 30px;}
 </style>
 
 <!-- wrapper -->
@@ -40,15 +42,13 @@ margin-left: -15px;
 							<section class="col-xs-12 margin-top">
 								<img class="graphImage" src="<?php echo $_SERVER['DOCUMENT_ROOT']?>img/math-1050/5/1/graph.png">
 							</section>
-						</section>
-						<section class="row-fluid">
-							<article class="col-xs-12">
+							<article class="col-xs-12 margin-top">
 								<p>In the expression \(g(f(x))\), the function \(f\) is often called the 'inside' function while \(g\) is often called the 'outside' function. There are two ways to go about evaluating composite functions - 'inside out' and 'outside in' - depending on which function we replace with its formula first. Both ways are demonstrated in the following example.</p>
 							</article>
 						</section>
 						<section class="row-fluid">
-							<div class="col-xs-12 margin-top fullDarkContainer">
-								<div class="col-md-12 margin-top practiceProblems">
+							<div class="col-xs-12 margin-top fullDarkContainer padding-vertical">
+								<div class="col-md-12 practiceProblems">
 									<div class="col-sm-12 col-lg-1">
 										<span>Let</span><br> 
 									</div>
@@ -61,18 +61,50 @@ margin-left: -15px;
 									<div class="col-sm-12 col-lg-3">
 										<span>\(h(x) = \dfrac{2x}{x+1}\)</span><br>
 									</div>
+									<div class="col-sm-12">
+										<span>In the following problems, find the indicated function value.</span>
+									</div>
 								</div>	
-								<div class="dataContainer col-sm-12">
+								<div class="dataContainer padding-vertical col-sm-12">
 									<div class="col-xs-12 col-lg-4">
-										test
+										\((g \circ f)(1)\)
 									</div> 
 									<div class="col-xs-12 col-lg-4">
-										test
+										\((f \circ g)(1)\)
 									</div> 
 									<div class="col-xs-12 col-lg-4">
-										test
+										\((g \circ g)(6)\)
 									</div> 
 								</div>
+								<article class="col-xs-12 contentDivider"></article>
+								<section class="col-xs-12">
+									<article>
+										<span>In the following problems, find and simplify the indicated composite functions.  State the domain of each.</span>
+									</article>
+								</section>
+								<section class="dataContainer padding-vertical margin-top col-sm-12">
+									<div class="col-xs-12 col-lg-4">
+										\((g \circ f)(x)\)
+									</div> 
+									<div class="col-xs-12 col-lg-4">
+										\((f \circ g)(x)\)
+									</div> 
+									<div class="col-xs-12 col-lg-4">
+										\((g \circ h)(x)\)
+									</div>
+									<div class="col-xs-12 col-lg-4 margin-top">
+										\((h \circ g)(x)\)
+									</div>
+									<div class="col-xs-12 col-lg-4 margin-top">
+										\((h \circ h)(x)\)
+									</div>
+									<div class="col-xs-12 col-lg-4 margin-top">
+										\((h \circ (g \circ f))(x)\)
+									</div>
+									<div class="col-xs-12 col-lg-4 margin-top">
+										\(((h \circ g) \circ f)(x)\)
+									</div> 
+								</section>
 							</div>
 						</section>
 					</section>
