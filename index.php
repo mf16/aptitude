@@ -1,15 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors','1');
-/////////////////////////////////////////////////////////////
-//
-//				template.php
-//			General template file for site
-//			
-//			Mitch Facer - March 2014
-//
-/////////////////////////////////////////////////////////////
- 
+
 include_once "includes/global.php";
 
 $path = ltrim(str_replace('//','/',$_SERVER['REQUEST_URI']), '/');
