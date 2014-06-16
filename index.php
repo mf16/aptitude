@@ -9,7 +9,7 @@ ini_set('display_errors','1');
 //			Mitch Facer - March 2014
 //
 /////////////////////////////////////////////////////////////
-
+ 
 include_once "includes/global.php";
 
 $path = ltrim(str_replace('//','/',$_SERVER['REQUEST_URI']), '/');
