@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.6.16, for Win32 (x86)
 --
--- Host: localhost    Database: math
+-- Host: localhost   t Database: math
 -- ------------------------------------------------------
 -- Server version	5.6.16
 
