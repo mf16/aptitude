@@ -4,6 +4,7 @@ ini_set('display_errors','1');
 
 include_once "includes/global.php";
 
+
 $path = ltrim(str_replace('//','/',$_SERVER['REQUEST_URI']), '/');
 $elements = explode('/', $path);
 
