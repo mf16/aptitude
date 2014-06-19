@@ -8,7 +8,7 @@ include_once "includes/global.php";
 $path = ltrim(str_replace('//','/',$_SERVER['REQUEST_URI']), '/');
 $elements = explode('/', $path);
 
-//Code strictly for server side
+//SERVER SIDE CODE TO DISPLAY DEMO
 $className = '';
 if($_SERVER['HTTP_HOST']=='dev.goaptitude.com'){
 	foreach($elements as $key => $element){
@@ -20,7 +20,7 @@ if($_SERVER['HTTP_HOST']=='dev.goaptitude.com'){
 			}
 			break;
 		} 
-		else if(strtolower($className)=='math'){
+		else if(strtolower($className)=='section'){
 			if(isset($elements[$key+1])){
 				$subjectName=$elements[$key+1];
 				if(isset($elements[$key+2])){
@@ -43,7 +43,7 @@ if($_SERVER['HTTP_HOST']=='dev.goaptitude.com'){
 		}
 	}
 }
-//Code for localhost development
+//LOCAL DEVELOPMENT CODE
 else{
 	if(count($elements) == 0 || (count($elements)==2 && !$elements[1])){                       
 		echo 'homepage';
