@@ -14,7 +14,7 @@ class Concept extends ConceptDAO {
 		$headerText='';
 		$headerText.='<script src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';
 		$headerText.='<link href="'.$_SERVER['DOCUMENT_ROOT'].'css/includes/'.strtolower(__CLASS__).'.css" type="text/css" rel="stylesheet">';
-		return $headerText;
+		return $headerText; 
 	}
 
 	function draw(){
