@@ -1,300 +1,204 @@
 <style type="text/css">
-.fullDarkContainer{
-	width: calc(100% + 30px);
-background-color: #EBEBEB;
-margin-left: -15px;
+body{
+	background-color: #EBEBEB;
 }
-p, span{line-height: 25px;}
-.padding-vertical{padding-top:30px; padding-bottom: 30px;}
-.clearPadding{
-	padding: 0px;
+/*STICKY FOOTER - START*/
+	* {
+	  margin: 0;
+	}
+	html, body {
+	  height: 100%;
+	}
+	.page-wrap {
+	  min-height: 100%;
+	  /* equal to footer height */
+	  margin-bottom: -90px; 
+	}
+	.page-wrap:after {
+	  content: "";
+	  display: block;
+	}
+	.site-footer, .page-wrap:after {
+	  /* .push must be the same height as footer */
+	  height: 90px; 
+	}
+	footer{
+		font-family: nexabold;
+		z-index: 0;
+		background-color: #EBEBEB !important;
+		box-shadow: -2px -1px 2px rgba(0, 0, 0, 0.0);
+	}
+	footer>section>img {
+		width: 10px;
+		margin-top: -3px;
+	}
+/*STICKY FOOTER - END*/
+
+
+h1{
+	font-size: 60px;
+	font-family: minion pro;
+	color:#F79234;
+	text-transform:uppercase;
+	letter-spacing:2px;
 }
-#workArea{
-	height: 70px;
+.chapter-number>img{
 	width: 100%;
-	background-color: white;
-	position: absolute;
-	top: -70px;
-	left: 0px;
-	z-index: 10;
-	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+.pretestWrapper{
+	background-color: #EBEBEB;
+}
+.text-body{
+	padding-left: 0px !important;
+	margin-top:5px;
+}
+.material-body{
+	padding-left: 0px;
+	padding-top: 8%;
+	padding-right: 25px;
+}
+.no-padding{
+	padding:0px;
+}
+.section-number{
+	font-size: 20px;
+	font-family: nexabold;
+	color: #606163;
+	text-transform: uppercase;
+	letter-spacing:4px;
+	padding-bottom:30px;
+}
+.section-title{
+	margin-bottom: 0px;
+}
+.prequizTitle{
+	font-size: 34px;
+	font-family: nexabold;
+	color: #606163;
+	text-transform: uppercase;
+	letter-spacing: 6px;
+	padding-bottom: 30px;
+}
+.prequizExplanation{
+	margin-top:130px;
+}
+p{
+	font-family: open sans;
+	font-size: 14px;
+	color: #606163;
+}
+.readyButton{
+	padding: 11px;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	background-color: #F79234;
+	border: 0px;
+	color: #EBEBEB;
+	width: 100%;
+	margin-top: 25px;
+	max-width: 294px;
+}
+
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+	h1{
+		font-size: 45px;
+	}
+	.material-body{
+		padding-top: 3%;
+	}
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+/* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+/* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+/* Styles */
+}
+
+button{
+	-webkit-transition: background-color .3s;  /* For Safari 3.1 to 6.0 */
+    transition: background-color .3s;
+	outline: none;
 }
 </style>
 
 <div id="workArea"></div>
 <!-- wrapper -->
-<div class="page-wrap">
-			<section id="headerSpacerSmall"></section>
-			<section class="container loader"></section>
-			<section class="body">
-				<section class="row-fluid">
-					<section class="col-lg-9 col-xs-12">
-						<section class="row-fluid margin-top" id="initialSpacer">
-							<section class="col-lg-12">
-								<section class="col-sm-12 col-lg-6 video">
-									<iframe src="//www.youtube.com/embed/VhokQhjl5t0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-								</section>
-								<article class="col-lg-6 headerOutline">
-									<span>Sets of Numbers</span>
-								</article>
-								<p>Before we embark upon any further adventures with functions, we need to take some time to gather our thoughts and gain some perspective. Chapter 1 first introduced us to functions in Section 1.3. At that time, functions were specific kinds of relations - sets of points in the plane which passed the Vertical Line Test, Theorem 1.1. In Section 1.4, we developed the idea that functions are processes - rules which match inputs to outputs - and this gave rise to the concepts of domain and range. We spoke about how functions could be combined in Section 1.5 using the four basic arithmetic operations, took a more detailed look at their graphs in Section 1.6 and studied how their graphs behaved under certain classes of transformations in Section 1.7. In Chapter 2, we took a closer look at three families of functions: linear functions (Section 2.1), absolute value functions1 (Section 2.2), and quadratic functions (Section 2.3). Linear and quadratic functions were special cases of polynomial functions, which we studied in generality in Chapter 3. Chapter 3 culminated with the Real Factorization Theorem, Theorem 3.16, which says that all polynomial functions with real coefficients can be thought of as products of linear and quadratic functions. Our next step was to enlarge our field of study to rational functions in Chapter 4. Being quotients of polynomials, we can ultimately view this family of functions as being built up of linear and quadratic functions as well. So in some sense, Chapters 2, 3, and 4 can be thought of as an exhaustive study of linear and quadratic functions and their arithmetic combinations as described in Section 1.5. We now wish to study other algebraic functions, such as \(f(x) = \sqrt{x}\) and \(g(x) = x^{2/3}\), and the purpose of the first two sections of this chapter is to see how these kinds of functions arise from polynomial and rational functions. To that end, we first study a new way to combine functions as defined below.</p>
-							</section>
+<div class="page-wrap pretestWrapper">
+	<section id="headerSpacerSmall"></section>
+		<section class="container loader">
+		</section>
+		<section class="body">
+			<section class="row-fluid">
+				<section class="col-xs-12 text-body">
+					<section class="col-sm-2 col-xs-2 no-padding">
+						<div class="chapter-number">
+							<img src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/chapter-arrow.png"/>
+						</div>
+					</section>
+					<section class="col-md-10 material-body col-sm-offset-1 col-xs-offset-1 col-md-offset-0">
+						<section class="row-fluid section-title-container">
+							<h1 class="section-title">sets of numbers</h1>
+							<span class="section-number">PREQUIZ</span><br>
 						</section>
-						<section class="row-fluid"><!--DEFINITION: START-->
-							<article class="col-xs-12 margin-top">
-								<article class="definition">
-									<blockquote>
-										<p>Suppose \(f\) and \(g\) are two functions. The <strong>composite</strong> of \(g\) with \(f\), denoted \(g \circ f\), is deﬁned by the formula \((g \circ f)(x) = g(f(x))\), provided \(x\) is an element of the domain of \(f\) and \(f(x)\) is an element of the domain of \(g\).</p>
-									</blockquote>
-								</article>
-							</article>
-						</section><!--DEFINITION: END-->
-						<section class="row-fluid">
-							<section class="col-xs-12 margin-top">
-								<p>The quantity \(g \circ f\) is also read `\(g\) composed with \(f\)' or, more simply `\(g\) of \(f\).' At its most basic level, Definition 5.1 tells us to obtain the formula for \((g \circ f) (x)\), we replace every occurrence of \(x\) in the formula for \(g(x)\) with the formula we have for \(f(x)\). If we take a step back and look at this from a procedural, `inputs and outputs' perspective, Definition 5.1 tells us the output from \(g \circ f\) is found by taking the output from \(f\), \(f(x)\), and then making that the input to \(g\). The result, \(g(f(x))\), is the output from \(g \circ f\). From this perspective, we see \(g \circ f\) as a two step process taking an input \(x\) and first applying the procedure \(f\) then applying the procedure \(g\). Abstractly, we have:</p>
-							</section>
-							<section class="col-xs-12 margin-top">
-								<img class="graphImage" src="<?php echo $_SERVER['DOCUMENT_ROOT']?>img/math-1050/5/1/graph.png">
-							</section>
-							<article class="col-xs-12 margin-top">
-								<p>In the expression \(g(f(x))\), the function \(f\) is often called the 'inside' function while \(g\) is often called the 'outside' function. There are two ways to go about evaluating composite functions - 'inside out' and 'outside in' - depending on which function we replace with its formula first. Both ways are demonstrated in the following example.</p>
-							</article>
-						</section>
-						<section class="row-fluid">
-							<div class="col-xs-12 margin-top fullDarkContainer padding-vertical">
-								<div class="col-md-12 practiceProblems">
-									<div class="col-sm-12 col-lg-1">
-										<span>Let</span><br> 
-									</div>
-									<div class="col-sm-12 col-lg-3">
-										<span>\(f(x) = x^2-4x\)</span><br>
-									</div>
-									<div class="col-sm-12 col-lg-3">
-										<span>\(g(x) = 2-\sqrt{x+3}\)</span><br>
-									</div>
-									<div class="col-sm-12 col-lg-3">
-										<span>\(h(x) = \dfrac{2x}{x+1}\)</span><br>
-									</div>
-									<div class="col-sm-12">
-										<span>In the following problems, find the indicated function value.</span>
-									</div>
-								</div>	
-								<div class="dataContainer padding-vertical col-sm-12">
-									<div class="col-xs-12 col-lg-4">
-										<span>\((g \circ f)(1)\)</span><br><br>
-										<div class="col-xs-12 col-lg-8 clearPadding">
-											<span>Answer</span>
-											<input type="text" class="form-control">
-										</div>
-									</div> 
-									<div class="col-xs-12 col-lg-4">
-										<span>\((f \circ g)(1)\)</span><br><br>
-										<div class="col-xs-12 col-lg-8 clearPadding">
-											<span>Answer</span>
-											<input type="text" class="form-control">
-										</div>
-									</div> 
-									<div class="col-xs-12 col-lg-4">
-										<span>\((g \circ g)(6)\)</span><br><br>
-										<div class="col-xs-12 col-lg-8 clearPadding">
-											<span>Answer</span>
-											<input type="text" class="form-control">
-										</div>
-									</div> 
-								</div>
-								<article class="col-xs-12 contentDivider"></article>
-								<section class="col-xs-12">
-									<article>
-										<span>In the following problems, find and simplify the indicated composite functions.  State the domain of each.</span>
-									</article>
-								</section>
-								<section class="dataContainer padding-vertical margin-top col-sm-12">
-									<div class="col-xs-12 col-lg-4">
-										\((g \circ f)(x)\)<br><br>
-										<div class="col-xs-12 col-lg-3 clearPadding">
-											<span>Domain</span>
-											<input type="text" class="form-control">
-										</div>
-										<div class="col-xs-12 col-lg-8 col-lg-offset-1 clearPadding">
-											<span>Answer</span>
-											<input type="text" class="form-control">
-										</div>
-									</div> 
-									<div class="col-xs-12 col-lg-4">
-										\((f \circ g)(x)\)<br><br>
-										<div class="col-xs-12 col-lg-3 clearPadding">
-											<span>Domain</span>
-											<input type="text" class="form-control">
-										</div>
-										<div class="col-xs-12 col-lg-8 col-lg-offset-1 clearPadding">
-											<span>Answer</span>
-											<input type="text" class="form-control">
-										</div>
-									</div> 
-									<div class="col-xs-12 col-lg-4">
-										\((g \circ h)(x)\)<br><br>
-										<div class="col-xs-12 col-lg-3 clearPadding">
-											<span>Domain</span>
-											<input type="text" class="form-control">
-										</div>
-										<div class="col-xs-12 col-lg-8 col-lg-offset-1 clearPadding">
-											<span>Answer</span>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="col-xs-12 margin-top contentDividerLine"></div>
-									<div class="col-xs-12 col-lg-4 margin-top">
-										\((h \circ g)(x)\)<br><br>
-										<div class="col-xs-12 col-lg-3 clearPadding">
-											<span>Domain</span>
-											<input type="text" class="form-control">
-										</div>
-										<div class="col-xs-12 col-lg-8 col-lg-offset-1 clearPadding">
-											<span>Answer</span>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="col-xs-12 col-lg-4 margin-top">
-										\((h \circ h)(x)\)<br><br>
-										<div class="col-xs-12 col-lg-3 clearPadding">
-											<span>Domain</span>
-											<input type="text" class="form-control">
-										</div>
-										<div class="col-xs-12 col-lg-8 col-lg-offset-1 clearPadding">
-											<span>Answer</span>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="col-xs-12 col-lg-4 margin-top">
-										\((h \circ (g \circ f))(x)\)<br><br>
-										<div class="col-xs-12 col-lg-3 clearPadding">
-											<span>Domain</span>
-											<input type="text" class="form-control">
-										</div>
-										<div class="col-xs-12 col-lg-8 col-lg-offset-1 clearPadding">
-											<span>Answer</span>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="col-xs-12 margin-top contentDividerLine"></div>
-									<div class="col-xs-12 col-lg-4 margin-top">
-										\(((h \circ g) \circ f)(x)\)<br><br>
-										<div class="col-xs-12 col-lg-3 clearPadding">
-											<span>Domain</span>
-											<input type="text" class="form-control">
-										</div>
-										<div class="col-xs-12 col-lg-8 col-lg-offset-1 clearPadding">
-											<span>Answer</span>
-											<input type="text" class="form-control">
-										</div>
-									</div> 
-								</section>
-							</div>
+						<section class="row-fluid prequizExplanation">
+							<span class="prequizTitle">WELCOME TO THE PREQUIZ!</span>
+							<p>This quiz is to help re-evaluate what you have already learned before you move onto the next chapter.</p>
+							<br>
+							<button class="readyButton col-md-3 col-xs-12">I'm Ready</button>
 						</section>
 					</section>
-
-
-
-					<!--RIGHT SIDEBAR: BEGIN-->
-					<section class="col-lg-3 col-sm-12 col-sm-12 rightSideBar">
-						<section class="row-fluid">
-							<article class="col-xs-12">
-								<!--Header goes here-->
-								<span class="header"></span>
-							</article><br>
-							<article class="divider col-xs-12"></article>
-							<section class="row-fluid content">
-								<article class="col-xs-12">
-									<article class="row hidden-md hidden-sm hidden-xs">
-										<!--Description sentance here-->
-										<span></span>
-									</article>
-									<article class="row pointers">
-										<!--<section class="col-xs-4 col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="importantInformation">
-											<article class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
-												<img onclick="changeModal('', '')" data-toggle="modal" data-target="#importantInformationModal" src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/icons/info.png">
-											</article>
-											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
-												<!--Important info section
-											</article>
-										</section>
-										<section class="col-xs-4 col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="expectedPitfalls">
-											<article class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
-												<img onclick="changeModal('', '')"  data-toggle="modal" data-target="#importantInformationModal" src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/icons/warning.png">
-											</article>
-											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
-												<!--Pitfalls section
-											</article>
-										</section>
-										<section class="col-xs-4 col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="moreInformation">
-											<article class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
-												<img onclick="changeModal('', '')" data-toggle="modal" data-target="#importantInformationModal"  src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/icons/cluster.png">
-											</article>
-											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
-												<!--Additional resources section
-											</article>
-										</section>
-										<section class="hidden-xs col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="recycledConcept">
-											<article class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
-												<img onclick="changeModal('', '')" data-toggle="modal" data-target="#importantInformationModal"  src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/icons/refresh.png">
-											</article>
-											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
-												<!--Recycled section
-											</article>
-										</section>-->
-									</article>
-								</article>
-							</section>
-						</section>
-					</section>
-					<!--RIGHT SIDEBAR: END-->
 				</section>
 			</section>
-			<section class="footerSpacer">
-			</section>
-		</div>
-		<!-- wrapper : end -->
-		<footer class="site-footer col-md-12">
-			<section class="col-md-3">
-				<img src = "<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/icon.ico" />
-				<span>Powered by Aptitude LLC.</span>
-			</section>
-			<section class="col-md-2 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-6" id="feedback">
-				<a href="feedback.php"><span>Have feedback?</span></a>
-			</section>
-		</footer>
+		</section>
+	</section>
+</div>
+<footer class="site-footer">
+  <section class="col-xs-4"><img src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/left-arrow.png" style="margin-right: 7px;"> BACK</section>
+  <section class="col-xs-8 text-right" style="padding-right:45px;">SKIP PREQUIZ <img src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/right-arrow.png"  style="margin-left: 7px;"></section>
 
-		<!-- Important Imformation Modal -->
-		<div class="modal fade" id="importantInformationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		        <h4 class="modal-title" id="myModalLabel">Important Information</h4>
-		      </div>
-		      <div class="modal-body">
-		       	...
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
+</footer>
 
-
-		<script type="text/javascript">
-			var profilePage = "<?php echo $_SERVER['DOCUMENT_ROOT'];?>profile";
-
-			$( "input" ).click(function() {
-				$('#workArea').animate({
-						top: '0px'
-					}, 1000, function(){
-						//end animation
-					});
-			});
-		</script>
-
-		<?php
-		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';
-		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/fitVid/fitVid.js"></script>';
+<script type="text/javascript">
+	var $readyButton = $('.readyButton');
+	$readyButton.click(function() {
+		$readyButton.css('background-color', '#BEBEBE');
+		$.ajax({url:"<?php echo $_SERVER['DOCUMENT_ROOT'] ?>includes/math-1050/5/1/ajaxElements/prequiz.php",success:function(result){
+			$("#div1").html(result);
+		}});
+	});
+	
+</script>
