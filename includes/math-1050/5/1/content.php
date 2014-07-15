@@ -197,7 +197,7 @@ button{
 	$readyButton.click(function() {
 		$readyButton.css('background-color', '#BEBEBE');
 		$.ajax({url:"<?php echo $_SERVER['DOCUMENT_ROOT'] ?>includes/math-1050/5/1/ajaxElements/prequiz.php",success:function(result){
-			$("#div1").html(result);
+			$(".pretestWrapper").animate({opacity:"0.0"});
 		}});
 	});
 	
