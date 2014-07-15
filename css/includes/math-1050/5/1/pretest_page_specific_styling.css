@@ -1,0 +1,11 @@
+.prequizTitle{
+	font-size: 34px;
+	font-family: nexabold;
+	color: #606163;
+	text-transform: uppercase;
+	letter-spacing: 6px;
+	padding-bottom: 30px;
+}
+.prequizExplanation{
+	margin-top:130px;
+}
