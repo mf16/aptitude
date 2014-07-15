@@ -1,17 +1,5 @@
-<style type="text/css">
-.prequizTitle{
-	font-size: 34px;
-	font-family: nexabold;
-	color: #606163;
-	text-transform: uppercase;
-	letter-spacing: 6px;
-	padding-bottom: 30px;
-}
-.prequizExplanation{
-	margin-top:130px;
-}
-</style>
-
+<link rel="stylesheet" type="text/css" href="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>css/includes/math-1050/5/1/pretest_page_specific_styling.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>css/includes/math-1050/5/1/pretest_global_styling.css">
 <div id="workArea"></div>
 <!-- wrapper -->
 <div class="page-wrap pretestWrapper">
