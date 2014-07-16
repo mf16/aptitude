@@ -2,32 +2,31 @@
 <link rel="stylesheet" type="text/css" href="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>css/includes/math-1050/5/1/pretest_page_specific_styling.css">
 <div id="workArea"></div>
 <!-- wrapper -->
-<div class="page-wrap pretestWrapper">
+<div class="pretestWrapper page-wrap ">
 	<section id="headerSpacerSmall"></section>
 		<section class="container loader">
 		</section>
 		<section class="body">
 			<section class="row-fluid">
 				<section class="col-xs-12 text-body pretestQuestionsContainer">
-					<p>Does the following graph represent a function?</p>
-					<img class="graphQuestion" src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/math-1050/problem_assets/1.png"/>
+					<p>Let: \(x^2 - x + 1\) and \(g(x) = 3x - 5\)</p>
+					<p>find f(g(x))</p>
 					<br>
-					<input type="radio" id="radio1" name="radios" value="yes" checked>
-				       <label for="radio1">Yes</label>
-				    <input type="radio" id="radio2" name="radios" value="no">
-				       <label for="radio2">No</label>
-				</section>
-				<section class="col-md-6 col-md-offset-3 text-center">
-					<button class="readyButton">Next</button>
+					<div class="input-group col-xs-12 col-md-4 col-md-offset-4">
+						<div class="input-group-addon">\(f(g(x)) = \)</div>
+						<input class="form-control" type="text">
+					</div>
+					<section class="">
+					</section>
 				</section>
 			</section>
 		</section>
 	</section>
 </div>
-<footer class="site-footer row">
-  	<section class="col-md-4"><img src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/left-arrow.png" style="margin-right: 7px;"> BACK</section>
+<footer class="row site-footer">
+  	<section class="col-md-4 col-xs-12"><img src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/left-arrow.png" style="margin-right: 7px;"> BACK</section>
 
-	<section class="col-md-4 text-center">
+	<section class="col-md-4 col-xs-12 text-center">
 		<div class="meterwrapper">
 			<!-- Start of meter -->
 			<div class="meter">
@@ -36,7 +35,7 @@
 		</div>
 	</section>
 
- 	<section class="col-md-4 text-right" style="padding-right:45px;">SKIP PREQUIZ <img src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/right-arrow.png"  style="margin-left: 7px;"></section>
+ 	<section class="col-md-4 col-xs-12 text-right" style="padding-right:45px;">SKIP PREQUIZ <img src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/right-arrow.png"  style="margin-left: 7px;"></section>
 
 </footer>
 
@@ -49,6 +48,10 @@
 			$("#prequiz").css("padding-top","80px");
 			$(".pretestWrapper").animate({opacity:"0.0"});
 		}});
+	});
+
+	$(document).ready({
+		$('input').css('height', $('.input-group-addon').css('height'));
 	});
 	
 </script>
