@@ -37,20 +37,8 @@ class Prequiz extends PrequizDAO {
 	}
 
 	function nextProblem(){
-echo '
-<head>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [["$","$"],["\\(","\\)"]]
-    }
-  });
-</script>
-<script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full">
-</script>
-</head>
-';
+		//unset($_SESSION['prequizProblems']);
+
 		$problemNum=$_REQUEST['problemNum'];
 		echo 'problemNum:'.$problemNum.'<br/><br/>';
 		if($problemNum>10){
@@ -59,66 +47,95 @@ echo '
 		}
 		$problemInfo=$this->getNextQuestion($this->subjectName,$this->chapterid,$this->sectionid);
 		echo $problemInfo['problem'];
-		echo '<input id="studentAns" type="text">';
-		echo '
-
-<script>
-  //
-  //  Use a closure to hide the local variables from the
-  //  global namespace
-  //
-  (function () {
-    var QUEUE = MathJax.Hub.queue;  // shorthand for the queue
-    var math = null;                // the element jax for the math output.
-
-    //
-    //  Get the element jax when MathJax has produced it.
-    //
-    QUEUE.Push(function () {
-      math = MathJax.Hub.getAllJax("MathOutput")[0];
-    });
-
-    //
-    //  The onchange event handler that typesets the
-    //  math entered by the user
-    //
-    window.UpdateMath = function (TeX) {
-      QUEUE.Push(["Text",math,"\\displaystyle{"+TeX+"}"]);
-    }
-  })();
-</script>
-
-<input id="MathInput" size="50" onchange="UpdateMath(this.value)" />
-<p>
-
-<div id="MathOutput">
-You typed: ${}$
-</div>';
-		echo '<div id="submitPrequizAnswer" onclick="">submit</div>';
+		if($problemInfo['problem_uri']){
+			echo '<br/>';
+			echo '<img src="'.$_SERVER['DOCUMENT_ROOT'].$problemInfo['problem_uri'].'"/>';
+			echo '<br/>';
+		}
+		echo '<input id="studentAns" type="text" onkeyup="interpretLex(\'studentAns\',\'displayStudentAns\')">';
+		echo '<div id="displayStudentAns"></div>';
 		echo '<div id="checkAnswerReturn"> </div>';
-	echo '<script src="/aptitude/js/jquery-1.11.0/jquery.min.js"></script>';
-	echo '<script>
-	var $submitPrequizAnswer= $(\'#submitPrequizAnswer\');
-	$submitPrequizAnswer.click(function() {
-		if($("#studentAns").val()==""){
-			alert("please enter a valid answer before clicking submit");
+		if($problemInfo['domain']){
+			echo '<br/>';
+			echo 'Domain: ';
+			echo '<input id="studentDomain" type="text" onkeyup="interpretLex(\'studentDomain\',\'displayStudentDomain\')">';
+			echo '<div id="displayStudentDomain"></div>';
+			echo '<div id="checkDomainReturn"> </div>';
+		}
+		echo '<br/>';
+		echo '<br/>';
+		echo '<div id="submitPrequizAnswer" onclick="">submit</div>';
+		echo '<script>
+		var $submitPrequizAnswer= $(\'#submitPrequizAnswer\');
+		$submitPrequizAnswer.click(function() {
+			if($("#studentAns").val()==""){
+				alert("please enter a valid answer before clicking submit");
+			} else {
+				var studentAns=$("#studentAns").val();
+				$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=checkAnswer&problemid='.$problemInfo['problem_id'].'&var=1&studentAns="+encodeURIComponent(studentAns),success:function(result){
+					if(result=="correct"){
+						$("#checkAnswerReturn").html("Correct<br/><div id=\'nextProblem\' onclick=\'nextProblem();\' style=\'display:none;\'>next problem</div>");
+						$("#submitPrequizAnswer").hide();
+					} else {
+						$("#checkAnswerReturn").html("Incorrect");
+					}
+					$("#nextProblem").show();
+					$("#prequiz").css("padding-top","80px");
+				}});
+			}';
+
+		if($problemInfo['domain']){
+			echo '
+		if($("#studentDomain").val()==""){
+			alert("please enter a valid domain before clicking submit");
 		} else {
-			var studentAns=$("#studentAns").val();
-			$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=checkAnswer&problemid='.$problemInfo['problem_id'].'&var=1&studentAns="+encodeURIComponent(studentAns),success:function(result){
+			var studentDomain=$("#studentDomain").val();
+			$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=checkDomain&problemid='.$problemInfo['problem_id'].'&var=1&studentDomain="+encodeURIComponent(studentDomain),success:function(result){
 				if(result=="correct"){
-					$("#checkAnswerReturn").html("Correct");
+					$("#checkDomainReturn").html("Correct");
 				} else {
-					$("#checkAnswerReturn").html("Incorrect");
+					$("#checkDomainReturn").html("Incorrect");
 				}
-				$("#checkAnswerReturn").html(result);
-				$("#prequiz").css("padding-top","80px");
 			}});
 		}
+		';
+		}
+		echo '
 	});
+	function nextProblem(){
+		$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=nextProblem&problemNum='.($problemNum+1).'&subjectName='.$this->subjectName.'&chapterid='.$this->chapterid.'&sectionid='.$this->sectionid.'",success:function(result){
+			$("#prequiz").html(result);
+		}});
+	}
+	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+	function interpretLex(fromElementid,toElementid){
+		$("#"+toElementid).html("&#92("+$("#"+fromElementid).val()+"&#92)");
+		var math=document.getElementById(toElementid);
+		MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+	}
 	</script>';
 		
 	}
 
+	function checkDomain(){
+		$problemid=$_REQUEST['problemid'];
+		$var=$_REQUEST['var'];
+		$studentDomain=$_REQUEST['studentDomain'];
+		//print_r('problemid:'.$problemid.'<br/>var:'.$var.'<br/>student ans:'.$studentAns);
+		$problemInfo=$this->getProblemByid($problemid);
+		//krumo($problemInfo);
+		//fix latex, etc here
+		//calculate answer from $problemInfo['problem']
+		$correctDomain=$problemInfo['domain'];
+
+		if(str_replace(' ','',$studentDomain)==$correctDomain){
+			echo 'correct';
+			//add to db
+		} else {
+			echo 'incorrect';
+			//add to db
+		}
+	}
 	function checkAnswer(){
 		$problemid=$_REQUEST['problemid'];
 		$var=$_REQUEST['var'];
@@ -129,12 +146,18 @@ You typed: ${}$
 		//fix latex, etc here
 		//calculate answer from $problemInfo['problem']
 		$correctAns=$problemInfo['answer'];
-		echo $correctAns.'<br/>';
-		echo $studentAns;
+
+		//do not use this question again - eventually we will load from the user_attempts table
+		if(!in_array($problemid,$_SESSION['prequizProblems'])){
+			$_SESSION['prequizProblems'][]=$problemid;
+		}
+
 		if(str_replace(' ','',$studentAns)==$correctAns){
 			echo 'correct';
+			//add to db
 		} else {
 			echo 'incorrect';
+			//add to db
 		}
 	}
 }
