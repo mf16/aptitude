@@ -7,7 +7,7 @@ class PrequizDAO {
 	function getNextQuestion($subjectName,$chapterid,$sectionid){
 		global $db;
 		$usedProblemidString='';
-		foreach($_SESSION['prequizProblems'] as $problemid){
+		foreach($_SESSION['prequizProblems'] as $problemid => $problemInfo){
 			$usedProblemidString.=' AND problem_id != '.$problemid;
 		}
 		$sql="SELECT problem_id,concept_id,problem,problem_uri FROM math.problems WHERE chapter_id=? AND section_id=? ".$usedProblemidString." ORDER BY RAND() LIMIT 1";

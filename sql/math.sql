@@ -227,7 +227,7 @@ CREATE TABLE `problems` (
   KEY `chapter_id` (`chapter_id`),
   KEY `lesson_id` (`section_id`),
   KEY `concept_id` (`concept_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -236,8 +236,9 @@ CREATE TABLE `problems` (
 
 LOCK TABLES `problems` WRITE;
 /*!40000 ALTER TABLE `problems` DISABLE KEYS */;
-INSERT INTO `problems` VALUES (1,5,1,0,'f(x) = x2 - x + 1 and g(x) = 3x - 5<br/><br/>f(g(x)):','9x^2-33x+31','(-\\infty,\\infty)','','');
-INSERT INTO `problems` VALUES (2,5,1,0,'Does this graph represent a valid function?','yes','','','img/math-1050/problem_assets/1.png');
+INSERT INTO `problems` VALUES (1,5,1,1,'f(x) = x2 - x + 1 and g(x) = 3x - 5<br/><br/>f(g(x)):','9x^2-33x+31','(-\\infty,\\infty)','','');
+INSERT INTO `problems` VALUES (2,5,1,1,'Does this graph represent a valid function?','yes','','','img/math-1050/problem_assets/1.png');
+INSERT INTO `problems` VALUES (3,5,1,1,'f(x) = 3x - 1 and g(x) = 1/(x + 3)\n\nfind f(g(5))','-(x/(x+3))','(-\\infty;-3)','',NULL);
 /*!40000 ALTER TABLE `problems` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -482,4 +483,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-16 15:31:38
+-- Dump completed on 2014-07-16 17:07:19

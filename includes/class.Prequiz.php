@@ -4,6 +4,7 @@
 // Used by all prequizes regardless of subject
 
 // include 'includes/class.MathPrequiz.php';
+//unset($_SESSION['problemNum']);
 include_once 'global.php';
 include 'class.PrequizDAO.php';
 class Prequiz extends PrequizDAO {
@@ -38,8 +39,14 @@ class Prequiz extends PrequizDAO {
 
 	function nextProblem(){
 		//unset($_SESSION['prequizProblems']);
+		krumo($_SESSION);
 
-		$problemNum=$_REQUEST['problemNum'];
+		if(!$_SESSION['problemNum']){
+			$_SESSION['problemNum']=1;
+			$problemNum=1;
+		} else {
+			$problemNum=($_SESSION['problemNum']+1);
+		}
 		echo 'problemNum:'.$problemNum.'<br/><br/>';
 		if($problemNum>10){
 			//end - 10 questions have been answered.
@@ -74,11 +81,12 @@ class Prequiz extends PrequizDAO {
 				var studentAns=$("#studentAns").val();
 				$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=checkAnswer&problemid='.$problemInfo['problem_id'].'&var=1&studentAns="+encodeURIComponent(studentAns),success:function(result){
 					if(result=="correct"){
-						$("#checkAnswerReturn").html("Correct<br/><div id=\'nextProblem\' onclick=\'nextProblem();\' style=\'display:none;\'>next problem</div>");
+						$("#checkAnswerReturn").html("Correct<br/>");
 						$("#submitPrequizAnswer").hide();
 					} else {
 						$("#checkAnswerReturn").html("Incorrect");
 					}
+					$("#checkAnswerReturn").append("<div id=\'nextProblem\' onclick=\'nextProblem();\' style=\'display:none;\'>next problem</div>");
 					$("#nextProblem").show();
 					$("#prequiz").css("padding-top","80px");
 				}});
@@ -103,7 +111,7 @@ class Prequiz extends PrequizDAO {
 		echo '
 	});
 	function nextProblem(){
-		$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=nextProblem&problemNum='.($problemNum+1).'&subjectName='.$this->subjectName.'&chapterid='.$this->chapterid.'&sectionid='.$this->sectionid.'",success:function(result){
+		$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=nextProblem&subjectName='.$this->subjectName.'&chapterid='.$this->chapterid.'&sectionid='.$this->sectionid.'",success:function(result){
 			$("#prequiz").html(result);
 		}});
 	}
@@ -142,14 +150,13 @@ class Prequiz extends PrequizDAO {
 		$studentAns=$_REQUEST['studentAns'];
 		//print_r('problemid:'.$problemid.'<br/>var:'.$var.'<br/>student ans:'.$studentAns);
 		$problemInfo=$this->getProblemByid($problemid);
-		//krumo($problemInfo);
 		//fix latex, etc here
 		//calculate answer from $problemInfo['problem']
 		$correctAns=$problemInfo['answer'];
 
 		//do not use this question again - eventually we will load from the user_attempts table
-		if(!in_array($problemid,$_SESSION['prequizProblems'])){
-			$_SESSION['prequizProblems'][]=$problemid;
+		if(!array_key_exists($problemid,$_SESSION['prequizProblems'])){
+			$_SESSION['prequizProblems'][$problemid]=array('problem_id'=>$problemid,'studentAns'=>$studentAns,'correctAns'=>$correctAns,'concept_id'=>$problemInfo['concept_id'],'domain'=>$problemInfo['domain']);
 		}
 
 		if(str_replace(' ','',$studentAns)==$correctAns){
