@@ -5,6 +5,7 @@ class Section extends SectionDAO {
 	private $subjectName;
 	private $chapterid;
 	private $sectionid;
+	private $isPrequizCompleted;
 
 	function __construct($subjectName, $chapterid, $sectionid){
 		if(isset($subjectName)){
@@ -16,6 +17,7 @@ class Section extends SectionDAO {
 		if(isset($sectionid)){
 			$this->sectionid = $sectionid;
 		}
+
 		if(isset($_REQUEST['action'])){
 			$action=$_REQUEST['action'];
 			$this->$action();
@@ -35,7 +37,12 @@ class Section extends SectionDAO {
 		drawHeader($this->head());
 		$sidebarMenu->draw();
 		
-		include 'includes/'.$this->subjectName.'/'.$this->chapterid.'/'.$this->sectionid.'/content.php';
+		if(!$this->isPrequizCompleted){
+			include 'includes/class.Prequiz.php';
+			$prequiz = new Prequiz($this->subjectName,$this->chapterid,$this->sectionid);
+		} else {
+			include 'includes/'.$this->subjectName.'/'.$this->chapterid.'/'.$this->sectionid.'/content.php';
+		}
 		
 		drawFooter($this->foot());
 	}

@@ -196,8 +196,9 @@ button{
 	var $readyButton = $('.readyButton');
 	$readyButton.click(function() {
 		$readyButton.css('background-color', '#BEBEBE');
-		$.ajax({url:"<?php echo $_SERVER['DOCUMENT_ROOT'] ?>includes/math-1050/5/1/ajaxElements/prequiz.php",success:function(result){
-			$("#div1").html(result);
+		$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=nextProblem&problemNum=1&subjectName=<?php echo $this->subjectName;?>&chapterid=<?php echo $this->chapterid;?>&sectionid=<?php echo $this->sectionid;?>",success:function(result){
+			$("#prequiz").html(result);
+			$("#prequiz").css("padding-top","80px");
 		}});
 	});
 	
