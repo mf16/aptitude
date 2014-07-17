@@ -17,7 +17,7 @@
 						<input class="form-control" type="text">
 					</div>
 					<br>
-					<button class="readyButton col-md-4 col-xs-12">I'm Ready</button>
+					<button class="readyButton">I'm Ready</button>
 				</section>
 			</section>
 		</section>
@@ -48,10 +48,6 @@
 			$("#prequiz").css("padding-top","80px");
 			$(".pretestWrapper").animate({opacity:"0.0"});
 		}});
-	});
-
-	$(document).ready({
-		$('input').css('height', $('.input-group-addon').css('height'));
 	});
 	
 </script>
