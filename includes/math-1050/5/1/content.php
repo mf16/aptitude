@@ -8,7 +8,7 @@
 		</section>
 		<section class="body">
 			<section class="row-fluid">
-				<section class="col-xs-12 text-body pretestQuestionsContainer">
+				<section class="col-xs-12 text-body text-center pretestQuestionsContainer">
 					<p>Let: \(x^2 - x + 1\) and \(g(x) = 3x - 5\)</p>
 					<p>find f(g(x))</p>
 					<br>
@@ -16,8 +16,8 @@
 						<div class="input-group-addon">\(f(g(x)) = \)</div>
 						<input class="form-control" type="text">
 					</div>
-					<section class="">
-					</section>
+					<br>
+					<button class="readyButton col-md-4 col-xs-12">I'm Ready</button>
 				</section>
 			</section>
 		</section>
