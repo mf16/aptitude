@@ -41,7 +41,7 @@ class Prequiz extends PrequizDAO {
 		//unset($_SESSION['prequizProblems']);
 		krumo($_SESSION);
 
-		if(!$_SESSION['problemNum']){
+		if(!isset($_SESSION['problemNum'])){
 			$_SESSION['problemNum']=1;
 			$problemNum=1;
 		} else {
