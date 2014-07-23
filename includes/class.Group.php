@@ -160,7 +160,7 @@ class Group extends GroupDAO {
 									$c++;
 									echo '
 										<tr class="darkHover">
-											<td onclick="profilePageChange()" class="link"><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
+											<td onclick="profilePageChange()" class="link"><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile-'.mt_rand(1,5).'.jpg"></td>
 											<td onclick="profilePageChange()" class="link">John Hancock</td>';
 											$input = array("<td class='positiveProgress'>+", "<td style='color:red;' class='positiveProgress'>-");
 											echo $input[array_rand($input)];
