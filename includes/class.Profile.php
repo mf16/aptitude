@@ -95,6 +95,9 @@ class Profile {
 				font-family: open sans;
 				letter-spacing: 2px;
 			}
+			.no-padding{
+				padding:0px;
+			}
 		</style>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 		<!-- wrapper -->
@@ -141,7 +144,7 @@ class Profile {
 				</section>
 				<section class="row">
 					<section class="col-md-3">
-						<img class="roundedProfile" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>img/global/profile-photo.png">
+						<div class="col-md-12 no-padding text-center" style="margin-bottom:15px;"><img class="roundedProfile" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>img/global/profile-photo.png"></div>
 						<h3 class="text-center section-number">Ricky Sapp</h3>
 						<section class="col-md-12 dataContainer" style="border: 2px solid #F79234;">
 							<h3>About</h3><br>
@@ -155,7 +158,285 @@ class Profile {
 							<p><span class="aboutTitle">Address:</span> <br><span> 593 N 183 E<br>Provo, UT 84606</span></p>
 						</section>
 					</section>
+					<style type="text/css">
+						.titleRow{
+							padding-left: 34px;
+						}
+						.titleRow>div{
+							position: relative;
+							float: left;
+							font-size: 20px;
+							font-family: nexabold;
+							color: #F79234;
+							text-transform: uppercase;
+							letter-spacing: 4px;
+							width: 115px;
+							text-align: center;
+						}
+						.dayMarkers{
+							position: relative;
+							float: left;
+						}
+						.dayMarkers>div{
+							font-size: 20px;
+							font-family: nexabold;
+							color: #F79234;
+							text-transform: uppercase;
+							text-align: center;
+							width: 20px;
+							height: 20px;
+							margin: 0px 12px 12px 0px;
+						}
+						.calendarBlock{
+							float: left;
+							position: relative;
+						}
+						.calendarBlock>div{
+							float: left;
+							width: 22px;
+							height: 22px;
+							background-color: #EBEBEB;
+							margin: 0px 12px 12px 0px;
+						}
+					</style>
 					<section class="col-md-9">
+						<div class="hidden-sm hidden-xs activityTable row">
+							<div class="titleRow">
+								<div>jan</div>
+								<div>feb</div>
+								<div>mar</div>
+								<div>apr</div>
+								<div>may</div>
+								<div>jun</div>
+								<div>jul</div>
+							</div><br>
+							<div class="titleMarkers">
+								<!--line with tics goes here-->
+							</div><br>
+							<div class="activityContainer">
+								<div class="dayMarkers">
+									<div>M</div>
+									<div>T</div>
+									<div>W</div>
+									<div>T</div>
+									<div>F</div>
+									<div>S</div>
+									<div>S</div>
+								</div>
+								<div class="calendarBlock calendarBlock_1">
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div> 
+								</div>
+								<div class="calendarBlock calendarBlock_2">
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div> 
+								</div>
+								<div class="calendarBlock calendarBlock_3">
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div> 
+								</div>
+								<div class="calendarBlock calendarBlock_4">
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div> 
+									<div></div>
+								</div>
+								<div class="calendarBlock calendarBlock_5">
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div> 
+									<div></div>
+								</div>
+								<div class="calendarBlock calendarBlock_6">
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div> 
+									<div></div>
+								</div>
+								<div class="calendarBlock calendarBlock_7">
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div> 
+								</div><br>
+								<div class="legend col-md-12">
+									<div class="col-md-3"><div class="exampleHigh"></div> High activity</div>
+									<div class="col-md-3 text-center"><div class="exampleModerate"></div> Moderate activity</div>
+									<div class="col-md-3 pull-right"><div class="exampleNone"></div> No activity</div>
+								</div>
+							</div>
+						</div>
+						<section class="activityChart">
+							<?php
+							$days = 0;
+							while ($days < 7){
+								$days++;
+								$weeks = 0;
+								while ($weeks < 28){
+									$weeks++;
+									$rand = rand(1,4);
+									switch ($rand) {
+										case 1:
+											echo '	<div><div class="activityHigh"><div class="tooltip" title="June 12: High Activity"></div></div></div>';
+											break;
+										case 2:
+											echo '	<div><div class="activityLow"><div class="tooltip" title="September 7: Moderate Activity"></div></div></div>';
+											break;
+										default:
+											echo '	<div><div class="activityNone"><div class="tooltip" title="April 20: No activity"></div></div></div>';
+											break;
+									}
+								}
+								echo '<br>';
+							}
+							?>
+						</section>
 					</section>
 				</section>
 			</section>
@@ -168,42 +449,7 @@ class Profile {
 							<div class="col-md-12">
 							</div>
 						</section>
-						<section class="row-fluid">
-							<section class="col-md-12 dataContainer margin-top" style="border: 2px solid #F79234;">
-								<h3>About</h3>
-								<hr class="noMarginTop">
-								<div>
-									<h4>College History</h4>
-									<span>Utah Valley University</span><br>
-									<span>&emsp; Sept 2013 - Present</span><br>
-									<span>Harford Community College</span><br>
-									<span>&emsp; Sept 2010 - May 2011</span><br>
-								</div>
-								<br>
-								<div>
-									<h4>Recent Topics</h4>
-									<a href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>concept"><span>Chapter 5: Section 1.2</span><br>
-									<span>&emsp; Evaluating domain of functions</span></a><br>
-									<a href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>concept"><span>Chapter 5: Section 1.2</span><br>
-									<span>&emsp; Combination of functions</span></a><br>
-									<a href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>concept"><span>Chapter 5: Section 1.3</span><br>
-									<span>&emsp; Composition of functions</span></a><br>
-								</div>
-								<br>
-								<div>
-									<h4>Credits</h4>
-									<span>Credits this semester: 15</span>
-								</div>
-								<br>
-								<div>
-									<h4>Personal</h4>
-									<span>Email: john@hancock.com</span><br>
-									<span>Birthday: June 4th</span><br>
-									<span>Interests:</span><br>
-									<p>Mountain Biking, Golf, Graphic Design</p>
-								</div>
-							</section>
-						</section>
+						
 					</div>
 					<div class="col-md-9">
 						<section class="row-fluid">
@@ -217,31 +463,7 @@ class Profile {
 									<tfoot>
 									</tfoot>
 								</table>
-								<section class="activityChart">
-									<?php
-									$days = 0;
-									while ($days < 7){
-										$days++;
-										$weeks = 0;
-										while ($weeks < 28){
-											$weeks++;
-											$rand = rand(1,4);
-											switch ($rand) {
-												case 1:
-													echo '	<div><div class="activityHigh"><div class="tooltip" title="June 12: High Activity"></div></div></div>';
-													break;
-												case 2:
-													echo '	<div><div class="activityLow"><div class="tooltip" title="September 7: Moderate Activity"></div></div></div>';
-													break;
-												default:
-													echo '	<div><div class="activityNone"><div class="tooltip" title="April 20: No activity"></div></div></div>';
-													break;
-											}
-										}
-										echo '<br>';
-									}
-									?>
-								</section>
+								
 							</article>
 						</section>
 						<section class="row-fluid margin-top">
