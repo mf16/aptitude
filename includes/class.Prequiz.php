@@ -37,32 +37,83 @@ class Prequiz extends PrequizDAO {
 		echo '</div>';
 	}
 
+    function clearSessionVars(){
+        unset($_SESSION['problemNum']);
+        unset($_SESSION['prequizProblems']);
+        unset($_SESSION['prequizProblemComplete']);
+        unset($_SESSION['math1050-prequiz']);
+        unset($_SESSION['isPrequizCompleted']);
+        echo 'session vars cleared';
+    }
+
 	function nextProblem(){
-		//unset($_SESSION['prequizProblems']);
-		krumo($_SESSION);
+        echo '<button onclick="clearSessionVars();">CLICK HERE TO CLEAR SESSION VARS AND START OVER</button>';
+        echo '
+           <script>
+            function clearSessionVars(){
+                $.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'/includes/class.Prequiz.php?action=clearSessionVars&subjectName='.$this->subjectName.'&chapterid='.$this->chapterid.'&sectionid='.$this->sectionid.'",success:function(result){
+                    console.log(result);
+                    location.reload();
+                }
+                });
+            }
+           </script>
+        ';
 
 		if(!isset($_SESSION['problemNum'])){
 			$_SESSION['problemNum']=1;
 			$problemNum=1;
 		} else {
-			$problemNum=($_SESSION['problemNum']+1);
-            $_SESSION['problemNum']=$problemNum;
+            $problemNum=($_SESSION['problemNum']);
+            if(isset($_SESSION['prequizProblemComplete']) && ($_SESSION['prequizProblemComplete']==1)){
+                $problemNum=$problemNum+1;
+                $_SESSION['problemNum']=$problemNum;
+                $_SESSION['prequizProblemComplete']=0;
+            } else {
+                //keep the same problemnumber
+            }
 		}
-		echo 'problemNum:'.$problemNum.'<br/><br/>';
-		if($problemNum>10){
+        echo '
+            <link rel="stylesheet" type="text/css" href="'.$_SERVER['DOCUMENT_ROOT'].'css/includes/math-1050/5/1/pretest_global_styling.css">
+            <link rel="stylesheet" type="text/css" href="'.$_SERVER['DOCUMENT_ROOT'].'css/includes/math-1050/5/1/pretest_page_specific_styling.css">
+            <div id="workArea"></div>
+        ';
+		if($problemNum>3){
+            echo 'END THE TEST NOW AND DISPLAY RESULTS';
 			//end - 10 questions have been answered.
 			//display results
+            krumo($_SESSION);
+            $_SESSION['isPrequizCompleted']=1;
+            echo '<button onclick="refreshPage();">Continue to book content</button>';
+            echo '<script>
+                    function refreshPage(){
+                        location.reload();
+                    }
+                </script>
+            ';
+            return;
 		}
+		echo 'problemNum:'.$problemNum.'<br/><br/>';
 		$problemInfo=$this->getNextQuestion($this->subjectName,$this->chapterid,$this->sectionid);
-		echo $problemInfo['problem'];
-		if($problemInfo['problem_uri']){
-			echo '<br/>';
-			echo '<img src="'.$_SERVER['DOCUMENT_ROOT'].$problemInfo['problem_uri'].'"/>';
-			echo '<br/>';
-		}
-		echo '<input id="studentAns" type="text" onkeyup="interpretLex(\'studentAns\',\'displayStudentAns\')">';
-		echo '<div id="displayStudentAns"></div>';
-		echo '<div id="checkAnswerReturn"> </div>';
+        echo '
+            <!-- wrapper -->
+            <div class="pretestWrapper page-wrap ">
+                <section id="headerSpacerSmall"></section>
+                    <section class="container loader">
+                    </section>
+                    <section class="body">
+                        <section class="row-fluid">
+                            <section class="col-xs-12 text-body text-center pretestQuestionsContainer">
+        ';
+
+        //Load Problem Text from database
+        if(strpos($problemInfo['problem'],'DOCUMENT_ROOT')>0){
+            echo substr_replace($problemInfo['problem'],$_SERVER['DOCUMENT_ROOT'],strpos($problemInfo['problem'],'DOCUMENT_ROOT'),strlen('DOCUMENT_ROOT'));
+        } else {
+            echo $problemInfo['problem'];
+        }
+
+        //if(isset($_SESSION['pre
 		if(isset($problemInfo['domain'])){
 			echo '<br/>';
 			echo 'Domain: ';
@@ -70,15 +121,49 @@ class Prequiz extends PrequizDAO {
 			echo '<div id="displayStudentDomain"></div>';
 			echo '<div id="checkDomainReturn"> </div>';
 		}
-		echo '<br/>';
-		echo '<br/>';
-		echo '<div id="submitPrequizAnswer" onclick="">submit</div>';
+        // StudentAns div is now included in the db with the problem
+        /*
+		echo '<input class="form-control" id="studentAns" type="text" onkeyup="interpretLex(\'studentAns\',\'displayStudentAns\')">';
+		echo '<div id="displayStudentAns"></div>';
+        */
+        echo '
+                    <br/>
+                    <br/>
+                    For Demo Purposes, the correct answer is: \('.$problemInfo['answer'].'\)<br/>
+					<button id="submitPrequizAnswer" class="readyButton">Submit Answer</button>
+                    <div id="checkAnswerReturn"> </div>
+                    '//<br/>'s for pushing footer down
+                    .'
+                    <br/>
+                    <br/>
+                    <br/>
+				</section>
+			</section>
+		</section>
+	</section>
+</div>
+<footer class="row site-footer">
+  	<section class="col-md-4 col-xs-12"><img src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/left-arrow.png" style="margin-right: 7px;"> BACK</section>
+
+	<section class="col-md-4 col-xs-12 text-center">
+		<div class="meterwrapper">
+			<!-- Start of meter -->
+			<div class="meter">
+				<span style="width:'.((($problemNum-1)/3)*100).'%" title="10%"></span>
+			</div><!-- End of meter -->
+		</div>
+	</section>
+
+ 	<section class="col-md-4 col-xs-12 text-right" style="padding-right:45px;">SKIP PREQUIZ <img src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/right-arrow.png"  style="margin-left: 7px;"></section>
+
+</footer>
+';            
 
 
-        unset($_SESSION['problemNum']);
-        unset($_SESSION['prequizProblems']);
-
-
+        $nextButtonText='next problem';
+        if($problemNum==3){
+            $nextButtonText='Finish';
+        }
 		echo '<script type="text/javascript">
 		var $submitPrequizAnswer= $(\'#submitPrequizAnswer\');
 		$submitPrequizAnswer.click(function() {
@@ -87,14 +172,13 @@ class Prequiz extends PrequizDAO {
 			} else {
 				var studentAns=$("#studentAns").val();
 				$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=checkAnswer&subjectName='.$this->subjectName.'&chapterid='.$this->subjectName.'&sectionid='.$this->sectionid.'&problemid='.$problemInfo['problem_id'].'&var=1&studentAns="+encodeURIComponent(studentAns),success:function(result){
-                    console.log(result);
 					if(result=="correct"){
 						$("#checkAnswerReturn").html("Correct<br/>");
-						$("#submitPrequizAnswer").hide();
 					} else {
 						$("#checkAnswerReturn").html("Incorrect");
 					}
-					$("#checkAnswerReturn").append("<div id=\'nextProblem\' onclick=\'nextProblem();\' style=\'display:none;\'>next problem</div>");
+                    $("#submitPrequizAnswer").hide();
+					$("#checkAnswerReturn").append("<div id=\'nextProblem\' onclick=\'nextProblem();\' style=\'display:none;\'>'.$nextButtonText.'</div>");
 					$("#nextProblem").show();
 					$("#prequiz").css("padding-top","80px");
 				}});
@@ -167,13 +251,22 @@ class Prequiz extends PrequizDAO {
 			$_SESSION['prequizProblems'][$problemid]=array('problem_id'=>$problemid,'studentAns'=>$studentAns,'correctAns'=>$correctAns,'concept_id'=>$problemInfo['concept_id'],'domain'=>$problemInfo['domain']);
 		}
 
+        $isCorrect=false;
 		if(str_replace(' ','',$studentAns)==$correctAns){
+            $isCorrect=true;
 			echo 'correct';
 			//add to db
 		} else {
+            $isCorrect=false;
 			echo 'incorrect';
 			//add to db
 		}
+        $_SESSION['math1050-prequiz'][$problemid]['studentAns'][]=$studentAns;
+        $_SESSION['math1050-prequiz'][$problemid]['correct'][]=$isCorrect;
+        if(isset($problemInfo['problem_type'])){
+            $_SESSION['math1050-prequiz'][$problemid]['problemType'][]=$problemInfo['problem_type'];
+        }
+        $_SESSION['prequizProblemComplete']=1;
 	}
 }
 if(isset($_REQUEST['action'])){

@@ -218,17 +218,17 @@ CREATE TABLE `problems` (
   `chapter_id` int(10) NOT NULL,
   `section_id` int(10) NOT NULL,
   `concept_id` int(10) NOT NULL,
-  `problem` varchar(255) NOT NULL,
+  `problem` blob NOT NULL,
   `answer` varchar(255) DEFAULT NULL,
   `range` varchar(255) DEFAULT NULL,
   `domain` varchar(255) DEFAULT NULL,
   `problem_type` varchar(255) NOT NULL COMMENT 'chapter test, section test, and homework ',
-  `problem_uri` varchar(255) DEFAULT NULL,
+  `temptype` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`problem_id`),
   KEY `chapter_id` (`chapter_id`),
   KEY `lesson_id` (`section_id`),
   KEY `concept_id` (`concept_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -237,9 +237,16 @@ CREATE TABLE `problems` (
 
 LOCK TABLES `problems` WRITE;
 /*!40000 ALTER TABLE `problems` DISABLE KEYS */;
-INSERT INTO `problems` VALUES (1,5,1,1,'f(x) = x2 - x + 1 and g(x) = 3x - 5<br/><br/>f(g(x)):','9x^2-33x+31',NULL,'(-\\infty,\\infty)','','');
-INSERT INTO `problems` VALUES (2,5,1,1,'Does this graph represent a valid function?','yes',NULL,'','','img/math-1050/problem_assets/1.png');
-INSERT INTO `problems` VALUES (3,5,1,1,'f(x) = 3x - 1 and g(x) = 1/(x + 3)\n\nfind f(g(5))','-(x/(x+3))',NULL,'(-\\infty;-3)','',NULL);
+INSERT INTO `problems` VALUES (1,5,1,1,'<p>Let: \\(x^2 - x + 1\\) and \\(g(x) = 3x - 5\\)</p>\r\n<p>find f(g(x))</p>\r\n<br>\r\n<div class=\"input-group col-xs-12 col-md-4 col-md-offset-4\">\r\n<div class=\"input-group-addon\">\\(f(g(x)) = \\)</div>\r\n</div>\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\">\r\n<div id=\"displayStudentAns\"></div>','9x^2-33x+31',NULL,'(-\\infty,\\infty)','',NULL);
+INSERT INTO `problems` VALUES (2,5,1,1,'<p>Does this graph represent a valid function?</p>\r\n	<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/1.png\"/>\r\n<br/>\r\n<select id=\"studentAns\">\r\n	<option value=\"yes\">yes</option>\r\n	<option value=\"no\">no</option>\r\n</select>\r\n','yes',NULL,'','',NULL);
+INSERT INTO `problems` VALUES (3,5,1,1,'<p>Let: \\(f(x) = 3x - 1\\) and \\(g(x) = frac{1}{x+3}\\)</p>\r\n<p>find f(g(5))</p>\r\n\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\">\r\n<div id=\"displayStudentAns\"></div>','-(x/(x+3))',NULL,'(-\\infty,-3)','',NULL);
+INSERT INTO `problems` VALUES (4,5,1,1,'<p>Does this graph represent a valid function?</p>\r\n	<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/2.png\"/>\r\n<br/>\r\n<select id=\"studentAns\">\r\n	<option value=\"yes\">yes</option>\r\n	<option value=\"no\">no</option>\r\n</select>\r\n','no',NULL,NULL,'',NULL);
+INSERT INTO `problems` VALUES (5,5,1,1,'<p>Does this graph represent a valid function?</p>\r\n	<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/3.png\"/>\r\n<br/>\r\n<select id=\"studentAns\">\r\n	<option value=\"yes\">yes</option>\r\n	<option value=\"no\">no</option>\r\n</select>\r\n','no',NULL,NULL,'',NULL);
+INSERT INTO `problems` VALUES (6,5,1,1,'	<p>Simplify the following expression:</p>\r\n	\\(\\frac{\\frac{5x}{x^2}}{\\frac{x^2}{-5x}}\\)\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\">\r\n<div id=\"displayStudentAns\"></div>','-25/x^2',NULL,NULL,'',NULL);
+INSERT INTO `problems` VALUES (7,5,1,1,'	<p>Let: \\(f(x) = x^2 - x + 1\\) and \\(g(x) = 3x - 5\\)</p>\r\n	<p>find f(g(x))</p>\r\n	<div class=\"input-group-addon\">\\(f(g(x)) = \\)</div>\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\">\r\n<div id=\"displayStudentAns\"></div>','9x^2-33x+31',NULL,'(-\\infty,\\infty)','',NULL);
+INSERT INTO `problems` VALUES (8,5,1,1,'<p>What is the domain of the points on this graph?</p>\r\n<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/4.png\"/>\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\">\r\n<div id=\"displayStudentAns\"></div>','[-3,4]',NULL,NULL,'',NULL);
+INSERT INTO `problems` VALUES (9,5,1,1,'<p>What is the range of the following function?</p>\r\n<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/5.png\"/>\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\">\r\n<div id=\"displayStudentAns\"></div>','[-4,3]',NULL,NULL,'',NULL);
+INSERT INTO `problems` VALUES (10,5,1,1,'<p>What is the range of the following function?</p>\r\n<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/6.png\"/>\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\">\r\n<div id=\"displayStudentAns\"></div>','(0,\\infty)',NULL,NULL,'',NULL);
 /*!40000 ALTER TABLE `problems` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -484,4 +491,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-22 20:45:23
+-- Dump completed on 2014-07-23  1:34:23

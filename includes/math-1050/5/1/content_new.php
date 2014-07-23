@@ -126,6 +126,17 @@ h1{
 			<section id="headerSpacerSmall"></section>
 			<section class="container loader"></section>
 			<section class="body">
+               <button onclick="clearSessionVars();">CLICK HERE TO CLEAR SESSION VARS AND START OVER</button>
+               <script>
+                function clearSessionVars(){
+                    $.ajax({url:"<?php echo $_SERVER['DOCUMENT_ROOT'];?>includes/class.Prequiz.php?action=clearSessionVars&subjectName=1&chapterid=1&sectionid=1",success:function(result){
+                        console.log(result);
+                        location.reload();
+                    }
+                    });
+                }
+               </script>
+
 				<section class="row-fluid">
 					<section class="col-lg-9 col-xs-12 text-body">
 						<section class="col-md-2 no-padding">

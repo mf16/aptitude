@@ -37,11 +37,14 @@ class Section extends SectionDAO {
 		drawHeader($this->head());
 		$sidebarMenu->draw();
 		
+        if(isset($_SESSION['isPrequizCompleted'])){
+            $this->isPrequizCompleted=1;
+        }
 		if(!$this->isPrequizCompleted){
 			include 'includes/class.Prequiz.php';
 			$prequiz = new Prequiz($this->subjectName,$this->chapterid,$this->sectionid);
 		} else {
-			include 'includes/'.$this->subjectName.'/'.$this->chapterid.'/'.$this->sectionid.'/content.php';
+			include 'includes/'.$this->subjectName.'/'.$this->chapterid.'/'.$this->sectionid.'/content_new.php';
 		}
 		
 		drawFooter($this->foot());
