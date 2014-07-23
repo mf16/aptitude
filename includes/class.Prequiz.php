@@ -46,6 +46,7 @@ class Prequiz extends PrequizDAO {
 			$problemNum=1;
 		} else {
 			$problemNum=($_SESSION['problemNum']+1);
+            $_SESSION['problemNum']=$problemNum;
 		}
 		echo 'problemNum:'.$problemNum.'<br/><br/>';
 		if($problemNum>10){
@@ -62,7 +63,7 @@ class Prequiz extends PrequizDAO {
 		echo '<input id="studentAns" type="text" onkeyup="interpretLex(\'studentAns\',\'displayStudentAns\')">';
 		echo '<div id="displayStudentAns"></div>';
 		echo '<div id="checkAnswerReturn"> </div>';
-		if($problemInfo['domain']){
+		if(isset($problemInfo['domain'])){
 			echo '<br/>';
 			echo 'Domain: ';
 			echo '<input id="studentDomain" type="text" onkeyup="interpretLex(\'studentDomain\',\'displayStudentDomain\')">';
@@ -72,14 +73,21 @@ class Prequiz extends PrequizDAO {
 		echo '<br/>';
 		echo '<br/>';
 		echo '<div id="submitPrequizAnswer" onclick="">submit</div>';
-		echo '<script>
+
+
+        unset($_SESSION['problemNum']);
+        unset($_SESSION['prequizProblems']);
+
+
+		echo '<script type="text/javascript">
 		var $submitPrequizAnswer= $(\'#submitPrequizAnswer\');
 		$submitPrequizAnswer.click(function() {
 			if($("#studentAns").val()==""){
 				alert("please enter a valid answer before clicking submit");
 			} else {
 				var studentAns=$("#studentAns").val();
-				$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=checkAnswer&problemid='.$problemInfo['problem_id'].'&var=1&studentAns="+encodeURIComponent(studentAns),success:function(result){
+				$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=checkAnswer&subjectName='.$this->subjectName.'&chapterid='.$this->subjectName.'&sectionid='.$this->sectionid.'&problemid='.$problemInfo['problem_id'].'&var=1&studentAns="+encodeURIComponent(studentAns),success:function(result){
+                    console.log(result);
 					if(result=="correct"){
 						$("#checkAnswerReturn").html("Correct<br/>");
 						$("#submitPrequizAnswer").hide();
@@ -92,24 +100,24 @@ class Prequiz extends PrequizDAO {
 				}});
 			}';
 
-		if($problemInfo['domain']){
-			echo '
-		if($("#studentDomain").val()==""){
-			alert("please enter a valid domain before clicking submit");
-		} else {
-			var studentDomain=$("#studentDomain").val();
-			$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=checkDomain&problemid='.$problemInfo['problem_id'].'&var=1&studentDomain="+encodeURIComponent(studentDomain),success:function(result){
-				if(result=="correct"){
-					$("#checkDomainReturn").html("Correct");
-				} else {
-					$("#checkDomainReturn").html("Incorrect");
-				}
-			}});
-		}
-		';
-		}
-		echo '
-	});
+            if(isset($problemInfo['domain'])){
+                echo '
+                if($("#studentDomain").val()==""){
+                    alert("please enter a valid domain before clicking submit");
+                } else {
+                    var studentDomain=$("#studentDomain").val();
+                    $.ajax({url:"/aptitude/includes/class.Prequiz.php?action=checkDomain&problemid='.$problemInfo['problem_id'].'&var=1&studentDomain="+encodeURIComponent(studentDomain),success:function(result){
+                        if(result=="correct"){
+                            $("#checkDomainReturn").html("Correct");
+                        } else {
+                            $("#checkDomainReturn").html("Incorrect");
+                        }
+                    }});
+                }
+                ';
+            }
+            echo '
+        });
 	function nextProblem(){
 		$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=nextProblem&subjectName='.$this->subjectName.'&chapterid='.$this->chapterid.'&sectionid='.$this->sectionid.'",success:function(result){
 			$("#prequiz").html(result);
@@ -155,7 +163,7 @@ class Prequiz extends PrequizDAO {
 		$correctAns=$problemInfo['answer'];
 
 		//do not use this question again - eventually we will load from the user_attempts table
-		if(!array_key_exists($problemid,$_SESSION['prequizProblems'])){
+		if(isset($_SESSION['prequizProblems']) && !array_key_exists($problemid,$_SESSION['prequizProblems'])){
 			$_SESSION['prequizProblems'][$problemid]=array('problem_id'=>$problemid,'studentAns'=>$studentAns,'correctAns'=>$correctAns,'concept_id'=>$problemInfo['concept_id'],'domain'=>$problemInfo['domain']);
 		}
 
