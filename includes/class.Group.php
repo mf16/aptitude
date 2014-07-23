@@ -62,16 +62,19 @@ class Group extends GroupDAO {
 								<?php
 								$c = 0;
 								while ($c < 5){
+									$c++;
 									echo '
 									<tr class="link darkHover" onclick="profilePageChange()">
-										<td ><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
-										<td>John Hancock</td>';
+										<td ><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile-'.$c.'.jpg"></td>
+										<td>';
+										$input = array("Eric Thompson", "Evan Vinciguerra", "Andi Richardson", "William Facer", "Jessica Lewis");
+											echo $input[$c-1];
+										echo '</td>';
 											$input = array("<td class='percentBehind' style='color:green;'>+", "<td class='percentBehind'>-");
 											echo $input[array_rand($input)];
 											echo mt_rand(1,24).'%</td>
 										</td>
 									</tr>';
-									$c++;
 								}
 								?>
 								</tbody>
