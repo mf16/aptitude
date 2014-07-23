@@ -1,8 +1,6 @@
  $(document).ready(function(){
-    var $video = $('.video').length;
-    if ($video > 0){
-      $(".video").fitVids();
-    }
+    // Target your .container, .wrapper, .post, etc.
+    $(".video").fitVids();
   });
 
 function changeModal(title, content){
