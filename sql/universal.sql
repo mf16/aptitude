@@ -89,8 +89,8 @@ CREATE TABLE `user_passwords` (
 
 LOCK TABLES `user_passwords` WRITE;
 /*!40000 ALTER TABLE `user_passwords` DISABLE KEYS */;
-INSERT INTO `user_passwords` VALUES (1,1,'$2y$10$1Xaj3KNg2MpiUVQclc6TsOHKnS3Iw5fCaRVDouakFp2Kyi4Zq0Aky','2014-04-04 08:40:58','','0000-00-00 00:00:00');
-INSERT INTO `user_passwords` VALUES (3,2,'$2y$10$As1MrPixI0wXWLJj/z/.Oe.zQZYtrcUAj3A19967b.kefpP2CRMr2','2014-04-04 21:17:14','','0000-00-00 00:00:00');
+INSERT INTO `user_passwords` VALUES (1,1,'$2y$10$1Xaj3KNg2MpiUVQclc6TsOHKnS3Iw5fCaRVDouakFp2Kyi4Zq0Aky','2014-04-04 02:40:58','','0000-00-00 00:00:00');
+INSERT INTO `user_passwords` VALUES (3,2,'$2y$10$As1MrPixI0wXWLJj/z/.Oe.zQZYtrcUAj3A19967b.kefpP2CRMr2','2014-04-04 15:17:14','','0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `user_passwords` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,8 +127,8 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'test@test.com','2014-04-13 02:11:46','0000-00-00 00:00:00',0,'josh','doe','professor',0,'0000-00-00','');
-INSERT INTO `users` VALUES (2,'a','2014-04-13 02:11:46','0000-00-00 00:00:00',0,'firstNameStudent','lastNameStudent','student',0,'0000-00-00','');
+INSERT INTO `users` VALUES (1,'test@test.com','2014-04-12 20:11:46','0000-00-00 00:00:00',0,'josh','doe','professor',0,'0000-00-00','');
+INSERT INTO `users` VALUES (2,'a','2014-04-12 20:11:46','0000-00-00 00:00:00',0,'firstNameStudent','lastNameStudent','student',0,'0000-00-00','');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -141,3 +141,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+-- Dump completed on 2014-07-22 20:45:24

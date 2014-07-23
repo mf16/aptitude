@@ -43,7 +43,7 @@
 	var $readyButton = $('.readyButton');
 	$readyButton.click(function() {
 		$readyButton.css('background-color', '#BEBEBE');
-		$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=nextProblem&problemNum=1&subjectName=<?php echo $this->subjectName;?>&chapterid=<?php echo $this->chapterid;?>&sectionid=<?php echo $this->sectionid;?>",success:function(result){
+		$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=nextProblem&subjectName=<?php echo $this->subjectName;?>&chapterid=<?php echo $this->chapterid;?>&sectionid=<?php echo $this->sectionid;?>",success:function(result){
 			$("#prequiz").html(result);
 			$("#prequiz").css("padding-top","80px");
 			$(".pretestWrapper").animate({opacity:"0.0"});
