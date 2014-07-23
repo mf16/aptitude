@@ -220,8 +220,8 @@ CREATE TABLE `problems` (
   `concept_id` int(10) NOT NULL,
   `problem` varchar(255) NOT NULL,
   `answer` varchar(255) DEFAULT NULL,
-  `domain` varchar(255) DEFAULT NULL,
   `range` varchar(255) DEFAULT NULL,
+  `domain` varchar(255) DEFAULT NULL,
   `problem_type` varchar(255) NOT NULL COMMENT 'chapter test, section test, and homework ',
   `problem_uri` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`problem_id`),
@@ -237,9 +237,9 @@ CREATE TABLE `problems` (
 
 LOCK TABLES `problems` WRITE;
 /*!40000 ALTER TABLE `problems` DISABLE KEYS */;
-INSERT INTO `problems` VALUES (1,5,1,1,'f(x) = x2 - x + 1 and g(x) = 3x - 5<br/><br/>f(g(x)):','9x^2-33x+31','(-\\infty,\\infty)',NULL,'','');
-INSERT INTO `problems` VALUES (2,5,1,1,'Does this graph represent a valid function?','yes','',NULL,'','img/math-1050/problem_assets/1.png');
-INSERT INTO `problems` VALUES (3,5,1,1,'f(x) = 3x - 1 and g(x) = 1/(x + 3)\n\nfind f(g(5))','-(x/(x+3))','(-\\infty;-3)',NULL,'',NULL);
+INSERT INTO `problems` VALUES (1,5,1,1,'f(x) = x2 - x + 1 and g(x) = 3x - 5<br/><br/>f(g(x)):','9x^2-33x+31',NULL,'(-\\infty,\\infty)','','');
+INSERT INTO `problems` VALUES (2,5,1,1,'Does this graph represent a valid function?','yes',NULL,'','','img/math-1050/problem_assets/1.png');
+INSERT INTO `problems` VALUES (3,5,1,1,'f(x) = 3x - 1 and g(x) = 1/(x + 3)\n\nfind f(g(5))','-(x/(x+3))',NULL,'(-\\infty;-3)','',NULL);
 /*!40000 ALTER TABLE `problems` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -484,4 +484,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-22 20:34:18
+-- Dump completed on 2014-07-22 20:45:23
