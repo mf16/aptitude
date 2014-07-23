@@ -156,16 +156,19 @@ class Group extends GroupDAO {
 									echo '</tr>';
 								}*/
 								$c = 0;
+								$names = array("Emmett Montgomery", "Roy Ward", "Ida Harrison", "Andrea Palmer", "Cory Manning", "Edmund Griffin", "Marjorie Huff" , "Beverly Joseph", "Ricardo Todd", "Ron Morris", "Inez Copeland", "Hannah Richards", "Jeff Nelson", "Ron Shaw", "Beth Meyer", "Vernon Collier");
+								$input = array("<td class='positiveProgress'>+", "<td style='color:red;' class='positiveProgress'>-");
 								while ($c < 15){
 									$c++;
 									echo '
 										<tr class="darkHover">
 											<td onclick="profilePageChange()" class="link"><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile-'.mt_rand(1,5).'.jpg"></td>
-											<td onclick="profilePageChange()" class="link">John Hancock</td>';
-											$input = array("<td class='positiveProgress'>+", "<td style='color:red;' class='positiveProgress'>-");
+											<td onclick="profilePageChange()" class="link">'.$names[$c].'</td>';
 											echo $input[array_rand($input)];
+											$names[$c] = str_replace(' ', '', $names[$c]);
+											$names[$c] = strtolower($names[$c]);
 											echo mt_rand(1,24).'%</td>
-											<td><span class="phoneHide">johnhancock@independant.us</span><span class="phoneShow"><a href="mailto:johnhancock@independant.us">Email</a></span></td>
+											<td><span class="phoneHide">'.$names[$c].'@gmail.com</span><span class="phoneShow"><a href="mailto:johnhancock@independant.us">Email</a></span></td>
 										</tr>';
 								}
 								?>
