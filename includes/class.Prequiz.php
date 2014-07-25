@@ -171,6 +171,10 @@ class Prequiz extends PrequizDAO {
 				alert("please enter a valid answer before clicking submit");
 			} else {
 				var studentAns=$("#studentAns").val();
+				//If the radio button exists check the value of that instead of a standard text response
+				if($("#radio1").length > 0){
+					studentAns = $("input[name=radios]:checked").val();
+				}
 				$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=checkAnswer&subjectName='.$this->subjectName.'&chapterid='.$this->subjectName.'&sectionid='.$this->sectionid.'&problemid='.$problemInfo['problem_id'].'&var=1&studentAns="+encodeURIComponent(studentAns),success:function(result){
 					if(result=="correct"){
 						$("#checkAnswerReturn").html("Correct<br/>");
