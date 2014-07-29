@@ -11,8 +11,20 @@ class Prequiz extends PrequizDAO {
 	private $subjectName;
 	private $chapterid;
 	private $sectionid;
+	private $pkAmount;
+	private $pqAmount;
+	private $totalAmount;
 	
 	function __construct($subjectName,$chapterid,$sectionid){
+		// Logic for Getting correct Type of Question
+		// following should be dynamic eventually:
+		$this->pkAmount = 2;
+		$this->pqAmount = 2;
+		$this->totalAmount=($this->pkAmount+$this->pqAmount);
+
+		// hack to display finish page
+		//$this->totalAmount=0;
+		
 		if(isset($subjectName)){
 			$this->subjectName = $subjectName;
 		}
@@ -39,7 +51,6 @@ class Prequiz extends PrequizDAO {
 
     function clearSessionVars(){
         unset($_SESSION['problemNum']);
-        unset($_SESSION['prequizProblems']);
         unset($_SESSION['prequizProblemComplete']);
         unset($_SESSION['math1050-prequiz']);
         unset($_SESSION['isPrequizCompleted']);
@@ -47,6 +58,7 @@ class Prequiz extends PrequizDAO {
     }
 
 	function nextProblem(){
+		krumo($_SESSION);
         echo '<button onclick="clearSessionVars();">CLICK HERE TO CLEAR SESSION VARS AND START OVER</button>';
         echo '
            <script>
@@ -78,12 +90,42 @@ class Prequiz extends PrequizDAO {
             <link rel="stylesheet" type="text/css" href="'.$_SERVER['DOCUMENT_ROOT'].'css/includes/math-1050/5/1/pretest_page_specific_styling.css">
             <div id="workArea"></div>
         ';
-		if($problemNum>3){
+
+		if($problemNum>$this->totalAmount){
             echo 'END THE TEST NOW AND DISPLAY RESULTS';
-			//end - 10 questions have been answered.
+			$keyArray=array_keys($_SESSION['math1050-prequiz']);
+			print_r($keyArray);
+			echo '<table>
+				<tr>
+					<th>Problem ID</th>
+					<th>Problem Type</th>
+					<th>Problem Concept</th>
+					<th>Correct Answer</th>
+					<th>Student Answer Given</th>
+					<th>Correct?</th>
+				</tr>';
+			foreach($keyArray as $key){
+				$displayInfo=$_SESSION['math1050-prequiz'][$key][0];
+				if(isset($displayInfo['correct']) && $displayInfo['correct']==1){
+					$displayInfo['correct']='yes';
+				} else {
+					$displayInfo['correct']='no';
+				}
+				$typeArray=array('pk'=>'previous knowledge','pq'=>'pre-quiz');
+				echo '<tr>';
+					echo '<td>'.$key.'</td>';
+					echo '<td>'.$typeArray[$displayInfo['type']].'</td>';
+					echo '<td>'.$displayInfo['concept'].'</td>';
+					echo '<td>\('.$displayInfo['correctAns'].'\)</td>';
+					echo '<td>\('.$displayInfo['studentAns'].'\)</td>';
+					echo '<td>'.$displayInfo['correct'].'</td>';
+				echo '</tr>';
+				krumo($_SESSION['math1050-prequiz'][$key][0]);
+			}
+			echo '</table>';
 			//display results
             krumo($_SESSION);
-            $_SESSION['isPrequizCompleted']=1;
+            //$_SESSION['isPrequizCompleted']=1;
             echo '<button onclick="refreshPage();">Continue to book content</button>';
             echo '<script>
                     function refreshPage(){
@@ -94,7 +136,20 @@ class Prequiz extends PrequizDAO {
             return;
 		}
 		echo 'problemNum:'.$problemNum.'<br/><br/>';
-		$problemInfo=$this->getNextQuestion($this->subjectName,$this->chapterid,$this->sectionid);
+
+
+
+
+		// setting type
+		$type='';
+
+		if(!isset($_SESSION['problemNum']) || (isset($_SESSION['problemNum']) && $_SESSION['problemNum'] <= $this->pkAmount)){
+			$type='pk';
+		} else if ($_SESSION['problemNum']<=($this->pkAmount+$this->pqAmount)){
+			$type='pq';
+		}
+
+		$problemInfo=$this->getNextQuestion($this->subjectName,$this->chapterid,$this->sectionid,$type);
         echo '
             <!-- wrapper -->
             <div class="pretestWrapper page-wrap ">
@@ -149,7 +204,7 @@ class Prequiz extends PrequizDAO {
 		<div class="meterwrapper">
 			<!-- Start of meter -->
 			<div class="meter">
-				<span style="width:'.((($problemNum-1)/3)*100).'%" title="10%"></span>
+				<span id="meterSpan" style="width:'.((($problemNum-1)/$this->totalAmount)*100).'%" ></span>
 			</div><!-- End of meter -->
 		</div>
 	</section>
@@ -161,7 +216,7 @@ class Prequiz extends PrequizDAO {
 
 
         $nextButtonText='next problem';
-        if($problemNum==3){
+        if($problemNum==$this->totalAmount){
             $nextButtonText='Finish';
         }
 		echo '<script type="text/javascript">
@@ -181,8 +236,10 @@ class Prequiz extends PrequizDAO {
 					} else {
 						$("#checkAnswerReturn").html("Incorrect");
 					}
+					console.log(result);
                     $("#submitPrequizAnswer").hide();
 					$("#checkAnswerReturn").append("<div id=\'nextProblem\' onclick=\'nextProblem();\' style=\'display:none;\'>'.$nextButtonText.'</div>");
+					$("#meterSpan").width("'.(($problemNum/$this->totalAmount)*100).'%");
 					$("#nextProblem").show();
 					$("#prequiz").css("padding-top","80px");
 				}});
@@ -250,11 +307,6 @@ class Prequiz extends PrequizDAO {
 		//calculate answer from $problemInfo['problem']
 		$correctAns=$problemInfo['answer'];
 
-		//do not use this question again - eventually we will load from the user_attempts table
-		if(isset($_SESSION['prequizProblems']) && !array_key_exists($problemid,$_SESSION['prequizProblems'])){
-			$_SESSION['prequizProblems'][$problemid]=array('problem_id'=>$problemid,'studentAns'=>$studentAns,'correctAns'=>$correctAns,'concept_id'=>$problemInfo['concept_id'],'domain'=>$problemInfo['domain']);
-		}
-
         $isCorrect=false;
 		if(str_replace(' ','',$studentAns)==$correctAns){
             $isCorrect=true;
@@ -265,10 +317,22 @@ class Prequiz extends PrequizDAO {
 			echo 'incorrect';
 			//add to db
 		}
-        $_SESSION['math1050-prequiz'][$problemid]['studentAns'][]=$studentAns;
-        $_SESSION['math1050-prequiz'][$problemid]['correct'][]=$isCorrect;
+		/*
+		echo 'correct:';
+		print_r($correctAns);
+		echo '<br/>';
+		echo 'sutdent:';
+		print_r($studentAns);
+		*/
+		$problemTry=0;
+		$problemTry=count($_SESSION['math-1050-prequiz'][$problemid]);
+        $_SESSION['math1050-prequiz'][$problemid][$problemTry]['studentAns']=$studentAns;
+        $_SESSION['math1050-prequiz'][$problemid][$problemTry]['correctAns']=$correctAns;
+        $_SESSION['math1050-prequiz'][$problemid][$problemTry]['correct']=$isCorrect;
+        $_SESSION['math1050-prequiz'][$problemid][$problemTry]['type']=$problemInfo['problem_type'];
+        $_SESSION['math1050-prequiz'][$problemid][$problemTry]['concept']=$problemInfo['concept_hack'];
         if(isset($problemInfo['problem_type'])){
-            $_SESSION['math1050-prequiz'][$problemid]['problemType'][]=$problemInfo['problem_type'];
+            $_SESSION['math1050-prequiz'][$problemid][$problemTry]['problemType']=$problemInfo['problem_type'];
         }
         $_SESSION['prequizProblemComplete']=1;
 	}

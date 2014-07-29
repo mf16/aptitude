@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.16, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.5.38, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: math
 -- ------------------------------------------------------
--- Server version	5.6.16
+-- Server version	5.5.38-0ubuntu0.14.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -219,11 +219,11 @@ CREATE TABLE `problems` (
   `section_id` int(10) NOT NULL,
   `concept_id` int(10) NOT NULL,
   `problem` blob NOT NULL,
+  `concept_hack` varchar(255) DEFAULT NULL,
   `answer` varchar(255) DEFAULT NULL,
   `range` varchar(255) DEFAULT NULL,
   `domain` varchar(255) DEFAULT NULL,
   `problem_type` varchar(255) NOT NULL COMMENT 'chapter test, section test, and homework ',
-  `temptype` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`problem_id`),
   KEY `chapter_id` (`chapter_id`),
   KEY `lesson_id` (`section_id`),
@@ -237,16 +237,15 @@ CREATE TABLE `problems` (
 
 LOCK TABLES `problems` WRITE;
 /*!40000 ALTER TABLE `problems` DISABLE KEYS */;
-INSERT INTO `problems` VALUES (1,5,1,1,'<p>Let: \\(x^2 - x + 1\\) and \\(g(x) = 3x - 5\\)</p>\r\n<p>find f(g(x))</p>\r\n<br>\r\n<div class=\"input-group col-xs-12 col-md-4 col-md-offset-4\">\r\n<div class=\"input-group-addon\">\\(f(g(x)) = \\)</div>\r\n</div>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\">\r\n</div>\r\n<div id=\"displayStudentAns\"></div>','9x^2-33x+31',NULL,'(-\\infty,\\infty)','',NULL);
-INSERT INTO `problems` VALUES (2,5,1,1,'<p>Does this graph represent a valid function?</p>\r\n	<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/1.png\"/><br>\r\n<br/>\r\n\r\n	<input type=\"radio\" id=\"radio1\" name=\"radios\" value=\"yes\" checked>\r\n       <label for=\"radio1\">Yes</label>\r\n    <input type=\"radio\" id=\"radio2\" name=\"radios\" value=\"no\">\r\n       <label for=\"radio2\">No</label>\r\n\r\n','yes',NULL,'','',NULL);
-INSERT INTO `problems` VALUES (3,5,1,1,'<p>Let: \\(f(x) = 3x - 1\\) and \\(g(x) = frac{1}{x+3}\\)</p>\r\n<p>find f(g(5))</p>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\">\r\n</div>\r\n<div id=\"displayStudentAns\"></div>','-(x/(x+3))',NULL,'(-\\infty,-3)','',NULL);
-INSERT INTO `problems` VALUES (4,5,1,1,'<p>Does this graph represent a valid function?</p>\r\n	<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/2.png\"/><br>\r\n<br/>\r\n\r\n	<input type=\"radio\" id=\"radio1\" name=\"radios\" value=\"yes\" checked>\r\n       <label for=\"radio1\">Yes</label>\r\n    <input type=\"radio\" id=\"radio2\" name=\"radios\" value=\"no\">\r\n       <label for=\"radio2\">No</label>\r\n\r\n','no',NULL,NULL,'',NULL);
-INSERT INTO `problems` VALUES (5,5,1,1,'<p>Does this graph represent a valid function?</p>\r\n	<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/3.png\"/><br>\r\n<br/>\r\n\r\n	<input type=\"radio\" id=\"radio1\" name=\"radios\" value=\"yes\" checked>\r\n       <label for=\"radio1\">Yes</label>\r\n    <input type=\"radio\" id=\"radio2\" name=\"radios\" value=\"no\">\r\n       <label for=\"radio2\">No</label>\r\n','no',NULL,NULL,'',NULL);
-INSERT INTO `problems` VALUES (6,5,1,1,'	<p>Simplify the following expression:</p>\r\n	<span style=\"font-size: 2.5em;\">\\(\\frac{\\frac{5x}{x^2}}{\\frac{x^2}{-5x}}\\)</span><br><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\">\r\n</div>\r\n<div id=\"displayStudentAns\"></div>','-25/x^2',NULL,NULL,'',NULL);
-INSERT INTO `problems` VALUES (7,5,1,1,'	<p>Let: \\(f(x) = x^2 - x + 1\\) and \\(g(x) = 3x - 5\\)</p>\r\n	<p>find f(g(x))</p>\r\n	<div class=\"input-group-addon\">\\(f(g(x)) = \\)</div>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\">\r\n</div>\r\n<div id=\"displayStudentAns\"></div>','9x^2-33x+31',NULL,'(-\\infty,\\infty)','',NULL);
-INSERT INTO `problems` VALUES (8,5,1,1,'<p>What is the domain of the points on this graph?</p>\r\n<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/4.png\"/><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\"></div>\r\n<div id=\"displayStudentAns\"></div>','[-3,4]',NULL,NULL,'',NULL);
-INSERT INTO `problems` VALUES (9,5,1,1,'<p>What is the range of the following function?</p>\r\n<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/5.png\"/><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\"></div>\r\n<div id=\"displayStudentAns\"></div>','[-4,3]',NULL,NULL,'',NULL);
-INSERT INTO `problems` VALUES (10,5,1,1,'<p>What is the range of the following function?</p>\r\n<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/6.png\"/><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\">\r\n</div>\r\n<div id=\"displayStudentAns\"></div>','(0,\\infty)',NULL,NULL,'',NULL);
+INSERT INTO `problems` VALUES (1,5,1,1,'<p>Let: \\(x^2 - x + 1\\) and \\(g(x) = 3x - 5\\)</p>\r\n<p>find f(g(x))</p>\r\n<br>\r\n<div class=\"input-group col-xs-12 col-md-4 col-md-offset-4\">\r\n<div class=\"input-group-addon\">\\(f(g(x)) = \\)</div>\r\n</div>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\">\r\n</div>\r\n<div id=\"displayStudentAns\"></div>','composition of functions','9x^2-33x+31',NULL,NULL,'pq');
+INSERT INTO `problems` VALUES (2,5,1,1,'<p>Does this graph represent a valid function?</p>\r\n	<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/1.png\"/><br>\r\n<br/>\r\n\r\n	<input type=\"radio\" id=\"radio1\" name=\"radios\" value=\"yes\" checked>\r\n       <label for=\"radio1\">Yes</label>\r\n    <input type=\"radio\" id=\"radio2\" name=\"radios\" value=\"no\">\r\n       <label for=\"radio2\">No</label>\r\n\r\n','vertical line test','yes',NULL,NULL,'pk');
+INSERT INTO `problems` VALUES (3,5,1,1,'<p>Let: \\(f(x) = 3x - 1\\) and \\(g(x) = frac{1}{x+3}\\)</p>\r\n<p>find f(g(5))</p>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\">\r\n</div>\r\n<div id=\"displayStudentAns\"></div>','composition of functions','-(x/(x+3))',NULL,NULL,'pq');
+INSERT INTO `problems` VALUES (4,5,1,1,'<p>Does this graph represent a valid function?</p>\r\n	<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/2.png\"/><br>\r\n<br/>\r\n\r\n	<input type=\"radio\" id=\"radio1\" name=\"radios\" value=\"yes\" checked>\r\n       <label for=\"radio1\">Yes</label>\r\n    <input type=\"radio\" id=\"radio2\" name=\"radios\" value=\"no\">\r\n       <label for=\"radio2\">No</label>\r\n\r\n','vertical line test','no',NULL,NULL,'pk');
+INSERT INTO `problems` VALUES (5,5,1,1,'<p>Does this graph represent a valid function?</p>\r\n	<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/3.png\"/><br>\r\n<br/>\r\n\r\n	<input type=\"radio\" id=\"radio1\" name=\"radios\" value=\"yes\" checked>\r\n       <label for=\"radio1\">Yes</label>\r\n    <input type=\"radio\" id=\"radio2\" name=\"radios\" value=\"no\">\r\n       <label for=\"radio2\">No</label>\r\n','vertical line test','no',NULL,NULL,'pk');
+INSERT INTO `problems` VALUES (6,5,1,1,'	<p>Simplify the following expression:</p>\r\n	<span style=\"font-size: 2.5em;\">\\(\\frac{\\frac{5x}{x^2}}{\\frac{x^2}{-5x}}\\)</span><br><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\">\r\n</div>\r\n<div id=\"displayStudentAns\"></div>','simplifying fractions','-25/x^2',NULL,NULL,'pk');
+INSERT INTO `problems` VALUES (8,5,1,1,'<p>What is the domain of the points on this graph?</p>\r\n<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/4.png\"/><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\"></div>\r\n<div id=\"displayStudentAns\"></div>','domain','[-3,4]',NULL,NULL,'pk');
+INSERT INTO `problems` VALUES (9,5,1,1,'<p>What is the range of the following function?</p>\r\n<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/5.png\"/><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\"></div>\r\n<div id=\"displayStudentAns\"></div>','range','[-4,3]',NULL,NULL,'pk');
+INSERT INTO `problems` VALUES (10,5,1,1,'<p>What is the range of the following function?</p>\r\n<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/6.png\"/><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\">\r\n</div>\r\n<div id=\"displayStudentAns\"></div>','range','(0,\\infty)',NULL,NULL,'pk');
 /*!40000 ALTER TABLE `problems` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -491,4 +490,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-28 22:22:03
+-- Dump completed on 2014-07-29  2:41:34

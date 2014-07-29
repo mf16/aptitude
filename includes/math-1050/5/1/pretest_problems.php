@@ -47,6 +47,7 @@ include "../../../global.php";
        <label for="radio2">No</label>
 </section>
 
+*/
 [complex fractions]
 <section class="col-xs-12 text-body pretestQuestionsContainer">
 	<p>Simplify the following expression:</p>
