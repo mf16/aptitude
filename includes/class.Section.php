@@ -84,7 +84,7 @@ class Section extends SectionDAO {
 				$("p").hover(
 					function(){
 						$(".vote").remove();
-						$(this).append($("<span style=\'float:right;margin-right:-25px;\' class=\'vote\'><div placeholder=\'tooltip here\' rel=\'popover\' data-trigger=\'hover\' style=\'cursor:pointer;margin-top:-20px;\'>▲</div><div style=\'cursor:pointer;\'>▼</div></span>"));
+						$(this).append($("<span style=\'float:right;margin-right:-25px;\' class=\'vote\'><div style=\'cursor:pointer;margin-top:-20px;\'>▲</div><div style=\'cursor:pointer;\'>▼</div></span>"));
 					}, function(){
 					}
 				);

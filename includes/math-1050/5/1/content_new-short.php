@@ -168,7 +168,6 @@ h1{
 									}});
 								}
 							</script>
-								
 							<article class="col-xs-12 margin-top margin-bottom definition">
 								<article class="col-md-2">
 								</article>
