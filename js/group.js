@@ -62,7 +62,7 @@ AmCharts.ready(function() {
     chart = new AmCharts.AmSerialChart();
     chart.dataProvider = chartData[0];
     chart.categoryField = "section";
-    chart.startDuration = 1;
+    chart.startDuration = 0;
     chart.sequencedAnimation = false;
 
     // add click listener
@@ -80,6 +80,7 @@ AmCharts.ready(function() {
     graph.type = "column";
     graph.valueField = "completion";
     graph.fillAlphas = 0.6;
+    graph.startDuration = 0,
     graph.balloonText = "[[section]] <br> [[value]]% completed";
     chart.addGraph(graph);
 

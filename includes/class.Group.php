@@ -35,17 +35,88 @@ class Group extends GroupDAO {
 		$_SESSION['userType']='professor';
 		$this->groupid = 1;
 		?>
+		<style type="text/css">
+			.topSpacer{
+				margin-top: 72px;
+			}
+			.arrowContainer{
+				width: 14.666667%;
+			}
+			/* iPads (portrait) ----------- */
+			@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+				.arrowContainer{
+					display: none;
+				}
+				.ipadPortraitHidden{
+					display: none;
+				}
+				.no-padding{padding-left: 30px;}
+				.ipadSmaller{
+					margin: 15px;
+				}
+				#completionDate{
+					width: 100%;
+					margin-left: -15px;
+				}
+				#roster{
+					margin-top: 0px;
+					margin-bottom: 25px;
+				}
+				.material-body{padding: 0px;padding-top: 72px;}
+				header,#slidingMenu{
+					margin-top: 0px;
+				}
+				.section-title-container{
+					padding-left: 15px;
+				}
+			}
+			/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+	
+}
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+/* Styles */
+	.ipadLandscapeHidden{
+		display: none;
+	}
+}
+			/* Smartphones (portrait and landscape) ----------- */
+			@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+				.material-body{padding: 0px;}
+				header,#slidingMenu{
+					margin-top: -75px;
+				}
+				h1{font-size: 40px}
+				.section-title-container{
+					padding-left: 15px;
+				}
+				.ipadSmaller{
+					margin: 15px;
+				}
+				#completionDate{
+					padding-right: 15px;
+					padding-left: 15px;
+					margin-left: 15px;
+				}
+				#roster{
+					margin-top: 0px;
+					margin-bottom: 25px;
+				}
+			}
+		</style>
 
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 		<!-- wrapper -->
 		<div class="page-wrap">
 			<section class="container loader"></section>
-
-			<section class="col-md-2 no-padding">
+			<section class="col-md-12 ipadPortraitHidden topSpacer"></section>	
+			<section class="col-md-2 arrowContainer no-padding hidden-xs">
 				<div class="chapter-number">
 					<img src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/solid-arrow.png"/>
 				</div>
 			</section>
+
 			<section class="col-md-10 material-body">
 				<section class="row-fluid section-title-container">
 					<h1 class="section-title">Class Dashboard</h1>
@@ -53,7 +124,7 @@ class Group extends GroupDAO {
 				</section>
 				<section class="row">
 					<section class="col-md-12">
-						<div class="col-md-8 dataContainer">
+						<div class="col-md-8 dataContainer ipadSmaller">
 							<h3>Class Completion Progress</h3>
 							<div id="completionProgress" style="height: 322px;"></div>
 						</div>
@@ -63,7 +134,7 @@ class Group extends GroupDAO {
 								<table class="table" style="border-color:#484848;">
 									<thead>
 										<tr>
-											<th></th>
+											<th class="ipadLandscapeHidden"></th>
 											<th>Student Name</th>
 											<th>Progress</th>
 										</tr>
@@ -75,7 +146,7 @@ class Group extends GroupDAO {
 										$c++;
 										echo '
 										<tr class="link darkHover" onclick="profilePageChange()">
-											<td ><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile-'.$c.'.jpg"></td>
+											<td class="ipadLandscapeHidden"><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile-'.$c.'.jpg"></td>
 											<td>';
 											$input = array("Eric Thompson", "Evan Vinciguerra", "Andi Richardson", "William Facer", "Jessica Lewis");
 												echo $input[$c-1];
@@ -92,7 +163,7 @@ class Group extends GroupDAO {
 							</div>
 						</div>
 						<div class="col-md-5 no-padding">
-						<div class="col-md-12 dataContainer margin-top" id="completionDate">
+						<div class="col-md-12 dataContainer ipadSmaller margin-top" id="completionDate">
 							<h3>Course Progress</h3>
 							<table class="table">
 								<thead>

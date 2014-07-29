@@ -41,7 +41,64 @@ class Profile {
 				?>
 				<a href="#" onclick="newClass()" >+ Create new class</a>
 			</div>
+			<style type="text/css">
+				/* iPads (portrait) ----------- */
+				@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+					.arrowContainer{
+						display: none;
+					}
+					.ipadPortraitHidden{
+						display: none;
+					}
+					.section-title-container{
+						margin-left: 15px;
+					}
+					.ipadSmaller{
+						margin-left: 35px;
+						margin-right: 15px;
+					}
+				}
 
+				/* iPads (portrait and landscape) ----------- */
+				@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+					.roundedProfile{
+						width: 50%;
+					}
+
+				}
+				/* iPads (landscape) ----------- */
+				@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+				/* Styles */
+					.ipadLandscapeHidden{
+						display: none;
+					}
+					.phoneHide{
+						display: none;
+					}
+					.phoneShow{
+						display: inline;
+					}
+				}
+				/* Smartphones (portrait and landscape) ----------- */
+				@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+					.phoneHide{
+						display: none;
+					}
+					.phoneShow{
+						display: inline;
+					}
+				}
+
+				/* Smartphones (landscape) ----------- */
+				@media only screen and (min-width : 321px) {
+				/* Styles */
+				}
+
+				/* Smartphones (portrait) ----------- */
+				@media only screen and (max-width : 320px) {
+				/* Styles */
+				}
+			</style>
 			<header>
 				<div id="header">
 					<!--Button to expand slideout-->
@@ -55,7 +112,7 @@ class Profile {
 			<section id="headerSpacer" style="height: 75px;"></section>
 			<section class="container loader"></section>
 
-			<section class="col-md-2 no-padding">
+			<section class="col-md-2 arrowContainer no-padding">
 				<div class="chapter-number">
 					<img src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/solid-arrow.png"/>
 				</div>
@@ -69,7 +126,7 @@ class Profile {
 					<section class="col-md-3">
 						<div class="col-md-12 no-padding text-center" style="margin-bottom:15px;"><img class="roundedProfile" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>img/global/profile-photo.png"></div>
 						<h3 class="text-center section-number">Ricky Sapp</h3>
-						<section class="col-md-12 dataContainer" style="border: 2px solid #F79234;">
+						<section class="col-md-12 dataContainer ipadSmaller" style="border: 2px solid #F79234;">
 							<h3>About</h3><br>
 							<p><span class="aboutTitle">Major:</span><span> Economics</span></p>
 							<p><span class="aboutTitle">Year:</span> <span> Sophomore</span></p>
@@ -77,7 +134,7 @@ class Profile {
 							<br>
 							<h3>Contact</h3><br>
 							<p><span class="aboutTitle">Phone:</span><span> 328-485-4832</span></p>
-							<p><span class="aboutTitle">Email:</span> <span> rickysapp28@gmail.com</span></p>
+							<p><span class="aboutTitle">Email:</span> <span class="phoneHide"> rickysapp28@gmail.com</span><span class="phoneShow"><a href="mailto:rickysapp28@gmail.com">Email</a></span></p>
 							<p><span class="aboutTitle">Address:</span> <br><span> 593 N 183 E<br>Provo, UT 84606</span></p>
 						</section>
 					</section>
