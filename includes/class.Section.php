@@ -44,7 +44,26 @@ class Section extends SectionDAO {
 			include 'includes/class.Prequiz.php';
 			$prequiz = new Prequiz($this->subjectName,$this->chapterid,$this->sectionid);
 		} else {
-			include 'includes/'.$this->subjectName.'/'.$this->chapterid.'/'.$this->sectionid.'/content_new.php';
+			//determine ebook content to show
+			$keyArray=array_keys($_SESSION['math1050-prequiz']);
+			foreach($keyArray as $key){
+				$displayInfo=$_SESSION['math1050-prequiz'][$key][0];
+				if($displayInfo['type']=='pq' && $displayInfo['correct']==1){
+					if(isset($contentDeterminer[$displayInfo['concept']])){
+						$contentDeterminer[$displayInfo['concept']]++;
+					} else {
+						$contentDeterminer[$displayInfo['concept']]=1;
+					}
+				}
+			}
+			//loop through for each concept in chapter
+			if(isset($contentDeterminer['composition of functions']) && ($contentDeterminer['composition of functions']>(0))){
+				//short version
+				include 'includes/'.$this->subjectName.'/'.$this->chapterid.'/'.$this->sectionid.'/content_new-short.php';
+			} else {
+				//long version
+				include 'includes/'.$this->subjectName.'/'.$this->chapterid.'/'.$this->sectionid.'/content_new.php';
+			}
 		}
 		
 		drawFooter($this->foot());

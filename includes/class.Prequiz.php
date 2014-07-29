@@ -57,8 +57,21 @@ class Prequiz extends PrequizDAO {
         echo 'session vars cleared';
     }
 
+	function finishQuiz(){
+		$_SESSION['isPrequizCompleted']=1;
+	}
 	function nextProblem(){
-		krumo($_SESSION);
+		//krumo($_SESSION);
+		// jquery timer
+		echo '<script>
+			var counter=0;
+			var timer=null;
+			function tictac(){
+				counter++;
+			}
+			timer=setInterval("tictac()",1000);
+		</script>';
+
         echo '<button onclick="clearSessionVars();">CLICK HERE TO CLEAR SESSION VARS AND START OVER</button>';
         echo '
            <script>
@@ -94,10 +107,11 @@ class Prequiz extends PrequizDAO {
 		if($problemNum>$this->totalAmount){
             echo 'END THE TEST NOW AND DISPLAY RESULTS';
 			$keyArray=array_keys($_SESSION['math1050-prequiz']);
-			print_r($keyArray);
+			//print_r($keyArray);
 			echo '<table>
 				<tr>
 					<th>Problem ID</th>
+					<th>Time Spent</th>
 					<th>Problem Type</th>
 					<th>Problem Concept</th>
 					<th>Correct Answer</th>
@@ -112,31 +126,40 @@ class Prequiz extends PrequizDAO {
 					$displayInfo['correct']='no';
 				}
 				$typeArray=array('pk'=>'previous knowledge','pq'=>'pre-quiz');
+
+
+				$minutes=0;
+				$seconds=0;
+				if(isset($displayInfo['timer'])){
+					$minutes=(int)($displayInfo['timer']/60);
+					$seconds=(int)($displayInfo['timer']%60);
+				}
 				echo '<tr>';
 					echo '<td>'.$key.'</td>';
+					echo '<td>'.$minutes.':'.$seconds.'</td>';
 					echo '<td>'.$typeArray[$displayInfo['type']].'</td>';
 					echo '<td>'.$displayInfo['concept'].'</td>';
 					echo '<td>\('.$displayInfo['correctAns'].'\)</td>';
 					echo '<td>\('.$displayInfo['studentAns'].'\)</td>';
 					echo '<td>'.$displayInfo['correct'].'</td>';
 				echo '</tr>';
-				krumo($_SESSION['math1050-prequiz'][$key][0]);
+				// add to 
 			}
 			echo '</table>';
+
 			//display results
-            krumo($_SESSION);
             //$_SESSION['isPrequizCompleted']=1;
             echo '<button onclick="setQuizComplete();">Continue to book content</button>';
             echo '<script>
-                    function setQuizComplete(){
-                        location.reload();
-                    }
-                </script>
-            ';
+				MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+				function setQuizComplete(){
+					$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=finishQuiz&subjectName='.$this->subjectName.'&chapterid='.$this->subjectName.'&sectionid='.$this->sectionid.'",success:function(result){
+						location.reload();
+					}});
+				}
+			</script>';
             return;
 		}
-		echo 'problemNum:'.$problemNum.'<br/><br/>';
-
 
 
 		// setting type
@@ -229,7 +252,7 @@ class Prequiz extends PrequizDAO {
 				if($("#radio1").length > 0){
 					studentAns = $("input[name=radios]:checked").val();
 				}
-				$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=checkAnswer&subjectName='.$this->subjectName.'&chapterid='.$this->subjectName.'&sectionid='.$this->sectionid.'&problemid='.$problemInfo['problem_id'].'&var=1&studentAns="+encodeURIComponent(studentAns),success:function(result){
+				$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=checkAnswer&subjectName='.$this->subjectName.'&chapterid='.$this->subjectName.'&sectionid='.$this->sectionid.'&problemid='.$problemInfo['problem_id'].'&var=1&timer="+counter+"&studentAns="+encodeURIComponent(studentAns),success:function(result){
 					if(result=="correct"){
 						$("#checkAnswerReturn").html("Correct<br/>");
 					} else {
@@ -250,7 +273,7 @@ class Prequiz extends PrequizDAO {
                     alert("please enter a valid domain before clicking submit");
                 } else {
                     var studentDomain=$("#studentDomain").val();
-                    $.ajax({url:"/aptitude/includes/class.Prequiz.php?action=checkDomain&problemid='.$problemInfo['problem_id'].'&var=1&studentDomain="+encodeURIComponent(studentDomain),success:function(result){
+                    $.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=checkDomain&problemid='.$problemInfo['problem_id'].'&var=1&studentDomain="+encodeURIComponent(studentDomain),success:function(result){
                         if(result=="correct"){
                             $("#checkDomainReturn").html("Correct");
                         } else {
@@ -263,7 +286,7 @@ class Prequiz extends PrequizDAO {
             echo '
         });
 	function nextProblem(){
-		$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=nextProblem&subjectName='.$this->subjectName.'&chapterid='.$this->chapterid.'&sectionid='.$this->sectionid.'",success:function(result){
+		$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=nextProblem&subjectName='.$this->subjectName.'&chapterid='.$this->chapterid.'&sectionid='.$this->sectionid.'",success:function(result){
 			$("#prequiz").html(result);
 		}});
 	}
@@ -329,6 +352,10 @@ class Prequiz extends PrequizDAO {
         $_SESSION['math1050-prequiz'][$problemid][$problemTry]['correctAns']=$correctAns;
         $_SESSION['math1050-prequiz'][$problemid][$problemTry]['correct']=$isCorrect;
         $_SESSION['math1050-prequiz'][$problemid][$problemTry]['type']=$problemInfo['problem_type'];
+        $_SESSION['math1050-prequiz'][$problemid][$problemTry]['concept']=$problemInfo['concept_hack'];
+		if(isset($_REQUEST['timer'])){
+			$_SESSION['math1050-prequiz'][$problemid][$problemTry]['timer']=$_REQUEST['timer'];
+		}
         $_SESSION['math1050-prequiz'][$problemid][$problemTry]['concept']=$problemInfo['concept_hack'];
         if(isset($problemInfo['problem_type'])){
             $_SESSION['math1050-prequiz'][$problemid][$problemTry]['problemType']=$problemInfo['problem_type'];
