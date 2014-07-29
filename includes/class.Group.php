@@ -151,7 +151,7 @@ class Group extends GroupDAO {
 											$input = array("Eric Thompson", "Evan Vinciguerra", "Andi Richardson", "William Facer", "Jessica Lewis");
 												echo $input[$c-1];
 											echo '</td>';
-												$input = array("<td class='percentBehind' style='color:green;'>+", "<td class='percentBehind'>-");
+												$input = array(/*"<td class='percentBehind' style='color:green;'>+", */"<td class='percentBehind'>-");
 												echo $input[array_rand($input)];
 												echo mt_rand(1,24).'%</td>
 											</td>
