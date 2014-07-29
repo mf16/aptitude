@@ -35,12 +35,16 @@ class Group extends GroupDAO {
 		$_SESSION['userType']='professor';
 		$this->groupid = 1;
 		?>
-
+		<style type="text/css">
+			.topSpacer{
+				margin-top: 72px;
+			}
+		</style>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 		<!-- wrapper -->
 		<div class="page-wrap">
 			<section class="container loader"></section>
-
+			<section class="col-md-12 topSpacer"></section>
 			<section class="col-md-2 no-padding">
 				<div class="chapter-number">
 					<img src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/solid-arrow.png"/>
