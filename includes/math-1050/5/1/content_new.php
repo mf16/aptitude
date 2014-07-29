@@ -185,7 +185,9 @@ h1{
 								<p>The quantity \(g \circ f\) is also read `\(g\) composed with \(f\)' or, more simply `\(g\) of \(f\).' At its most basic level, Definition 5.1 tells us to obtain the formula for \((g \circ f) (x)\), we replace every occurrence of \(x\) in the formula for \(g(x)\) with the formula we have for \(f(x)\). If we take a step back and look at this from a procedural, `inputs and outputs' perspective, Definition 5.1 tells us the output from \(g \circ f\) is found by taking the output from \(f\), \(f(x)\), and then making that the input to \(g\). The result, \(g(f(x))\), is the output from \(g \circ f\). From this perspective, we see \(g \circ f\) as a two step process taking an input \(x\) and first applying the procedure \(f\) then applying the procedure \(g\). Abstractly, we have:</p>
 							</section>
 							<section class="margin-top">
-								<img class="graphImage" src="<?php echo $_SERVER['DOCUMENT_ROOT']?>img/math-1050/5/1/graph.png">
+								<p>
+									<img class="graphImage" src="<?php echo $_SERVER['DOCUMENT_ROOT']?>img/math-1050/5/1/graph.png">
+								</p>
 							</section>
 							<article class="margin-top">
 								<p>In the expression \(g(f(x))\), the function \(f\) is often called the 'inside' function while \(g\) is often called the 'outside' function. There are two ways to go about evaluating composite functions - 'inside out' and 'outside in' - depending on which function we replace with its formula first. Both ways are demonstrated in the following example.</p>

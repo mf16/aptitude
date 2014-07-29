@@ -158,7 +158,7 @@ h1{
 								</div>
 							</section>
 							<article class="leadingLetter">C</article>
-							<p>ongratulations! Looks like you already know quite a bit about <b>Composition of Functions</b>. Review the following bullet points, then scroll down to the next concept or post-reading problems.</p>
+							<p>ongratulations! Looks like you already know <b>Composition of Functions</b> somewhat well, but let's go over a few things just to make sure you have a solid understanding.</p>
 							<br/>
 							<p class="text-center"><a onclick="showLongText();" href="">Click Here to Show entire text</a></p>
 							<script>
@@ -168,27 +168,40 @@ h1{
 									}});
 								}
 							</script>
-								
+
+							<br><p>Linear and quadratic functions were special cases of polynomial functions, which we studied in generality in Chapter 3. Chapter 3 culminated with the Real Factorization Theorem, Theorem 3.16, which says that all polynomial functions with real coefficients can be thought of as products of linear and quadratic functions. Our next step was to enlarge our field of study to rational functions in Chapter 4. Being quotients of polynomials, we can ultimately view this family of functions as being built up of linear and quadratic functions as well. So in some sense, Chapters 2, 3, and 4 can be thought of as an exhaustive study of linear and quadratic functions and their arithmetic combinations as described in Section 1.5. We now wish to study other algebraic functions, such as \(f(x) = \sqrt{x}\) and \(g(x) = x^{2/3}\), and the purpose of the first two sections of this chapter is to see how these kinds of functions arise from polynomial and rational functions. To that end, we first study a new way to combine functions as defined below.</p>
+							</section>
+						</section>
+
+
+						<!--DEFINITION: START-->
+						<section class="row-fluid" style="margin-right: 25px;">
 							<article class="col-xs-12 margin-top margin-bottom definition">
 								<article class="col-md-2">
 								</article>
 								<article class="col-md-10">
 									<blockquote>
-										<p>The <strong>composite</strong> of \(g\) with \(f\), denoted \(g \circ f\), is deﬁned by the formula \((g \circ f)(x) = g(f(x))\), provided \(x\) is an element of the domain of \(f\) and \(f(x)\) is an element of the domain of \(g\).</p>
+										<p>Suppose \(f\) and \(g\) are two functions. The <strong>composite</strong> of \(g\) with \(f\), denoted \(g \circ f\), is deﬁned by the formula \((g \circ f)(x) = g(f(x))\), provided \(x\) is an element of the domain of \(f\) and \(f(x)\) is an element of the domain of \(g\).</p>
 									</blockquote>
 								</article>
 							</article>
-							</section>
 						</section>
+						<!--DEFINITION: END-->
 
 						<section class="col-md-2 no-padding">
 						</section>
 						<section class="col-md-10 text-body">
-							<section class="">
-								<p>
-									<img class="graphImage" src="<?php echo $_SERVER['DOCUMENT_ROOT']?>img/math-1050/5/1/graph.png">
-								</p>
+							<section>
+								<p>The quantity \(g \circ f\) is also read `\(g\) composed with \(f\)' or, more simply `\(g\) of \(f\).' At its most basic level, Definition 5.1 tells us to obtain the formula for \((g \circ f) (x)\), we replace every occurrence of \(x\) in the formula for \(g(x)\) with the formula we have for \(f(x)\). If we take a step back and look at this from a procedural, `inputs and outputs' perspective, Definition 5.1 tells us the output from \(g \circ f\) is found by taking the output from \(f\), \(f(x)\), and then making that the input to \(g\). The result, \(g(f(x))\), is the output from \(g \circ f\). From this perspective, we see \(g \circ f\) as a two step process taking an input \(x\) and first applying the procedure \(f\) then applying the procedure \(g\). Abstractly, we have:</p>
 							</section>
+							<section class="margin-top">
+							<p>
+								<img class="graphImage" src="<?php echo $_SERVER['DOCUMENT_ROOT']?>img/math-1050/5/1/graph.png">
+							</p>
+							</section>
+							<article class="margin-top">
+								<p>In the expression \(g(f(x))\), the function \(f\) is often called the 'inside' function while \(g\) is often called the 'outside' function. There are two ways to go about evaluating composite functions - 'inside out' and 'outside in' - depending on which function we replace with its formula first. Both ways are demonstrated in the following example.</p>
+							</article>
 						</section>
 
 

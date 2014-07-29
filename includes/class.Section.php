@@ -32,6 +32,10 @@ class Section extends SectionDAO {
 		return $headerText;
 	}
 
+	function showLongText(){
+		$_SESSION['showLongText']=1;
+	}
+
 	function draw(){
 		$sidebarMenu = new SidebarMenu();
 		drawHeader($this->head());
@@ -40,30 +44,52 @@ class Section extends SectionDAO {
         if(isset($_SESSION['isPrequizCompleted'])){
             $this->isPrequizCompleted=1;
         }
+
 		if(!$this->isPrequizCompleted){
 			include 'includes/class.Prequiz.php';
 			$prequiz = new Prequiz($this->subjectName,$this->chapterid,$this->sectionid);
 		} else {
 			//determine ebook content to show
-			$keyArray=array_keys($_SESSION['math1050-prequiz']);
-			foreach($keyArray as $key){
-				$displayInfo=$_SESSION['math1050-prequiz'][$key][0];
-				if($displayInfo['type']=='pq' && $displayInfo['correct']==1){
-					if(isset($contentDeterminer[$displayInfo['concept']])){
-						$contentDeterminer[$displayInfo['concept']]++;
-					} else {
-						$contentDeterminer[$displayInfo['concept']]=1;
+			if(isset($_SESSION['math1050-prequiz'])){
+				$keyArray=array_keys($_SESSION['math1050-prequiz']);
+				foreach($keyArray as $key){
+					$displayInfo=$_SESSION['math1050-prequiz'][$key][0];
+					if($displayInfo['type']=='pq' && $displayInfo['correct']==1){
+						if(isset($contentDeterminer[$displayInfo['concept']])){
+							$contentDeterminer[$displayInfo['concept']]++;
+						} else {
+							$contentDeterminer[$displayInfo['concept']]=1;
+						}
 					}
 				}
 			}
 			//loop through for each concept in chapter
-			if(isset($contentDeterminer['composition of functions']) && ($contentDeterminer['composition of functions']>(0))){
+			if(isset($contentDeterminer['composition of functions']) && ($contentDeterminer['composition of functions']>(1)) && (!isset($_SESSION['showLongText']))){
 				//short version
 				include 'includes/'.$this->subjectName.'/'.$this->chapterid.'/'.$this->sectionid.'/content_new-short.php';
+			} else if(isset($contentDeterminer['composition of functions']) && ($contentDeterminer['composition of functions']>(0)) && (!isset($_SESSION['showLongText']))){
+				//medium version
+				include 'includes/'.$this->subjectName.'/'.$this->chapterid.'/'.$this->sectionid.'/content_new-med.php';
 			} else {
 				//long version
 				include 'includes/'.$this->subjectName.'/'.$this->chapterid.'/'.$this->sectionid.'/content_new.php';
 			}
+			echo '
+			<style>
+			p:hover {
+			}
+			</style>
+
+			<script>
+				$("p").hover(
+					function(){
+						$(".vote").remove();
+						$(this).append($("<span style=\'float:right;margin-right:-25px;\' class=\'vote\'><div placeholder=\'tooltip here\' rel=\'popover\' data-trigger=\'hover\' style=\'cursor:pointer;margin-top:-20px;\'>▲</div><div style=\'cursor:pointer;\'>▼</div></span>"));
+					}, function(){
+					}
+				);
+			</script>
+			';
 		}
 		
 		drawFooter($this->foot());

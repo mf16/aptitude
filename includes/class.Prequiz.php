@@ -50,6 +50,7 @@ class Prequiz extends PrequizDAO {
 	}
 
     function clearSessionVars(){
+        unset($_SESSION['showLongText']);
         unset($_SESSION['problemNum']);
         unset($_SESSION['prequizProblemComplete']);
         unset($_SESSION['math1050-prequiz']);
@@ -60,6 +61,11 @@ class Prequiz extends PrequizDAO {
 	function finishQuiz(){
 		$_SESSION['isPrequizCompleted']=1;
 	}
+
+	function skipQuiz(){
+		$_SESSION['isPrequizCompleted']=1;
+	}
+
 	function nextProblem(){
 		//krumo($_SESSION);
 		// jquery timer
@@ -231,7 +237,14 @@ class Prequiz extends PrequizDAO {
 		</div>
 	</section>
 
- 	<section class="col-md-4 col-xs-12 text-right" style="padding-right:45px;">SKIP PREQUIZ <img src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/right-arrow.png"  style="margin-left: 7px;"></section>
+ 	<section class="col-md-4 col-xs-12 text-right" onclick="skipPrequiz();" style="padding-right:45px;cursor:pointer;">SKIP PREQUIZ <img src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/right-arrow.png"  style="margin-left: 7px;"></section>
+	<script>
+		function skipPrequiz(){
+			$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=skipQuiz&subjectName='.$this->subjectName.'&chapterid='.$this->subjectName.'&sectionid='.$this->sectionid.'",success:function(result){
+				location.reload();
+			}});
+		}
+	</script>
 
 </footer>
 ';            
