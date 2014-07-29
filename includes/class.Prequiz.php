@@ -360,7 +360,9 @@ class Prequiz extends PrequizDAO {
 		print_r($studentAns);
 		*/
 		$problemTry=0;
-		$problemTry=count($_SESSION['math1050-prequiz'][$problemid]);
+		if(isset($_SESSION['math1050-prequiz'][$problemid])){
+			$problemTry=count($_SESSION['math1050-prequiz'][$problemid]);
+		}
         $_SESSION['math1050-prequiz'][$problemid][$problemTry]['studentAns']=$studentAns;
         $_SESSION['math1050-prequiz'][$problemid][$problemTry]['correctAns']=$correctAns;
         $_SESSION['math1050-prequiz'][$problemid][$problemTry]['correct']=$isCorrect;
