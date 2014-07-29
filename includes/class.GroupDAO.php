@@ -10,7 +10,12 @@ class GroupDAO{
 		$results=query($query,$classid);
 		return $results;
 	}
-
+	function getClassesByAdminid($subject,$userid){
+		global $db;
+		$group_admin_id=$_SESSION['userid'];
+		$results=query('SELECT group_id,group_name FROM math.groups WHERE group_admin_id=? ORDER BY end_date DESC;',$_SESSION['userid']);
+		return $results;
+	}
 
 	function getCourseProgressByGroupid($groupid){
 		$results=query('SELECT s.section_id,s.chapter_id,s.section_name,g.completion_date FROM math.section_names s,math.group_included_sections g WHERE s.section_id=g.section_id AND g.group_id=?',$groupid);

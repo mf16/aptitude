@@ -39,34 +39,6 @@ class Group extends GroupDAO {
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 		<!-- wrapper -->
 		<div class="page-wrap">
-			<div id="slidingMenu">
-				<h1>Aptitude</h1>
-				<span id="studentName"><?php echo $_SESSION['userFirstname'].' '.$_SESSION['userLastname']; ?></span>
-				<hr style="margin:0px; border-top: 1px solid #F26522;">
-				<a href="#services">Timeline</a>
-				<a href="#services">Account Settings</a>
-				<span>Classes</span>
-				<hr style="margin:0px; border-top: 1px solid #F26522;">
-				<?php
-				$classes=$this->GroupDAO->getClassesByAdminid('math',1);
-				foreach($classes as $class){
-					echo '<a href="'.$_SERVER['DOCUMENT_ROOT'].'class/'.$class['group_id'].'">'.$class['group_name'].'</a>';
-				}
-				?>
-				<a href="#" onclick="newClass()" >+ Create new class</a>
-			</div>
-
-			<header>
-				<div id="header">
-					<!--Button to expand slideout-->
-					<section onclick="toggleMenu()" id="buttonSideMenu">
-					</section>
-					<article>
-						<span class="phoneHide" id="aptitude">Aptitude</span>
-					</article>
-				</div>
-			</header>
-			<section id="headerSpacer" style="height: 75px;"></section>
 			<section class="container loader"></section>
 
 			<section class="col-md-2 no-padding">
@@ -76,66 +48,50 @@ class Group extends GroupDAO {
 			</section>
 			<section class="col-md-10 material-body">
 				<section class="row-fluid section-title-container">
-					<h1 class="section-title">student profile</h1>
+					<h1 class="section-title">Class Dashboard</h1>
 					<span class="section-number">math 1010-a</span><br>
 				</section>
 				<section class="row">
-					<section class="col-md-3">
-
-					</section>
-				</section>
-			</section>
-		</div>
-
-		<!-- wrapper -->
-		<div class="page-wrap">
-			<section id="headerSpacer"></section>
-			<section class="container loader"></section>
-			<section class="container body">
-				<section class="row-fluid">
-					<div class="col-md-8">
-						<div class="col-md-12 dataContainer">
+					<section class="col-md-12">
+						<div class="col-md-8 dataContainer">
 							<h3>Class Completion Progress</h3>
 							<div id="completionProgress" style="height: 322px;"></div>
 						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="col-md-12 dataContainer">
-							<h3>Struggling Students</h3>
-							<table class="table" style="border-color:#484848;">
-								<thead>
-									<tr>
-										<th></th>
-										<th>Student Name</th>
-										<th>Progress</th>
-									</tr>
-								</thead>
-								<tbody>
-								<?php
-								$c = 0;
-								while ($c < 5){
-									$c++;
-									echo '
-									<tr class="link darkHover" onclick="profilePageChange()">
-										<td ><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile-'.$c.'.jpg"></td>
-										<td>';
-										$input = array("Eric Thompson", "Evan Vinciguerra", "Andi Richardson", "William Facer", "Jessica Lewis");
-											echo $input[$c-1];
-										echo '</td>';
-											$input = array("<td class='percentBehind' style='color:green;'>+", "<td class='percentBehind'>-");
-											echo $input[array_rand($input)];
-											echo mt_rand(1,24).'%</td>
-										</td>
-									</tr>';
-								}
-								?>
-								</tbody>
-							</table>
+						<div class="col-md-4">
+							<div class="col-md-12 dataContainer">
+								<h3>Struggling Students</h3>
+								<table class="table" style="border-color:#484848;">
+									<thead>
+										<tr>
+											<th></th>
+											<th>Student Name</th>
+											<th>Progress</th>
+										</tr>
+									</thead>
+									<tbody>
+									<?php
+									$c = 0;
+									while ($c < 5){
+										$c++;
+										echo '
+										<tr class="link darkHover" onclick="profilePageChange()">
+											<td ><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile-'.$c.'.jpg"></td>
+											<td>';
+											$input = array("Eric Thompson", "Evan Vinciguerra", "Andi Richardson", "William Facer", "Jessica Lewis");
+												echo $input[$c-1];
+											echo '</td>';
+												$input = array("<td class='percentBehind' style='color:green;'>+", "<td class='percentBehind'>-");
+												echo $input[array_rand($input)];
+												echo mt_rand(1,24).'%</td>
+											</td>
+										</tr>';
+									}
+									?>
+									</tbody>
+								</table>
+							</div>
 						</div>
-					</div>
-				</section>
-				<section class="row-fluid margin-top">
-					<div class="col-md-5">
+						<div class="col-md-5 no-padding">
 						<div class="col-md-12 dataContainer margin-top" id="completionDate">
 							<h3>Course Progress</h3>
 							<table class="table">
@@ -228,13 +184,12 @@ class Group extends GroupDAO {
 							</table>
 						</div>
 					</div>
+					</div>
+					</section>
 				</section>
 			</section>
-			<section class="footerSpacer">
-			</section>
-
 		</div>
-		<!-- wrapper : end -->
+
 		<footer class="site-footer col-md-12">
 			<section>
 				<img src = "<?php echo $_SERVER['DOCUMENT_ROOT']; ?>img/global/icon.ico" />

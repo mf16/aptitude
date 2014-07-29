@@ -285,8 +285,8 @@ html, body {
 .top-buffer { margin-top:15px; }
 
 .dataContainer{
-	border: 1px solid #ccc;
-	box-shadow: 1px 1px 2px #eee;
+	border: 2px solid #F79234;
+	padding: 25px !important;
 }
 #conceptBreakdown>div>div>svg>g>g>text{
 	display:none;
