@@ -104,16 +104,6 @@ class Group extends GroupDAO {
 					margin-bottom: 25px;
 				}
 			}
-
-			/* Smartphones (landscape) ----------- */
-			@media only screen and (min-width : 321px) {
-			/* Styles */
-			}
-
-			/* Smartphones (portrait) ----------- */
-			@media only screen and (max-width : 320px) {
-			/* Styles */
-			}
 		</style>
 
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
