@@ -44,6 +44,29 @@
 		</section>
 	</section>
 </div>
+<footer class="row site-footer">
+  	<section class="col-md-4 col-xs-12"><img src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>img/global/left-arrow.png" style="margin-right: 7px;"> BACK</section>
+
+	<section class="col-md-4 col-xs-12 text-center">
+		<div class="meterwrapper">
+			<!-- Start of meter -->
+			<div class="meter">
+				<span id="meterSpan" style="width:0%" ></span>
+			</div><!-- End of meter -->
+		</div>
+	</section>
+
+ 	<section class="col-md-4 col-xs-12 text-right" onclick="skipPrequiz();" style="padding-right:45px;cursor:pointer;">SKIP PREQUIZ <img src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>img/global/right-arrow.png"  style="margin-left: 7px;"></section>
+	<script>
+		function skipPrequiz(){
+			$.ajax({url:"<?php echo $_SERVER['DOCUMENT_ROOT'];?>includes/class.Prequiz.php?action=skipQuiz&subjectName=<?php echo $this->subjectName;?>&chapterid=<?php echo $this->subjectName;?>&sectionid=<?php echo $this->sectionid;?>",success:function(result){
+				location.reload();
+			}});
+		}
+	</script>
+
+</footer>
+
 
 <script type="text/javascript">
 	var $readyButton = $('.readyButton');

@@ -212,7 +212,7 @@ class Prequiz extends PrequizDAO {
         echo '
                     <br/>
                     <br/>
-                    For Demo Purposes, the correct answer is: \('.$problemInfo['answer'].'\)<br/>
+                    For Demo Purposes, the correct answer is: '.$problemInfo['answer'].'<br/>
 					<button id="submitPrequizAnswer" class="readyButton">Submit Answer</button>
                     <div id="checkAnswerReturn"> </div>
                     '//<br/>'s for pushing footer down
