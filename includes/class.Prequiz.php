@@ -139,7 +139,6 @@ class Prequiz extends PrequizDAO {
 
 
 
-
 		// setting type
 		$type='';
 
