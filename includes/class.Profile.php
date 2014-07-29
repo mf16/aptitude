@@ -14,6 +14,7 @@ class Profile {
 	function head(){
 		$headerText='';
 		$headerText.='<script src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';
+		$headerText.='<link href="'.$_SERVER['DOCUMENT_ROOT'].'js/tooltip/jquery.qtip.min.css" type="text/css" rel="stylesheet">';
 		$headerText.='<link href="'.$_SERVER['DOCUMENT_ROOT'].'css/includes/'.strtolower(__CLASS__).'.css" type="text/css" rel="stylesheet">';
 		return $headerText;
 	}
@@ -21,84 +22,6 @@ class Profile {
 	function draw(){
 		drawHeader($this->head());
 		?>
-		<style type="text/css">
-		/*New designs css - start*/
-			h1{
-				font-size: 60px;
-				font-family: minion pro;
-				color:#F79234;
-				text-transform:uppercase;
-				letter-spacing:2px;
-			}
-			h3{
-				font-size: 20px;
-				font-family: nexabold;
-				color: #F79234;
-				text-transform: uppercase;
-				letter-spacing: 4px;
-			}
-			.chapter-number>img{
-				width: 100%;
-			}
-			.text-body{
-				padding-left: 0px !important;
-				margin-top:5px;
-			}
-			.no-padding{
-				padding:0px;
-			}
-			.material-body{
-				padding-left: 0px;
-				padding-top: 8%;
-				padding-right: 25px;
-			}
-			.section-number{
-				font-size: 20px;
-				font-family: nexabold;
-				color: #27292B;
-				text-transform: uppercase;
-				letter-spacing:4px;
-				padding-bottom:30px;
-			}
-			.section-title{
-				margin-bottom: 0px;
-			}
-			.section-title-container{
-				padding-bottom: 30px;
-			}
-			.practiceTitle{
-				font-family: nexabold;
-				color: #F79234;
-				font-size: 21px;
-				padding-top: 30px;
-				letter-spacing: 3px;
-				padding-bottom: 10px;
-			}
-			.practiceWrapper{
-				padding-right: 25px;
-			}
-			.practiceContainer{
-				padding-left: 0px;
-				margin-top:0px;
-			}
-			.practiceNumber{
-				text-align: right;
-				padding-right: 40px;
-			}
-			/*New designs css - end*/
-			.aboutTitle{
-				font-family: open sans;
-				font-weight: 700;
-				letter-spacing: 2px;
-			}
-			span{
-				font-family: open sans;
-				letter-spacing: 2px;
-			}
-			.no-padding{
-				padding:0px;
-			}
-		</style>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 		<!-- wrapper -->
 		<div class="page-wrap">
@@ -158,61 +81,24 @@ class Profile {
 							<p><span class="aboutTitle">Address:</span> <br><span> 593 N 183 E<br>Provo, UT 84606</span></p>
 						</section>
 					</section>
-					<style type="text/css">
-						.titleRow{
-							padding-left: 34px;
-						}
-						.titleRow>div{
-							position: relative;
-							float: left;
-							font-size: 20px;
-							font-family: nexabold;
-							color: #F79234;
-							text-transform: uppercase;
-							letter-spacing: 4px;
-							width: 115px;
-							text-align: center;
-						}
-						.dayMarkers{
-							position: relative;
-							float: left;
-						}
-						.dayMarkers>div{
-							font-size: 20px;
-							font-family: nexabold;
-							color: #F79234;
-							text-transform: uppercase;
-							text-align: center;
-							width: 20px;
-							height: 20px;
-							margin: 0px 12px 12px 0px;
-						}
-						.calendarBlock{
-							float: left;
-							position: relative;
-						}
-						.calendarBlock>div{
-							float: left;
-							width: 22px;
-							height: 22px;
-							background-color: #EBEBEB;
-							margin: 0px 12px 12px 0px;
-						}
-					</style>
 					<section class="col-md-9">
 						<div class="hidden-sm hidden-xs activityTable row">
 							<div class="titleRow">
-								<div>jan</div>
-								<div>feb</div>
-								<div>mar</div>
-								<div>apr</div>
-								<div>may</div>
-								<div>jun</div>
-								<div>jul</div>
+								<div>sep<div class="verticalMarker"></div></div>
+								<div>oct<div class="verticalMarker"></div></div>
+								<div>nov<div class="verticalMarker"></div></div>
+								<div>dec<div class="verticalMarker"></div></div>
+								<div>jan<div class="verticalMarker removeThird"></div></div>
+								<div class="removeThird">feb<div class="verticalMarker removeSecond"></div></div>
+								<div class="removeSecond">mar<div class="verticalMarker removeFirst"></div></div>
+								<div class="removeFirst">apr</div>
 							</div><br>
-							<div class="titleMarkers">
+							<div class="titleMarkersContainer">
+								<div class="titleMarkers">
 								<!--line with tics goes here-->
-							</div><br>
+							</div>
+							</div>
+							<br>
 							<div class="activityContainer">
 								<div class="dayMarkers">
 									<div>M</div>
@@ -223,220 +109,67 @@ class Profile {
 									<div>S</div>
 									<div>S</div>
 								</div>
-								<div class="calendarBlock calendarBlock_1">
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div> 
-								</div>
-								<div class="calendarBlock calendarBlock_2">
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div> 
-								</div>
-								<div class="calendarBlock calendarBlock_3">
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div> 
-								</div>
-								<div class="calendarBlock calendarBlock_4">
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div> 
-									<div></div>
-								</div>
-								<div class="calendarBlock calendarBlock_5">
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div> 
-									<div></div>
-								</div>
-								<div class="calendarBlock calendarBlock_6">
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div> 
-									<div></div>
-								</div>
-								<div class="calendarBlock calendarBlock_7">
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div> 
-								</div><br>
+								<?php
+									$month = 1;
+									$week = 1;
+									$day = 1;
+									$dayOfMonth = 1;
+									while ($month < 9) {
+										if($month == 8){
+											echo '<div class="calendarBlock removeFirst calendarBlock_'.$month.'">';
+										}
+										elseif($month == 7){
+											echo '<div class="calendarBlock removeSecond calendarBlock_'.$month.'">';
+										}
+										elseif($month == 6){
+											echo '<div class="calendarBlock removeThird calendarBlock_'.$month.'">';
+										}
+										else{
+											echo '<div class="calendarBlock calendarBlock_'.$month.'">';
+										}
+										while ($week < 5) {
+											echo '<div class="week">';
+											while ($day < 8) {
+												$rand = mt_rand(1,8);
+												if($rand == 1 || $rand == 3){
+													$class = 'activityHigh';
+													$data = 'High';
+												}
+												elseif ($rand == 2) {
+													$class = 'activityLow';
+													$data = 'Moderate';
+												}
+												else{
+													$class = 'activityNone';
+													$data = 'No';
+												}
+												echo '<div id="day_'.$dayOfMonth.'" class="'.$class.'" data-activity="'.$data.'"></div>';
+												$day++;
+												$dayOfMonth++;
+											}
+											echo '</div>';
+											$day = 1;
+											$week++;
+										}
+										echo '</div>';
+										$week = 1;
+										$dayOfMonth=1;
+										$month++;
+									}
+								?>
+								<br>
 								<div class="legend col-md-12">
-									<div class="col-md-3"><div class="exampleHigh"></div> High activity</div>
-									<div class="col-md-3 text-center"><div class="exampleModerate"></div> Moderate activity</div>
-									<div class="col-md-3 pull-right"><div class="exampleNone"></div> No activity</div>
+									<div class="col-md-4"><div class="legendHigh"></div> <span class='legendHighText'>High activity</span></div>
+									<div class="col-md-4"><div class="legendLow"></div> <span class='legendLowText'>Moderate activity</span></div>
+									<div class="col-md-4"><div class="legendNone"></div> <span class='legendNoneText'>No activity</span></div>
 								</div>
+								<section class="row-fluid margin-top">
+									<article class="col-md-11 margin-top" style=" padding-top:15px; padding-bottom:15px;">
+										<article id="profileHeroChart" style="height: 500px;"></article>
+									</article>
+								</section>
 							</div>
 						</div>
-						<section class="activityChart">
-							<?php
-							$days = 0;
-							while ($days < 7){
-								$days++;
-								$weeks = 0;
-								while ($weeks < 28){
-									$weeks++;
-									$rand = rand(1,4);
-									switch ($rand) {
-										case 1:
-											echo '	<div><div class="activityHigh"><div class="tooltip" title="June 12: High Activity"></div></div></div>';
-											break;
-										case 2:
-											echo '	<div><div class="activityLow"><div class="tooltip" title="September 7: Moderate Activity"></div></div></div>';
-											break;
-										default:
-											echo '	<div><div class="activityNone"><div class="tooltip" title="April 20: No activity"></div></div></div>';
-											break;
-									}
-								}
-								echo '<br>';
-							}
-							?>
-						</section>
 					</section>
 				</section>
 			</section>
@@ -466,11 +199,7 @@ class Profile {
 								
 							</article>
 						</section>
-						<section class="row-fluid margin-top">
-							<article class="col-md-12 margin-top" style=" padding-top:15px; padding-bottom:15px;">
-								<article id="profileHeroChart" style="height: 500px;"></article>
-							</article>
-						</section>
+						
 						<section class="row-fluid margin-top">
 							<article class="col-md-12" style="padding-top:15px; padding-bottom:15px;">
 							</article>
@@ -491,8 +220,124 @@ class Profile {
 				<a href="feedback.php"><span>Have feedback?</span></a>
 			</section>
 		</footer>
+		<script type="text/javascript">
+			$( window ).resize(function() {
+				if($( window ).width() > 1589 && $( window ).width() < 1807){
+					$('.removeFirst').css('display', 'none');
+					$('.removeSecond').css('display', 'inline');
+					$('.removeThird').css('display', 'inline');
+					$('.titleMarkers').css('width', '939px');
+				}
+				else if ($( window ).width() > 1371 && $( window ).width() < 1589){
+					$('.removeSecond').css('display', 'none');
+					$('.removeThird').css('display', 'inline');
+					$('.titleMarkers').css('width', '803px');
+				}
+				else if ($( window ).width() > 1154 && $( window ).width() < 1372){
+					$('.removeThird').css('display', 'none');
+					$('.titleMarkers').css('width', '667px');
+				}
+				else if ($( window ).width() > 1807){
+					$('.removeFirst').css('display', 'inline');
+					$('.removeSecond').css('display', 'inline');
+					$('.titleMarkers').css('width', '1075px');
+				}
+
+				if($( window ).width() < 1898 && $( window ).width() > 1589){
+					$('.removeFirst.verticalMarker').css('margin-top', '22px');
+					$('.removeFirst.verticalMarker').css('margin-left', '30px');
+				}
+				if($( window ).width() < 1898 && $( window ).width() > 1371){
+					$('.removeSecond.verticalMarker').css('margin-top', '22px');
+					$('.removeSecond.verticalMarker').css('margin-left', '34px');
+				}
+				if($( window ).width() < 1898 && $( window ).width() > 0){
+					$('.removeThird.verticalMarker').css('margin-top', '22px');
+					$('.removeThird.verticalMarker').css('margin-left', '32px');
+				}
+			});
+
+			 $(document).ready(function()
+			 {
+			 	console.log($( window ).width());
+			 	if($( window ).width() < 1807 && $( window ).width() > 1589){
+					$('.removeFirst').css('display', 'none');
+					$('.titleMarkers').css('width', '939px');
+				}
+				if($( window ).width() > 1371 && $( window ).width() < 1589){
+					$('.removeSecond').css('display', 'none');
+					$('.removeFirst').css('display', 'none');
+					$('.titleMarkers').css('width', '803px');
+				}
+				if($( window ).width() > 0 && $( window ).width() < 1372){
+					$('.removeSecond').css('display', 'none');
+					$('.removeFirst').css('display', 'none');
+					$('.removeThird').css('display', 'none');
+					$('.titleMarkers').css('width', '667px');
+				}
+			 	var block = 1;
+			 	var day = 1;
+			 	var month;
+			 	var year;
+			 	while (block < 9){
+			 		switch(block) {
+					    case 1:
+					        month = 'September';
+					        year = '2014';
+					        break;
+					    case 2:
+							month = 'October';
+							year = '2014';
+							break;
+						case 3:
+							month = 'November';
+							year = '2014';
+							break;
+						case 4:
+							month = 'December';
+							year = '2014';
+							break;
+						case 5:
+							month = 'January';
+							year = '2015';
+							break;
+						case 6:
+							month = 'February';
+							year = '2015';
+							break;
+						case 7:
+							month = 'March';
+							year = '2015';
+							break;
+						case 8:
+							month = 'April';
+							year = '2015';
+							break;
+					}
+			 		while (day < 29){
+			 			var activity = $('.calendarBlock_' + block+'>.week>#day_'+day).data( "activity" );
+			 			$('.calendarBlock_' + block+'>.week>#day_'+day).qtip({
+					         content: activity + ' Activity<br>' +month + ' ' + day + ', ' + year,
+					         style: {
+								  classes: "qtip-bootstrap" 
+							 },
+					         position: {
+					             target: 'mouse', // Track the mouse as the positioning target
+					             adjust: { x: 5, y: 5 } // Offset it slightly from under the mouse
+					         }
+					     });
+			 			day++;
+			 		}
+			 		day = 1;
+			 		block++;
+			 	}
+			 });
+		</script>
+		
+
 		<?php
 		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';
+		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/tooltip/jquery.qtip.min.js"></script>';
 		drawFooter($this->foot());
 	}
 	function foot(){

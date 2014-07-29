@@ -35,6 +35,58 @@ class Group extends GroupDAO {
 		$_SESSION['userType']='professor';
 		$this->groupid = 1;
 		?>
+
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+		<!-- wrapper -->
+		<div class="page-wrap">
+			<div id="slidingMenu">
+				<h1>Aptitude</h1>
+				<span id="studentName"><?php echo $_SESSION['userFirstname'].' '.$_SESSION['userLastname']; ?></span>
+				<hr style="margin:0px; border-top: 1px solid #F26522;">
+				<a href="#services">Timeline</a>
+				<a href="#services">Account Settings</a>
+				<span>Classes</span>
+				<hr style="margin:0px; border-top: 1px solid #F26522;">
+				<?php
+				$classes=$this->GroupDAO->getClassesByAdminid('math',1);
+				foreach($classes as $class){
+					echo '<a href="'.$_SERVER['DOCUMENT_ROOT'].'class/'.$class['group_id'].'">'.$class['group_name'].'</a>';
+				}
+				?>
+				<a href="#" onclick="newClass()" >+ Create new class</a>
+			</div>
+
+			<header>
+				<div id="header">
+					<!--Button to expand slideout-->
+					<section onclick="toggleMenu()" id="buttonSideMenu">
+					</section>
+					<article>
+						<span class="phoneHide" id="aptitude">Aptitude</span>
+					</article>
+				</div>
+			</header>
+			<section id="headerSpacer" style="height: 75px;"></section>
+			<section class="container loader"></section>
+
+			<section class="col-md-2 no-padding">
+				<div class="chapter-number">
+					<img src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/solid-arrow.png"/>
+				</div>
+			</section>
+			<section class="col-md-10 material-body">
+				<section class="row-fluid section-title-container">
+					<h1 class="section-title">student profile</h1>
+					<span class="section-number">math 1010-a</span><br>
+				</section>
+				<section class="row">
+					<section class="col-md-3">
+
+					</section>
+				</section>
+			</section>
+		</div>
+
 		<!-- wrapper -->
 		<div class="page-wrap">
 			<section id="headerSpacer"></section>

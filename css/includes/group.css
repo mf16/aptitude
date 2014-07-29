@@ -14,3 +14,19 @@
 .darkHover:hover{
 	background-color: whitesmoke;
 }
+
+h1 {
+	font-size:60px;
+	font-family:minion pro;
+	color:#F79234;
+	text-transform:uppercase;
+	letter-spacing:2px
+}
+
+h3 {
+	font-size:20px;
+	font-family:nexabold;
+	color:#F79234;
+	text-transform:uppercase;
+	letter-spacing:4px
+}

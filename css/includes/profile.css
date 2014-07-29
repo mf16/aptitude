@@ -1,37 +1,275 @@
-.roundedProfile{
-	width: 88%;
-	border-radius: 50%;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
+/*New designs css - start*/
+h1 {
+	font-size:60px;
+	font-family:minion pro;
+	color:#F79234;
+	text-transform:uppercase;
+	letter-spacing:2px
+}
+
+h3 {
+	font-size:20px;
+	font-family:nexabold;
+	color:#F79234;
+	text-transform:uppercase;
+	letter-spacing:4px
+}
+
+.chapter-number>img {
+	width:100%
+}
+
+.text-body {
+	padding-left:0!important;
+	margin-top:5px
+}
+
+.no-padding {
+	padding:0
+}
+
+.material-body {
+	padding-left:0;
+	padding-top:8%;
+	padding-right:25px
+}
+
+.section-number {
+	font-size:20px;
+	font-family:nexabold;
+	color:#27292B;
+	text-transform:uppercase;
+	letter-spacing:4px;
+	padding-bottom:30px
+}
+
+.section-title {
+	margin-bottom:0
+}
+
+.section-title-container {
+	padding-bottom:30px
+}
+
+.practiceTitle {
+	font-family:nexabold;
+	color:#F79234;
+	font-size:21px;
+	padding-top:30px;
+	letter-spacing:3px;
+	padding-bottom:10px
+}
+
+.practiceWrapper {
+	padding-right:25px
+}
+
+.practiceContainer {
+	padding-left:0;
+	margin-top:0
+}
+
+.practiceNumber {
+	text-align:right;
+	padding-right:40px
+}
+
+/*New designs css - end*/
+.aboutTitle {
+	font-family:open sans;
+	font-weight:700;
+	letter-spacing:2px
+}
+
+span {
+	font-family:open sans;
+	letter-spacing:2px
+}
+
+.no-padding {
+	padding:0
+}
+
+.titleMarkersContainer {
+	padding-left:32px
+}
+
+.titleMarkers {
+	border-bottom:1px solid #F68E1E;
+	margin-bottom:-8px;
+	margin-top:10px;
+	width:1075px
+}
+
+.roundedProfile {
+	width:88%;
+	border-radius:50%;
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%
 }
 
 /*Activity chart styling*/
-.activityChart{
-	line-height: 0em !important;
+.activityChart {
+	line-height:0!important
 }
-.activityChart>div{
-	width: 16px;
-	height: 16px;
-	padding: 1px; 
-	float: left;
+
+.activityChart>div {
+	width:16px;
+	height:16px;
+	padding:1px;
+	float:left
 }
-.activityChart>div>div{
-	width: 14px;
-	height: 14px;
+
+.activityChart>div>div {
+	width:14px;
+	height:14px
 }
-.activityChart>div>div>div{
-	width: 14px;
-	height: 14px;
+
+.activityChart>div>div>div {
+	width:14px;
+	height:14px
 }
-.activityChart>div>div:hover{
-	border:1px solid;
+
+.activityChart>div>div:hover {
+	border:1px solid
 }
-.activityLow{
-	background-color: #AFAFAF;
+
+.activityLow {
+	background-color:#58585B!important
 }
-.activityHigh{
-	background-color: #5D6A8A;
+
+.activityHigh {
+	background-color:#F68E1E!important
 }
-.activityNone{
-	background-color: rgb(231, 231, 231);
+
+.activityNone {
+	background-color:#D1D2D4!important
+}
+
+.titleRow {
+	padding-left:34px
+}
+
+.titleRow>div {
+	position:relative;
+	float:left;
+	font-size:20px;
+	font-family:nexabold;
+	color:#F79234;
+	text-transform:uppercase;
+	letter-spacing:4px;
+	width:136px;
+	text-align:center
+}
+
+.dayMarkers {
+	position:relative;
+	float:left
+}
+
+.dayMarkers>div {
+	font-size:20px;
+	font-family:nexabold;
+	color:#F79234;
+	text-transform:uppercase;
+	text-align:center;
+	width:20px;
+	height:22px;
+	margin:0 12px 12px 0
+}
+
+.calendarBlock {
+	float:left;
+	position:relative;
+	width:136px
+}
+
+.calendarBlock>.week>div {
+	float:left;
+	width:22px;
+	height:22px;
+	background-color:#EBEBEB;
+	margin:0 0 12px
+}
+
+.week {
+	width:22px;
+	position:relative;
+	float:left;
+	margin:0 12px 0 0
+}
+
+.verticalMarker {
+	width:1px;
+	position:absolute;
+	background-color:#F68E1E;
+	height:17px;
+	margin-left:127px;
+	margin-top:-6px
+}
+
+.legendHigh {
+	width:22px;
+	height:22px;
+	background-color:#F68E1E;
+	float:left;
+	position:relative;
+	margin-right:20px
+}
+
+.legendHighText {
+	font-size:14px;
+	font-family:Open Sans;
+	color:#F68E1E
+}
+
+.legendLow {
+	width:22px;
+	height:22px;
+	background-color:#58585B;
+	float:left;
+	position:relative;
+	margin-right:20px
+}
+
+.legendLowText {
+	font-size:14px;
+	font-family:Open Sans;
+	color:#58585B
+}
+
+.legendNone {
+	width:22px;
+	height:22px;
+	background-color:#D1D2D4;
+	float:left;
+	position:relative;
+	margin-right:20px
+}
+
+.legendNoneText {
+	font-size:14px;
+	font-family:Open Sans;
+	color:#D1D2D4
+}
+
+.legend {
+	margin-top:15px
+}
+
+.activityTable {
+	min-width:714px
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+.removeFirst {
+	display:none
+}
+}
+
+@media only screen and (min-device-width : 1589px) and (max-device-width : 1807px) and (orientation : portrait) {
+.removeSecond {
+	display:none
+}
 }
