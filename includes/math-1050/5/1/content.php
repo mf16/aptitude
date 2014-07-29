@@ -27,7 +27,7 @@
 					</section>
 					<section class="col-md-10 material-body col-sm-offset-1 col-xs-offset-1 col-md-offset-0">
 						<section class="row-fluid section-title-container">
-							<h1 class="section-title">sets of numbers</h1>
+							<h1 class="section-title">Composition of Functions</h1>
 							<span class="section-number">PREQUIZ</span><br>
 						</section>
 						<section class="row-fluid prequizExplanation">
