@@ -11,7 +11,7 @@
 }
 
 .MathJax {
-font-size: 3.25em;
+font-size: 20px;
 }
 
 
@@ -70,4 +70,11 @@ input[type=radio] + label{
 		padding-bottom: 25px;
 		width: 20%;
 		min-width: 275px;
+	}
+
+	td{
+		padding: 15px;
+	}
+	tr:not(:first-child) {
+		border-bottom: solid 1px #bebeb8;
 	}

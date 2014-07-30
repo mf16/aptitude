@@ -122,23 +122,22 @@ class Prequiz extends PrequizDAO {
 				<section class="col-md-4 material-body col-sm-offset-1 col-xs-offset-1 col-md-offset-0">
 					<section class="row-fluid section-title-container">
 						<h1 class="section-title">Pre-test report</h1>
-						<span class="section-number">composition of functions</span><br>
+						<span class="section-number">composition of functions</span><br><br><br>
+						<span class="section-number text-center">Time per problem:</span>
 					</section>
-					<section class="row-fluid" style="margin-top:100px;">
-						<span>graphs and stuff go here</span>
+					<section class="row-fluid" style="margin-top:-90px; margin-left:-50px;">
+						<div class="col-md-12 timePieChart" style="height:450px;" id="chartdiv"></div>
 					</section>
 				</section>
 				<section class="col-md-6 pretestProblemBreakdownContainer">';
-					echo '<table>
+					echo '<table style="text-align:left;">
 					<tr>
-						<th>Problem ID</th>
-						<th>Time Spent</th>
-						<th>Problem Type</th>
 						<th>Problem Concept</th>
 						<th>Correct Answer</th>
-						<th>Student Answer Given</th>
-						<th>Correct?</th>
+						<th>Answer Given</th>
+						<th></th>
 					</tr>';
+				$counter = 0;
 				foreach($keyArray as $key){
 					$displayInfo=$_SESSION['math1050-prequiz'][$key][0];
 					if(isset($displayInfo['correct']) && $displayInfo['correct']==1){
@@ -155,18 +154,31 @@ class Prequiz extends PrequizDAO {
 						$minutes=(int)($displayInfo['timer']/60);
 						$seconds=(int)($displayInfo['timer']%60);
 					}
+					//Set variables to be used later in graphs
+					$time[$counter] = $displayInfo['timer'];
+					$displayTime[$counter] = $minutes.':'.$seconds;
+					$concept[$counter] = ucfirst($displayInfo['concept']);
+					$counter++;
+
 					echo '<tr>';
-						echo '<td>'.$key.'</td>';
-						echo '<td>'.$minutes.':'.$seconds.'</td>';
-						echo '<td>'.$typeArray[$displayInfo['type']].'</td>';
-						echo '<td>'.$displayInfo['concept'].'</td>';
+						echo '<!--<td>'.$key.'</td>-->';
+						echo '<!--<td>'.$minutes.':'.$seconds.'</td>-->';
+						echo '<!--<td>'.$typeArray[$displayInfo['type']].'</td>-->';
+						echo '<td class="problemConcept">'.$displayInfo['concept'].'</td>';
 						echo '<td>\('.$displayInfo['correctAns'].'\)</td>';
 						echo '<td>\('.$displayInfo['studentAns'].'\)</td>';
-						echo '<td>'.$displayInfo['correct'].'</td>';
+						echo '<!--<td>'.$displayInfo['correct'].'</td>-->';
+						if($displayInfo['correct'] == "yes"){
+							echo '<td><img src="'.$_SERVER['DOCUMENT_ROOT'].'/img/global/icons/check.png" width="50px"></td>';
+						}
+						else{
+							echo '<td><img src="'.$_SERVER['DOCUMENT_ROOT'].'/img/global/icons/x.png" width="50px"></td>';
+						}
 					echo '</tr>';
 					// add to 
 				}
 				echo '</table>';
+				echo '<br><button onclick="setQuizComplete();" class="readyButton col-md-3 col-xs-12">Continue to chapter</button>';
 				echo '</section>	
 
 
@@ -176,7 +188,6 @@ class Prequiz extends PrequizDAO {
 
 			//display results
             //$_SESSION['isPrequizCompleted']=1;
-            echo '<button onclick="setQuizComplete();">Continue to book content</button>';
             echo '<script>
 				MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 				function setQuizComplete(){
@@ -184,6 +195,150 @@ class Prequiz extends PrequizDAO {
 						location.reload();
 					}});
 				}
+
+				var chartData = [
+					{
+						title:"'.$concept[0].'Problem 1 - ",
+						value:'.$time[0].', 
+						time:"'.$displayTime[0].'"
+					},
+					{
+						title:"'.$concept[1].'Problem 2 - ",
+						value:'.$time[1].', 
+						time:"'.$displayTime[1].'"
+					},
+					{
+						title:"'.$concept[2].'Problem 3 - ",
+						value:'.$time[2].', 
+						time:"'.$displayTime[2].'"
+					},
+					{
+						title:"'.$concept[3].'Problem 4 - ",
+						value:'.$time[3].', 
+						time:"'.$displayTime[3].'"
+					}];	
+
+				var chart = new AmCharts.AmPieChart();
+
+				// get balloon intance
+				var balloon = chart.balloon;
+				// set properties
+				balloon.adjustBorderColor = true;
+				balloon.color = "#000000";
+				balloon.cornerRadius = 0;
+				balloon.fillColor = "#FFFFFF";
+
+				chart.balloonText = "[[value]] Seconds";
+				chart.colors= ["#F68E1E", "#58585B", "#DDA05F", "#828285", "#6B6A68"];
+				chart.hideLabelsPercent = 10000;
+				chart.startDuration = 2;
+				chart.valueField = "value";
+				chart.sequencedAnimation = false;
+				chart.pullOutEffect="<";
+				chart.dataProvider = chartData;
+				chart.write("chartdiv");
+
+
+
+
+
+
+				AmCharts.ready(function() {
+				    // percent chart            
+				    var chart = new AmCharts.AmSerialChart(AmCharts.themes.none);
+				    chart.dataProvider = [{
+				        x: 1,
+				        y1: 66,
+				        y2: 34
+				    }];
+				    chart.categoryField = "x";
+				    chart.rotate = true;
+				    chart.autoMargins = false;
+				    chart.marginLeft = 0;
+				    chart.marginRight = 0;
+				    chart.marginTop = 0;
+				    chart.marginBottom = 0;
+
+				    var graph = new AmCharts.AmGraph();
+				    graph.valueField = "y1";
+				    graph.type = "column";
+				    graph.fillAlphas = 0.6;
+				    graph.fillColors = "#000000";
+				    graph.gradientOrientation = "horizontal";
+				    graph.lineColor = "#FFFFFF";
+				    graph.showBalloon = false;
+				    chart.addGraph(graph);
+
+				    var graph2 = new AmCharts.AmGraph();
+				    graph2.valueField = "y2";
+				    graph2.type = "column";
+				    graph2.fillAlphas = 0.2;
+				    graph2.fillColors = "#000000";
+				    graph2.lineColor = "#FFFFFF";
+				    graph2.showBalloon = false;
+				    chart.addGraph(graph2);
+
+				    var valueAxis = new AmCharts.ValueAxis();
+				    valueAxis.gridAlpha = 0;
+				    valueAxis.axisAlpha = 0;
+				    valueAxis.stackType = "100%"; // this is set to achieve that column would occupy 100% of the chart area
+				    chart.addValueAxis(valueAxis);
+
+				    var categoryAxis = chart.categoryAxis;
+				    categoryAxis.gridAlpha = 0;
+				    categoryAxis.axisAlpha = 0;
+
+
+				    chart.write("percent1");
+
+
+				    // percent chart            
+				    var chart = new AmCharts.AmSerialChart(AmCharts.themes.none);
+				    chart.dataProvider = [{
+				        x: 1,
+				        y1: 29,
+				        y2: 71
+				    }];
+				    chart.categoryField = "x";
+				    chart.rotate = true;
+				    chart.autoMargins = false;
+				    chart.marginLeft = 0;
+				    chart.marginRight = 0;
+				    chart.marginTop = 0;
+				    chart.marginBottom = 0;
+
+				    var graph = new AmCharts.AmGraph();
+				    graph.valueField = "y1";
+				    graph.type = "column";
+				    graph.fillAlphas = 0.6;
+				    graph.fillColors = "#000000";
+				    graph.gradientOrientation = "horizontal";
+				    graph.lineColor = "#FFFFFF";
+				    graph.showBalloon = false;
+				    chart.addGraph(graph);
+
+				    var graph2 = new AmCharts.AmGraph();
+				    graph2.valueField = "y2";
+				    graph2.type = "column";
+				    graph2.fillAlphas = 0.2;
+				    graph2.fillColors = "#000000";
+				    graph2.lineColor = "#FFFFFF";
+				    graph2.showBalloon = false;
+				    chart.addGraph(graph2);
+
+				    var valueAxis = new AmCharts.ValueAxis();
+				    valueAxis.gridAlpha = 0;
+				    valueAxis.axisAlpha = 0;
+				    valueAxis.stackType = "100%"; // this is set to achieve that column would occupy 100% of the chart area
+				    chart.addValueAxis(valueAxis);
+
+				    var categoryAxis = chart.categoryAxis;
+				    categoryAxis.gridAlpha = 0;
+				    categoryAxis.axisAlpha = 0;
+				    chart.write("percent2");
+
+
+				});
 			</script>';
             return;
 		}
@@ -247,7 +402,7 @@ class Prequiz extends PrequizDAO {
 	</section>
 </div>
 <footer class="row site-footer">
-  	<section class="col-md-4 col-xs-12"><img src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/left-arrow.png" style="margin-right: 7px;"> BACK</section>
+  	<section class="col-md-4 col-xs-12" style="cursor:pointer" onclick=\'window.location.href = "http://goaptitude.com/demo";\'><img src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/left-arrow.png" style="margin-right: 7px;"> BACK</section>
 
 	<section class="col-md-4 col-xs-12 text-center">
 		<div class="meterwrapper">

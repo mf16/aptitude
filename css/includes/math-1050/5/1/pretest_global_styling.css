@@ -132,4 +132,9 @@ h1{font-size: 60px;	font-family: minion pro; color:#F79234; text-transform:upper
 }
 .pretestProblemBreakdownContainer{
 	margin-top: 200px;
+	padding-left: 100px;
+	border-left: solid 1px #969595;
+}
+.problemConcept{
+	text-transform: capitalize;
 }

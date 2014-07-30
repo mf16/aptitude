@@ -344,6 +344,7 @@ h1{
 			  // bind events
 			  var playButton = document.getElementById("playVideo");
 			  playButton.addEventListener("click", function() {
+			    $(".video").animate({width:"100%"});
 			    player.playVideo();
 			  });
 			  

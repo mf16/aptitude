@@ -45,7 +45,7 @@
 	</section>
 </div>
 <footer class="row site-footer">
-  	<section class="col-md-4 col-xs-12"><img src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>img/global/left-arrow.png" style="margin-right: 7px;"> BACK</section>
+  	<section class="col-md-4 col-xs-12" style="cursor:pointer" onclick='window.location.href = "http://goaptitude.com/demo";'><img src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>img/global/left-arrow.png" style="margin-right: 7px;"> BACK</section>
 
 	<section class="col-md-4 col-xs-12 text-center">
 		<div class="meterwrapper">
@@ -79,5 +79,6 @@
 			//$(".pretestWrapper").animate({opacity:"0.0"});
 		}});
 	});
+
 	
 </script>
