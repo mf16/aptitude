@@ -5,7 +5,7 @@ a:not(#slidingMenu>a):hover {text-decoration:none !important; color:#ACACAC !imp
 a:not(#slidingMenu>a):active {text-decoration:none !important; color:#ACACAC !important; }
 h1{font-size: 60px;	font-family: minion pro; color:#F79234; text-transform:uppercase; letter-spacing:2px;}
 .link{cursor: pointer;}
-
+.chapterArrow{width: 14% !important};
 
 
 #mathOperators{

@@ -111,47 +111,68 @@ class Prequiz extends PrequizDAO {
         ';
 
 		if($problemNum>$this->totalAmount){
-            echo 'END THE TEST NOW AND DISPLAY RESULTS';
 			$keyArray=array_keys($_SESSION['math1050-prequiz']);
 			//print_r($keyArray);
-			echo '<table>
-				<tr>
-					<th>Problem ID</th>
-					<th>Time Spent</th>
-					<th>Problem Type</th>
-					<th>Problem Concept</th>
-					<th>Correct Answer</th>
-					<th>Student Answer Given</th>
-					<th>Correct?</th>
-				</tr>';
-			foreach($keyArray as $key){
-				$displayInfo=$_SESSION['math1050-prequiz'][$key][0];
-				if(isset($displayInfo['correct']) && $displayInfo['correct']==1){
-					$displayInfo['correct']='yes';
-				} else {
-					$displayInfo['correct']='no';
-				}
-				$typeArray=array('pk'=>'previous knowledge','pq'=>'pre-quiz');
+			echo '
+				<section class="col-sm-2 col-xs-2 chapterArrow no-padding">
+					<div class="chapter-number">
+						<img src="/aptitude/img/global/chapter-arrow.png"/>
+					</div>
+				</section>
+				<section class="col-md-4 material-body col-sm-offset-1 col-xs-offset-1 col-md-offset-0">
+					<section class="row-fluid section-title-container">
+						<h1 class="section-title">Pre-test report</h1>
+						<span class="section-number">composition of functions</span><br>
+					</section>
+					<section class="row-fluid" style="margin-top:100px;">
+						<span>graphs and stuff go here</span>
+					</section>
+				</section>
+				<section class="col-md-6 pretestProblemBreakdownContainer">';
+					echo '<table>
+					<tr>
+						<th>Problem ID</th>
+						<th>Time Spent</th>
+						<th>Problem Type</th>
+						<th>Problem Concept</th>
+						<th>Correct Answer</th>
+						<th>Student Answer Given</th>
+						<th>Correct?</th>
+					</tr>';
+				foreach($keyArray as $key){
+					$displayInfo=$_SESSION['math1050-prequiz'][$key][0];
+					if(isset($displayInfo['correct']) && $displayInfo['correct']==1){
+						$displayInfo['correct']='yes';
+					} else {
+						$displayInfo['correct']='no';
+					}
+					$typeArray=array('pk'=>'previous knowledge','pq'=>'pre-quiz');
 
 
-				$minutes=0;
-				$seconds=0;
-				if(isset($displayInfo['timer'])){
-					$minutes=(int)($displayInfo['timer']/60);
-					$seconds=(int)($displayInfo['timer']%60);
+					$minutes=0;
+					$seconds=0;
+					if(isset($displayInfo['timer'])){
+						$minutes=(int)($displayInfo['timer']/60);
+						$seconds=(int)($displayInfo['timer']%60);
+					}
+					echo '<tr>';
+						echo '<td>'.$key.'</td>';
+						echo '<td>'.$minutes.':'.$seconds.'</td>';
+						echo '<td>'.$typeArray[$displayInfo['type']].'</td>';
+						echo '<td>'.$displayInfo['concept'].'</td>';
+						echo '<td>\('.$displayInfo['correctAns'].'\)</td>';
+						echo '<td>\('.$displayInfo['studentAns'].'\)</td>';
+						echo '<td>'.$displayInfo['correct'].'</td>';
+					echo '</tr>';
+					// add to 
 				}
-				echo '<tr>';
-					echo '<td>'.$key.'</td>';
-					echo '<td>'.$minutes.':'.$seconds.'</td>';
-					echo '<td>'.$typeArray[$displayInfo['type']].'</td>';
-					echo '<td>'.$displayInfo['concept'].'</td>';
-					echo '<td>\('.$displayInfo['correctAns'].'\)</td>';
-					echo '<td>\('.$displayInfo['studentAns'].'\)</td>';
-					echo '<td>'.$displayInfo['correct'].'</td>';
-				echo '</tr>';
-				// add to 
-			}
-			echo '</table>';
+				echo '</table>';
+				echo '</section>	
+
+
+				<section class="clearfix"></section>
+				';
+			
 
 			//display results
             //$_SESSION['isPrequizCompleted']=1;
