@@ -450,10 +450,13 @@ class Prequiz extends PrequizDAO {
 					}
 					console.log(result);
                     $("#submitPrequizAnswer").hide();
+					/*
 					$("#checkAnswerReturn").append("<div id=\'nextProblem\' onclick=\'nextProblem();\' style=\'display:none;\'>'.$nextButtonText.'</div>");
 					$("#meterSpan").width("'.(($problemNum/$this->totalAmount)*100).'%");
 					$("#nextProblem").show();
 					$("#prequiz").css("padding-top","80px");
+					*/
+					nextProblem();
 				}});
 			}';
 
