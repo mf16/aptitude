@@ -152,7 +152,7 @@ h1{
 							<section class="row-fluid">
 
 							<section class="col-sm-12 col-lg-6 video" >
-								<iframe src="http://www.youtube.com/embed/VhokQhjl5t0?enablejsapi=1" id="introVideo" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+								<iframe src="http://www.youtube.com/embed/wUNWjd4bMmw?enablejsapi=1" id="introVideo" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 								<div class="video-overlay text-center" id="playVideo">
 									<img src = "<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/play-button.png" />
 								</div>
