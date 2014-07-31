@@ -98,10 +98,20 @@ class Section extends SectionDAO {
 					$j++;
 				}
 				$usedProblems[]=$problem->problemid;
+
+				echo '
+					<section class="row-fluid" style="margin-right: 25px;">
+						<article class="col-xs-12 margin-top margin-bottom definition practiceContainer">
+							<article class="col-md-2 practiceNumber">
+								<h1>'.($i+1).'.</h1>
+							</article>
+							<article class="col-md-10 no-padding">	
+				';
+
 				echo $problem->problem;
+				echo '<br/>For demo purposes, the answer is: '.$problem->answer.'<br/><br/>';
 				echo 'previous answers:';
 				echo '<div id="previousAnswers'.$problem->problemid.'">';
-					krumo($problem->previousAnswers);
 					if(isset($problem->previousAnswers)){
 							echo '<table>';
 								echo '<tr>';
@@ -116,7 +126,7 @@ class Section extends SectionDAO {
 							}
 							echo '<tr>';
 								echo '<td>'.($try+1).'</td>';
-								echo '<td>'.$problemInfos['studentAns'].'</td>';
+								echo '<td>\('.$problemInfos['studentAns'].'\)</td>';
 								echo '<td>'.$correct.'</td>';
 							echo '</tr>';
 						}
@@ -131,6 +141,11 @@ class Section extends SectionDAO {
 					<div id="checkAnswerReturn'.$problem->problemid.'"></div>
 					';
 				}
+				echo '
+							</article>
+						</article>
+					</section>
+				';
 				echo '<br/>';
 				echo '<br/>';
 			}

@@ -7,12 +7,19 @@ class ProblemDAO{
 	function getProblemBySubjectChapterSection($subjectName,$chapterid,$sectionid,$problemType,$concept){
 		global $db;
 		$usedProblemString='';
-		if(isset($_SESSION['math1050']['practiceProblems'])){
-			foreach($_SESSION['math1050']['practiceProblems'] as $problemid=>$problemInfo){
-				$usedProblemString.=' AND problem_id != '.$problemid;
+		if(isset($_SESSION[$subjectName][$problemType])){
+			foreach($_SESSION[$subjectName][$problemType] as $problemid=>$problemInfo){
+				if(end($problemInfo)['correct']==1){
+					$usedProblemString.=' AND problem_id != '.$problemid;
+				}
 			}
 		}
-		$sql="SELECT problem_id,concept_id,problem,answerBoxHTML,concept_hack,answer,problem_type FROM math.problems WHERE chapter_id=? AND section_id=? ".$usedProblemString." AND problem_type=? ORDER BY RAND() LIMIT 1";
+		$orderByText=' ORDER BY RAND() ';
+		if($problemType=='pp'){
+			//$orderByText='';
+			//figure out how to stop from pulling the same problem over and over then uncomment comment lines above
+		}
+		$sql="SELECT problem_id,concept_id,problem,answerBoxHTML,concept_hack,answer,problem_type FROM math.problems WHERE chapter_id=? AND section_id=? ".$usedProblemString." AND problem_type=? ".$orderByText." LIMIT 1";
 		$results=query($sql,$chapterid,$sectionid,$problemType);
 		return $results[0];
 	}
