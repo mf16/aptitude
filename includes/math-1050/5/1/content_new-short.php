@@ -273,15 +273,6 @@ h1{
 			</section>
 		</div>
 		<!-- wrapper : end -->
-		<footer class="site-footer col-md-12">
-			<section class="col-md-3">
-				<img src = "<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/icon.ico" />
-				<span>Powered by Aptitude LLC.</span>
-			</section>
-			<section class="col-md-2 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-6" id="feedback">
-				<a href="feedback.php"><span>Have feedback?</span></a>
-			</section>
-		</footer>
 
 		<!-- Important Imformation Modal -->
 		<div class="modal fade" id="importantInformationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

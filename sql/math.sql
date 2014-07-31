@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.16, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.5.38, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: math
 -- ------------------------------------------------------
--- Server version	5.6.16
+-- Server version	5.5.38-0ubuntu0.14.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -228,7 +228,7 @@ CREATE TABLE `problems` (
   KEY `chapter_id` (`chapter_id`),
   KEY `lesson_id` (`section_id`),
   KEY `concept_id` (`concept_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -246,6 +246,9 @@ INSERT INTO `problems` VALUES (6,5,1,1,'	<p>Simplify the following expression:</
 INSERT INTO `problems` VALUES (8,5,1,1,'<p>What is the domain of the points on this graph?</p>\r\n<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/4.png\"/><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\"></div>\r\n<div id=\"displayStudentAns\"></div>','domain','[-3,4]',NULL,NULL,'pk');
 INSERT INTO `problems` VALUES (9,5,1,1,'<p>What is the range of the following function?</p>\r\n<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/5.png\"/><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\"></div>\r\n<div id=\"displayStudentAns\"></div>','range','[-4,3]',NULL,NULL,'pk');
 INSERT INTO `problems` VALUES (10,5,1,1,'<p>What is the range of the following function?</p>\r\n<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/6.png\"/><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n<input class=\"form-control\" id=\"studentAns\" type=\"text\" onkeyup=\"interpretLex(\'studentAns\',\'displayStudentAns\')\">\r\n</div>\r\n<div id=\"displayStudentAns\"></div>','range','(0,\\infty)',NULL,NULL,'pk');
+INSERT INTO `problems` VALUES (11,5,1,1,'question here blah1\n<input class=\"form-control\" id=\"studentAns11\" type=\"text\" onkeyup=\"interpretLex(\'studentAns11\',\'displayStudentAns11\')\">\n</div>\n<div id=\"displayStudentAns11\"></div>','composition of functions','answer1',NULL,NULL,'pp');
+INSERT INTO `problems` VALUES (12,5,1,1,'question here blah2','composition of functions','answer2',NULL,NULL,'pp');
+INSERT INTO `problems` VALUES (13,5,1,1,'question here blah3','composition of functions','answer3',NULL,NULL,'pp');
 /*!40000 ALTER TABLE `problems` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -490,4 +493,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-29 23:33:05
+-- Dump completed on 2014-07-30 23:00:14
