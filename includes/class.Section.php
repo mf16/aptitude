@@ -6,8 +6,12 @@ class Section extends SectionDAO {
 	private $chapterid;
 	private $sectionid;
 	private $isPrequizCompleted;
+	private $ppAmount;
 
 	function __construct($subjectName, $chapterid, $sectionid){
+		// Number of Practice Problems
+		$this->ppAmount=3;
+
 		if(isset($subjectName)){
 			$this->subjectName = $subjectName;
 		}
@@ -77,8 +81,96 @@ class Section extends SectionDAO {
 			echo '<div class="clearfix"></div>';
 			echo '</div>';
 			// practice problems
+			/*
 			include_once "class.PracticeProblems.php";
 			$practiceProblems=new PracticeProblems($this->subjectName,$this->chapterid,$this->sectionid);
+			*/
+			echo 'session variables: ';
+			krumo($_SESSION);
+			include_once "class.Problem.php";
+			$usedProblems=array();
+			for($i=0;$i<$this->ppAmount;$i++){
+				$problem=new Problem($this->subjectName,$this->chapterid,$this->sectionid,'pp','composition of functions');
+				$j=0;
+				while(in_array($problem->problemid,$usedProblems)){
+					if($j>3){break;}
+					$problem=new Problem($this->subjectName,$this->chapterid,$this->sectionid,'pp','composition of functions');
+					$j++;
+				}
+				$usedProblems[]=$problem->problemid;
+				echo $problem->problem;
+				echo 'previous answers:';
+				echo '<div id="previousAnswers'.$problem->problemid.'">';
+					krumo($problem->previousAnswers);
+					if(isset($problem->previousAnswers)){
+							echo '<table>';
+								echo '<tr>';
+									echo '<th>Try</th>';
+									echo '<th>Answer</th>';
+									echo '<th>Correct</th>';
+								echo '</tr>';
+						foreach($problem->previousAnswers as $try=>$problemInfos){
+							$correct=0;
+							if($problemInfos['correct']){
+								$correct=1;
+							}
+							echo '<tr>';
+								echo '<td>'.($try+1).'</td>';
+								echo '<td>'.$problemInfos['studentAns'].'</td>';
+								echo '<td>'.$correct.'</td>';
+							echo '</tr>';
+						}
+							echo '</table>';
+					}
+				echo '</div>';
+				if((!isset($_SESSION[$this->subjectName][$problem->problemType][$problem->problemid]) || (end($_SESSION[$this->subjectName][$problem->problemType][$problem->problemid])['correct'])==0)){
+					echo $problem->answerBoxHTML;
+					echo '
+					<br/>
+					<button id="submitPrequizAnswer'.$problem->problemid.'" onclick="checkAnswer('.$problem->problemid.')" class="readyButton">Submit Answer</button>
+					<div id="checkAnswerReturn'.$problem->problemid.'"></div>
+					';
+				}
+				echo '<br/>';
+				echo '<br/>';
+			}
+
+			//js functions 
+			echo '
+			<script>
+			function checkAnswer(problemid){
+				if($("#studentAns"+problemid).val()==""){
+					alert("please enter a valid answer before clicking submit");
+				} else {
+					var studentAns=$("#studentAns"+problemid).val();
+					//If the radio button exists check the value of that instead of a standard text response
+					if($("#radio1").length > 0){
+						studentAns = $("input[name=radios]:checked").val();
+					}
+					$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Problem.php?action=checkAnswer&subjectName='.$this->subjectName.'&var=1&chapterid='.$this->chapterid.'&sectionid='.$this->sectionid.'&problemid="+problemid+"&problemType='.$problem->problemType.'&concept="+encodeURIComponent(\''.$problem->concept.'\')+"&studentAns="+encodeURIComponent(studentAns),success:function(result){
+						$("#previousAnswers"+problemid).append("appending answer here:"+studentAns);
+						if(result=="correct"){
+							$("#submitPrequizAnswer"+problemid).hide();
+							$("#checkAnswerReturn"+problemid).html("Correct");
+							$("#previousAnswers"+problemid).append("   ->  correct!");
+						} else {
+							$("#checkAnswerReturn"+problemid).html("Incorrect");
+							$("#previousAnswers"+problemid).append("   ->  incorrect!");
+
+						}
+						console.log(result);
+						//$("#submitPrequizAnswer"+problemid).hide();
+					}});
+				}
+			}
+			
+			function interpretLex(fromElementid,toElementid){
+				$("#"+toElementid).html("&#92("+$("#"+fromElementid).val()+"&#92)");
+				var math=document.getElementById(toElementid);
+				MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+			}
+			</script>';
+
 			// echo footer
 			echo '
 				<div class="margin-top"></div>

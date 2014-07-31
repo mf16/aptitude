@@ -6,7 +6,7 @@
 // include 'includes/class.MathPrequiz.php';
 //unset($_SESSION['problemNum']);
 include_once 'global.php';
-include 'class.PrequizDAO.php';
+include_once 'class.PrequizDAO.php';
 class Prequiz extends PrequizDAO {
 	private $subjectName;
 	private $chapterid;
@@ -50,6 +50,7 @@ class Prequiz extends PrequizDAO {
 	}
 
     function clearSessionVars(){
+        unset($_SESSION['math-1050']);
         unset($_SESSION['showLongText']);
         unset($_SESSION['problemNum']);
         unset($_SESSION['prequizProblemComplete']);
