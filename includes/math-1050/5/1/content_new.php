@@ -1,125 +1,5 @@
-<style type="text/css">
-.fullDarkContainer{
-	width: calc(100% + 30px);
-background-color: #EBEBEB;
-margin-left: -15px;
-}
-p, span{line-height: 25px;}
-.padding-vertical{padding-top:30px; padding-bottom: 30px;}
-.clearPadding{
-	padding: 0px;
-}
-#workArea{
-	height: 70px;
-	width: 100%;
-	background-color: white;
-	position: absolute;
-	top: -70px;
-	left: 0px;
-	z-index: 10;
-	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
 
-
-
-
-/*New designs css - start*/
-h1{
-	font-size: 60px;
-	font-family: minion pro;
-	color:#F79234;
-	text-transform:uppercase;
-	letter-spacing:2px;
-}
-/*.chapter-number>span{
-	font-size: 1100%;
-	font-family: minion pro;
-	color: white;
-	text-transform: uppercase;
-	line-height: 300px;
-	padding-right: 5px;
-}*/
-.chapter-number>img{
-	width: 100%;
-}
-.text-body{
-	padding-left: 0px !important;
-	margin-top:5px;
-}
-.no-padding{
-	padding:0px;
-}
-.material-body{
-	padding-left: 0px;
-	padding-top: 8%;
-	padding-right: 25px;
-}
-.section-number{
-	font-size: 20px;
-	font-family: nexabold;
-	color: #27292B;
-	text-transform: uppercase;
-	letter-spacing:4px;
-	padding-bottom:30px;
-}
-.section-title{
-	margin-bottom: 0px;
-}
-.video{
-	padding-left:0px;
-	padding-right: 0px;
-	margin-right: 40px;
-	margin-bottom: 25px;
-}
-.section-title-container{
-	padding-bottom: 30px;
-}
-.leadingLetter{
-	font-size: 60px;
-	font-family: minion pro;
-	color:#F79234;
-	text-transform: uppercase;
-	float: left;
-	line-height: 50px;
-}
-.video-overlay{
-	float: left;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background-color: #27292B;
-	top: 0px;
-	left: 0px;
-	z-index: 100000;
-}
-.video-overlay>img{
-	margin-top: -37px;
-	top: 50%;
-	position: relative;
-	cursor: pointer;
-}
-.practiceTitle{
-	font-family: nexabold;
-	color: #F79234;
-	font-size: 21px;
-	padding-top: 30px;
-	letter-spacing: 3px;
-	padding-bottom: 10px;
-}
-.practiceWrapper{
-	padding-right: 25px;
-}
-.practiceContainer{
-	padding-left: 0px;
-	margin-top:0px;
-}
-.practiceNumber{
-	text-align: right;
-	padding-right: 40px;
-}
-/*New designs css - end*/
-</style>
-
+<link rel="stylesheet" href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/nanoscroller/nanoscroller.css">
 <div id="workArea"></div>
 <!-- wrapper -->
 <div class="page-wrap">
@@ -180,7 +60,7 @@ h1{
 
 						<section class="col-md-2 no-padding">
 						</section>
-						<section class="col-md-10 text-body">
+						<section class="col-md-10 text-body postDefinition">
 							<section>
 								<p>The quantity \(g \circ f\) is also read `\(g\) composed with \(f\)' or, more simply `\(g\) of \(f\).' At its most basic level, Definition 5.1 tells us to obtain the formula for \((g \circ f) (x)\), we replace every occurrence of \(x\) in the formula for \(g(x)\) with the formula we have for \(f(x)\). If we take a step back and look at this from a procedural, `inputs and outputs' perspective, Definition 5.1 tells us the output from \(g \circ f\) is found by taking the output from \(f\), \(f(x)\), and then making that the input to \(g\). The result, \(g(f(x))\), is the output from \(g \circ f\). From this perspective, we see \(g \circ f\) as a two step process taking an input \(x\) and first applying the procedure \(f\) then applying the procedure \(g\). Abstractly, we have:</p>
 							</section>
@@ -208,25 +88,26 @@ h1{
 
 
 					<!--RIGHT SIDEBAR: BEGIN-->
-					<section class="col-lg-3 col-sm-12 col-sm-12 rightSideBar">
-						<section class="row-fluid">
-							<article class="col-xs-12">
+					<section class="col-lg-3 col-sm-12 col-sm-12 rightSideBar nano">
+						<section class="row-fluid nano-content">
+							<article class="col-xs-12 titleContainer">
 								<!--Header goes here-->
-								<span class="header"></span>
+								<h1 class="text-center fitHeader">Introduction</h1>
 							</article><br>
 							<section class="row-fluid content">
 								<article class="col-xs-12">
-									<article class="row hidden-md hidden-sm hidden-xs">
+									<article class="row-fluid hidden-md hidden-sm hidden-xs subtitleContainer">
 										<!--Description sentance here-->
-										<span></span>
+										<span>This is your go-to source for important imformation. If you pay attention to what this sidebar highlights you will retain information better and learn even faster. Here are some things to look for:</span>
 									</article>
 									<article class="row pointers">
-										<!--<section class="col-xs-4 col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="importantInformation">
+										<section class="col-xs-4 col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="importantInformation">
 											<article class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
 												<img onclick="changeModal('', '')" data-toggle="modal" data-target="#importantInformationModal" src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/icons/info.png">
 											</article>
 											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
-												<!--Important info section
+												<!--Important info section-->
+												<span class="importantInfo">This represents important information that is relevant to your current topic.</span>
 											</article>
 										</section>
 										<section class="col-xs-4 col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="expectedPitfalls">
@@ -234,7 +115,8 @@ h1{
 												<img onclick="changeModal('', '')"  data-toggle="modal" data-target="#importantInformationModal" src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/icons/warning.png">
 											</article>
 											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
-												<!--Pitfalls section
+												<!--Pitfalls section-->
+												<span class="pitfalls">This represents common pitfalls and errors that if you read, you can avoid in assessments.</span>
 											</article>
 										</section>
 										<section class="col-xs-4 col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="moreInformation">
@@ -242,7 +124,8 @@ h1{
 												<img onclick="changeModal('', '')" data-toggle="modal" data-target="#importantInformationModal"  src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/icons/cluster.png">
 											</article>
 											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
-												<!--Additional resources section
+												<!--Additional resources section-->
+												<span class="externalResources">This represents where you can stop and go to another location for more learning resources.</span>
 											</article>
 										</section>
 										<section class="hidden-xs col-sm-3 col-md-3 col-lg-12 sideBarHighlights" id="recycledConcept">
@@ -250,9 +133,10 @@ h1{
 												<img onclick="changeModal('', '')" data-toggle="modal" data-target="#importantInformationModal"  src="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>img/global/icons/refresh.png">
 											</article>
 											<article class="hidden-md hidden-sm hidden-xs col-sm-9">
-												<!--Recycled section
+												<!--Recycled section-->
+												<span class="">This represents that you already know the topic and that the question is just modified or asked in a different way.</span>
 											</article>
-										</section>-->
+										</section>
 									</article>
 								</article>
 							</section>
@@ -284,7 +168,10 @@ h1{
 		  </div>
 		</div>
 
-
+		<?php
+		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/waypoints/waypoints.min.js"></script>';
+		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/fittext/fittext.js"></script>';
+		?>
 		<script type="text/javascript">
 			var profilePage = "<?php echo $_SERVER['DOCUMENT_ROOT'];?>profile";
 
@@ -301,11 +188,17 @@ h1{
 			});
 
 
+			$(document).ready(function() {
+				$(".nano").nanoScroller();
+				$.waypoints('refresh');
+			});
 
 			// https://developers.google.com/youtube/iframe_api_reference
 
 			// global variable for the player
 			var player;
+			var time;
+			var videoSequence = 0;
 
 			// this function gets called when API is ready to use
 			function onYouTubePlayerAPIReady() {
@@ -327,7 +220,20 @@ h1{
 			    player.playVideo();
 			  });
 			  
+				window.setInterval(function(){
+				  time = player.getCurrentTime();
+				  if (time > 0 && time < 88 && videoSequence == 0){
+				  	replaceImportantInfo('Functions are like variables. But they represent an expression instead of just one number');
+				  	videoSequence++;
+				  }
+				  else if (time > 88 && pitfallSequence == 1){
+				  	replacePitfall('Be careful which function comes first. This can change the whole problem around.');
+				  	videoSequence++;
+				  }
+				}, 2000);
 			}
+			
+
 
 			// Inject YouTube API script
 			var tag = document.createElement('script');
@@ -335,7 +241,38 @@ h1{
 			var firstScriptTag = document.getElementsByTagName('script')[0];
 			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+			jQuery(".fitHeader").fitText(1);
 
+
+			function replacePitfall(text){
+				$('#expectedPitfalls').animate({opacity: '0.0'}, 750, function() {
+					$('.pitfalls').html(text);
+					MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+					$('#expectedPitfalls').animate({opacity: '1.0'});
+  				});
+			}
+
+			function replaceImportantInfo(text){
+				$('#importantInformation').animate({opacity: '0.0'}, 750, function() {
+					$('.importantInfo').html(text);
+					MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+					$('#importantInformation').animate({opacity: '1.0'});
+  				});
+			}
+
+			function replaceExternalResources(text){
+				$('#expectedPitfalls').animate({opacity: '0.0'}, 750, function() {
+					$('.pitfalls').html(text);
+					MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+					$('#expectedPitfalls').animate({opacity: '1.0'});
+  				});
+			}
+
+			$('.postDefinition').waypoint(function() {
+			  replaceImportantInfo('You can place a function within itself such as \\(f(f(x))\\). This is called \`iterating\' the function.');
+			  replaceExternalResources('<a href="https://www.youtube.com/watch?v=jlID_mIJXi4" target="_blank">More examples of evaluating composite functions.</a>');
+			  replacePitfall('<a href="https://www.youtube.com/watch?v=kAqaPxusaDg#t=1m13s" target="_blank">Here is a video of another common pitfall when compising functions.</a>');
+			});
 
 
 		</script>
@@ -343,3 +280,4 @@ h1{
 		<?php
 		//echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';
 		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/fitVid/fitVid.js"></script>';
+		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/nanoscroller/jquery.nanoscroller.min.js"></script>';

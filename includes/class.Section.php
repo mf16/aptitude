@@ -78,6 +78,7 @@ class Section extends SectionDAO {
 				//long version
 				include 'includes/'.$this->subjectName.'/'.$this->chapterid.'/'.$this->sectionid.'/content_new.php';
 			}
+			echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/waypoints/waypoints.min.js"></script>';
 			echo '<div class="clearfix"></div>';
 			echo '</div>';
 			// practice problems
@@ -100,8 +101,9 @@ class Section extends SectionDAO {
 				$usedProblems[]=$problem->problemid;
 
 				echo '
-					<section class="row-fluid" style="margin-right: 25px;">
-						<article class="col-xs-12 margin-top margin-bottom definition practiceContainer">
+					<section class="row-fluid practiceWaypoint" style="margin-right: 25px;">
+						<section class="col-md-9 no-padding" style="width:76%">
+						<article class="col-xs-12 margin-top definition practiceContainer">
 							<article class="col-md-2 practiceNumber">
 								<h1>'.($i+1).'.</h1>
 							</article>
@@ -144,6 +146,7 @@ class Section extends SectionDAO {
 				echo '
 							</article>
 						</article>
+						</section>
 					</section>
 				';
 				echo '<br/>';
@@ -153,6 +156,10 @@ class Section extends SectionDAO {
 			//js functions 
 			echo '
 			<script>
+			$(document).ready(function() {
+				$.waypoints(\'refresh\');
+				console.lo()
+			});
 			function checkAnswer(problemid){
 				if($("#studentAns"+problemid).val()==""){
 					alert("please enter a valid answer before clicking submit");
@@ -216,6 +223,13 @@ class Section extends SectionDAO {
 					}, function(){
 					}
 				);
+
+
+			$(".practiceWaypoint").waypoint(function() {
+			  replaceImportantInfo("Composite Functions combine functions in a special way to create a new function");
+			  replaceExternalResources(\'<a href="http://www.cut-the-knot.org/do_you_know/FunctionMain.shtml" target="_blank">Learn more about the history of functions.</a>\');
+			  replacePitfall("Consider the problem…<br>Find \\\(f(3)\\\) for  \\\(f(x) = 2x + 9\\\)<br>Incorrect: \\\(f(3)\\\) <br>Does Not mean<br>&nbsp;&nbsp;&nbsp;\\\(3= 2x+9\\\)<br>&nbsp;&nbsp;&nbsp;\\\(-6= 2x\\\) so \\\(f(3) = -3 \\\)<br>Correct: \\\(f(3) = 2 * 3 + 9\\\) <br>Does become \\\(f(3) = 15\\\).");
+			});
 			</script>
 			';
 		}
