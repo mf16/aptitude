@@ -23,10 +23,8 @@
 <script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/amcharts/amcharts.js"></script>
 <script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/amcharts/serial.js"></script>
 <script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/amcharts/pie.js"></script>
-<!--TOOLTIPSTER-->
-<link rel="stylesheet" type="text/css" href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/tooltipster/tooltipster.css" />
-<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/tooltipster/jquery.tooltipster.min.js"></script>
-<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/MathJax-2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<style type="text/css" src="js/jsxgraph/jsxgraph.css"></style>
 
-<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/JSXGraph/jsxgraphcore.js"></script>
+<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/MathJax-2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!--<style type="text/css" src="js/jsxgraph/jsxgraph.css"></style>
+
+<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/JSXGraph/jsxgraphcore.js"></script>-->

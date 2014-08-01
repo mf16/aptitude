@@ -158,7 +158,6 @@ class Section extends SectionDAO {
 			<script>
 			$(document).ready(function() {
 				$.waypoints(\'refresh\');
-				console.lo()
 			});
 			function checkAnswer(problemid){
 				if($("#studentAns"+problemid).val()==""){
@@ -226,10 +225,20 @@ class Section extends SectionDAO {
 
 
 			$(".practiceWaypoint").waypoint(function() {
-			  replaceImportantInfo("Composite Functions combine functions in a special way to create a new function");
-			  replaceExternalResources(\'<a href="http://www.cut-the-knot.org/do_you_know/FunctionMain.shtml" target="_blank">Learn more about the history of functions.</a>\');
-			  replacePitfall("Consider the problem…<br>Find \\\(f(3)\\\) for  \\\(f(x) = 2x + 9\\\)<br>Incorrect: \\\(f(3)\\\) <br>Does Not mean<br>&nbsp;&nbsp;&nbsp;\\\(3= 2x+9\\\)<br>&nbsp;&nbsp;&nbsp;\\\(-6= 2x\\\) so \\\(f(3) = -3 \\\)<br>Correct: \\\(f(3) = 2 * 3 + 9\\\) <br>Does become \\\(f(3) = 15\\\).");
-			});
+				if (window.currentPosition !== 3)
+				{ 
+					replaceImportantInfo("Composite Functions combine functions in a special way to create a new function");
+					replaceExternalResources(\'<a href="http://www.cut-the-knot.org/do_you_know/FunctionMain.shtml" target="_blank">Learn more about the history of functions.</a>\');
+					replacePitfall("Consider the problem…<br>Find \\\(f(3)\\\) for  \\\(f(x) = 2x + 9\\\)<br>Incorrect: \\\(f(3)\\\) <br>Does Not mean<br>&nbsp;&nbsp;&nbsp;\\\(3= 2x+9\\\)<br>&nbsp;&nbsp;&nbsp;\\\(-6= 2x\\\) so \\\(f(3) = -3 \\\)<br>Correct: \\\(f(3) = 2 * 3 + 9\\\) <br>Does become \\\(f(3) = 15\\\).");
+					window.currentPosition = 3;
+				}
+			}, { offset: \'50%\' });
+
+
+			complete = function(){
+				$("#expectedPitfalls").animate({opacity: "1.0"});
+			}; 
+
 			</script>
 			';
 		}

@@ -10,10 +10,10 @@ function changeModal(title, content){
 	$('.modal-body').html(content);
 }
 
-
+/*
 JXG.Options.grid.snapToGrid = true;
 JXG.Options.elements.fixed = true;
-/*numberLine1*/
+/*numberLine1
 var board = JXG.JSXGraph.initBoard('numberLine1', 
   {
     boundingbox: [0, 3, 5, -1],
@@ -33,7 +33,7 @@ var p1 = board.create('point',[1,0], {fillColor : '#ddd', highlightFillColor : '
 var p2 = board.create('point',[4,0], {fillColor : '#ddd', highlightFillColor : '#ddd', strokeColor : '#333', highlightStrokeColor : '#333', name:'B'});
 var li = board.create('line',[p1,p2], {strokeColor:'#666', highlightStrokeColor:'#666', straightFirst:false, straightLast:false, strokeWidth:2});
 
-/*numberLine2*/
+/*numberLine2
 var board2 = JXG.JSXGraph.initBoard('numberLine2', 
   {
     boundingbox: [0, 3, 5, -1],
@@ -55,7 +55,7 @@ var li = board2.create('line',[p1,p2], {strokeColor:'#666', highlightStrokeColor
 
 
 
-/*numberLine3*/
+/*numberLine3
 var board3 = JXG.JSXGraph.initBoard('numberLine3', 
   {
     boundingbox: [0, 3, 5, -1],
@@ -76,7 +76,7 @@ var p2 = board3.create('point',[4,0], {fillColor : '#333', highlightFillColor : 
 var li = board3.create('line',[p1,p2], {strokeColor:'#666', highlightStrokeColor:'#666', straightFirst:false, straightLast:false, strokeWidth:2});
 
 
-/*numberLine3*/
+/*numberLine3
 var board3 = JXG.JSXGraph.initBoard('numberLine4', 
   {
     boundingbox: [0, 3, 5, -1],
@@ -96,7 +96,7 @@ var p1 = board3.create('point',[1,0], {fillColor : '#333', highlightFillColor : 
 var p2 = board3.create('point',[4,0], {fillColor : '#333', highlightFillColor : '#333', strokeColor : '#333', highlightStrokeColor : '#333', name:'B'});
 var li = board3.create('line',[p1,p2], {strokeColor:'#666', highlightStrokeColor:'#666', straightFirst:false, straightLast:false, strokeWidth:2});
 
-/*numberLine5*/
+/*numberLine5
 var board5 = JXG.JSXGraph.initBoard('numberLine5', 
   {
     boundingbox: [0, 3, 5, -1],
@@ -129,7 +129,7 @@ var li = board5.create('line',[p1,p2], {strokeColor:'#666', highlightStrokeColor
 
 
 
-/*numberLine6*/
+/*numberLine6
 var board6 = JXG.JSXGraph.initBoard('numberLine6', 
   {
     boundingbox: [0, 3, 5, -1],
@@ -162,7 +162,7 @@ var li = board6.create('line',[p1,p2], {strokeColor:'#666', highlightStrokeColor
 
 
 
-/*numberLine7*/
+/*numberLine7
 var board7 = JXG.JSXGraph.initBoard('numberLine7', 
   {
     boundingbox: [0, 3, 5, -1],
@@ -195,7 +195,7 @@ var li = board7.create('line',[p1,p2], {strokeColor:'#666', highlightStrokeColor
 
 
 
-/*numberLine8*/
+/*numberLine8
 var board8 = JXG.JSXGraph.initBoard('numberLine8', 
   {
     boundingbox: [0, 3, 5, -1],
@@ -229,7 +229,7 @@ var li = board8.create('line',[p1,p2], {strokeColor:'#666', highlightStrokeColor
 
 
 
-/*numberLine9*/
+/*numberLine9
 var board9 = JXG.JSXGraph.initBoard('numberLine9', 
   {
     boundingbox: [0, 3, 5, -1],

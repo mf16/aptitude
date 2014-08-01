@@ -222,15 +222,17 @@
 			  
 				window.setInterval(function(){
 				  time = player.getCurrentTime();
-				  if (time > 0 && time < 88 && videoSequence == 0){
+				  if (time > 0 && time < 88 && currentPosition == 0 && videoSequence == 0){
 				  	replaceImportantInfo('Functions are like variables. But they represent an expression instead of just one number');
 				  	videoSequence++;
+				  	currentPosition++;
 				  }
-				  else if (time > 88 && pitfallSequence == 1){
+				  else if (time > 88 && currentPosition !== 1 && pitfallSequence == 1){
 				  	replacePitfall('Be careful which function comes first. This can change the whole problem around.');
-				  	videoSequence++;
+				  	videoSequence=1;
+				  	currentPosition = 1;
 				  }
-				}, 2000);
+				}, 1000);
 			}
 			
 
@@ -244,16 +246,17 @@
 			jQuery(".fitHeader").fitText(1);
 
 
+			window.currentPostion = 0;
 			function replacePitfall(text){
-				$('#expectedPitfalls').animate({opacity: '0.0'}, 750, function() {
+				$('#expectedPitfalls').animate({opacity: '0.0'}, 500, function() {
 					$('.pitfalls').html(text);
 					MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-					$('#expectedPitfalls').animate({opacity: '1.0'});
+					MathJax.Hub.Queue(complete); 
   				});
 			}
 
 			function replaceImportantInfo(text){
-				$('#importantInformation').animate({opacity: '0.0'}, 750, function() {
+				$('#importantInformation').animate({opacity: '0.0'}, 500, function() {
 					$('.importantInfo').html(text);
 					MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 					$('#importantInformation').animate({opacity: '1.0'});
@@ -261,7 +264,7 @@
 			}
 
 			function replaceExternalResources(text){
-				$('#expectedPitfalls').animate({opacity: '0.0'}, 750, function() {
+				$('#expectedPitfalls').animate({opacity: '0.0'}, 500, function() {
 					$('.pitfalls').html(text);
 					MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 					$('#expectedPitfalls').animate({opacity: '1.0'});
@@ -269,10 +272,14 @@
 			}
 
 			$('.postDefinition').waypoint(function() {
-			  replaceImportantInfo('You can place a function within itself such as \\(f(f(x))\\). This is called \`iterating\' the function.');
-			  replaceExternalResources('<a href="https://www.youtube.com/watch?v=jlID_mIJXi4" target="_blank">More examples of evaluating composite functions.</a>');
-			  replacePitfall('<a href="https://www.youtube.com/watch?v=kAqaPxusaDg#t=1m13s" target="_blank">Here is a video of another common pitfall when compising functions.</a>');
-			});
+				console.log('fire');
+			  	if(window.currentPostion !== 2){
+					replaceImportantInfo('You can place a function within itself such as \\(f(f(x))\\). This is called \`iterating\' the function.');
+					replaceExternalResources('<a href="https://www.youtube.com/watch?v=jlID_mIJXi4" target="_blank">More examples of evaluating composite functions.</a>');
+					replacePitfall('<a href="https://www.youtube.com/watch?v=kAqaPxusaDg#t=1m13s" target="_blank">Here is a video of another common pitfall when compising functions.</a>');
+					window.currentPostion = 2;
+				}  
+		  	}, { offset: '50%' });
 
 
 		</script>
