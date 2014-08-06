@@ -104,7 +104,7 @@ class Section extends SectionDAO {
 					<section class="row-fluid practiceWaypoint" style="margin-right: 25px;">
 						<section class="col-md-9 no-padding" style="width:76%">
 						<article class="col-xs-12 margin-top definition practiceContainer">
-							<article class="col-md-1"><img class="practiceResult_'.($i+1).'" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/icons/check.png" width="100%"></article>
+							<article class="col-md-1"><img class="practiceResult practiceResultCorrect_'.$problem->problemid.'" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/icons/check.png" width="100%"><img class="practiceResult practiceResultIncorrect_'.$problem->problemid.'" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/icons/x.png" width="100%"></article>
 							<article class="col-md-1 practiceNumber">
 								<h1>'.($i+1).'.</h1>
 							</article>
@@ -175,12 +175,14 @@ class Section extends SectionDAO {
 							$("#submitPrequizAnswer"+problemid).hide();
 							$("#checkAnswerReturn"+problemid).html("Correct");
 							$("#previousAnswers"+problemid).append("   ->  correct!");
+							$(".practiceResultCorrect_"+problemid).fadeIn();
+							$("#submitPrequizAnswer"+problemid).fadeOut();
 						} else {
 							$("#checkAnswerReturn"+problemid).html("Incorrect");
 							$("#previousAnswers"+problemid).append("   ->  incorrect!");
-
+							$(".practiceResultIncorrect_"+problemid).fadeIn();
+							$("#submitPrequizAnswer"+problemid).fadeOut();
 						}
-						console.log(result);
 						//$("#submitPrequizAnswer"+problemid).hide();
 					}});
 				}

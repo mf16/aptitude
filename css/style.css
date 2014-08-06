@@ -711,3 +711,9 @@ font-size: 18px;
 	margin-top: 10px;
 	margin-bottom: 25px;
 }
+.practiceResult{
+	/*Initially hide the results and display the one that is appropriate*/
+	display: none;
+	-webkit-transition: display 2s;
+    transition: display 2s;
+}
