@@ -216,7 +216,7 @@ class Section extends SectionDAO {
 			</style>
 
 			<script>
-				$("p").hover(
+				$(".vote-text").hover(
 					function(){
 						$(".vote").remove();
 						$(this).append($("<span style=\'float:right;margin-right:-25px;\' class=\'vote\'><div class=\'voteUp\'>▲</div><div class=\'voteDown\'>▼</div></span>"));
