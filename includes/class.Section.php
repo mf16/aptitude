@@ -104,7 +104,8 @@ class Section extends SectionDAO {
 					<section class="row-fluid practiceWaypoint" style="margin-right: 25px;">
 						<section class="col-md-9 no-padding" style="width:76%">
 						<article class="col-xs-12 margin-top definition practiceContainer">
-							<article class="col-md-2 practiceNumber">
+							<article class="col-md-1"><img class="practiceResult_'.($i+1).'" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/icons/check.png" width="100%"></article>
+							<article class="col-md-1 practiceNumber">
 								<h1>'.($i+1).'.</h1>
 							</article>
 							<article class="col-md-10 no-padding">	
@@ -112,7 +113,7 @@ class Section extends SectionDAO {
 
 				echo $problem->problem;
 				echo '<br/>For demo purposes, the answer is: '.$problem->answer.'<br/><br/>';
-				echo 'previous answers:';
+				/*echo 'previous answers:';
 				echo '<div id="previousAnswers'.$problem->problemid.'">';
 					if(isset($problem->previousAnswers)){
 							echo '<table>';
@@ -134,12 +135,12 @@ class Section extends SectionDAO {
 						}
 							echo '</table>';
 					}
-				echo '</div>';
+				echo '</div>';*/
 				if((!isset($_SESSION[$this->subjectName][$problem->problemType][$problem->problemid]) || (end($_SESSION[$this->subjectName][$problem->problemType][$problem->problemid])['correct'])==0)){
 					echo $problem->answerBoxHTML;
 					echo '
 					<br/>
-					<button id="submitPrequizAnswer'.$problem->problemid.'" onclick="checkAnswer('.$problem->problemid.')" class="readyButton">Submit Answer</button>
+					<button id="submitPrequizAnswer'.$problem->problemid.'" onclick="checkAnswer('.$problem->problemid.')" class="readyButton practiceButton">Submit Answer</button>
 					<div id="checkAnswerReturn'.$problem->problemid.'"></div>
 					';
 				}

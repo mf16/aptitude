@@ -199,6 +199,7 @@
 			var player;
 			var time;
 			var videoSequence = 0;
+			var currentPosition = 0;
 
 			// this function gets called when API is ready to use
 			function onYouTubePlayerAPIReady() {
@@ -224,13 +225,13 @@
 				  time = player.getCurrentTime();
 				  if (time > 0 && time < 88 && currentPosition == 0 && videoSequence == 0){
 				  	replaceImportantInfo('Functions are like variables. But they represent an expression instead of just one number');
-				  	videoSequence++;
-				  	currentPosition++;
-				  }
-				  else if (time > 88 && currentPosition !== 1 && pitfallSequence == 1){
-				  	replacePitfall('Be careful which function comes first. This can change the whole problem around.');
 				  	videoSequence=1;
 				  	currentPosition = 1;
+				  }
+				  else if (time > 88 && currentPosition == 1 && videoSequence == 1){
+				  	replacePitfall('Be careful which function comes first. This can change the whole problem around.');
+				  	videoSequence=2;
+				  	currentPosition = 2;
 				  }
 				}, 1000);
 			}
