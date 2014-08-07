@@ -12,15 +12,14 @@
                     <br/>
                     <?php
                         if(isset($_SESSION['math1050-prequiz'])){
-                            echo '<p>r u reddy 2 continew teh pre-test?</p><br>
-                            <script>
-                            $.ajax({url:"/aptitude/includes/class.Prequiz.php?action=nextProblem&subjectName='. $this->subjectName.'&chapterid='. $this->chapterid.'&sectionid='. $this->sectionid.'",success:function(result){
+                            echo '<script>
+                            $.ajax({url:"'.$_SERVER["DOCUMENT_ROOT"].'includes/class.Prequiz.php?action=nextProblem&subjectName='. $this->subjectName.'&chapterid='. $this->chapterid.'&sectionid='. $this->sectionid.'",success:function(result){
 								$("#prequiz").html(result);
 								$("#prequiz").css("padding-top","80px");
 								//$(".pretestWrapper").animate({opacity:"0.0"});
 							}});</script>';
                         } else {
-                            echo '<section class="col-sm-2 col-xs-2 no-padding">
+                            echo '<section class="col-sm-2 hidden-xs no-padding">
 						<div class="chapter-number">
 							<img src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/chapter-arrow.png"/>
 						</div>
@@ -44,6 +43,7 @@
 		</section>
 	</section>
 </div>
+<div class="clear-fix"></div>
 <footer class="row site-footer">
   	<section class="col-md-4 col-xs-12" style="cursor:pointer" onclick='window.location.href = "http://goaptitude.com/demo";'><img src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>img/global/left-arrow.png" style="margin-right: 7px;"> BACK</section>
 
@@ -67,18 +67,21 @@
 
 </footer>
 
-
+<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/fittext/fittext.js"></script>
 <script type="text/javascript">
 	var $readyButton = $('.readyButton');
 	$readyButton.click(function() {
 		$readyButton.css('background-color', '#BEBEBE');
 		$( ".text-body" ).addClass( "text-center pretestQuestionsContainer" );
-		$.ajax({url:"/aptitude/includes/class.Prequiz.php?action=nextProblem&subjectName=<?php echo $this->subjectName;?>&chapterid=<?php echo $this->chapterid;?>&sectionid=<?php echo $this->sectionid;?>",success:function(result){
+		$.ajax({url:"<?php echo $_SERVER['DOCUMENT_ROOT'];?>includes/class.Prequiz.php?action=nextProblem&subjectName=<?php echo $this->subjectName;?>&chapterid=<?php echo $this->chapterid;?>&sectionid=<?php echo $this->sectionid;?>",success:function(result){
 			$("#prequiz").html(result);
 			$("#prequiz").css("padding-top","80px");
 			//$(".pretestWrapper").animate({opacity:"0.0"});
 		}});
 	});
+
+	jQuery(".section-title").fitText(1.0, { maxFontSize: '60px' });
+	jQuery(".prequizTitle").fitText(1.0, { maxFontSize: '34px' });
 
 	
 </script>

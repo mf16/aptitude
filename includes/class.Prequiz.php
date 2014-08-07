@@ -117,7 +117,7 @@ class Prequiz extends PrequizDAO {
 			echo '
 				<section class="col-sm-2 col-xs-2 chapterArrow no-padding">
 					<div class="chapter-number">
-						<img src="/aptitude/img/global/chapter-arrow.png"/>
+						<img src="'.$_SERVER["DOCUMENT_ROOT"].'img/global/chapter-arrow.png"/>
 					</div>
 				</section>
 				<section class="col-md-4 material-body col-sm-offset-1 col-xs-offset-1 col-md-offset-0">
@@ -170,10 +170,10 @@ class Prequiz extends PrequizDAO {
 						echo '<td>\('.$displayInfo['studentAns'].'\)</td>';
 						echo '<!--<td>'.$displayInfo['correct'].'</td>-->';
 						if($displayInfo['correct'] == "yes"){
-							echo '<td><img src="'.$_SERVER['DOCUMENT_ROOT'].'/img/global/icons/check.png" width="50px"></td>';
+							echo '<td><img src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/icons/check.png" width="50px"></td>';
 						}
 						else{
-							echo '<td><img src="'.$_SERVER['DOCUMENT_ROOT'].'/img/global/icons/x.png" width="50px"></td>';
+							echo '<td><img src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/icons/x.png" width="50px"></td>';
 						}
 					echo '</tr>';
 					// add to 
@@ -525,11 +525,13 @@ class Prequiz extends PrequizDAO {
         $isCorrect=false;
 		if(str_replace(' ','',$studentAns)==$correctAns){
             $isCorrect=true;
-			echo 'correct';
+            //hide for now because the wont see it during the page transtion
+			//echo 'correct';
 			//add to db
 		} else {
             $isCorrect=false;
-			echo 'incorrect';
+			//hide for now because the wont see it during the page transtion
+			//echo 'incorrect';
 			//add to db
 		}
 		/*

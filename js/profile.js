@@ -1,11 +1,3 @@
-$(document).ready(function() {
-    $('.tooltipster-base').css('top', '-=20');
-    $('.tooltip').tooltipster({
-       offsetY: '12px'
-    });
-});
-
-
 var chart = AmCharts.makeChart("profileHeroChart", {
         "type": "serial",
         "theme": "none",

@@ -1,0 +1,226 @@
+﻿.editorAptitude {
+    background-color:#fff;
+    font-family:'Segoe UI','Lucida Grande',Tahoma,Arial;
+    font-size:18pt;
+    font-style:normal;
+    color:#000;
+    z-index:3000;
+    white-space:nowrap
+}
+
+.editorAptitudeEmpty {
+    background-color:#fff;
+    font-family:'Segoe UI','Lucida Grande',Tahoma,Arial;
+    font-size:18pt;
+    font-style:normal;
+    color:#CCC;
+    z-index:3000;
+    white-space:nowrap
+}
+
+.editorAptitudeTextArea {
+    font-family:'Segoe UI','Lucida Grande',Tahoma,Arial;
+    font-size:18pt;
+    font-style:normal;
+    color:#000;
+    border-style:none;
+    outline:0;
+    display:none;
+    width:100%;
+    height:100%;
+    overflow:auto
+}
+
+.editorAptitudeCursor {
+    position:absolute;
+    font-family:'Segoe UI','Lucida Grande',Tahoma,Arial;
+    font-size:18pt;
+    font-style:normal;
+    color:#000;
+    z-index:3000;
+    display:none
+}
+
+.MWMeasureString {
+    display:none;
+    white-space:pre
+}
+
+.editorAptitudeControlContainer {
+    position:absolute;
+    top:0;
+    right:0;
+    white-space:nowrap;
+    z-index:3000
+}
+
+.editorAptitudeControlButton {
+    display:inline-table;
+    height:32px;
+    width:32px;
+    margin-left:5px;
+    text-align:center;
+    background-color:#F2F2F2;
+    border:1px solid #E5E5E5;
+    cursor:pointer;
+    -moz-border-radius:50%;
+/* FF1+ */
+    -webkit-border-radius:50%;
+/* Saf3-4, iOS 1+, Android 1.5+ */
+    border-radius:50%;
+/* Opera 10.5, IE9, Saf5, Chrome, FF4 */
+    -webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,0.2);
+    -moz-box-shadow:inset 0 1px 0 rgba(255,255,255,0.2);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.2)
+}
+
+.editorAptitudeControlButtonHover {
+    display:inline-table;
+    height:32px;
+    width:32px;
+    margin-left:5px;
+    text-align:center;
+    background-color:E9E9E9;
+    border:1px solid #C1CFE7;
+    cursor:pointer;
+    -moz-border-radius:50%;
+/* FF1+ */
+    -webkit-border-radius:50%;
+/* Saf3-4, iOS 1+, Android 1.5+ */
+    border-radius:50%;
+/* Opera 10.5, IE9, Saf5, Chrome, FF4 */
+    -webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,0.2);
+    -moz-box-shadow:inset 0 1px 0 rgba(255,255,255,0.2);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.2)
+}
+
+.editorAptitudeControlButtonClick {
+    display:inline-table;
+    height:32px;
+    width:32px;
+    margin-left:5px;
+    text-align:center;
+    background-color:#E9E9E9;
+    border:1px solid #99B3D9;
+    white-space:nowrap;
+    cursor:pointer;
+    -moz-border-radius:50%;
+/* FF1+ */
+    -webkit-border-radius:50%;
+/* Saf3-4, iOS 1+, Android 1.5+ */
+    border-radius:50%;
+/* Opera 10.5, IE9, Saf5, Chrome, FF4 */
+    -webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,0.2);
+    -moz-box-shadow:inset 0 1px 0 rgba(255,255,255,0.2);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.2)
+}
+
+.editorAptitudeControlButton *,.editorAptitudeControlButtonHover *,.editorAptitudeControlButtonClick * {
+    display:table-cell;
+    vertical-align:middle;
+    margin-left:auto;
+    margin-right:auto;
+    border:0
+}
+
+.editorAptitudeModeContainer {
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    white-space:nowrap;
+    font-family:'Segoe UI','Lucida Grande',Tahoma,Arial;
+    font-size:8pt;
+    font-style:normal;
+    color:#CCC;
+    z-index:3000;
+    display:none
+}
+
+.editorAptitudeModeButton {
+    display:inline;
+    color:#99B3D9;
+    cursor:pointer
+}
+
+.editorAptitudeModeButtonHover {
+    display:inline;
+    color:#99B3D9;
+    cursor:pointer;
+    text-decoration:underline
+}
+
+.editorAptitudeModeButtonClick {
+    display:inline;
+    color:#4A6AAD;
+    cursor:default
+}
+
+.editorAptitudeCanvasWrapper {
+    margin:0 20px 20px 0
+}
+
+.editorAptitudeCanvas {
+    display:inline;
+    position:static;
+    float:left;
+    padding-bottom:20px
+}
+
+.editorAptitudeCanvasControlsWrapper {
+    margin-top:30px;
+    float:left
+}
+
+.editorAptitudeCanvasControlWrapper {
+    margin-bottom:10px
+}
+
+.editorAptitudeCanvasControl {
+    width:50px;
+    font-family:'Segoe UI','Lucida Grande',Tahoma,Arial;
+    font-size:12pt;
+    font-style:normal;
+    color:#444;
+    border:1px solid #CCC
+}
+
+.editorAptitudeCanvasControl.Hover,.editorAptitudeCanvasControl.Active {
+    width:50px;
+    font-family:'Segoe UI','Lucida Grande',Tahoma,Arial;
+    font-size:12pt;
+    font-style:normal;
+    color:#444;
+    border:1px solid #738DC3
+}
+
+.editorAptitudeCanvasControl.Error {
+    color:Red;
+    background-color:#FEE;
+    border:1px solid Red
+}
+
+.editorAptitudeLabel {
+    font-weight:700;
+    white-space:nowrap
+}
+
+[id^="editorAptitude"] .mi,[id^="editorAptitude"] .mn,[id^="editorAptitude"] .mtext,[id^="editorAptitude"] .mo,[id^="editorAptitude"] .mstyle {
+    padding:1px!important
+}
+
+[id^="editorAptitude"] .mlinebreak {
+    height:20px
+}
+
+#aptitudeDebug {
+    margin:0 20px
+}
+
+#aptitudeDebug table {
+    width:100%;
+    border:1px solid #CCC
+}
+
+#aptitudeDebug td {
+    border:1px solid #CCC
+}
