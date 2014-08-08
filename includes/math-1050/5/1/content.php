@@ -1,5 +1,14 @@
 <link rel="stylesheet" type="text/css" href="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>css/includes/math-1050/5/1/pretest_global_styling.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>css/includes/math-1050/5/1/pretest_page_specific_styling.css">
+<script type='text/x-mathjax-config'>
+	MathJax.Hub.Config({
+        extensions: ['TeX/cancel.js'],
+        TeX: {extensions: ['color.js']},
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], preview: 'none'},
+        'HTML-CSS': {showMathMenu: false},
+        skipStartupTypeset: true
+    });
+</script>
 <div id="workArea"></div>
 <!-- wrapper -->
 <div class="pretestWrapper page-wrap ">
@@ -75,6 +84,14 @@
 		$( ".text-body" ).addClass( "text-center pretestQuestionsContainer" );
 		$.ajax({url:"<?php echo $_SERVER['DOCUMENT_ROOT'];?>includes/class.Prequiz.php?action=nextProblem&subjectName=<?php echo $this->subjectName;?>&chapterid=<?php echo $this->chapterid;?>&sectionid=<?php echo $this->sectionid;?>",success:function(result){
 			$("#prequiz").html(result);
+		  	$.getScript( "<?php echo $_SERVER['DOCUMENT_ROOT']; ?>js/equationEditor/functions.js" )
+			  .done(function( script, textStatus ) {
+			    console.log( textStatus );
+			  })
+			  .fail(function( jqxhr, settings, exception ) {
+			    console.log( "Triggered ajaxError handler." );
+			});
+
 			$("#prequiz").css("padding-top","80px");
 			//$(".pretestWrapper").animate({opacity:"0.0"});
 		}});

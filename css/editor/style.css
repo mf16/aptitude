@@ -463,3 +463,6 @@ a.disabled {
 #aptitudeDebug td {
     border:1px solid #CCC
 }
+.aptitudeCursor{
+    top: 0.046875px;
+}

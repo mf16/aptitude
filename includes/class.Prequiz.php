@@ -107,7 +107,20 @@ class Prequiz extends PrequizDAO {
 		}
         echo '
             <link rel="stylesheet" type="text/css" href="'.$_SERVER['DOCUMENT_ROOT'].'css/includes/math-1050/5/1/pretest_global_styling.css">
-            <link rel="stylesheet" type="text/css" href="'.$_SERVER['DOCUMENT_ROOT'].'css/includes/math-1050/5/1/pretest_page_specific_styling.css">
+            <link rel="stylesheet" type="text/css" href="'.$_SERVER['DOCUMENT_ROOT'].'css/includes/math-1050/5/1/pretest_page_specific_styling.css">';
+            //Equation editor styling
+          echo '
+            <link href="'.$_SERVER['DOCUMENT_ROOT'].'css/editor/editor.css" rel="Stylesheet" type="text/css">
+            <link href="'.$_SERVER['DOCUMENT_ROOT'].'css/editor/style.css" rel="Stylesheet" type="text/css">
+            <script type="text/javascript">
+                    // set global variables
+                    var user = \'\';
+                    var subject = \'Algebra\';
+                    var showads = \'True\' == "False" ? false : true;
+                    var wcfhostname = \'\';
+                    var webhostname = \'\';
+                    var ismobile = false;
+        	</script>
             <div id="workArea"></div>
         ';
 
@@ -444,9 +457,9 @@ class Prequiz extends PrequizDAO {
 				}
 				$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=checkAnswer&subjectName='.$this->subjectName.'&chapterid='.$this->subjectName.'&sectionid='.$this->sectionid.'&problemid='.$problemInfo['problem_id'].'&var=1&timer="+counter+"&studentAns="+encodeURIComponent(studentAns),success:function(result){
 					if(result=="correct"){
-						$("#checkAnswerReturn").html("Correct<br/>");
+						//$("#checkAnswerReturn").html("Correct<br/>");
 					} else {
-						$("#checkAnswerReturn").html("Incorrect");
+						//$("#checkAnswerReturn").html("Incorrect");
 					}
 					console.log(result);
                     $("#submitPrequizAnswer").hide();
@@ -481,6 +494,8 @@ class Prequiz extends PrequizDAO {
 	function nextProblem(){
 		$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=nextProblem&subjectName='.$this->subjectName.'&chapterid='.$this->chapterid.'&sectionid='.$this->sectionid.'",success:function(result){
 			$("#prequiz").html(result);
+			$.getScript("'.$_SERVER['DOCUMENT_ROOT'].'js/equationEditor/functions.js", function() {
+		  });
 		}});
 	}
 	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
@@ -489,7 +504,21 @@ class Prequiz extends PrequizDAO {
 		var math=document.getElementById(toElementid);
 		MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 	}
-	</script>';
+
+
+	</script>
+
+	<script type=\'text/x-mathjax-config\'>
+    MathJax.Hub.Config({
+            config: [\'TeX-AMS-MML_HTMLorMML-full.js\'],
+            extensions: [\'TeX/cancel.js\'],
+            TeX: {extensions: [\'color.js\']},
+            tex2jax: {inlineMath: [[\'$\',\'$\'], [\'\\\\(\',\'\\\\)\']], preview: \'none\'},
+            \'HTML-CSS\': {showMathMenu: false},
+            skipStartupTypeset: true
+        });
+    </script>
+    ';
 		
 	}
 

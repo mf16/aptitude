@@ -2244,6 +2244,15 @@ function Formatting() {
 				c ? (u = 0, L(), m = "left") : (f = u = -1, m = "right"), F())
 		}
 
+
+
+
+
+
+
+
+
+
 		function F() {
 			a("#editorAptitude" + e.id + " .mi, #editorAptitude" + e.id +
 				" .mn, #editorAptitude" + e.id + " .mo").each(function() {
@@ -2357,6 +2366,7 @@ function Formatting() {
 												of: a("#" + c.id),
 												collision: "none"
 											})
+											console.log(a(E).position);
 										} catch (b) {}
 									}, 10);
 									return !1
@@ -2377,6 +2387,21 @@ function Formatting() {
 			}, 10); - 1 == f && 0 < c.length && (u = f = 0); - 1 == f && (m = "right");
 			fa()
 		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		function U() {
 			e.showconsole && a("#debug").html("");
@@ -2766,7 +2791,7 @@ function Formatting() {
 		e.activebg = "transparent";
 		e.hoverbg = "transparent";
 		e.emptybg = "#E9E9E9";
-		e.iconpath = "./Images";
+		e.iconpath = "/aptitude/img/editor";
 		e.onfocus = null;
 		e.onblur = null;
 		null != t && (null != t.id && (e.id = t.id), null != t.showconsole && (e.showconsole =
@@ -3449,15 +3474,6 @@ $(document).ready(function() {
 		activebg: "#E9E9E9",
 		hoverbg: "#E9E9E9"
 	});
-
-	if($('#answerbutton').has('span').length === 0){
-		answerbutton = $("#answerbutton").MWButton({
-			label: "Answer",
-			css: "AnswerButton",
-			hovercss: "AnswerButtonHover",
-			clickcss: "AnswerButtonClick"
-		});
-	}
 		
 	var a = subject;
 	subject = "";
@@ -3512,31 +3528,3 @@ function addCommas(a) {
 	for (a = /(\d+)(\d{3})/; a.test(x1);) x1 = x1.replace(a, "$1,$2");
 	return x1 + x2
 };
-
-
-/*=+ changing editor window +=*/
-$(document).on("click", "span.question", function () {
-	var curEditorText = answer();	//previously selected editor text
-	var $editorsParent = $('#editor').parent();
-	$editorsParent.find('#editor').remove();
-	$editorsParent.html('<span class="question">' + curEditorText +'<span class="hiddenText" id="' + curEditorText + '" style="display:none;"></span></span>');
-	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-	
-	var $parent = $(this).parent();
-	var nextEditorText = $parent.find('span.hiddenText').attr('id');
-
-	console.log(nextEditorText);
-	$.ajax({
-		url: "editor.php",
-		dataType:"html",
-		success: function(result){$parent.html(result);editor.insertText(nextEditorText);}		
-	});
-		
-});
-
-
-
-
-/*=+  +=*/
-/*=+  +=*/
-/*=+  +=*/
