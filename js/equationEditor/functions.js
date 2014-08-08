@@ -2366,7 +2366,7 @@ function Formatting() {
 												of: a("#" + c.id),
 												collision: "none"
 											})
-											console.log(a(E).position);
+											console.log('pinche pendejo');
 										} catch (b) {}
 									}, 10);
 									return !1
