@@ -399,9 +399,7 @@ class Prequiz extends PrequizDAO {
 		echo '<input class="form-control" id="studentAns" type="text" onkeyup="interpretLex(\'studentAns\',\'displayStudentAns\')">';
 		echo '<div id="displayStudentAns"></div>';
         */
-        echo '
-                    <br/>
-                    <br/>
+        echo '<div class="clearfix"></div>
                     For Demo Purposes, the correct answer is: '.$problemInfo['answer'].'<br/>
 					<button id="submitPrequizAnswer" class="readyButton">Submit Answer</button>
                     <div id="checkAnswerReturn"> </div>

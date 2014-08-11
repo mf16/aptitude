@@ -25,6 +25,15 @@
 <script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/amcharts/pie.js"></script>
 
 <script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/MathJax-2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- Nano Scroller Plugin-->
+<link rel="stylesheet" href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/nanoscroller/nanoscroller.css">
+<script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/nanoscroller/jquery.nanoscroller.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+   		$(".nano").nanoScroller();
+   	});
+</script>
 <!--<style type="text/css" src="js/jsxgraph/jsxgraph.css"></style>
 
 <script type="text/javascript" src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/JSXGraph/jsxgraphcore.js"></script>-->

@@ -717,3 +717,52 @@ font-size: 18px;
 	-webkit-transition: display 2s;
     transition: display 2s;
 }
+
+.ProblemEditor{	
+	background-color: white;
+	border-radius: 5px;
+	border: solid 1px #bbbbbb;
+	 padding-top: 15px; 
+}
+
+
+/****OPERATOR TOOLBAR******/
+.operatorToolbar{
+	position: fixed;
+	top: 0px;
+	background-color: white;
+	padding: 15px;
+	width: 100%; 
+	z-index: 11;
+	text-align: center;
+}
+.scrollable{
+	/*To make it scrollable*/
+	/*min-width: 1785px;*/
+	margin-left: -665px;
+	left: 50%;
+	width: 1330px;
+	position: relative;	
+}
+.operatorButton{	
+	position: relative;
+	float: left;
+	margin-right: 15px !important;
+	z-index: 11;
+	padding: 4px 5px !important;
+	width: 4.4%;
+	min-width: 45px;
+	max-width: 55px;
+	border: solid 1px #D8D7D7;
+	border-radius: 5px;
+	text-align: center;
+	cursor: pointer;
+	-webkit-transition: border .3s;
+    transition: border .3s;
+}
+.operatorButton:hover{
+	border: solid 1px #979797;
+}
+.operatorButton>img{
+	width: 30px;
+}

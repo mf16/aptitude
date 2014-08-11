@@ -1,5 +1,3 @@
-
-<link rel="stylesheet" href="<?php echo $_SERVER['DOCUMENT_ROOT'];?>js/nanoscroller/nanoscroller.css">
 <div id="workArea"></div>
 <!-- wrapper -->
 <div class="page-wrap">
@@ -287,4 +285,3 @@
 		<?php
 		//echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';
 		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/fitVid/fitVid.js"></script>';
-		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/nanoscroller/jquery.nanoscroller.min.js"></script>';
