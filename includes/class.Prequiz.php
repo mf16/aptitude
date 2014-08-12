@@ -110,8 +110,8 @@ class Prequiz extends PrequizDAO {
             <link rel="stylesheet" type="text/css" href="'.$_SERVER['DOCUMENT_ROOT'].'css/includes/math-1050/5/1/pretest_page_specific_styling.css">';
             //Equation editor styling
           echo '
-            <link href="'.$_SERVER['DOCUMENT_ROOT'].'css/editor/editor.css" rel="Stylesheet" type="text/css">
             <link href="'.$_SERVER['DOCUMENT_ROOT'].'css/editor/style.css" rel="Stylesheet" type="text/css">
+            <link href="'.$_SERVER['DOCUMENT_ROOT'].'css/editor/editor.css" rel="Stylesheet" type="text/css">
             <script type="text/javascript">
                     // set global variables
                     var user = \'\';
@@ -445,14 +445,19 @@ class Prequiz extends PrequizDAO {
 		echo '<script type="text/javascript">
 		var $submitPrequizAnswer= $(\'#submitPrequizAnswer\');
 		$submitPrequizAnswer.click(function() {
-			if($("#studentAns").val()==""){
+			var studentAns = answer();
+			//If the radio button exists check the value of that instead of a standard text response
+			if($("#radio1").length > 0){
+				studentAns = $("input[name=radios]:checked").val();
+			}
+			else{
+				studentAns = studentAns.substr(1);
+				studentAns = studentAns.substr(0, studentAns.length -1);
+			}
+
+			if(studentAns ==""){
 				alert("please enter a valid answer before clicking submit");
 			} else {
-				var studentAns=$("#studentAns").val();
-				//If the radio button exists check the value of that instead of a standard text response
-				if($("#radio1").length > 0){
-					studentAns = $("input[name=radios]:checked").val();
-				}
 				$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=checkAnswer&subjectName='.$this->subjectName.'&chapterid='.$this->subjectName.'&sectionid='.$this->sectionid.'&problemid='.$problemInfo['problem_id'].'&var=1&timer="+counter+"&studentAns="+encodeURIComponent(studentAns),success:function(result){
 					if(result=="correct"){
 						//$("#checkAnswerReturn").html("Correct<br/>");
@@ -493,7 +498,7 @@ class Prequiz extends PrequizDAO {
 		$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=nextProblem&subjectName='.$this->subjectName.'&chapterid='.$this->chapterid.'&sectionid='.$this->sectionid.'",success:function(result){
 			$("#prequiz").html(result);
 			$.getScript("'.$_SERVER['DOCUMENT_ROOT'].'js/equationEditor/functions.js", function() {
-		  });
+		    });
 		}});
 	}
 	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);

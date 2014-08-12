@@ -36,7 +36,7 @@
     font-family:'Segoe UI','Lucida Grande',Tahoma,Arial;
     font-size:18pt;
     font-style:normal;
-    color:#000;
+    color:#EBEBEB !important;
     z-index:3000;
     display:none
 }
@@ -80,7 +80,7 @@
     width:32px;
     margin-left:5px;
     text-align:center;
-    background-color:E9E9E9;
+    background-color:D8D8D8;
     border:1px solid #C1CFE7;
     cursor:pointer;
     -moz-border-radius:50%;
@@ -100,7 +100,7 @@
     width:32px;
     margin-left:5px;
     text-align:center;
-    background-color:#E9E9E9;
+    background-color:#D8D8D8;
     border:1px solid #99B3D9;
     white-space:nowrap;
     cursor:pointer;

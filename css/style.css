@@ -729,7 +729,7 @@ font-size: 18px;
 /****OPERATOR TOOLBAR******/
 .operatorToolbar{
 	position: fixed;
-	top: 0px;
+	top: -100px;
 	background-color: white;
 	padding: 15px;
 	width: 100%; 
