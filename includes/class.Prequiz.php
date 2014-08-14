@@ -83,7 +83,7 @@ class Prequiz extends PrequizDAO {
         echo '
            <script>
             function clearSessionVars(){
-                $.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'/includes/class.Prequiz.php?action=clearSessionVars&subjectName='.$this->subjectName.'&chapterid='.$this->chapterid.'&sectionid='.$this->sectionid.'",success:function(result){
+                $.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=clearSessionVars&subjectName='.$this->subjectName.'&chapterid='.$this->chapterid.'&sectionid='.$this->sectionid.'",success:function(result){
                     console.log(result);
                     location.reload();
                 }
@@ -445,12 +445,13 @@ class Prequiz extends PrequizDAO {
 		echo '<script type="text/javascript">
 		var $submitPrequizAnswer= $(\'#submitPrequizAnswer\');
 		$submitPrequizAnswer.click(function() {
-			var studentAns = answer();
+			var studentAns;
 			//If the radio button exists check the value of that instead of a standard text response
 			if($("#radio1").length > 0){
 				studentAns = $("input[name=radios]:checked").val();
 			}
 			else{
+				studentAns = answer();
 				studentAns = studentAns.substr(1);
 				studentAns = studentAns.substr(0, studentAns.length -1);
 			}

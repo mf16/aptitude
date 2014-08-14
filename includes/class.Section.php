@@ -154,9 +154,34 @@ class Section extends SectionDAO {
 				echo '<br/>';
 			}
 
+			echo '
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				        <h4 class="modal-title">Under Contruction</h4>
+				      </div>
+				      <div class="modal-body">
+				       <p>This section is currently under construction and we are working with professors to get input on what would be most useful for analytics. If you have any suggestions please get in contact with us from our home page at goaptitude.com.
+<br><br>
+Thank you!</p>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>';
 			//js functions 
 			echo '
 			<script>
+			$(".practiceContainer>article>input").click(function() {
+				console.log("fire");
+				$("#myModal").modal(\'show\');
+			})
+
 			$(document).ready(function() {
 				$.waypoints(\'refresh\');
 			});
