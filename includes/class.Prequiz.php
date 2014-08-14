@@ -400,7 +400,10 @@ class Prequiz extends PrequizDAO {
 		echo '<div id="displayStudentAns"></div>';
         */
         echo '<div class="clearfix"></div>
-                    For Demo Purposes, the correct answer is: '.$problemInfo['answer'].'<br/>
+                    For Demo Purposes, the correct answer is: \('.$problemInfo['answer'].'\)<br/>
+					<script>
+						MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+					</script>
 					<button id="submitPrequizAnswer" class="readyButton">Submit Answer</button>
                     <div id="checkAnswerReturn"> </div>
                     '//<br/>'s for pushing footer down
@@ -503,6 +506,7 @@ class Prequiz extends PrequizDAO {
 		}});
 	}
 	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+
 	function interpretLex(fromElementid,toElementid){
 		$("#"+toElementid).html("&#92("+$("#"+fromElementid).val()+"&#92)");
 		var math=document.getElementById(toElementid);
@@ -549,14 +553,16 @@ class Prequiz extends PrequizDAO {
 		$problemid=$_REQUEST['problemid'];
 		$var=$_REQUEST['var'];
 		$studentAns=$_REQUEST['studentAns'];
+		$studentAnsCheck=preg_replace('/[^0-9a-zA-Z\^\-]/','',$studentAns);
 		//print_r('problemid:'.$problemid.'<br/>var:'.$var.'<br/>student ans:'.$studentAns);
 		$problemInfo=$this->getProblemByid($problemid);
 		//fix latex, etc here
 		//calculate answer from $problemInfo['problem']
 		$correctAns=$problemInfo['answer'];
+		$correctAnsCheck=preg_replace('/[^0-9a-zA-Z\^\-]/','',$correctAns);
 
         $isCorrect=false;
-		if(str_replace(' ','',$studentAns)==$correctAns){
+		if($studentAnsCheck==$correctAnsCheck){
             $isCorrect=true;
             //hide for now because the wont see it during the page transtion
 			//echo 'correct';
