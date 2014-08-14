@@ -553,13 +553,13 @@ class Prequiz extends PrequizDAO {
 		$problemid=$_REQUEST['problemid'];
 		$var=$_REQUEST['var'];
 		$studentAns=$_REQUEST['studentAns'];
-		$studentAnsCheck=preg_replace('/[^0-9a-zA-Z\^\-]/','',$studentAns);
+		$studentAnsCheck=preg_replace('/[^0-9a-zA-Z\^\-\+]/','',$studentAns);
 		//print_r('problemid:'.$problemid.'<br/>var:'.$var.'<br/>student ans:'.$studentAns);
 		$problemInfo=$this->getProblemByid($problemid);
 		//fix latex, etc here
 		//calculate answer from $problemInfo['problem']
 		$correctAns=$problemInfo['answer'];
-		$correctAnsCheck=preg_replace('/[^0-9a-zA-Z\^\-]/','',$correctAns);
+		$correctAnsCheck=preg_replace('/[^0-9a-zA-Z\^\-\+]/','',$correctAns);
 
         $isCorrect=false;
 		if($studentAnsCheck==$correctAnsCheck){
