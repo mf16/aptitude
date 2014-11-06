@@ -98,7 +98,7 @@ LOCK TABLES `group_included_sections` WRITE;
 /*!40000 ALTER TABLE `group_included_sections` DISABLE KEYS */;
 INSERT INTO `group_included_sections` VALUES (1,1,1,1397280421);
 INSERT INTO `group_included_sections` VALUES (2,1,2,1401290738);
-INSERT INTO `group_included_sections` VALUES (3,1,3,1406604672);
+INSERT INTO `group_included_sections` VALUES (3,1,3,1415262203);
 INSERT INTO `group_included_sections` VALUES (4,1,4,NULL);
 /*!40000 ALTER TABLE `group_included_sections` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -111,14 +111,14 @@ DROP TABLE IF EXISTS `group_members`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `group_members` (
+  `group_members_id` int(11) NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `group_members_id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`group_members_id`),
   UNIQUE KEY `group_members_id_UNIQUE` (`group_members_id`),
   KEY `group_id` (`group_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,7 +127,9 @@ CREATE TABLE `group_members` (
 
 LOCK TABLES `group_members` WRITE;
 /*!40000 ALTER TABLE `group_members` DISABLE KEYS */;
-INSERT INTO `group_members` VALUES (1,2,1);
+INSERT INTO `group_members` VALUES (1,1,2);
+INSERT INTO `group_members` VALUES (2,1,3);
+INSERT INTO `group_members` VALUES (3,1,4);
 /*!40000 ALTER TABLE `group_members` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -185,28 +187,6 @@ LOCK TABLES `piece_names` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `problem_tags`
---
-
-DROP TABLE IF EXISTS `problem_tags`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `problem_tags` (
-  `problem_id` int(11) NOT NULL,
-  `tag` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `problem_tags`
---
-
-LOCK TABLES `problem_tags` WRITE;
-/*!40000 ALTER TABLE `problem_tags` DISABLE KEYS */;
-/*!40000 ALTER TABLE `problem_tags` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `problems`
 --
 
@@ -217,7 +197,6 @@ CREATE TABLE `problems` (
   `problem_id` int(11) NOT NULL AUTO_INCREMENT,
   `chapter_id` int(10) NOT NULL,
   `section_id` int(10) NOT NULL,
-  `concept_id` int(10) NOT NULL,
   `problem` blob NOT NULL,
   `concept_hack` varchar(255) DEFAULT NULL,
   `answer` varchar(255) DEFAULT NULL,
@@ -227,8 +206,7 @@ CREATE TABLE `problems` (
   `problem_type` varchar(255) NOT NULL COMMENT 'chapter test, section test, and homework ',
   PRIMARY KEY (`problem_id`),
   KEY `chapter_id` (`chapter_id`),
-  KEY `lesson_id` (`section_id`),
-  KEY `concept_id` (`concept_id`)
+  KEY `lesson_id` (`section_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -238,26 +216,50 @@ CREATE TABLE `problems` (
 
 LOCK TABLES `problems` WRITE;
 /*!40000 ALTER TABLE `problems` DISABLE KEYS */;
-INSERT INTO `problems` VALUES (1,5,1,1,'<p>Let: $x^2 - x + 1$ and $g(x) = 3x - 5$</p>\r\n<p>find f(g(x))</p>\r\n<br>\r\n<div class=\"input-group col-xs-12 col-md-4 col-md-offset-4\">\r\n<div class=\"input-group-addon\">\\(f(g(x)) = \\)</div>\r\n</div>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n	<div class=\"ProblemEditorContainer ProblemEditor\" id=\"editor\" tabindex=\"0\"></div>\r\n</div>','composition of functions','9x^2-33x+31',NULL,NULL,NULL,'pq');
-INSERT INTO `problems` VALUES (2,5,1,1,'<p>Does this graph represent a valid function?</p>\r\n	<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/1.png\"/><br>\r\n<br/>\r\n\r\n	<input type=\"radio\" id=\"radio1\" name=\"radios\" value=\"yes\" checked>\r\n       <label for=\"radio1\">Yes</label>\r\n    <input type=\"radio\" id=\"radio2\" name=\"radios\" value=\"no\">\r\n       <label for=\"radio2\">No</label>\r\n\r\n','vertical line test','yes',NULL,NULL,NULL,'pk');
-INSERT INTO `problems` VALUES (3,5,1,1,'<p>Let: $f(x) = 3x - 1\\) and \\(g(x) = frac{1}{x+3}$</p>\r\n<p>find f(g(5))</p>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n	<div class=\"ProblemEditorContainer ProblemEditor\" id=\"editor\" tabindex=\"0\"></div>\r\n</div>','composition of functions','-\\dfrac{x}{x+3}',NULL,NULL,NULL,'pq');
-INSERT INTO `problems` VALUES (4,5,1,1,'<p>Does this graph represent a valid function?</p>\r\n	<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/2.png\"/><br>\r\n<br/>\r\n\r\n	<input type=\"radio\" id=\"radio1\" name=\"radios\" value=\"yes\" checked>\r\n       <label for=\"radio1\">Yes</label>\r\n    <input type=\"radio\" id=\"radio2\" name=\"radios\" value=\"no\">\r\n       <label for=\"radio2\">No</label>\r\n\r\n','vertical line test','no',NULL,NULL,NULL,'pk');
-INSERT INTO `problems` VALUES (5,5,1,1,'<p>Does this graph represent a valid function?</p>\r\n	<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/3.png\"/><br>\r\n<br/>\r\n\r\n	<input type=\"radio\" id=\"radio1\" name=\"radios\" value=\"yes\" checked>\r\n       <label for=\"radio1\">Yes</label>\r\n    <input type=\"radio\" id=\"radio2\" name=\"radios\" value=\"no\">\r\n       <label for=\"radio2\">No</label>\r\n','vertical line test','no',NULL,NULL,NULL,'pk');
-INSERT INTO `problems` VALUES (6,5,1,1,'	<p>Simplify the following expression:</p>\r\n	<span style=\"font-size: 2.5em;\">\\(\\frac{\\frac{5x}{x^2}}{\\frac{x^2}{-5x}}\\)</span><br><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n	<div class=\"ProblemEditorContainer ProblemEditor\" id=\"editor\" tabindex=\"0\"></div>\r\n</div>','simplifying fractions','\\dfrac{-25}{x^2}',NULL,NULL,NULL,'pk');
-INSERT INTO `problems` VALUES (8,5,1,1,'<p>What is the domain of the points on this graph?</p>\r\n<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/4.png\"/><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n	<div class=\"ProblemEditorContainer ProblemEditor\" id=\"editor\" tabindex=\"0\"></div>\r\n</div>','domain','[-3,4]',NULL,NULL,NULL,'pk');
-INSERT INTO `problems` VALUES (9,5,1,1,'<p>What is the range of the following function?</p>\r\n<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/5.png\"/><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n	<div class=\"ProblemEditorContainer ProblemEditor\" id=\"editor\" tabindex=\"0\"></div>\r\n</div>','range','[-4,3]',NULL,NULL,NULL,'pk');
-INSERT INTO `problems` VALUES (10,5,1,1,'<p>What is the range of the following function?</p>\r\n<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/6.png\"/><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n	<div class=\"ProblemEditorContainer ProblemEditor\" id=\"editor\" tabindex=\"0\"></div>\r\n</div>','range','(0,\\infty)',NULL,NULL,NULL,'pk');
-INSERT INTO `problems` VALUES (11,5,1,1,'<p>let \\(f(x)=x^2-4x\\) and \\(g(x)=2-\\sqrt{x+3}\\)</p>\n<p>Find \\((g \\circ f)(1)\\)</p>','composition of functions','1','<!--<input class=\"form-control\" id=\"studentAns11\" type=\"text\" onkeyup=\"interpretLex(\'studentAns11\',\'displayStudentAns11\')\">\r\n</div>\r\n<div id=\"displayStudentAns11\"></div>-->\r\n\r\n<div class=\"ProblemEditorContainer ProblemEditor\" id=\"editor\" tabindex=\"0\"></div>',NULL,NULL,'pp');
-INSERT INTO `problems` VALUES (12,5,1,1,'<p>let \\(f(x)=x^2-4x\\) and \\(g(x)=2-\\sqrt{x+3}\\)</p>\n<p>Find and simplify \\((g \\circ f)(x)\\)</p>','composition of functions','2-\\sqrt{x^{2}-4x+3}','<input class=\"form-control\" id=\"studentAns14\" type=\"text\" onkeyup=\"interpretLex(\'studentAns14\',\'displayStudentAns14\')\">\r\n</div>\r\n<div id=\"displayStudentAns14\"></div>',NULL,NULL,'pp');
-INSERT INTO `problems` VALUES (13,5,1,1,'<p>let \\(f(x)=x^2-4x\\), \\(g(x)=2-\\sqrt{x+3}\\) and \\(h(x)=\\frac{2x}{x+1}\\)</p>\n<p>Find and simplify \\((h \\circ (g \\circ f))(x)\\)</p>','composition of functions','\\frac{4-2*\\sqrt{x^{2}-4x+3}}{3-\\sqrt{x^{2}-4x+3}}','<input class=\"form-control\" id=\"studentAns19\" type=\"text\" onkeyup=\"interpretLex(\'studentAns19\',\'displayStudentAns19\')\">\r\n</div>\r\n<div id=\"displayStudentAns19\"></div>',NULL,NULL,'pp');
-INSERT INTO `problems` VALUES (15,5,1,1,'<p>let \\(f(x)=x^2-4x\\) and \\(g(x)=2-\\sqrt{x+3}\\)</p>\n<p>Find and simplify \\((f \\circ g)(x)\\)</p>','composition of functions','x-1','<input class=\"form-control\" id=\"studentAns15\" type=\"text\" onkeyup=\"interpretLex(\'studentAns15\',\'displayStudentAns15\')\">\n</div>\n<div id=\"displayStudentAns15\"></div>',NULL,NULL,'pp');
-INSERT INTO `problems` VALUES (16,5,1,1,'<p>let \\(g(x)=2-\\sqrt{x+3}\\) and \\(h(x)=\\frac{2x}{x+1}\\)</p>\n<p>Find and simplify \\((g \\circ h)(x)\\)</p>','composition of functions','2-\\sqrt{\\frac{5x+3}{x+1}}','<input class=\"form-control\" id=\"studentAns16\" type=\"text\" onkeyup=\"interpretLex(\'studentAns16\',\'displayStudentAns16\')\">\n</div>\n<div id=\"displayStudentAns16\"></div>',NULL,NULL,'pp');
-INSERT INTO `problems` VALUES (17,5,1,1,'<p>let \\(g(x)=2-\\sqrt{x+3}\\) and \\(h(x)=\\frac{2x}{x+1}\\)</p>\n<p>Find and simplify \\((h \\circ g)(x)\\)</p>','composition of functions','\\frac{4-2*\\sqrt{x+3}}{3-\\sqrt{x+3}}','<input class=\"form-control\" id=\"studentAns17\" type=\"text\" onkeyup=\"interpretLex(\'studentAns17\',\'displayStudentAns17\')\">\n</div>\n<div id=\"displayStudentAns17\"></div>',NULL,NULL,'pp');
-INSERT INTO `problems` VALUES (18,5,1,1,'<p>let \\(h(x)=\\frac{2x}{x+1}\\)</p>\n<p>Find and simplify \\((h \\circ h)(x)\\)</p>','composition of functions','\\frac{4x}{3x+1}','<input class=\"form-control\" id=\"studentAns18\" type=\"text\" onkeyup=\"interpretLex(\'studentAns18\',\'displayStudentAns18\')\">\n</div>\n<div id=\"displayStudentAns18\"></div>',NULL,NULL,'pp');
-INSERT INTO `problems` VALUES (20,5,1,1,'<p>let \\(f(x)=x^2-4x\\), \\(g(x)=2-\\sqrt{x+3}\\) and \\(h(x)=\\frac{2x}{x+1}\\)</p>\n<p>Find and simplify \\((h \\circ g) \\circ f))(x)\\)</p>','composition of functions','\\frac{4-2*\\sqrt{x^2-4x+3}}{3-\\sqrt{x^2-4x+3}}','<input class=\"form-control\" id=\"studentAns20\" type=\"text\" onkeyup=\"interpretLex(\'studentAns20\',\'displayStudentAns20\')\">\n</div>\n<div id=\"displayStudentAns20\"></div>',NULL,NULL,'pp');
-INSERT INTO `problems` VALUES (22,5,1,1,'<p>let \\(f(x)=x^2-4x\\) and \\(g(x)=2-\\sqrt{x+3}\\)</p>\n<p>Find \\((f \\circ g)(x)\\)</p>','composition of functions','0','<input class=\"form-control\" id=\"studentAns12\" type=\"text\" onkeyup=\"interpretLex(\'studentAns12\',\'displayStudentAns12\')\">\n</div>\n<div id=\"displayStudentAns12\"></div>',NULL,NULL,'pp');
-INSERT INTO `problems` VALUES (23,5,1,1,'<p>let \\(g(x)=2-\\sqrt{x+3}\\)</p>\n<p>Find \\((g \\circ g)(x)\\)</p>','composition of functions','2-\\sqrt{2}','<input class=\"form-control\" id=\"studentAns13\" type=\"text\" onkeyup=\"interpretLex(\'studentAns13\',\'displayStudentAns13\')\">\n</div>\n<div id=\"displayStudentAns13\"></div>',NULL,NULL,'pp');
+INSERT INTO `problems` VALUES (1,5,1,'<p>Let: $x^2 - x + 1$ and $g(x) = 3x - 5$</p>\r\n<p>find f(g(x))</p>\r\n<br>\r\n<div class=\"input-group col-xs-12 col-md-4 col-md-offset-4\">\r\n<div class=\"input-group-addon\">\\(f(g(x)) = \\)</div>\r\n</div>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n	<div class=\"ProblemEditorContainer ProblemEditor\" id=\"editor\" tabindex=\"0\"></div>\r\n</div>','composition of functions','9x^2-33x+31',NULL,NULL,NULL,'pq');
+INSERT INTO `problems` VALUES (2,5,1,'<p>Does this graph represent a valid function?</p>\r\n	<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/1.png\"/><br>\r\n<br/>\r\n\r\n	<input type=\"radio\" id=\"radio1\" name=\"radios\" value=\"yes\" checked>\r\n       <label for=\"radio1\">Yes</label>\r\n    <input type=\"radio\" id=\"radio2\" name=\"radios\" value=\"no\">\r\n       <label for=\"radio2\">No</label>\r\n\r\n','vertical line test','yes',NULL,NULL,NULL,'pk');
+INSERT INTO `problems` VALUES (3,5,1,'<p>Let: $f(x) = 3x - 1\\) and \\(g(x) = frac{1}{x+3}$</p>\r\n<p>find f(g(5))</p>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n	<div class=\"ProblemEditorContainer ProblemEditor\" id=\"editor\" tabindex=\"0\"></div>\r\n</div>','composition of functions','-\\dfrac{x}{x+3}',NULL,NULL,NULL,'pq');
+INSERT INTO `problems` VALUES (4,5,1,'<p>Does this graph represent a valid function?</p>\r\n	<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/2.png\"/><br>\r\n<br/>\r\n\r\n	<input type=\"radio\" id=\"radio1\" name=\"radios\" value=\"yes\" checked>\r\n       <label for=\"radio1\">Yes</label>\r\n    <input type=\"radio\" id=\"radio2\" name=\"radios\" value=\"no\">\r\n       <label for=\"radio2\">No</label>\r\n\r\n','vertical line test','no',NULL,NULL,NULL,'pk');
+INSERT INTO `problems` VALUES (5,5,1,'<p>Does this graph represent a valid function?</p>\r\n	<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/3.png\"/><br>\r\n<br/>\r\n\r\n	<input type=\"radio\" id=\"radio1\" name=\"radios\" value=\"yes\" checked>\r\n       <label for=\"radio1\">Yes</label>\r\n    <input type=\"radio\" id=\"radio2\" name=\"radios\" value=\"no\">\r\n       <label for=\"radio2\">No</label>\r\n','vertical line test','no',NULL,NULL,NULL,'pk');
+INSERT INTO `problems` VALUES (6,5,1,'	<p>Simplify the following expression:</p>\r\n	<span style=\"font-size: 2.5em;\">\\(\\frac{\\frac{5x}{x^2}}{\\frac{x^2}{-5x}}\\)</span><br><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n	<div class=\"ProblemEditorContainer ProblemEditor\" id=\"editor\" tabindex=\"0\"></div>\r\n</div>','simplifying fractions','\\dfrac{-25}{x^2}',NULL,NULL,NULL,'pk');
+INSERT INTO `problems` VALUES (8,5,1,'<p>What is the domain of the points on this graph?</p>\r\n<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/4.png\"/><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n	<div class=\"ProblemEditorContainer ProblemEditor\" id=\"editor\" tabindex=\"0\"></div>\r\n</div>','domain','[-3,4]',NULL,NULL,NULL,'pk');
+INSERT INTO `problems` VALUES (9,5,1,'<p>What is the range of the following function?</p>\r\n<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/5.png\"/><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n	<div class=\"ProblemEditorContainer ProblemEditor\" id=\"editor\" tabindex=\"0\"></div>\r\n</div>','range','[-4,3]',NULL,NULL,NULL,'pk');
+INSERT INTO `problems` VALUES (10,5,1,'<p>What is the range of the following function?</p>\r\n<img class=\"graphQuestion\" src=\"DOCUMENT_ROOTimg/math-1050/problem_assets/6.png\"/><br>\r\n<div class=\"col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3\">\r\n	<div class=\"ProblemEditorContainer ProblemEditor\" id=\"editor\" tabindex=\"0\"></div>\r\n</div>','range','(0,\\infty)',NULL,NULL,NULL,'pk');
+INSERT INTO `problems` VALUES (11,5,1,'<p>let \\(f(x)=x^2-4x\\) and \\(g(x)=2-\\sqrt{x+3}\\)</p>\n<p>Find \\((g \\circ f)(1)\\)</p>','composition of functions','1','<!--<input class=\"form-control\" id=\"studentAns11\" type=\"text\" onkeyup=\"interpretLex(\'studentAns11\',\'displayStudentAns11\')\">\r\n</div>\r\n<div id=\"displayStudentAns11\"></div>-->\r\n\r\n<div class=\"ProblemEditorContainer ProblemEditor\" id=\"editor\" tabindex=\"0\"></div>',NULL,NULL,'pp');
+INSERT INTO `problems` VALUES (12,5,1,'<p>let \\(f(x)=x^2-4x\\) and \\(g(x)=2-\\sqrt{x+3}\\)</p>\n<p>Find and simplify \\((g \\circ f)(x)\\)</p>','composition of functions','2-\\sqrt{x^{2}-4x+3}','<input class=\"form-control\" id=\"studentAns14\" type=\"text\" onkeyup=\"interpretLex(\'studentAns14\',\'displayStudentAns14\')\">\r\n</div>\r\n<div id=\"displayStudentAns14\"></div>',NULL,NULL,'pp');
+INSERT INTO `problems` VALUES (13,5,1,'<p>let \\(f(x)=x^2-4x\\), \\(g(x)=2-\\sqrt{x+3}\\) and \\(h(x)=\\frac{2x}{x+1}\\)</p>\n<p>Find and simplify \\((h \\circ (g \\circ f))(x)\\)</p>','composition of functions','\\frac{4-2*\\sqrt{x^{2}-4x+3}}{3-\\sqrt{x^{2}-4x+3}}','<input class=\"form-control\" id=\"studentAns19\" type=\"text\" onkeyup=\"interpretLex(\'studentAns19\',\'displayStudentAns19\')\">\r\n</div>\r\n<div id=\"displayStudentAns19\"></div>',NULL,NULL,'pp');
+INSERT INTO `problems` VALUES (15,5,1,'<p>let \\(f(x)=x^2-4x\\) and \\(g(x)=2-\\sqrt{x+3}\\)</p>\n<p>Find and simplify \\((f \\circ g)(x)\\)</p>','composition of functions','x-1','<input class=\"form-control\" id=\"studentAns15\" type=\"text\" onkeyup=\"interpretLex(\'studentAns15\',\'displayStudentAns15\')\">\n</div>\n<div id=\"displayStudentAns15\"></div>',NULL,NULL,'pp');
+INSERT INTO `problems` VALUES (16,5,1,'<p>let \\(g(x)=2-\\sqrt{x+3}\\) and \\(h(x)=\\frac{2x}{x+1}\\)</p>\n<p>Find and simplify \\((g \\circ h)(x)\\)</p>','composition of functions','2-\\sqrt{\\frac{5x+3}{x+1}}','<input class=\"form-control\" id=\"studentAns16\" type=\"text\" onkeyup=\"interpretLex(\'studentAns16\',\'displayStudentAns16\')\">\n</div>\n<div id=\"displayStudentAns16\"></div>',NULL,NULL,'pp');
+INSERT INTO `problems` VALUES (17,5,1,'<p>let \\(g(x)=2-\\sqrt{x+3}\\) and \\(h(x)=\\frac{2x}{x+1}\\)</p>\n<p>Find and simplify \\((h \\circ g)(x)\\)</p>','composition of functions','\\frac{4-2*\\sqrt{x+3}}{3-\\sqrt{x+3}}','<input class=\"form-control\" id=\"studentAns17\" type=\"text\" onkeyup=\"interpretLex(\'studentAns17\',\'displayStudentAns17\')\">\n</div>\n<div id=\"displayStudentAns17\"></div>',NULL,NULL,'pp');
+INSERT INTO `problems` VALUES (18,5,1,'<p>let \\(h(x)=\\frac{2x}{x+1}\\)</p>\n<p>Find and simplify \\((h \\circ h)(x)\\)</p>','composition of functions','\\frac{4x}{3x+1}','<input class=\"form-control\" id=\"studentAns18\" type=\"text\" onkeyup=\"interpretLex(\'studentAns18\',\'displayStudentAns18\')\">\n</div>\n<div id=\"displayStudentAns18\"></div>',NULL,NULL,'pp');
+INSERT INTO `problems` VALUES (20,5,1,'<p>let \\(f(x)=x^2-4x\\), \\(g(x)=2-\\sqrt{x+3}\\) and \\(h(x)=\\frac{2x}{x+1}\\)</p>\n<p>Find and simplify \\((h \\circ g) \\circ f))(x)\\)</p>','composition of functions','\\frac{4-2*\\sqrt{x^2-4x+3}}{3-\\sqrt{x^2-4x+3}}','<input class=\"form-control\" id=\"studentAns20\" type=\"text\" onkeyup=\"interpretLex(\'studentAns20\',\'displayStudentAns20\')\">\n</div>\n<div id=\"displayStudentAns20\"></div>',NULL,NULL,'pp');
+INSERT INTO `problems` VALUES (22,5,1,'<p>let \\(f(x)=x^2-4x\\) and \\(g(x)=2-\\sqrt{x+3}\\)</p>\n<p>Find \\((f \\circ g)(x)\\)</p>','composition of functions','0','<input class=\"form-control\" id=\"studentAns12\" type=\"text\" onkeyup=\"interpretLex(\'studentAns12\',\'displayStudentAns12\')\">\n</div>\n<div id=\"displayStudentAns12\"></div>',NULL,NULL,'pp');
+INSERT INTO `problems` VALUES (23,5,1,'<p>let \\(g(x)=2-\\sqrt{x+3}\\)</p>\n<p>Find \\((g \\circ g)(x)\\)</p>','composition of functions','2-\\sqrt{2}','<input class=\"form-control\" id=\"studentAns13\" type=\"text\" onkeyup=\"interpretLex(\'studentAns13\',\'displayStudentAns13\')\">\n</div>\n<div id=\"displayStudentAns13\"></div>',NULL,NULL,'pp');
 /*!40000 ALTER TABLE `problems` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `problems_concepts`
+--
+
+DROP TABLE IF EXISTS `problems_concepts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `problems_concepts` (
+  `id_problem_tags` int(11) NOT NULL AUTO_INCREMENT,
+  `problem_id` int(11) NOT NULL,
+  `concept_id` int(11) NOT NULL,
+  PRIMARY KEY (`id_problem_tags`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `problems_concepts`
+--
+
+LOCK TABLES `problems_concepts` WRITE;
+/*!40000 ALTER TABLE `problems_concepts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `problems_concepts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -446,15 +448,18 @@ DROP TABLE IF EXISTS `user_attempts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user_attempts` (
+  `id_user_attempts` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `problem_id` int(11) NOT NULL,
   `correct` tinyint(1) NOT NULL,
   `user_answer` varchar(255) NOT NULL,
   `user_work` text NOT NULL,
   `vars` varchar(255) NOT NULL,
+  `date_time` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_user_attempts`),
   KEY `user_id` (`user_id`),
   KEY `problem_id` (`problem_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -463,6 +468,16 @@ CREATE TABLE `user_attempts` (
 
 LOCK TABLES `user_attempts` WRITE;
 /*!40000 ALTER TABLE `user_attempts` DISABLE KEYS */;
+INSERT INTO `user_attempts` VALUES (1,2,5,0,'yes','','',NULL);
+INSERT INTO `user_attempts` VALUES (3,2,5,1,'no','','',NULL);
+INSERT INTO `user_attempts` VALUES (4,2,2,0,'no','','',NULL);
+INSERT INTO `user_attempts` VALUES (5,2,2,0,'no','','',NULL);
+INSERT INTO `user_attempts` VALUES (6,3,5,1,'no','','',NULL);
+INSERT INTO `user_attempts` VALUES (7,3,2,1,'yes','','',NULL);
+INSERT INTO `user_attempts` VALUES (8,3,11,1,'1','','',NULL);
+INSERT INTO `user_attempts` VALUES (9,4,5,1,'no','','',NULL);
+INSERT INTO `user_attempts` VALUES (10,4,2,0,'no','','',NULL);
+INSERT INTO `user_attempts` VALUES (11,4,2,1,'yes','','',NULL);
 /*!40000 ALTER TABLE `user_attempts` ENABLE KEYS */;
 UNLOCK TABLES;
 

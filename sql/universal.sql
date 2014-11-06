@@ -244,12 +244,13 @@ CREATE TABLE `users` (
   `credits` int(2) NOT NULL,
   `birthday` date NOT NULL,
   `last_login` timestamp NULL DEFAULT NULL,
+  `pic_uri` varchar(255) DEFAULT 'profile-photo.png',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `ID` (`id`),
   KEY `firstname` (`user_firstname`),
   KEY `lastname` (`user_lastname`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -258,8 +259,10 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'test@test.com','2014-04-12 20:11:46','0000-00-00 00:00:00',0,'josh','doe','professor',0,'0000-00-00',NULL);
-INSERT INTO `users` VALUES (2,'a','2014-04-12 20:11:46','0000-00-00 00:00:00',0,'firstNameStudent','lastNameStudent','student',0,'0000-00-00',NULL);
+INSERT INTO `users` VALUES (1,'test@test.com','2014-11-06 08:04:53','0000-00-00 00:00:00',0,'josh','doe','professor',0,'0000-00-00',NULL,'profile-1.jpg');
+INSERT INTO `users` VALUES (2,'a@a.com','2014-11-06 11:12:48','0000-00-00 00:00:00',0,'Coleman','McConnon','student',0,'0000-00-00',NULL,'profile-photo.png');
+INSERT INTO `users` VALUES (3,'b@b.com','2014-11-06 08:05:23','0000-00-00 00:00:00',0,'Tyler','Slater','student',0,'0000-00-00','0000-00-00 00:00:00','profile-2.jpg');
+INSERT INTO `users` VALUES (4,'c@c.com','2014-11-06 11:07:44','0000-00-00 00:00:00',0,'Michelle','Killpack','student',0,'0000-00-00','0000-00-00 00:00:00','profile-3.jpg');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 

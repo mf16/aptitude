@@ -94,8 +94,8 @@ function selectDataset(d) {
     chart.animateAgain();
 }
 
-function profilePageChange(){
-    window.location.href = profilePage;
+function profilePageChange(profileid){
+    window.location.href = profilePage+'/'+profileid;
 }
 
 function toggleDate(id){

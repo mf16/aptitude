@@ -20,20 +20,43 @@ class Group extends GroupDAO {
 		return $headerText;
 	}
 
+	function getStrugglingStudentsByGroupid($groupid){
+		$results=$this->getStudentsByClassid($groupid);
+		$averageCalc=0;
+		foreach($results as $key=>$result){
+			// input struggling student algorithm
+			// using magic algorithm for now
+			$strugglingNum=rand(-50,50);
+			$averageCalc+=$strugglingNum;
+			$strugglingNums[$result['id']]=$strugglingNum;
+		}
+		$averageCalc=$averageCalc/sizeof($strugglingNums);
+		asort($strugglingNums);
+		foreach($strugglingNums as $key=>$strugglingNum){
+			$strugglingStudents[intval(-1*($averageCalc-$strugglingNum),10)]=$this->getStudentByid($key);
+		}
+		return $strugglingStudents;
+	}
+
+	function compStrugglingByLastname($a,$b){
+		return strcmp($a['user_lastname'],$b['user_lastname']);
+	}
+
 	function draw(){
 		$sidebarMenu = new SidebarMenu();
 		drawHeader($this->head());
 		$sidebarMenu->draw();
+
+
+		echo '<br/>';
+		echo '<br/>';
+		echo '<br/>';
+		echo '<br/>';
 		?>
 
 		<?php
 		//Quick fix for demo purposes (auo-login)
-		$_SESSION['userid']=1;
-		$_SESSION['userFirstname']='Josh';
-		$_SESSION['userLastname']='Doe';
-		$_SESSION['userEmail']='test@test.com';
-		$_SESSION['userType']='professor';
-		$this->groupid = 1;
+		//$this->groupid = 1;
 		?>
 		<style type="text/css">
 			.topSpacer{
@@ -117,147 +140,177 @@ class Group extends GroupDAO {
 				</div>
 			</section>
 
-			<section class="col-md-10 material-body">
-				<section class="row-fluid section-title-container">
-					<h1 class="section-title">Class Dashboard</h1>
-					<span class="section-number">math 1010-a</span><br>
-				</section>
-				<section class="row">
-					<section class="col-md-12">
-						<div class="col-md-8 dataContainer ipadSmaller">
-							<h3>Class Completion Progress</h3>
-							<div id="completionProgress" style="height: 322px;"></div>
-						</div>
-						<div class="col-md-4">
-							<div class="col-md-12 dataContainer">
-								<h3>Struggling Students</h3>
-								<table class="table" style="border-color:#484848;">
+			<?php 
+			$groupInfo=$this->getGroupInfoByid($this->groupid);
+			if(isset($groupInfo) && $this->checkProfessorInGroup($_SESSION['userid'],$this->groupid)){
+				?>
+				<section class="col-md-10 material-body">
+					<section class="row-fluid section-title-container">
+						<h1 class="section-title">Class Dashboard</h1>
+						<span class="section-number">math 1010-a</span><br>
+					</section>
+					<section class="row">
+						<section class="col-md-12">
+							<div class="col-md-8 dataContainer ipadSmaller">
+								<h3>Class Completion Progress</h3>
+								<div id="completionProgress" style="height: 322px;"></div>
+							</div>
+							<?php
+							$strugglingStudents=$this->getStrugglingStudentsByGroupid($this->groupid);
+							?>
+							<div class="col-md-4">
+								<div class="col-md-12 dataContainer">
+									<h3>Struggling Students</h3>
+									<table class="table" style="border-color:#484848;">
+										<thead>
+											<tr>
+												<th class="ipadLandscapeHidden"></th>
+												<th>Student Name</th>
+												<th>Progress</th>
+											</tr>
+										</thead>
+										<tbody>
+										<?php
+										if(isset($strugglingStudents)){
+											foreach($strugglingStudents as $percentage=>$strugglingStudent){
+												echo '
+												<tr class="link darkHover" onclick="profilePageChange('.$strugglingStudent['id'].')">
+													<td class="ipadLandscapeHidden"><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/users/'.$strugglingStudent['pic_uri'].'"></td>
+													<td>';
+														echo $strugglingStudent['user_firstname'].' '.$strugglingStudent['user_lastname'];
+													echo '</td>';
+													$greenText='';
+													if($percentage>0){
+														$greenText=' style="color:green;" ';
+													} else if ($percentage==0){
+														$greenText=' style="color:black;" ';
+													}
+														echo '<td class="percentBehind" '.$greenText.' >';
+															echo $percentage.'%';
+														echo '</td>
+												</tr>';
+											}
+											echo '
+											</tbody>
+										</table>';
+										} else {
+											echo '
+											</tbody>
+										</table>';
+											echo 'No students in class yet.';
+										}
+										?>
+								</div>
+							</div>
+							<div class="col-md-5 no-padding">
+							<div class="col-md-12 dataContainer ipadSmaller margin-top" id="completionDate">
+								<h3>Course Progress</h3>
+								<table class="table">
 									<thead>
 										<tr>
-											<th class="ipadLandscapeHidden"></th>
-											<th>Student Name</th>
-											<th>Progress</th>
+											<th>
+												Completed?
+											</th>
+											<th>
+												Section
+											</th>
+											<th>
+												Completion Date
+											</th>
 										</tr>
 									</thead>
 									<tbody>
-									<?php
-									$c = 0;
-									while ($c < 5){
-										$c++;
-										echo '
-										<tr class="link darkHover" onclick="profilePageChange()">
-											<td class="ipadLandscapeHidden"><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile-'.$c.'.jpg"></td>
-											<td>';
-											$input = array("Eric Thompson", "Evan Vinciguerra", "Andi Richardson", "William Facer", "Jessica Lewis");
-												echo $input[$c-1];
-											echo '</td>';
-												$input = array(/*"<td class='percentBehind' style='color:green;'>+", */"<td class='percentBehind'>-");
-												echo $input[array_rand($input)];
-												echo mt_rand(1,24).'%</td>
-											</td>
-										</tr>';
-									}
-									?>
+										<?php
+										$sections=$this->getCourseProgressByGroupid($this->groupid);
+										if(isset($sections)){
+											foreach($sections as $section){
+												$checked='';
+												if(isset($section['completion_date'])){
+													$checked='checked';
+												}
+												echo '<tr>';
+													echo '<td>';
+														echo '<div class="checkbox">';
+															echo '<input id="checkbox_section'.$section['section_id'].'" type="checkbox" '.$checked.' onChange="changeCompleteStatus('.$section['section_id'].','.$this->groupid.')" >';
+														echo '</div>';
+													echo '</td>';
+													echo '<td>';
+														echo $section['section_name'];
+													echo '</td>';
+													echo '<td id="compDate_section'.$section['section_id'].'">';
+														if(isset($section['completion_date'])){
+															echo date('M-d-Y',$section['completion_date']);
+														} else {
+															echo '-';
+														}
+													echo '</td>';
+												echo '</tr>';
+											}
+									echo '
 									</tbody>
-								</table>
+								</table>';
+										} else {
+									echo '
+									</tbody>
+								</table>';
+								echo 'No sections set for this class yet.';
+										}
+										?>
 							</div>
 						</div>
-						<div class="col-md-5 no-padding">
-						<div class="col-md-12 dataContainer ipadSmaller margin-top" id="completionDate">
-							<h3>Course Progress</h3>
-							<table class="table">
-								<thead>
-									<tr>
-										<th>
-											Completed?
-										</th>
-										<th>
-											Section
-										</th>
-										<th>
-											Completion Date
-										</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									$sections=$this->getCourseProgressByGroupid($this->groupid);
-									foreach($sections as $section){
-										$checked='';
-										if(isset($section['completion_date'])){
-											$checked='checked';
+						<div class="col-md-7">
+							<div class="col-md-12 dataContainer margin-top" id="roster">
+								<h3>Class Roster</h3>
+								<table class="table">
+									<thead>
+										<tr>
+											<th><!--Photo--></th>
+											<th>Student Name</th>
+											<th>Progress</th>
+											<th>Email</th>
+										</tr>
+									</thead>
+									<tbody>
+									<?php 
+									uasort($strugglingStudents,array('Group','compStrugglingByLastname'));
+									if(isset($strugglingStudents)){
+										foreach($strugglingStudents as $percentage=>$student){
+											echo '
+												<tr class="darkHover" onclick="profilePageChange('.$student['id'].')" >
+													<td class="link"><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/users/'.$student['pic_uri'].'"></td>
+													<td class="link">'.$student['user_firstname'].' '.$student['user_lastname'].'</td>';
+													$greenText='';
+													if($percentage>0){
+														$greenText=' style="color:green;" ';
+													} else if ($percentage==0){
+														$greenText=' style="color:black;" ';
+													}
+														echo '<td class="percentBehind" '.$greenText.' >';
+															echo $percentage.'%';
+														echo '</td>
+													<td><span class="phoneHide">'.$student['email'].'</span><span class="phoneShow"><a href="mailto:johnhancock@independant.us">Email</a></span></td>
+												</tr>';
 										}
-										echo '<tr>';
-											echo '<td>';
-												echo '<div class="checkbox">';
-													echo '<input id="checkbox_section'.$section['section_id'].'" type="checkbox" '.$checked.' onChange="changeCompleteStatus('.$section['section_id'].','.$this->groupid.')" >';
-												echo '</div>';
-											echo '</td>';
-											echo '<td>';
-												echo $section['section_name'];
-											echo '</td>';
-											echo '<td id="compDate_section'.$section['section_id'].'">';
-												if(isset($section['completion_date'])){
-													echo date('M-d-Y',$section['completion_date']);
-												} else {
-													echo '-';
-												}
-											echo '</td>';
-										echo '</tr>';
+									echo '
+									</tbody>
+								</table>';
+									} else {
+									echo '
+									</tbody>
+								</table>';
+										echo 'No students in this class yet.';
 									}
 									?>
-								</tbody>
-							</table>
+							</div>
 						</div>
-					</div>
-					<div class="col-md-7">
-						<div class="col-md-12 dataContainer margin-top" id="roster">
-							<h3>Class Roster</h3>
-							<table class="table">
-								<thead>
-									<tr>
-										<th><!--Photo--></th>
-										<th>Student Name</th>
-										<th>Progress</th>
-										<th>Email</th>
-									</tr>
-								</thead>
-								<tbody>
-								<?php 
-								/* ADD THIS IN WHEN THERE IS DATA TO PULL
-								$students=$this->getStudentsByClassid($this->groupid);
-								foreach($students as $key=>$student){
-									echo '<tr class="darkHover">';
-									echo '<td class="link"><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile-photo.png"></td>';
-									echo '<td class="link">'.$student['user_lastname'].', '.$student['user_firstname'].'</td>';
-									echo '<td class="positiveProgress">+2%</td>';
-									echo '<td><span class="phoneHide">'.$student['email'].'</span><span class="phoneShow"><a href="mailto:'.$student['email'].'">Email</a></span></td>';
-									echo '</tr>';
-								}*/
-								$c = 0;
-								$names = array("Emmett Montgomery", "Roy Ward", "Ida Harrison", "Andrea Palmer", "Cory Manning", "Edmund Griffin", "Marjorie Huff" , "Beverly Joseph", "Ricardo Todd", "Ron Morris", "Inez Copeland", "Hannah Richards", "Jeff Nelson", "Ron Shaw", "Beth Meyer", "Vernon Collier");
-								$input = array("<td class='positiveProgress'>+", "<td style='color:red;' class='positiveProgress'>-");
-								while ($c < 15){
-									$c++;
-									echo '
-										<tr class="darkHover">
-											<td onclick="profilePageChange()" class="link"><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile-'.mt_rand(1,5).'.jpg"></td>
-											<td onclick="profilePageChange()" class="link">'.$names[$c].'</td>';
-											echo $input[array_rand($input)];
-											$names[$c] = str_replace(' ', '', $names[$c]);
-											$names[$c] = strtolower($names[$c]);
-											echo mt_rand(1,24).'%</td>
-											<td><span class="phoneHide">'.$names[$c].'@gmail.com</span><span class="phoneShow"><a href="mailto:johnhancock@independant.us">Email</a></span></td>
-										</tr>';
-								}
-								?>
-								</tbody>
-							</table>
 						</div>
-					</div>
-					</div>
+						</section>
 					</section>
-				</section>
+				<?php
+				} else {
+					echo 'No class found with that id';
+				}
+				?>
 			</section>
 		</div>
 

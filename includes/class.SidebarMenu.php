@@ -41,6 +41,7 @@ class SidebarMenu extends SidebarMenuDAO {
 			<hr style="margin:0px; border-top: 1px solid #F26522;">
 			<!--<a href="#services">Timeline</a>-->
 			<a href="#services">Account Settings</a>
+			<span></span>
 			<span>Classes</span>
 			<hr style="margin:0px; border-top: 1px solid #F26522;">
 			<?php

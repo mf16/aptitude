@@ -37,11 +37,13 @@ elseif($_SERVER['HTTP_HOST']=='dev.goaptitude.com'){
 else{ //other server info here
 	die("How did you get here? Really, we want to know. Email support@goaptitude.com");
 }
+	/*
 	$_SESSION['userEmail'] = 'alber@einstein.com';
 	$_SESSION['userFirstname'] = 'Albert';
 	$_SESSION['userLastname'] = 'Einstein';
 	$_SESSION['userid'] = 1;
 	$_SESSION['userType'] = 'professor';
+*/
 
 if($db->connect_errno > 0){
 	die('Unable to connect to database [' . $db->connect_error . ']');
