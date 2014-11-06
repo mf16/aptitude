@@ -228,7 +228,7 @@ class Group extends GroupDAO {
 								$students=$this->getStudentsByClassid($this->groupid);
 								foreach($students as $key=>$student){
 									echo '<tr class="darkHover">';
-									echo '<td class="link"><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>';
+									echo '<td class="link"><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile-photo.png"></td>';
 									echo '<td class="link">'.$student['user_lastname'].', '.$student['user_firstname'].'</td>';
 									echo '<td class="positiveProgress">+2%</td>';
 									echo '<td><span class="phoneHide">'.$student['email'].'</span><span class="phoneShow"><a href="mailto:'.$student['email'].'">Email</a></span></td>';

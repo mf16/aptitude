@@ -68,7 +68,7 @@ class Concept extends ConceptDAO {
 								while ($c < 6){
 									echo '
 									<tr class="link darkHover" onclick="profilePageChange()">
-										<td><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile_photo.png"></td>
+										<td><img class="roundedPhotoSmall" src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/profile-photo.png"></td>
 										<td>John Hancock</td>';
 											$input = array("<td class='percentBehind' style='color:green;'>+", "<td class='percentBehind'>-");
 											echo $input[array_rand($input)];
