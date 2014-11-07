@@ -104,6 +104,12 @@ else{
 		}
 	} else {
 		$className='login';
+		print_r($elements);
+		// Find where 'login' is in the $elements array
+		$loginPos=(array_search('login',array_map('strtolower',$elements)));
+		if(isset($elements[$loginPos+1]) && $elements[$loginPos+1]!=''){
+			$loginUserid=$elements[$loginPos+1];
+		}
 	}
 }
 
