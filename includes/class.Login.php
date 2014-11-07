@@ -35,7 +35,7 @@ class Login extends LoginDAO {
 		?>
 		<script src='js/<?php echo strtolower(__CLASS__).'.js'; ?>' ></script>
 		<?php
-		echo 'javascript loaded';
+		//echo 'javascript loaded';
 	}
 
 	function draw(){

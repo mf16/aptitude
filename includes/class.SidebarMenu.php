@@ -40,7 +40,7 @@ class SidebarMenu extends SidebarMenuDAO {
 			<span id="studentName"><?php echo $_SESSION['userFirstname'].' '.$_SESSION['userLastname']; ?></span>
 			<hr style="margin:0px; border-top: 1px solid #F26522;">
 			<!--<a href="#services">Timeline</a>-->
-			<a href="#services">Account Settings</a>
+			<a href="<?php echo $_SERVER['DOCUMENT_ROOT'].'profile/'.$_SESSION['userid'];?>">Account Settings</a>
 			<span></span>
 			<span>Classes</span>
 			<hr style="margin:0px; border-top: 1px solid #F26522;">
@@ -48,16 +48,19 @@ class SidebarMenu extends SidebarMenuDAO {
 			switch($_SESSION['userType']){
 				case 'professor':
 					$classes=$this->getGroupByProfessorid('math',$_SESSION['userid']);
+					echo '<a href="#">+ Create new class</a>';
 					break;
 				case 'student':
+					$classes=$this->getGroupsByStudentid('math',$_SESSION['userid']);
 					//load classes for student
 					break;
 			}
-			foreach($classes as $class){
-				echo '<a href="'.$_SERVER['DOCUMENT_ROOT'].'class/'.$class['group_id'].'">'.$class['group_name'].'</a>';
+			if(isset($classes)){
+				foreach($classes as $class){
+					echo '<a href="'.$_SERVER['DOCUMENT_ROOT'].'class/'.$class['group_id'].'">'.$class['group_name'].'</a>';
+				}
 			}
 			?>
-			<a href="#">+ Create new class</a>
 		</div>
 
 		<header>

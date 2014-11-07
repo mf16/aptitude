@@ -16,7 +16,7 @@ class PrequizDAO {
                 $usedProblemidString.=' AND problem_id != '.$problemid;
             }
         }
-		$sql="SELECT problem_id,problem,concept_hack,answer,problem_type FROM math.problems WHERE chapter_id=? AND section_id=? ".$usedProblemidString.$typeString." ORDER BY RAND() LIMIT 1";
+		$sql="SELECT problem_id,problem,answer,problem_type FROM math.problems WHERE chapter_id=? AND section_id=? ".$usedProblemidString.$typeString." ORDER BY RAND() LIMIT 1";
 		$results=query($sql,$chapterid,$sectionid);
 
 		// How are we going to pull vars? range in db?
@@ -26,8 +26,14 @@ class PrequizDAO {
 	
 	function getProblemByid($problemid){
 		global $db;
-		$sql="SELECT problem_id,chapter_id,section_id,problem,concept_hack,answer,domain,problem_type FROM math.problems WHERE problem_id=?";
+		$sql="SELECT problem_id,chapter_id,section_id,problem,answer,domain,problem_type FROM math.problems WHERE problem_id=?";
 		$results=query($sql,$problemid);
 		return $results[0];
+	}
+
+	function getConceptsByProblemid($problemid){
+		$sql="SELECT c.concept_name,c.concept_id FROM math.concept_names c,math.problems_concepts p WHERE c.concept_id=p.concept_id AND p.problem_id=?;";
+		$results=query($sql,$problemid);
+		return $results;
 	}
 }

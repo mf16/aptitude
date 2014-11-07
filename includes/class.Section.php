@@ -5,6 +5,8 @@ class Section extends SectionDAO {
 	private $subjectName;
 	private $chapterid;
 	private $sectionid;
+	private $friendlySectionid;
+	private $sectionName;
 	private $isPrequizCompleted;
 	private $ppAmount;
 
@@ -19,7 +21,10 @@ class Section extends SectionDAO {
 			$this->chapterid = $chapterid;
 		}
 		if(isset($sectionid)){
-			$this->sectionid = $sectionid;
+			$this->friendlySectionid=$sectionid;
+			// Get actual sectionid from friendly view sectionid
+			$this->sectionid = $this->getSectionidByChapteridFriendlyViewSectionid($this->chapterid,$sectionid);
+			$this->sectionName=$this->getSectionNameBySectionid($this->sectionid);
 		}
 
 		if(isset($_REQUEST['action'])){
@@ -67,6 +72,53 @@ class Section extends SectionDAO {
 					}
 				}
 			}
+
+			echo '
+			<div class="page-wrap">
+				<section id="headerSpacerSmall"></section>
+				<section class="container loader"></section>
+				<section class="body">
+				   <button onclick="clearSessionVars();">CLICK HERE TO CLEAR SESSION VARS AND START OVER</button>
+				   <script>
+					function clearSessionVars(){
+						$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=clearSessionVars&subjectName=1&chapterid=1&sectionid=1",success:function(result){
+							console.log(result);
+							location.reload();
+						}
+						});
+					}
+				   </script>';
+				   echo '
+					<section class="row-fluid">
+						<section class="col-lg-9 col-xs-12 text-body">
+							<section class="col-md-2 no-padding">
+								<div class="chapter-number">
+									<img src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/chapter-arrow.png"/>
+								</div>
+							</section>
+							<section class="col-md-10 material-body">
+								<section class="row-fluid section-title-container">
+									<h1 class="section-title">'.$this->sectionName.'</h1>
+									<span class="section-number">section &nbsp; 1</span><br>
+								</section>
+								<section class="row-fluid">
+
+								<section class="col-sm-12 col-lg-6 video" >
+									<iframe src="http://www.youtube.com/embed/wUNWjd4bMmw?enablejsapi=1" id="introVideo" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+									<div class="video-overlay text-center" id="playVideo">
+										<img src = "'.$_SERVER['DOCUMENT_ROOT'].'img/global/play-button.png" />
+									</div>
+								</section>';
+			
+			// Load content based on section
+			$contents=$this->getContentBySectionid($this->sectionid);
+			//print_r($contents);
+			foreach($contents as $orderNum=>$content){
+				echo $content['content'];
+				echo '<br/>';
+			}
+			//include 'includes/'.$this->subjectName.'/'.$this->chapterid.'/'.$this->sectionid.'/content_new.php';
+				/*
 			//loop through for each concept in chapter
 			if(isset($contentDeterminer['composition of functions']) && ($contentDeterminer['composition of functions']>(1)) && (!isset($_SESSION['showLongText']))){
 				//short version
@@ -78,6 +130,7 @@ class Section extends SectionDAO {
 				//long version
 				include 'includes/'.$this->subjectName.'/'.$this->chapterid.'/'.$this->sectionid.'/content_new.php';
 			}
+			*/
 			echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/waypoints/waypoints.min.js"></script>';
 			echo '<div class="clearfix"></div>';
 			echo '</div>';
@@ -91,11 +144,11 @@ class Section extends SectionDAO {
 			include_once "class.Problem.php";
 			$usedProblems=array();
 			for($i=0;$i<$this->ppAmount;$i++){
-				$problem=new Problem($this->subjectName,$this->chapterid,$this->sectionid,'pp','composition of functions');
+				$problem=new Problem($this->subjectName,$this->chapterid,$this->friendlySectionid,'pp','composition of functions');
 				$j=0;
 				while(in_array($problem->problemid,$usedProblems)){
 					if($j>3){break;}
-					$problem=new Problem($this->subjectName,$this->chapterid,$this->sectionid,'pp','composition of functions');
+					$problem=new Problem($this->subjectName,$this->chapterid,$this->friendlySectionid,'pp','composition of functions');
 					$j++;
 				}
 				$usedProblems[]=$problem->problemid;

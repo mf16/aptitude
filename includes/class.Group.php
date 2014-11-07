@@ -143,6 +143,37 @@ class Group extends GroupDAO {
 			<?php 
 			$groupInfo=$this->getGroupInfoByid($this->groupid);
 			if(isset($groupInfo) && $this->checkProfessorInGroup($_SESSION['userid'],$this->groupid)){
+					$this->drawProfessorClass();
+				} else if (isset($groupInfo) && $this->checkStudentInGroup($_SESSION['userid'],$this->groupid)){
+					// $this->drawStudentClass();
+					echo 'student info here about group '.$this->groupid;
+				} else {
+					echo 'No class found with that id';
+				}
+				?>
+			</section>
+		</div>
+
+		<footer class="site-footer col-md-12">
+			<section>
+				<img src = "<?php echo $_SERVER['DOCUMENT_ROOT']; ?>img/global/icon.ico" />
+				<span>Powered by Aptitude LLC.</span>
+			</section>
+			<section id="feedback">
+				<a href="feedback.php"><span>Have feedback?</span></a>
+			</section>
+		</footer>
+		<script type="text/javascript">
+			var conceptPage = "<?php echo $_SERVER['DOCUMENT_ROOT'];?>concept";
+			var profilePage = "<?php echo $_SERVER['DOCUMENT_ROOT'];?>profile";
+		</script>
+		<?php
+		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';
+
+		drawFooter($this->foot());
+	}
+
+	function drawProfessorClass(){
 				?>
 				<section class="col-md-10 material-body">
 					<section class="row-fluid section-title-container">
@@ -306,31 +337,7 @@ class Group extends GroupDAO {
 						</div>
 						</section>
 					</section>
-				<?php
-				} else {
-					echo 'No class found with that id';
-				}
-				?>
-			</section>
-		</div>
-
-		<footer class="site-footer col-md-12">
-			<section>
-				<img src = "<?php echo $_SERVER['DOCUMENT_ROOT']; ?>img/global/icon.ico" />
-				<span>Powered by Aptitude LLC.</span>
-			</section>
-			<section id="feedback">
-				<a href="feedback.php"><span>Have feedback?</span></a>
-			</section>
-		</footer>
-		<script type="text/javascript">
-			var conceptPage = "<?php echo $_SERVER['DOCUMENT_ROOT'];?>concept";
-			var profilePage = "<?php echo $_SERVER['DOCUMENT_ROOT'];?>profile";
-		</script>
-		<?php
-		echo '<script type="text/javascript" src="'.$_SERVER['DOCUMENT_ROOT'].'js/'.strtolower(__CLASS__).'.js"></script>';
-
-		drawFooter($this->foot());
+	<?php
 	}
 
 	function changeCompleteStatus(){

@@ -146,7 +146,7 @@ class Prequiz extends PrequizDAO {
 				<section class="col-md-6 pretestProblemBreakdownContainer">';
 					echo '<table style="text-align:left;">
 					<tr>
-						<th>Problem Concept</th>
+						<th>Problem Concepts</th>
 						<th>Correct Answer</th>
 						<th>Answer Given</th>
 						<th></th>
@@ -171,14 +171,20 @@ class Prequiz extends PrequizDAO {
 					//Set variables to be used later in graphs
 					$time[$counter] = $displayInfo['timer'];
 					$displayTime[$counter] = $minutes.':'.$seconds;
-					$concept[$counter] = ucfirst($displayInfo['concept']);
 					$counter++;
 
 					echo '<tr>';
 						echo '<!--<td>'.$key.'</td>-->';
 						echo '<!--<td>'.$minutes.':'.$seconds.'</td>-->';
 						echo '<!--<td>'.$typeArray[$displayInfo['type']].'</td>-->';
-						echo '<td class="problemConcept">'.$displayInfo['concept'].'</td>';
+						echo '<td class="problemConcept">';
+							$conceptsForProblem=$this->getConceptsByProblemid($key);
+							foreach($conceptsForProblem as $concept){
+								echo $concept['concept_name'];
+								echo '<br/>';
+								echo '<br/>';
+							}
+						echo '</td>';
 						echo '<td>\('.$displayInfo['correctAns'].'\)</td>';
 						echo '<td>\('.$displayInfo['studentAns'].'\)</td>';
 						echo '<!--<td>'.$displayInfo['correct'].'</td>-->';
@@ -212,22 +218,22 @@ class Prequiz extends PrequizDAO {
 
 				var chartData = [
 					{
-						title:"'.$concept[0].'Problem 1 - ",
+						title:"Problem 1 - ",
 						value:'.$time[0].', 
 						time:"'.$displayTime[0].'"
 					},
 					{
-						title:"'.$concept[1].'Problem 2 - ",
+						title:"Problem 2 - ",
 						value:'.$time[1].', 
 						time:"'.$displayTime[1].'"
 					},
 					{
-						title:"'.$concept[2].'Problem 3 - ",
+						title:"Problem 3 - ",
 						value:'.$time[2].', 
 						time:"'.$displayTime[2].'"
 					},
 					{
-						title:"'.$concept[3].'Problem 4 - ",
+						title:"Problem 4 - ",
 						value:'.$time[3].', 
 						time:"'.$displayTime[3].'"
 					}];	
@@ -588,11 +594,9 @@ class Prequiz extends PrequizDAO {
         $_SESSION['math1050-prequiz'][$problemid][$problemTry]['correctAns']=$correctAns;
         $_SESSION['math1050-prequiz'][$problemid][$problemTry]['correct']=$isCorrect;
         $_SESSION['math1050-prequiz'][$problemid][$problemTry]['type']=$problemInfo['problem_type'];
-        $_SESSION['math1050-prequiz'][$problemid][$problemTry]['concept']=$problemInfo['concept_hack'];
 		if(isset($_REQUEST['timer'])){
 			$_SESSION['math1050-prequiz'][$problemid][$problemTry]['timer']=$_REQUEST['timer'];
 		}
-        $_SESSION['math1050-prequiz'][$problemid][$problemTry]['concept']=$problemInfo['concept_hack'];
         if(isset($problemInfo['problem_type'])){
             $_SESSION['math1050-prequiz'][$problemid][$problemTry]['problemType']=$problemInfo['problem_type'];
         }

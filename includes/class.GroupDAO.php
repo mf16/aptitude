@@ -36,6 +36,15 @@ class GroupDAO{
 		return $results[0];
 	}
 
+	function checkStudentInGroup($userid,$groupid){
+		// fix 'group'
+		$sql="SELECT COUNT(*) FROM math.group_members WHERE user_id=? AND group_id=?;";
+		$results=query($sql,$userid,$groupid);
+		$results=$results[0];
+		$results=$results['COUNT(*)'];
+		return $results;
+	}
+
 	function checkProfessorInGroup($userid,$groupid){
 		// fix 'group'
 		$sql="SELECT COUNT(*) FROM math.groups WHERE group_admin_id=? AND group_id=?;";

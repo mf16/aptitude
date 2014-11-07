@@ -19,7 +19,7 @@ class ProblemDAO{
 			//$orderByText='';
 			//figure out how to stop from pulling the same problem over and over then uncomment comment lines above
 		}
-		$sql="SELECT problem_id,problem,answerBoxHTML,concept_hack,answer,problem_type FROM math.problems WHERE chapter_id=? AND section_id=? ".$usedProblemString." AND problem_type=? ".$orderByText." LIMIT 1";
+		$sql="SELECT problem_id,problem,answerBoxHTML,answer,problem_type FROM math.problems WHERE chapter_id=? AND section_id=? ".$usedProblemString." AND problem_type=? ".$orderByText." LIMIT 1";
 		$results=query($sql,$chapterid,$sectionid,$problemType);
 		return $results[0];
 	}
