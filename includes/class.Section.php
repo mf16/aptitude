@@ -81,7 +81,7 @@ class Section extends SectionDAO {
 				   <button onclick="clearSessionVars();">CLICK HERE TO CLEAR SESSION VARS AND START OVER</button>
 				   <script>
 					function clearSessionVars(){
-						$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=clearSessionVars&subjectName=1&chapterid=1&sectionid=1",success:function(result){
+						$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=clearSessionVars&subjectName=1&chapterid='.$this->chapterid.'&sectionid='.$this->friendlySectionid.'",success:function(result){
 							console.log(result);
 							location.reload();
 						}
@@ -99,7 +99,7 @@ class Section extends SectionDAO {
 							<section class="col-md-10 material-body">
 								<section class="row-fluid section-title-container">
 									<h1 class="section-title">'.$this->sectionName.'</h1>
-									<span class="section-number">section &nbsp; 1</span><br>
+									<span class="section-number">section &nbsp; '.$this->friendlySectionid.'</span><br>
 								</section>
 								<section class="row-fluid">
 

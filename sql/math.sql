@@ -25,8 +25,9 @@ DROP TABLE IF EXISTS `chapter_names`;
 CREATE TABLE `chapter_names` (
   `chapter_id` int(11) NOT NULL AUTO_INCREMENT,
   `chapter_name` varchar(255) NOT NULL,
+  `chapter_order` int(11) DEFAULT NULL,
   PRIMARY KEY (`chapter_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,15 +36,21 @@ CREATE TABLE `chapter_names` (
 
 LOCK TABLES `chapter_names` WRITE;
 /*!40000 ALTER TABLE `chapter_names` DISABLE KEYS */;
-INSERT INTO `chapter_names` VALUES (1,'Relations and Functions');
-INSERT INTO `chapter_names` VALUES (2,'Linear and Quadratic Functions');
-INSERT INTO `chapter_names` VALUES (3,'Polynomial Functions');
-INSERT INTO `chapter_names` VALUES (4,'Rational Functions');
-INSERT INTO `chapter_names` VALUES (5,'Further Topics in Functions');
-INSERT INTO `chapter_names` VALUES (6,'Exponential and Logarithmic Functions');
-INSERT INTO `chapter_names` VALUES (7,'Hooked on Conics');
-INSERT INTO `chapter_names` VALUES (8,'Systems of Equations and Matrices');
-INSERT INTO `chapter_names` VALUES (9,'Sequences and the Binomial Theorem');
+INSERT INTO `chapter_names` VALUES (1,'Relations and Functions',2);
+INSERT INTO `chapter_names` VALUES (2,'Linear and Quadratic Functions',14);
+INSERT INTO `chapter_names` VALUES (3,'Polynomial Functions',3);
+INSERT INTO `chapter_names` VALUES (4,'Rational Functions',0);
+INSERT INTO `chapter_names` VALUES (5,'Further Topics in Functions',5);
+INSERT INTO `chapter_names` VALUES (6,'Exponential and Logarithmic Functions',15);
+INSERT INTO `chapter_names` VALUES (7,'Hooked on Conics',7);
+INSERT INTO `chapter_names` VALUES (8,'Systems of Equations and Matrices',8);
+INSERT INTO `chapter_names` VALUES (9,'Sequences and the Binomial Theorem',6);
+INSERT INTO `chapter_names` VALUES (12,'bbbbb',1);
+INSERT INTO `chapter_names` VALUES (14,'gdsag',4);
+INSERT INTO `chapter_names` VALUES (17,'dsagasdg',11);
+INSERT INTO `chapter_names` VALUES (18,'adsgsad',12);
+INSERT INTO `chapter_names` VALUES (19,'asdgsadgsadg',13);
+INSERT INTO `chapter_names` VALUES (20,'fffffffff',16);
 /*!40000 ALTER TABLE `chapter_names` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -443,7 +450,7 @@ CREATE TABLE `section_names` (
   `friendly_view_section_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`section_id`),
   KEY `chapter_id` (`chapter_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -452,55 +459,59 @@ CREATE TABLE `section_names` (
 
 LOCK TABLES `section_names` WRITE;
 /*!40000 ALTER TABLE `section_names` DISABLE KEYS */;
-INSERT INTO `section_names` VALUES (1,1,'Sets of Numbers',NULL);
-INSERT INTO `section_names` VALUES (2,1,'The Cartesian Coordinate Plane',NULL);
-INSERT INTO `section_names` VALUES (3,1,'Distance in the Plane',NULL);
-INSERT INTO `section_names` VALUES (4,1,'Relations',NULL);
-INSERT INTO `section_names` VALUES (5,1,'Graphs of Equations',NULL);
-INSERT INTO `section_names` VALUES (6,1,'Introduction to Functions',NULL);
-INSERT INTO `section_names` VALUES (7,1,'Function Notation',NULL);
-INSERT INTO `section_names` VALUES (8,1,'Function Arithmetic',NULL);
-INSERT INTO `section_names` VALUES (9,1,'Graphs of Functions',NULL);
-INSERT INTO `section_names` VALUES (10,1,'Transformations',NULL);
-INSERT INTO `section_names` VALUES (11,2,'Linear Functions',NULL);
-INSERT INTO `section_names` VALUES (12,2,'Absolute Value Functions',NULL);
-INSERT INTO `section_names` VALUES (13,2,'Quadratic Functions',NULL);
-INSERT INTO `section_names` VALUES (14,2,'Inequalities with Absolute Value and Quadratic Functions',NULL);
-INSERT INTO `section_names` VALUES (15,2,'Regression',NULL);
-INSERT INTO `section_names` VALUES (16,3,'Graphs of Polynomials',NULL);
-INSERT INTO `section_names` VALUES (17,3,'The Factor Theorem and the Remainder Theorem',NULL);
-INSERT INTO `section_names` VALUES (18,3,'Real Zeros of Polynomials - With a calculator',NULL);
-INSERT INTO `section_names` VALUES (19,3,'Real Zeros of Polynomials - Without a calculator',NULL);
-INSERT INTO `section_names` VALUES (20,3,'Complex Zeros and the Fundemental Theroem of Algebra',NULL);
-INSERT INTO `section_names` VALUES (21,4,'Introduction to Rational Functions',NULL);
-INSERT INTO `section_names` VALUES (22,4,'Graphs of Rational Functions',NULL);
-INSERT INTO `section_names` VALUES (23,4,'Rational Inequalities and Applications',NULL);
+INSERT INTO `section_names` VALUES (1,1,'Sets of Numbers',2);
+INSERT INTO `section_names` VALUES (2,1,'The Cartesian Coordinate Plane',9);
+INSERT INTO `section_names` VALUES (3,1,'Distance in the Plane',3);
+INSERT INTO `section_names` VALUES (4,1,'Relations',1);
+INSERT INTO `section_names` VALUES (5,1,'Graphs of Equations',4);
+INSERT INTO `section_names` VALUES (6,1,'Introduction to Functions',10);
+INSERT INTO `section_names` VALUES (7,1,'Function Notation',6);
+INSERT INTO `section_names` VALUES (8,1,'Function Arithmetic',8);
+INSERT INTO `section_names` VALUES (9,1,'Graphs of Functions',5);
+INSERT INTO `section_names` VALUES (10,1,'Transformations',7);
+INSERT INTO `section_names` VALUES (11,2,'Linear Functions',9);
+INSERT INTO `section_names` VALUES (12,2,'Absolute Value Functions',8);
+INSERT INTO `section_names` VALUES (13,2,'Quadratic Functions',0);
+INSERT INTO `section_names` VALUES (14,2,'Inequalities with Absolute Value and Quadratic Functions',5);
+INSERT INTO `section_names` VALUES (15,2,'Regression',13);
+INSERT INTO `section_names` VALUES (16,3,'Graphs of Polynomials',12);
+INSERT INTO `section_names` VALUES (17,3,'The Factor Theorem and the Remainder Theorem',14);
+INSERT INTO `section_names` VALUES (18,3,'Real Zeros of Polynomials - With a calculator',15);
+INSERT INTO `section_names` VALUES (19,3,'Real Zeros of Polynomials - Without a calculator',16);
+INSERT INTO `section_names` VALUES (20,3,'Complex Zeros and the Fundemental Theroem of Algebra',19);
+INSERT INTO `section_names` VALUES (21,4,'Introduction to Rational Functions',3);
+INSERT INTO `section_names` VALUES (22,4,'Graphs of Rational Functions',1);
+INSERT INTO `section_names` VALUES (23,4,'Rational Inequalities and Applications',5);
 INSERT INTO `section_names` VALUES (24,5,'Composition of Functions',1);
-INSERT INTO `section_names` VALUES (25,5,'Inverse Functions',NULL);
-INSERT INTO `section_names` VALUES (26,5,'Other Algebraic Functions',NULL);
-INSERT INTO `section_names` VALUES (27,6,'Introduction to Exponential and Logarithmic Functions',NULL);
-INSERT INTO `section_names` VALUES (28,6,'Properties of Logarithms',NULL);
-INSERT INTO `section_names` VALUES (29,6,'Exponential Equations and Inequalities',NULL);
-INSERT INTO `section_names` VALUES (30,6,'Logarithmic Equations and Inequalities',NULL);
-INSERT INTO `section_names` VALUES (31,6,'Applications of Exponential Functions',NULL);
-INSERT INTO `section_names` VALUES (32,6,'Applications of Logarithmic Functions',NULL);
-INSERT INTO `section_names` VALUES (33,7,'Introduction to conics',NULL);
-INSERT INTO `section_names` VALUES (34,7,'Circles',NULL);
-INSERT INTO `section_names` VALUES (35,7,'Parabolas',NULL);
-INSERT INTO `section_names` VALUES (36,7,'Ellipses',NULL);
-INSERT INTO `section_names` VALUES (37,7,'Hyperbolas',NULL);
-INSERT INTO `section_names` VALUES (38,8,'Systems of Linear Equations: Gaussian Elimination',NULL);
-INSERT INTO `section_names` VALUES (39,8,'Systems of Linear Equations: Augmented Matrices',NULL);
-INSERT INTO `section_names` VALUES (40,8,'Matric Arithmetic',NULL);
-INSERT INTO `section_names` VALUES (41,8,'Systems of Linear Equations: Matric Inverses',NULL);
-INSERT INTO `section_names` VALUES (42,8,'Definition and Properties of the Determinant',NULL);
-INSERT INTO `section_names` VALUES (43,8,'Cramer\'s Rule and Matrix Adjoints',NULL);
-INSERT INTO `section_names` VALUES (44,8,'Partial Fraction Decomposition',NULL);
-INSERT INTO `section_names` VALUES (45,8,'Systems of Non-Linear Equations and Inequalities',NULL);
-INSERT INTO `section_names` VALUES (46,9,'Sequences',NULL);
-INSERT INTO `section_names` VALUES (47,9,'Summation Notation',NULL);
-INSERT INTO `section_names` VALUES (48,9,'Mathematical Induction',NULL);
-INSERT INTO `section_names` VALUES (49,9,'The Binomial Theorem',NULL);
+INSERT INTO `section_names` VALUES (25,5,'Inverse Functions',2);
+INSERT INTO `section_names` VALUES (26,5,'Other Algebraic Functions',3);
+INSERT INTO `section_names` VALUES (27,6,'Introduction to Exponential and Logarithmic Functions',1);
+INSERT INTO `section_names` VALUES (28,6,'Properties of Logarithms',2);
+INSERT INTO `section_names` VALUES (29,6,'Exponential Equations and Inequalities',3);
+INSERT INTO `section_names` VALUES (30,6,'Logarithmic Equations and Inequalities',4);
+INSERT INTO `section_names` VALUES (31,6,'Applications of Exponential Functions',5);
+INSERT INTO `section_names` VALUES (32,6,'Applications of Logarithmic Functions',6);
+INSERT INTO `section_names` VALUES (33,7,'Introduction to conics',1);
+INSERT INTO `section_names` VALUES (34,7,'Circles',2);
+INSERT INTO `section_names` VALUES (35,7,'Parabolas',3);
+INSERT INTO `section_names` VALUES (36,7,'Ellipses',4);
+INSERT INTO `section_names` VALUES (37,7,'Hyperbolas',5);
+INSERT INTO `section_names` VALUES (38,8,'Systems of Linear Equations: Gaussian Elimination',1);
+INSERT INTO `section_names` VALUES (39,8,'Systems of Linear Equations: Augmented Matrices',2);
+INSERT INTO `section_names` VALUES (40,8,'Matric Arithmetic',3);
+INSERT INTO `section_names` VALUES (41,8,'Systems of Linear Equations: Matric Inverses',4);
+INSERT INTO `section_names` VALUES (42,8,'Definition and Properties of the Determinant',5);
+INSERT INTO `section_names` VALUES (43,8,'Cramer\'s Rule and Matrix Adjoints',6);
+INSERT INTO `section_names` VALUES (44,8,'Partial Fraction Decomposition',7);
+INSERT INTO `section_names` VALUES (45,8,'Systems of Non-Linear Equations and Inequalities',8);
+INSERT INTO `section_names` VALUES (46,9,'Sequences',1);
+INSERT INTO `section_names` VALUES (47,9,'Summation Notation',2);
+INSERT INTO `section_names` VALUES (48,9,'Mathematical Induction',3);
+INSERT INTO `section_names` VALUES (49,9,'The Binomial Theorem',4);
+INSERT INTO `section_names` VALUES (50,4,'undefined',2);
+INSERT INTO `section_names` VALUES (51,4,'undefined',4);
+INSERT INTO `section_names` VALUES (62,12,'dasfg',1);
+INSERT INTO `section_names` VALUES (63,12,'eeeeeeeeee',2);
 /*!40000 ALTER TABLE `section_names` ENABLE KEYS */;
 UNLOCK TABLES;
 
