@@ -11,6 +11,7 @@ class Prequiz extends PrequizDAO {
 	private $subjectName;
 	private $chapterid;
 	private $sectionid;
+	private $friendlySectionid;
 	private $pkAmount;
 	private $pqAmount;
 	private $totalAmount;
@@ -32,8 +33,12 @@ class Prequiz extends PrequizDAO {
 			$this->chapterid = $chapterid;
 		}
 		if(isset($sectionid)){
-			$this->sectionid = $sectionid;
+			$this->friendlySectionid=$sectionid;
+			// Get actual sectionid from friendly view sectionid
+			$this->sectionid = $this->getSectionidByChapteridFriendlyViewSectionid($this->chapterid,$sectionid);
+			$this->sectionName=$this->getSectionNameBySectionid($this->sectionid);
 		}
+		
 		
 		if(isset($_REQUEST['action'])){
 			$action=$_REQUEST['action'];
@@ -45,7 +50,8 @@ class Prequiz extends PrequizDAO {
 
 	function draw(){
 		echo '<div id="prequiz">';
-			include 'includes/'.$this->subjectName.'/'.$this->chapterid.'/'.$this->sectionid.'/content.php';
+			//
+			include 'includes/'.$this->subjectName.'/'.$this->chapterid.'/'.$this->friendlySectionid.'/content.php';
 		echo '</div>';
 	}
 
@@ -83,7 +89,7 @@ class Prequiz extends PrequizDAO {
         echo '
            <script>
             function clearSessionVars(){
-                $.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=clearSessionVars&subjectName='.$this->subjectName.'&chapterid='.$this->chapterid.'&sectionid='.$this->sectionid.'",success:function(result){
+                $.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=clearSessionVars&subjectName='.$this->subjectName.'&chapterid='.$this->chapterid.'&sectionid='.$this->friendlySectionid.'",success:function(result){
                     console.log(result);
                     location.reload();
                 }
@@ -211,7 +217,7 @@ class Prequiz extends PrequizDAO {
             echo '<script>
 				MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 				function setQuizComplete(){
-					$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=finishQuiz&subjectName='.$this->subjectName.'&chapterid='.$this->subjectName.'&sectionid='.$this->sectionid.'",success:function(result){
+					$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=finishQuiz&subjectName='.$this->subjectName.'&chapterid='.$this->subjectName.'&sectionid='.$this->friendlySectionid.'",success:function(result){
 						location.reload();
 					}});
 				}
@@ -363,7 +369,6 @@ class Prequiz extends PrequizDAO {
             return;
 		}
 
-
 		// setting type
 		$type='';
 
@@ -373,7 +378,7 @@ class Prequiz extends PrequizDAO {
 			$type='pq';
 		}
 
-		$problemInfo=$this->getNextQuestion($this->subjectName,$this->chapterid,$this->sectionid,$type);
+		$problemInfo=$this->getNextQuestion($this->subjectName,$this->chapterid,$this->friendlySectionid,$type);
         echo '
             <!-- wrapper -->
             <div class="pretestWrapper page-wrap ">
@@ -437,7 +442,7 @@ class Prequiz extends PrequizDAO {
  	<section class="col-md-4 col-xs-12 text-right" onclick="skipPrequiz();" style="padding-right:45px;cursor:pointer;">SKIP PREQUIZ <img src="'.$_SERVER['DOCUMENT_ROOT'].'img/global/right-arrow.png"  style="margin-left: 7px;"></section>
 	<script>
 		function skipPrequiz(){
-			$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=skipQuiz&subjectName='.$this->subjectName.'&chapterid='.$this->subjectName.'&sectionid='.$this->sectionid.'",success:function(result){
+			$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=skipQuiz&subjectName='.$this->subjectName.'&chapterid='.$this->subjectName.'&sectionid='.$this->friendlySectionid.'",success:function(result){
 				location.reload();
 			}});
 		}
@@ -468,7 +473,7 @@ class Prequiz extends PrequizDAO {
 			if(studentAns ==""){
 				alert("please enter a valid answer before clicking submit");
 			} else {
-				$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=checkAnswer&subjectName='.$this->subjectName.'&chapterid='.$this->subjectName.'&sectionid='.$this->sectionid.'&problemid='.$problemInfo['problem_id'].'&var=1&timer="+counter+"&studentAns="+encodeURIComponent(studentAns),success:function(result){
+				$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=checkAnswer&subjectName='.$this->subjectName.'&chapterid='.$this->subjectName.'&sectionid='.$this->friendlySectionid.'&problemid='.$problemInfo['problem_id'].'&var=1&timer="+counter+"&studentAns="+encodeURIComponent(studentAns),success:function(result){
 					if(result=="correct"){
 						//$("#checkAnswerReturn").html("Correct<br/>");
 					} else {
@@ -505,7 +510,7 @@ class Prequiz extends PrequizDAO {
             echo '
         });
 	function nextProblem(){
-		$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=nextProblem&subjectName='.$this->subjectName.'&chapterid='.$this->chapterid.'&sectionid='.$this->sectionid.'",success:function(result){
+		$.ajax({url:"'.$_SERVER['DOCUMENT_ROOT'].'includes/class.Prequiz.php?action=nextProblem&subjectName='.$this->subjectName.'&chapterid='.$this->chapterid.'&sectionid='.$this->friendlySectionid.'",success:function(result){
 			$("#prequiz").html(result);
 			$.getScript("'.$_SERVER['DOCUMENT_ROOT'].'js/equationEditor/functions.js", function() {
 		    });

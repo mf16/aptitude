@@ -22,7 +22,7 @@
                     <?php
                         if(isset($_SESSION['math1050-prequiz'])){
                             echo '<script>
-                            $.ajax({url:"'.$_SERVER["DOCUMENT_ROOT"].'includes/class.Prequiz.php?action=nextProblem&subjectName='. $this->subjectName.'&chapterid='. $this->chapterid.'&sectionid='. $this->sectionid.'",success:function(result){
+                            $.ajax({url:"'.$_SERVER["DOCUMENT_ROOT"].'includes/class.Prequiz.php?action=nextProblem&subjectName='. $this->subjectName.'&chapterid='. $this->chapterid.'&sectionid='. $this->friendlySectionid.'",success:function(result){
 								$("#prequiz").html(result);
 								$("#prequiz").css("padding-top","80px");
 								//$(".pretestWrapper").animate({opacity:"0.0"});
@@ -68,7 +68,7 @@
  	<section class="col-md-4 col-xs-12 text-right" onclick="skipPrequiz();" style="padding-right:45px;cursor:pointer;">SKIP PREQUIZ <img src="<?php echo $_SERVER['DOCUMENT_ROOT'];?>img/global/right-arrow.png"  style="margin-left: 7px;"></section>
 	<script>
 		function skipPrequiz(){
-			$.ajax({url:"<?php echo $_SERVER['DOCUMENT_ROOT'];?>includes/class.Prequiz.php?action=skipQuiz&subjectName=<?php echo $this->subjectName;?>&chapterid=<?php echo $this->subjectName;?>&sectionid=<?php echo $this->sectionid;?>",success:function(result){
+			$.ajax({url:"<?php echo $_SERVER['DOCUMENT_ROOT'];?>includes/class.Prequiz.php?action=skipQuiz&subjectName=<?php echo $this->subjectName;?>&chapterid=<?php echo $this->subjectName;?>&sectionid=<?php echo $this->friendlySectionid;?>",success:function(result){
 				location.reload();
 			}});
 		}
@@ -82,7 +82,7 @@
 	$readyButton.click(function() {
 		$readyButton.css('background-color', '#BEBEBE');
 		$( ".text-body" ).addClass( "text-center pretestQuestionsContainer" );
-		$.ajax({url:"<?php echo $_SERVER['DOCUMENT_ROOT'];?>includes/class.Prequiz.php?action=nextProblem&subjectName=<?php echo $this->subjectName;?>&chapterid=<?php echo $this->chapterid;?>&sectionid=<?php echo $this->sectionid;?>",success:function(result){
+		$.ajax({url:"<?php echo $_SERVER['DOCUMENT_ROOT'];?>includes/class.Prequiz.php?action=nextProblem&subjectName=<?php echo $this->subjectName;?>&chapterid=<?php echo $this->chapterid;?>&sectionid=<?php echo $this->friendlySectionid;?>",success:function(result){
 			$("#prequiz").html(result);
 		  	$.getScript( "<?php echo $_SERVER['DOCUMENT_ROOT']; ?>js/equationEditor/functions.js" )
 			  .done(function( script, textStatus ) {

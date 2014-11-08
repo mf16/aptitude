@@ -4,6 +4,20 @@ class PrequizDAO {
 	function __construct(){
 	}
 
+	function getSectionidByChapteridFriendlyViewSectionid($chapterid,$friendlySectionid){
+		$sql="SELECT section_id FROM math.section_names WHERE chapter_id=? AND friendly_view_section_id=?;";
+		$results=query($sql,$chapterid,$friendlySectionid);
+		$results=$results[0];
+		return $results['section_id'];
+	}
+
+	function getSectionNameBySectionid($sectionid){
+		$sql="SELECT section_name FROM math.section_names WHERE section_id=?;";
+		$results=query($sql,$sectionid);
+		return $results[0]['section_name'];
+	}
+	
+
 	function getNextQuestion($subjectName,$chapterid,$sectionid,$type){
 		global $db;
 		$usedProblemidString='';

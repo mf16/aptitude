@@ -56,7 +56,7 @@ class Section extends SectionDAO {
 
 		if(!$this->isPrequizCompleted){
 			include 'includes/class.Prequiz.php';
-			$prequiz = new Prequiz($this->subjectName,$this->chapterid,$this->sectionid);
+			$prequiz = new Prequiz($this->subjectName,$this->chapterid,$this->friendlySectionid);
 		} else {
 			//determine ebook content to show
 			if(isset($_SESSION['math1050-prequiz'])){
