@@ -149,6 +149,7 @@ CREATE TABLE `contentgroups` (
   `contentgroup_id` int(11) NOT NULL AUTO_INCREMENT,
   `order` int(11) DEFAULT NULL,
   `type_id` int(11) DEFAULT NULL,
+  `section_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`contentgroup_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -211,33 +212,6 @@ INSERT INTO `contentmedium_names` VALUES (1,'video');
 INSERT INTO `contentmedium_names` VALUES (2,'text');
 INSERT INTO `contentmedium_names` VALUES (3,'interactive');
 /*!40000 ALTER TABLE `contentmedium_names` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `contents_sections`
---
-
-DROP TABLE IF EXISTS `contents_sections`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `contents_sections` (
-  `idcontents_sections` int(11) NOT NULL AUTO_INCREMENT,
-  `content_id` int(11) DEFAULT NULL,
-  `section_id` int(11) DEFAULT NULL,
-  `order` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idcontents_sections`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `contents_sections`
---
-
-LOCK TABLES `contents_sections` WRITE;
-/*!40000 ALTER TABLE `contents_sections` DISABLE KEYS */;
-INSERT INTO `contents_sections` VALUES (1,1,24,1);
-INSERT INTO `contents_sections` VALUES (2,2,24,2);
-/*!40000 ALTER TABLE `contents_sections` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

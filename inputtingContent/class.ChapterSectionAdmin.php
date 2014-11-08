@@ -229,7 +229,6 @@ class ChapterSectionAdmin{
 						}
 					});
 				} else {
-					
 				}
 			}
 
