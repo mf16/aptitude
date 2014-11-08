@@ -72,7 +72,7 @@ class ChapterSectionAdmin{
 		}
 	}
 
-	function drawChapters($subject){
+	function drawChapters($subject=NULL){
 		if(isset($_REQUEST['subject'])){
 			$subject=$_REQUEST['subject'];
 		}
