@@ -37,20 +37,20 @@ CREATE TABLE `chapter_names` (
 LOCK TABLES `chapter_names` WRITE;
 /*!40000 ALTER TABLE `chapter_names` DISABLE KEYS */;
 INSERT INTO `chapter_names` VALUES (1,'Relations and Functions',2);
-INSERT INTO `chapter_names` VALUES (2,'Linear and Quadratic Functions',14);
+INSERT INTO `chapter_names` VALUES (2,'Linear and Quadratic Functions',12);
 INSERT INTO `chapter_names` VALUES (3,'Polynomial Functions',3);
-INSERT INTO `chapter_names` VALUES (4,'Rational Functions',0);
+INSERT INTO `chapter_names` VALUES (4,'Rational Functions',1);
 INSERT INTO `chapter_names` VALUES (5,'Further Topics in Functions',5);
-INSERT INTO `chapter_names` VALUES (6,'Exponential and Logarithmic Functions',15);
+INSERT INTO `chapter_names` VALUES (6,'Exponential and Logarithmic Functions',13);
 INSERT INTO `chapter_names` VALUES (7,'Hooked on Conics',7);
 INSERT INTO `chapter_names` VALUES (8,'Systems of Equations and Matrices',8);
 INSERT INTO `chapter_names` VALUES (9,'Sequences and the Binomial Theorem',6);
-INSERT INTO `chapter_names` VALUES (12,'bbbbb',1);
+INSERT INTO `chapter_names` VALUES (12,'bbbbb',0);
 INSERT INTO `chapter_names` VALUES (14,'gdsag',4);
-INSERT INTO `chapter_names` VALUES (17,'dsagasdg',11);
-INSERT INTO `chapter_names` VALUES (18,'adsgsad',12);
-INSERT INTO `chapter_names` VALUES (19,'asdgsadgsadg',13);
-INSERT INTO `chapter_names` VALUES (20,'fffffffff',16);
+INSERT INTO `chapter_names` VALUES (17,'dsagasdg',9);
+INSERT INTO `chapter_names` VALUES (18,'adsgsad',10);
+INSERT INTO `chapter_names` VALUES (19,'asdgsadgsadg',11);
+INSERT INTO `chapter_names` VALUES (20,'fffffffff',14);
 /*!40000 ALTER TABLE `chapter_names` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -92,6 +92,10 @@ DROP TABLE IF EXISTS `content`;
 CREATE TABLE `content` (
   `idcontent` int(11) NOT NULL AUTO_INCREMENT,
   `content` blob,
+  `medium_id` int(11) DEFAULT NULL,
+  `submitter_type` varchar(255) DEFAULT NULL,
+  `submitter_id` int(11) DEFAULT NULL,
+  `contentgroup_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`idcontent`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -102,56 +106,111 @@ CREATE TABLE `content` (
 
 LOCK TABLES `content` WRITE;
 /*!40000 ALTER TABLE `content` DISABLE KEYS */;
-INSERT INTO `content` VALUES (1,'							<article class=\"leadingLetter\">B</article>\n							<p class=\"vote-text\">efore we embark upon any further adventures with functions, we need to take some time to gather our thoughts and gain some perspective. Chapter 1 first introduced us to functions in Section 1.3. At that time, functions were specific kinds of relations - sets of points in the plane which passed the Vertical Line Test, Theorem 1.1. In Section 1.4, we developed the idea that functions are processes - rules which match inputs to outputs - and this gave rise to the concepts of domain and range. We spoke about how functions could be combined in Section 1.5 using the four basic arithmetic operations, took a more detailed look at their graphs in Section 1.6 and studied how their graphs behaved under certain classes of transformations in Section 1.7. In Chapter 2, we took a closer look at three families of functions: linear functions (Section 2.1), absolute value functions1 (Section 2.2), and quadratic functions (Section 2.3).</p> ');
-INSERT INTO `content` VALUES (2,'<p class=\"vote-text\">Linear and quadratic functions were special cases of polynomial functions, which we studied in generality in Chapter 3. Chapter 3 culminated with the Real Factorization Theorem, Theorem 3.16, which says that all polynomial functions with real coefficients can be thought of as products of linear and quadratic functions. Our next step was to enlarge our field of study to rational functions in Chapter 4. Being quotients of polynomials, we can ultimately view this family of functions as being built up of linear and quadratic functions as well. So in some sense, Chapters 2, 3, and 4 can be thought of as an exhaustive study of linear and quadratic functions and their arithmetic combinations as described in Section 1.5. We now wish to study other algebraic functions, such as \\(f(x) = \\sqrt{x}\\) and \\(g(x) = x^{2/3}\\), and the purpose of the first two sections of this chapter is to see how these kinds of functions arise from polynomial and rational functions. To that end, we first study a new way to combine functions as defined below.</p>');
+INSERT INTO `content` VALUES (1,'							<article class=\"leadingLetter\">B</article>\n							<p class=\"vote-text\">efore we embark upon any further adventures with functions, we need to take some time to gather our thoughts and gain some perspective. Chapter 1 first introduced us to functions in Section 1.3. At that time, functions were specific kinds of relations - sets of points in the plane which passed the Vertical Line Test, Theorem 1.1. In Section 1.4, we developed the idea that functions are processes - rules which match inputs to outputs - and this gave rise to the concepts of domain and range. We spoke about how functions could be combined in Section 1.5 using the four basic arithmetic operations, took a more detailed look at their graphs in Section 1.6 and studied how their graphs behaved under certain classes of transformations in Section 1.7. In Chapter 2, we took a closer look at three families of functions: linear functions (Section 2.1), absolute value functions1 (Section 2.2), and quadratic functions (Section 2.3).</p> ',NULL,NULL,NULL,NULL);
+INSERT INTO `content` VALUES (2,'<p class=\"vote-text\">Linear and quadratic functions were special cases of polynomial functions, which we studied in generality in Chapter 3. Chapter 3 culminated with the Real Factorization Theorem, Theorem 3.16, which says that all polynomial functions with real coefficients can be thought of as products of linear and quadratic functions. Our next step was to enlarge our field of study to rational functions in Chapter 4. Being quotients of polynomials, we can ultimately view this family of functions as being built up of linear and quadratic functions as well. So in some sense, Chapters 2, 3, and 4 can be thought of as an exhaustive study of linear and quadratic functions and their arithmetic combinations as described in Section 1.5. We now wish to study other algebraic functions, such as \\(f(x) = \\sqrt{x}\\) and \\(g(x) = x^{2/3}\\), and the purpose of the first two sections of this chapter is to see how these kinds of functions arise from polynomial and rational functions. To that end, we first study a new way to combine functions as defined below.</p>',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `content` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `content_tag_names`
+-- Table structure for table `contentgroup_type_names`
 --
 
-DROP TABLE IF EXISTS `content_tag_names`;
+DROP TABLE IF EXISTS `contentgroup_type_names`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `content_tag_names` (
-  `idcontent_tag_names` int(11) NOT NULL AUTO_INCREMENT,
-  `tag_name` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`idcontent_tag_names`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `contentgroup_type_names` (
+  `type_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`type_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `content_tag_names`
+-- Dumping data for table `contentgroup_type_names`
 --
 
-LOCK TABLES `content_tag_names` WRITE;
-/*!40000 ALTER TABLE `content_tag_names` DISABLE KEYS */;
-/*!40000 ALTER TABLE `content_tag_names` ENABLE KEYS */;
+LOCK TABLES `contentgroup_type_names` WRITE;
+/*!40000 ALTER TABLE `contentgroup_type_names` DISABLE KEYS */;
+INSERT INTO `contentgroup_type_names` VALUES (1,'definition');
+INSERT INTO `contentgroup_type_names` VALUES (2,'example');
+INSERT INTO `contentgroup_type_names` VALUES (3,'summary');
+INSERT INTO `contentgroup_type_names` VALUES (4,'explanation');
+/*!40000 ALTER TABLE `contentgroup_type_names` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `contents_concepts`
+-- Table structure for table `contentgroups`
 --
 
-DROP TABLE IF EXISTS `contents_concepts`;
+DROP TABLE IF EXISTS `contentgroups`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `contents_concepts` (
-  `idcontent_concepts` int(11) NOT NULL AUTO_INCREMENT,
-  `content_id` int(11) DEFAULT NULL,
-  `concept_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idcontent_concepts`)
+CREATE TABLE `contentgroups` (
+  `contentgroup_id` int(11) NOT NULL AUTO_INCREMENT,
+  `order` int(11) DEFAULT NULL,
+  `type_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`contentgroup_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `contents_concepts`
+-- Dumping data for table `contentgroups`
 --
 
-LOCK TABLES `contents_concepts` WRITE;
-/*!40000 ALTER TABLE `contents_concepts` DISABLE KEYS */;
-/*!40000 ALTER TABLE `contents_concepts` ENABLE KEYS */;
+LOCK TABLES `contentgroups` WRITE;
+/*!40000 ALTER TABLE `contentgroups` DISABLE KEYS */;
+/*!40000 ALTER TABLE `contentgroups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `contentgroups_concepts`
+--
+
+DROP TABLE IF EXISTS `contentgroups_concepts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contentgroups_concepts` (
+  `idcontentgroups_concepts` int(11) NOT NULL AUTO_INCREMENT,
+  `contentgroup_id` int(11) DEFAULT NULL,
+  `concept_id` int(11) DEFAULT NULL,
+  `priority` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idcontentgroups_concepts`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contentgroups_concepts`
+--
+
+LOCK TABLES `contentgroups_concepts` WRITE;
+/*!40000 ALTER TABLE `contentgroups_concepts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `contentgroups_concepts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `contentmedium_names`
+--
+
+DROP TABLE IF EXISTS `contentmedium_names`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contentmedium_names` (
+  `medium_id` int(11) NOT NULL AUTO_INCREMENT,
+  `medium_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`medium_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contentmedium_names`
+--
+
+LOCK TABLES `contentmedium_names` WRITE;
+/*!40000 ALTER TABLE `contentmedium_names` DISABLE KEYS */;
+INSERT INTO `contentmedium_names` VALUES (1,'video');
+INSERT INTO `contentmedium_names` VALUES (2,'text');
+INSERT INTO `contentmedium_names` VALUES (3,'interactive');
+/*!40000 ALTER TABLE `contentmedium_names` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -179,30 +238,6 @@ LOCK TABLES `contents_sections` WRITE;
 INSERT INTO `contents_sections` VALUES (1,1,24,1);
 INSERT INTO `contents_sections` VALUES (2,2,24,2);
 /*!40000 ALTER TABLE `contents_sections` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `contents_tags`
---
-
-DROP TABLE IF EXISTS `contents_tags`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `contents_tags` (
-  `idcontent_tags` int(11) NOT NULL AUTO_INCREMENT,
-  `content_id` int(11) DEFAULT NULL,
-  `tag_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idcontent_tags`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `contents_tags`
---
-
-LOCK TABLES `contents_tags` WRITE;
-/*!40000 ALTER TABLE `contents_tags` DISABLE KEYS */;
-/*!40000 ALTER TABLE `contents_tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -295,29 +330,6 @@ INSERT INTO `groups` VALUES (3,'mathgroup2',1,1,'2014-03-29 00:08:52','0000-00-0
 UNLOCK TABLES;
 
 --
--- Table structure for table `piece_names`
---
-
-DROP TABLE IF EXISTS `piece_names`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `piece_names` (
-  `piece_id` int(11) NOT NULL AUTO_INCREMENT,
-  `section_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`piece_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `piece_names`
---
-
-LOCK TABLES `piece_names` WRITE;
-/*!40000 ALTER TABLE `piece_names` DISABLE KEYS */;
-/*!40000 ALTER TABLE `piece_names` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `problems`
 --
 
@@ -380,6 +392,7 @@ CREATE TABLE `problems_concepts` (
   `id_problem_tags` int(11) NOT NULL AUTO_INCREMENT,
   `problem_id` int(11) NOT NULL,
   `concept_id` int(11) NOT NULL,
+  `priority` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_problem_tags`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -390,50 +403,27 @@ CREATE TABLE `problems_concepts` (
 
 LOCK TABLES `problems_concepts` WRITE;
 /*!40000 ALTER TABLE `problems_concepts` DISABLE KEYS */;
-INSERT INTO `problems_concepts` VALUES (1,1,1);
-INSERT INTO `problems_concepts` VALUES (2,2,2);
-INSERT INTO `problems_concepts` VALUES (3,3,1);
-INSERT INTO `problems_concepts` VALUES (4,4,2);
-INSERT INTO `problems_concepts` VALUES (5,5,2);
-INSERT INTO `problems_concepts` VALUES (6,6,3);
-INSERT INTO `problems_concepts` VALUES (7,8,4);
-INSERT INTO `problems_concepts` VALUES (8,9,5);
-INSERT INTO `problems_concepts` VALUES (9,10,5);
-INSERT INTO `problems_concepts` VALUES (10,11,1);
-INSERT INTO `problems_concepts` VALUES (11,12,1);
-INSERT INTO `problems_concepts` VALUES (12,13,1);
-INSERT INTO `problems_concepts` VALUES (13,15,1);
-INSERT INTO `problems_concepts` VALUES (14,16,1);
-INSERT INTO `problems_concepts` VALUES (15,17,1);
-INSERT INTO `problems_concepts` VALUES (16,18,1);
-INSERT INTO `problems_concepts` VALUES (17,20,1);
-INSERT INTO `problems_concepts` VALUES (18,22,1);
-INSERT INTO `problems_concepts` VALUES (19,23,1);
-INSERT INTO `problems_concepts` VALUES (20,2,1);
+INSERT INTO `problems_concepts` VALUES (1,1,1,NULL);
+INSERT INTO `problems_concepts` VALUES (2,2,2,NULL);
+INSERT INTO `problems_concepts` VALUES (3,3,1,NULL);
+INSERT INTO `problems_concepts` VALUES (4,4,2,NULL);
+INSERT INTO `problems_concepts` VALUES (5,5,2,NULL);
+INSERT INTO `problems_concepts` VALUES (6,6,3,NULL);
+INSERT INTO `problems_concepts` VALUES (7,8,4,NULL);
+INSERT INTO `problems_concepts` VALUES (8,9,5,NULL);
+INSERT INTO `problems_concepts` VALUES (9,10,5,NULL);
+INSERT INTO `problems_concepts` VALUES (10,11,1,NULL);
+INSERT INTO `problems_concepts` VALUES (11,12,1,NULL);
+INSERT INTO `problems_concepts` VALUES (12,13,1,NULL);
+INSERT INTO `problems_concepts` VALUES (13,15,1,NULL);
+INSERT INTO `problems_concepts` VALUES (14,16,1,NULL);
+INSERT INTO `problems_concepts` VALUES (15,17,1,NULL);
+INSERT INTO `problems_concepts` VALUES (16,18,1,NULL);
+INSERT INTO `problems_concepts` VALUES (17,20,1,NULL);
+INSERT INTO `problems_concepts` VALUES (18,22,1,NULL);
+INSERT INTO `problems_concepts` VALUES (19,23,1,NULL);
+INSERT INTO `problems_concepts` VALUES (20,2,1,NULL);
 /*!40000 ALTER TABLE `problems_concepts` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `progress`
---
-
-DROP TABLE IF EXISTS `progress`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `progress` (
-  `user_id` int(11) NOT NULL,
-  `lesson_id` int(11) NOT NULL,
-  KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `progress`
---
-
-LOCK TABLES `progress` WRITE;
-/*!40000 ALTER TABLE `progress` DISABLE KEYS */;
-/*!40000 ALTER TABLE `progress` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -450,7 +440,7 @@ CREATE TABLE `section_names` (
   `friendly_view_section_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`section_id`),
   KEY `chapter_id` (`chapter_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -480,7 +470,7 @@ INSERT INTO `section_names` VALUES (18,3,'Real Zeros of Polynomials - With a cal
 INSERT INTO `section_names` VALUES (19,3,'Real Zeros of Polynomials - Without a calculator',16);
 INSERT INTO `section_names` VALUES (20,3,'Complex Zeros and the Fundemental Theroem of Algebra',19);
 INSERT INTO `section_names` VALUES (21,4,'Introduction to Rational Functions',3);
-INSERT INTO `section_names` VALUES (22,4,'Graphs of Rational Functions',1);
+INSERT INTO `section_names` VALUES (22,4,'Graphs of Rational Functions',2);
 INSERT INTO `section_names` VALUES (23,4,'Rational Inequalities and Applications',5);
 INSERT INTO `section_names` VALUES (24,5,'Composition of Functions',1);
 INSERT INTO `section_names` VALUES (25,5,'Inverse Functions',2);
@@ -508,10 +498,11 @@ INSERT INTO `section_names` VALUES (46,9,'Sequences',1);
 INSERT INTO `section_names` VALUES (47,9,'Summation Notation',2);
 INSERT INTO `section_names` VALUES (48,9,'Mathematical Induction',3);
 INSERT INTO `section_names` VALUES (49,9,'The Binomial Theorem',4);
-INSERT INTO `section_names` VALUES (50,4,'undefined',2);
+INSERT INTO `section_names` VALUES (50,4,'undefined',1);
 INSERT INTO `section_names` VALUES (51,4,'undefined',4);
-INSERT INTO `section_names` VALUES (62,12,'dasfg',1);
-INSERT INTO `section_names` VALUES (63,12,'eeeeeeeeee',2);
+INSERT INTO `section_names` VALUES (62,12,'fasd',2);
+INSERT INTO `section_names` VALUES (63,12,'eeeeeeeeee',1);
+INSERT INTO `section_names` VALUES (66,18,'asdfasdf',NULL);
 /*!40000 ALTER TABLE `section_names` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -572,31 +563,6 @@ INSERT INTO `sidebar_types` VALUES (4,'Recycled');
 UNLOCK TABLES;
 
 --
--- Table structure for table `student_completion`
---
-
-DROP TABLE IF EXISTS `student_completion`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `student_completion` (
-  `student_id` int(11) NOT NULL,
-  `group_id` int(11) NOT NULL,
-  `concept_id` int(11) NOT NULL,
-  `amount_completed` tinyint(3) NOT NULL,
-  KEY `student_id` (`student_id`,`group_id`,`concept_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `student_completion`
---
-
-LOCK TABLES `student_completion` WRITE;
-/*!40000 ALTER TABLE `student_completion` DISABLE KEYS */;
-/*!40000 ALTER TABLE `student_completion` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `user_attempts`
 --
 
@@ -635,32 +601,6 @@ INSERT INTO `user_attempts` VALUES (9,4,5,1,'no','','',NULL);
 INSERT INTO `user_attempts` VALUES (10,4,2,0,'no','','',NULL);
 INSERT INTO `user_attempts` VALUES (11,4,2,1,'yes','','',NULL);
 /*!40000 ALTER TABLE `user_attempts` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `user_passwords`
---
-
-DROP TABLE IF EXISTS `user_passwords`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user_passwords` (
-  `id` int(10) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `last_login` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `previous_pass` varchar(255) NOT NULL,
-  `change_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  KEY `password` (`password`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user_passwords`
---
-
-LOCK TABLES `user_passwords` WRITE;
-/*!40000 ALTER TABLE `user_passwords` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user_passwords` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

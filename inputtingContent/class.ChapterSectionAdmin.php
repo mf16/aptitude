@@ -1,6 +1,6 @@
 <?php
 include_once "../includes/global.php";
-class InputDashboard{
+class ChapterSectionAdmin{
 	protected $subject;
 	function __construct(){
 		if(isset($_REQUEST['subject'])){
@@ -86,13 +86,13 @@ class InputDashboard{
 							console.log(JSON.stringify(chaptersInOrder));
 							$.ajax({
 								type: 'POST',
-								url: 'class.InputDashboard.php?subject=<?php echo $this->subject;?>&action=saveChapterOrder&data='+chaptersInOrder,
+								url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=saveChapterOrder&data='+chaptersInOrder,
 								success:function(result){
 									//alert('success');
 									console.log(result);
 									$.ajax({
 										type:'POST',
-										url:'class.InputDashboard.php?subject=<?php echo $this->subject;?>&action=drawChapters',
+										url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
 										success:function(result){
 											$("#chapterList").html(result);
 										}
@@ -106,7 +106,7 @@ class InputDashboard{
 			<?php
 		$sql="SELECT * FROM ".$subject.".chapter_names ORDER BY chapter_order ASC;";
 		$chapters=query($sql);
-		echo '<h2>Chapters</h2>';
+		echo '<h2>Chapters and Sections</h2>';
 		echo '<ul id="sortableChapters">';
 			foreach($chapters as $key=>$chapter){
 				// use class for renaming. Can't change id from sole int, and if I leave it then section and chapter could have conflicting id's when trying to rename
@@ -137,13 +137,13 @@ class InputDashboard{
 									console.log(JSON.stringify(sectionsInOrder_<?php echo $chapter['chapter_id'];?>));
 									$.ajax({
 										type: 'POST',
-										url: 'class.InputDashboard.php?subject=<?php echo $this->subject;?>&action=saveSectionOrder&data='+sectionsInOrder_<?php echo $chapter['chapter_id'];?>,
+										url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=saveSectionOrder&data='+sectionsInOrder_<?php echo $chapter['chapter_id'];?>,
 										success:function(result){
 											//alert('success');
 											console.log(result);
 											$.ajax({
 												type:'POST',
-												url:'class.InputDashboard.php?subject=<?php echo $this->subject;?>&action=drawChapters',
+												url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
 												success:function(result){
 													$("#chapterList").html(result);
 												}
@@ -198,12 +198,12 @@ class InputDashboard{
 				var sectionName=$("#newSectionName_"+chapter_id).val();
 				$.ajax({
 					type: 'POST',
-					url: 'class.InputDashboard.php?subject=<?php echo $this->subject;?>&action=saveNewSection&sectionName='+sectionName+'&chapter_id='+chapter_id,
+					url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=saveNewSection&sectionName='+sectionName+'&chapter_id='+chapter_id,
 					success:function(result){
 						//alert('success');
 						$.ajax({
 							type:'POST',
-							url:'class.InputDashboard.php?subject=<?php echo $this->subject;?>&action=drawChapters',
+							url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
 							success:function(result){
 								$("#chapterList").html(result);
 							}
@@ -216,12 +216,12 @@ class InputDashboard{
 				if (confirm('Are you sure you wish to delete chapter '+chapterName+'?\n\nThis will also delete all sections associated with this chapter.')){
 					$.ajax({
 						type: 'POST',
-						url: 'class.InputDashboard.php?subject=<?php echo $this->subject;?>&action=delChapter&chapter_id='+chapter_id,
+						url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=delChapter&chapter_id='+chapter_id,
 						success:function(result){
 							console.log(result);
 							$.ajax({
 								type:'POST',
-								url:'class.InputDashboard.php?subject=<?php echo $this->subject;?>&action=drawChapters',
+								url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
 								success:function(result){
 									$("#chapterList").html(result);
 								}
@@ -245,12 +245,12 @@ class InputDashboard{
 				chapterName=$("#renameChapter_"+chapter_id).val();
 				$.ajax({
 					type: 'POST',
-					url: 'class.InputDashboard.php?subject=<?php echo $this->subject;?>&action=saveChapterName&chapter_id='+chapter_id+'&chapterName='+chapterName,
+					url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=saveChapterName&chapter_id='+chapter_id+'&chapterName='+chapterName,
 					success:function(result){
 						//alert('success');
 						$.ajax({
 							type:'POST',
-							url:'class.InputDashboard.php?subject=<?php echo $this->subject;?>&action=drawChapters',
+							url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
 							success:function(result){
 								$("#chapterList").html(result);
 							}
@@ -263,12 +263,12 @@ class InputDashboard{
 				sectionName=$("#renameSection_"+section_id).val();
 				$.ajax({
 					type: 'POST',
-					url: 'class.InputDashboard.php?subject=<?php echo $this->subject;?>&action=saveSectionName&section_id='+section_id+'&sectionName='+sectionName,
+					url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=saveSectionName&section_id='+section_id+'&sectionName='+sectionName,
 					success:function(result){
 						//alert('success');
 						$.ajax({
 							type:'POST',
-							url:'class.InputDashboard.php?subject=<?php echo $this->subject;?>&action=drawChapters',
+							url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
 							success:function(result){
 								$("#chapterList").html(result);
 							}
@@ -281,12 +281,12 @@ class InputDashboard{
 				if (confirm('Are you sure you wish to delete section '+sectionName+'?')){
 					$.ajax({
 						type: 'POST',
-						url: 'class.InputDashboard.php?subject=<?php echo $this->subject;?>&action=delSection&section_id='+section_id,
+						url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=delSection&section_id='+section_id,
 						success:function(result){
 							//alert('success');
 							$.ajax({
 								type:'POST',
-								url:'class.InputDashboard.php?subject=<?php echo $this->subject;?>&action=drawChapters',
+								url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
 								success:function(result){
 									$("#chapterList").html(result);
 								}
@@ -308,12 +308,12 @@ class InputDashboard{
 				var chapterName=$("#newChapterName").val();
 				$.ajax({
 					type: 'POST',
-					url: 'class.InputDashboard.php?subject=<?php echo $this->subject;?>&action=saveNewChapter&chapterName='+chapterName,
+					url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=saveNewChapter&chapterName='+chapterName,
 					success:function(result){
 						//alert('success');
 						$.ajax({
 							type:'POST',
-							url:'class.InputDashboard.php?subject=<?php echo $this->subject;?>&action=drawChapters',
+							url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
 							success:function(result){
 								$("#chapterList").html(result);
 							}
@@ -335,4 +335,4 @@ class InputDashboard{
 	}
 }
 
-$inputDashboard= new InputDashboard();
+$chapterSectionAdmin= new ChapterSectionAdmin();
