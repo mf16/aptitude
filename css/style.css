@@ -766,3 +766,12 @@ font-size: 18px;
 .operatorButton>img{
 	width: 30px;
 }
+.no-pd{
+	padding: 0px !important;
+}
+.mg-t-md{
+	margin-top:35px;
+}
+.mg-t-lg{
+	margin-top:50px;
+}

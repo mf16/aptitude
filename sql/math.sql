@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.38, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.16, for Win32 (x86)
 --
 -- Host: localhost    Database: math
 -- ------------------------------------------------------
--- Server version	5.5.38-0ubuntu0.14.04.1
+-- Server version	5.6.16
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -27,7 +27,7 @@ CREATE TABLE `chapter_names` (
   `chapter_name` varchar(255) NOT NULL,
   `chapter_order` int(11) DEFAULT NULL,
   PRIMARY KEY (`chapter_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -304,6 +304,51 @@ INSERT INTO `groups` VALUES (3,'mathgroup2',1,1,'2014-03-29 00:08:52','0000-00-0
 UNLOCK TABLES;
 
 --
+-- Table structure for table `piece_names`
+--
+
+DROP TABLE IF EXISTS `piece_names`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `piece_names` (
+  `piece_id` int(11) NOT NULL AUTO_INCREMENT,
+  `section_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`piece_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `piece_names`
+--
+
+LOCK TABLES `piece_names` WRITE;
+/*!40000 ALTER TABLE `piece_names` DISABLE KEYS */;
+/*!40000 ALTER TABLE `piece_names` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `problem_tags`
+--
+
+DROP TABLE IF EXISTS `problem_tags`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `problem_tags` (
+  `problem_id` int(11) NOT NULL,
+  `tag` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `problem_tags`
+--
+
+LOCK TABLES `problem_tags` WRITE;
+/*!40000 ALTER TABLE `problem_tags` DISABLE KEYS */;
+/*!40000 ALTER TABLE `problem_tags` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `problems`
 --
 
@@ -398,6 +443,29 @@ INSERT INTO `problems_concepts` VALUES (18,22,1,NULL);
 INSERT INTO `problems_concepts` VALUES (19,23,1,NULL);
 INSERT INTO `problems_concepts` VALUES (20,2,1,NULL);
 /*!40000 ALTER TABLE `problems_concepts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `progress`
+--
+
+DROP TABLE IF EXISTS `progress`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `progress` (
+  `user_id` int(11) NOT NULL,
+  `lesson_id` int(11) NOT NULL,
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `progress`
+--
+
+LOCK TABLES `progress` WRITE;
+/*!40000 ALTER TABLE `progress` DISABLE KEYS */;
+/*!40000 ALTER TABLE `progress` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -537,6 +605,31 @@ INSERT INTO `sidebar_types` VALUES (4,'Recycled');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `student_completion`
+--
+
+DROP TABLE IF EXISTS `student_completion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `student_completion` (
+  `student_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  `concept_id` int(11) NOT NULL,
+  `amount_completed` tinyint(3) NOT NULL,
+  KEY `student_id` (`student_id`,`group_id`,`concept_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_completion`
+--
+
+LOCK TABLES `student_completion` WRITE;
+/*!40000 ALTER TABLE `student_completion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_completion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user_attempts`
 --
 
@@ -576,6 +669,32 @@ INSERT INTO `user_attempts` VALUES (10,4,2,0,'no','','',NULL);
 INSERT INTO `user_attempts` VALUES (11,4,2,1,'yes','','',NULL);
 /*!40000 ALTER TABLE `user_attempts` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `user_passwords`
+--
+
+DROP TABLE IF EXISTS `user_passwords`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_passwords` (
+  `id` int(10) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `last_login` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `previous_pass` varchar(255) NOT NULL,
+  `change_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  KEY `password` (`password`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_passwords`
+--
+
+LOCK TABLES `user_passwords` WRITE;
+/*!40000 ALTER TABLE `user_passwords` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_passwords` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -586,3 +705,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+-- Dump completed on 2014-11-11 13:52:19
