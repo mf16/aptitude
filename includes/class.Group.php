@@ -146,7 +146,7 @@ class Group extends GroupDAO {
 					$this->drawProfessorClass();
 				} else if (isset($groupInfo) && $this->checkStudentInGroup($_SESSION['userid'],$this->groupid)){
 					// $this->drawStudentClass();
-					echo 'student info here about group '.$this->groupid;
+					echo 'student info here about this class (group): '.$this->groupid;
 				} else {
 					echo 'No class found with that id';
 				}
