@@ -10,6 +10,7 @@ include_once '../head.php';
     $( ".subSortable" ).disableSelection();
   });
   </script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <body class="grayBg">
 	<div id="slidingMenu">
 		<h1>Aptitude</h1>
@@ -36,23 +37,28 @@ include_once '../head.php';
 	/*GLOBAL STYLING*/
 
 
+	.horizontalSort{
+		width: 33.3333%;
+		display:inline-block;
+	}
+	.subSortable{
+		overflow-x:scroll; 
+		overflow-y:hidden; 
+		width: auto;
+   		white-space:nowrap; 
+	}
+	.wrap{
+	   white-space:normal; 
+	}
+
 	.modifyContentContainer{
 		background-color: white;
 		border: solid 1px #ADADAD;
 		border-radius: 10px;
 		min-height: 25px;
-	}
-	.horizontalSort{
-		float: left;
+		padding: 15px;
 	}
 
-.sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-	.sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
-	.sortable li span { position: absolute; margin-left: -1.3em; }
-
-	.subSortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-	.subSortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
-	.subSortable li span { position: absolute; margin-left: -1.3em; }
 	</style>
 	<header>
 		<div id="header">
@@ -86,63 +92,145 @@ include_once '../head.php';
 			</select>
 		</div>
 		<div class="modifyContentContainer">
-			<ul class="sortable">
-			  <li class="ui-state-default verticalSort">
-			  	<select class="form-control">
-  					<option value="definition">Definition</option>
-  					<option value="example">Example</option>
-  					<option value="summary">Summary</option>
-  					<option value="explantation">Explantation</option>
-  				</select>
-			  	<ul class="subSortable">
-			  		<li class="horizontalSort">
-			  				<select class="form-control">
-			  					<option value="video">Video</option>
-			  					<option value="text">Text</option>
-			  					<option value="interactive">Interactive</option>
-			  				</select>
-			  				Test text
-			  		</li>
-			  		<li class="horizontalSort">
-			  			<select class="form-control">
-		  					<option value="video">Video</option>
-		  					<option value="text">Text</option>
-		  					<option value="interactive">Interactive</option>
-		  				</select>
-			  			Section 2
-			  		</li>
-			  	</ul>
-			  </li>
-			  <li class="ui-state-default verticalSort">
-			  	<select class="form-control">
-  					<option value="definition">Definition</option>
-  					<option value="example">Example</option>
-  					<option value="summary">Summary</option>
-  					<option value="explantation">Explantation</option>
-  				</select>
-			  	<ul class="subSortable">
-			  		<li class="horizontalSort">
-			  				<select class="form-control">
-			  					<option value="video">Video</option>
-			  					<option value="text">Text</option>
-			  					<option value="interactive">Interactive</option>
-			  				</select>
-			  				Test text
-			  		</li>
-			  		<li class="horizontalSort">
-			  			<select class="form-control">
-		  					<option value="video">Video</option>
-		  					<option value="text">Text</option>
-		  					<option value="interactive">Interactive</option>
-		  				</select>
-			  			Section 2
-			  		</li>
-			  	</ul>
-			  </li>
-			</ul>
 
+			<section class="sortable">
+				<article class="ui-state-default verticalSort">
+					<i class="fa fa-arrows-v pull-left"></i>
+					<select class='sideSelection'>
+						<option>--Type--</option>
+						<option value="definition">Definition</option>
+	  					<option value="example">Example</option>
+	  					<option value="summary">Summary</option>
+	  					<option value="explantation">Explantation</option>
+					</select>
+					<span class="pull-left">Sort 1</span>
+					<section class="subSortable ui-sortable">
+				  		<article class="horizontalSort">
+					  		<div class="wrap">
+					  			<i class="fa fa-arrows-h"></i>
+				  				<select>
+				  					<option value="video">Video</option>
+				  					<option value="text">Text</option>
+				  					<option value="interactive">Interactive</option>
+				  				</select>
+				  				Meatloaf turducken alcatra short loin. Meatloaf spare ribs andouille, tongue filet mignon ground round beef ribs. Kevin leberkas short ribs andouille ham, turkey kielbasa hamburger beef ribs rump spare ribs meatball shoulder. Leberkas venison tri-tip beef ribs shank cow. Andouille tail meatball, t-bone spare ribs sirloin strip steak ham pig doner cow boudin alcatra. Andouille jerky t-bone, prosciutto fatback ham bacon spare ribs ribeye shoulder kevin kielbasa.
+					  		</div>
+				  		</article>
+				  		<article class="horizontalSort">
+					  		<div class="wrap">
+					  			<i class="fa fa-arrows-h"></i>
+				  				<select>
+				  					<option value="video">Video</option>
+				  					<option value="text">Text</option>
+				  					<option value="interactive">Interactive</option>
+				  				</select>
+				  				Meatloaf turducken alcatra short loin. Meatloaf spare ribs andouille, tongue filet mignon ground round beef ribs. Kevin leberkas short ribs andouille ham, turkey kielbasa hamburger beef ribs rump spare ribs meatball shoulder. Leberkas venison tri-tip beef ribs shank cow. Andouille tail meatball, t-bone spare ribs sirloin strip steak ham pig doner cow boudin alcatra. Andouille jerky t-bone, prosciutto fatback ham bacon spare ribs ribeye shoulder kevin kielbasa.
+					  		</div>
+				  		</article>
+				  		<article class="horizontalSort">
+					  		<div class="wrap">
+					  			<i class="fa fa-arrows-h"></i>
+				  				<select>
+				  					<option value="video">Video</option>
+				  					<option value="text">Text</option>
+				  					<option value="interactive">Interactive</option>
+				  				</select>
+				  				Meatloaf turducken alcatra short loin. Meatloaf spare ribs andouille, tongue filet mignon ground round beef ribs. Kevin leberkas short ribs andouille ham, turkey kielbasa hamburger beef ribs rump spare ribs meatball shoulder. Leberkas venison tri-tip beef ribs shank cow. Andouille tail meatball, t-bone spare ribs sirloin strip steak ham pig doner cow boudin alcatra. Andouille jerky t-bone, prosciutto fatback ham bacon spare ribs ribeye shoulder kevin kielbasa.
+					  		</div>
+				  		</article>
+				  		<article class="horizontalSort">
+					  		<div class="wrap">
+					  			<i class="fa fa-arrows-h"></i>
+				  				<select>
+				  					<option value="video">Video</option>
+				  					<option value="text">Text</option>
+				  					<option value="interactive">Interactive</option>
+				  				</select>
+				  				Meatloaf turducken alcatra short loin. Meatloaf spare ribs andouille, tongue filet mignon ground round beef ribs. Kevin leberkas short ribs andouille ham, turkey kielbasa hamburger beef ribs rump spare ribs meatball shoulder. Leberkas venison tri-tip beef ribs shank cow. Andouille tail meatball, t-bone spare ribs sirloin strip steak ham pig doner cow boudin alcatra. Andouille jerky t-bone, prosciutto fatback ham bacon spare ribs ribeye shoulder kevin kielbasa.
+					  		</div>
+				  		</article>
+				  		<article class="horizontalSort">
+					  		<div class="wrap">
+					  			<i class="fa fa-arrows-h"></i>
+				  				<select>
+				  					<option value="video">Video</option>
+				  					<option value="text">Text</option>
+				  					<option value="interactive">Interactive</option>
+				  				</select>
+				  				Meatloaf turducken alcatra short loin. Meatloaf spare ribs andouille, tongue filet mignon ground round beef ribs. Kevin leberkas short ribs andouille ham, turkey kielbasa hamburger beef ribs rump spare ribs meatball shoulder. Leberkas venison tri-tip beef ribs shank cow. Andouille tail meatball, t-bone spare ribs sirloin strip steak ham pig doner cow boudin alcatra. Andouille jerky t-bone, prosciutto fatback ham bacon spare ribs ribeye shoulder kevin kielbasa.
+					  		</div>
+				  		</article>
+				  	</section>
+				</article>
+				<article class="ui-state-default verticalSort">
+					<i class="fa fa-arrows-v pull-left"></i>
+					<select class='sideSelection'>
+						<option>--Type--</option>
+						<option value="definition">Definition</option>
+	  					<option value="example">Example</option>
+	  					<option value="summary">Summary</option>
+	  					<option value="explantation">Explantation</option>
+					</select>
+					<span class="pull-left">Sort 1</span>
+					<section class="subSortable ui-sortable">
+				  		<article class="horizontalSort">
+					  		<div class="wrap">
+					  			<i class="fa fa-arrows-h"></i>
+				  				<select>
+				  					<option value="video">Video</option>
+				  					<option value="text">Text</option>
+				  					<option value="interactive">Interactive</option>
+				  				</select>
+				  				Meatloaf turducken alcatra short loin. Meatloaf spare ribs andouille, tongue filet mignon ground round beef ribs. Kevin leberkas short ribs andouille ham, turkey kielbasa hamburger beef ribs rump spare ribs meatball shoulder. Leberkas venison tri-tip beef ribs shank cow. Andouille tail meatball, t-bone spare ribs sirloin strip steak ham pig doner cow boudin alcatra. Andouille jerky t-bone, prosciutto fatback ham bacon spare ribs ribeye shoulder kevin kielbasa.
+					  		</div>
+				  		</article>
+				  		<article class="horizontalSort">
+					  		<div class="wrap">
+					  			<i class="fa fa-arrows-h"></i>
+				  				<select>
+				  					<option value="video">Video</option>
+				  					<option value="text">Text</option>
+				  					<option value="interactive">Interactive</option>
+				  				</select>
+				  				Meatloaf turducken alcatra short loin. Meatloaf spare ribs andouille, tongue filet mignon ground round beef ribs. Kevin leberkas short ribs andouille ham, turkey kielbasa hamburger beef ribs rump spare ribs meatball shoulder. Leberkas venison tri-tip beef ribs shank cow. Andouille tail meatball, t-bone spare ribs sirloin strip steak ham pig doner cow boudin alcatra. Andouille jerky t-bone, prosciutto fatback ham bacon spare ribs ribeye shoulder kevin kielbasa.
+					  		</div>
+				  		</article>
+				  		<article class="horizontalSort">
+					  		<div class="wrap">
+					  			<i class="fa fa-arrows-h"></i>
+				  				<select>
+				  					<option value="video">Video</option>
+				  					<option value="text">Text</option>
+				  					<option value="interactive">Interactive</option>
+				  				</select>
+				  				Meatloaf turducken alcatra short loin. Meatloaf spare ribs andouille, tongue filet mignon ground round beef ribs. Kevin leberkas short ribs andouille ham, turkey kielbasa hamburger beef ribs rump spare ribs meatball shoulder. Leberkas venison tri-tip beef ribs shank cow. Andouille tail meatball, t-bone spare ribs sirloin strip steak ham pig doner cow boudin alcatra. Andouille jerky t-bone, prosciutto fatback ham bacon spare ribs ribeye shoulder kevin kielbasa.
+					  		</div>
+				  		</article>
+				  		<article class="horizontalSort">
+					  		<div class="wrap">
+					  			<i class="fa fa-arrows-h"></i>
+				  				<select>
+				  					<option value="video">Video</option>
+				  					<option value="text">Text</option>
+				  					<option value="interactive">Interactive</option>
+				  				</select>
+				  				Meatloaf turducken alcatra short loin. Meatloaf spare ribs andouille, tongue filet mignon ground round beef ribs. Kevin leberkas short ribs andouille ham, turkey kielbasa hamburger beef ribs rump spare ribs meatball shoulder. Leberkas venison tri-tip beef ribs shank cow. Andouille tail meatball, t-bone spare ribs sirloin strip steak ham pig doner cow boudin alcatra. Andouille jerky t-bone, prosciutto fatback ham bacon spare ribs ribeye shoulder kevin kielbasa.
+					  		</div>
+				  		</article>
+				  		<article class="horizontalSort">
+					  		<div class="wrap">
+					  			<i class="fa fa-arrows-h"></i>
+				  				<select>
+				  					<option value="video">Video</option>
+				  					<option value="text">Text</option>
+				  					<option value="interactive">Interactive</option>
+				  				</select>
+				  				Meatloaf turducken alcatra short loin. Meatloaf spare ribs andouille, tongue filet mignon ground round beef ribs. Kevin leberkas short ribs andouille ham, turkey kielbasa hamburger beef ribs rump spare ribs meatball shoulder. Leberkas venison tri-tip beef ribs shank cow. Andouille tail meatball, t-bone spare ribs sirloin strip steak ham pig doner cow boudin alcatra. Andouille jerky t-bone, prosciutto fatback ham bacon spare ribs ribeye shoulder kevin kielbasa.
+					  		</div>
+				  		</article>
+				  	</section>
+				</article>
+			</section>
 		</div>
-
-	</section>
 
 </body>
