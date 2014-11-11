@@ -2,15 +2,9 @@
 include_once '../includes/global.php';
 include_once '../head.php';
 ?>
-	  <script>
-  $(function() {
-    $( ".sortable" ).sortable();
-    $( ".sortable" ).disableSelection();
-    $( ".subSortable" ).sortable();
-    $( ".subSortable" ).disableSelection();
-  });
-  </script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="js/script.js"></script>
 <body class="grayBg">
 	<div id="slidingMenu">
 		<h1>Aptitude</h1>
@@ -22,44 +16,6 @@ include_once '../head.php';
 		<hr style="margin:0px; border-top: 1px solid #F26522;">
 		<a href="/class/1">mathTest</a><a href="/class/3">mathgroup2</a>			<a href="#">+ Create new class</a>
 	</div>
-	<style type="text/css">
-	/*GLOBAL STYLING*/
-	h1{
-		font-size: 60px;
-		font-family: minion pro;
-		color: #F79234;
-		text-transform: uppercase;
-	letter-spacing: 2px;
-	}
-	.grayBg{
-		background-color: #EBEBEB;
-	}
-	/*GLOBAL STYLING*/
-
-
-	.horizontalSort{
-		width: 33.3333%;
-		display:inline-block;
-	}
-	.subSortable{
-		overflow-x:scroll; 
-		overflow-y:hidden; 
-		width: auto;
-   		white-space:nowrap; 
-	}
-	.wrap{
-	   white-space:normal; 
-	}
-
-	.modifyContentContainer{
-		background-color: white;
-		border: solid 1px #ADADAD;
-		border-radius: 10px;
-		min-height: 25px;
-		padding: 15px;
-	}
-
-	</style>
 	<header>
 		<div id="header">
 			<!--Button to expand slideout-->
@@ -91,7 +47,7 @@ include_once '../head.php';
 				</optgroup>
 			</select>
 		</div>
-		<div class="modifyContentContainer">
+		<div class="modifyContentContainer mg-t-md">
 
 			<section class="sortable">
 				<article class="ui-state-default verticalSort">

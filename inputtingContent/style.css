@@ -1,0 +1,43 @@
+/*GLOBAL STYLING*/
+	h1{
+		font-size: 60px;
+		font-family: minion pro;
+		color: #F79234;
+		text-transform: uppercase;
+	letter-spacing: 2px;
+	}
+	.grayBg{
+		background-color: #EBEBEB;
+	}
+	/*GLOBAL STYLING*/
+
+
+	.horizontalSort{
+		width: 33.3333%;
+		display:inline-block;
+	}
+	.subSortable{
+		overflow-x:scroll; 
+		overflow-y:hidden; 
+		width: auto;
+   		white-space:nowrap; 
+	}
+	.wrap{
+	   white-space:normal; 
+	   padding: 15px 20px;
+	   border: 1px dashed #CACACA;
+	}
+
+	.modifyContentContainer{
+		background-color: white;
+		border: solid 1px #ADADAD;
+		border-radius: 10px;
+		min-height: 25px;
+		padding: 15px;
+	}
+	.verticalSort{
+		background: none; 
+		border: none;
+		background-color: white !important;
+	}
+	.ui-state-highlight {display:inline-block;}
