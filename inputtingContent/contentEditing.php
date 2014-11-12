@@ -4,7 +4,7 @@ include_once '../head.php';
 ?>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="style.css">
-  <script src="js/script.js"></script>
+  <script src="script.js"></script>
 <body class="grayBg">
 	<div id="slidingMenu">
 		<h1>Aptitude</h1>

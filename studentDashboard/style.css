@@ -1,0 +1,224 @@
+/*GLOBAL STYLING*/
+	h1{
+		font-size: 60px;
+		font-family: minion pro;
+		color: #F79234;
+		text-transform: uppercase;
+	letter-spacing: 2px;
+	}
+	h3{
+		font-size: 20px;
+		font-family: nexabold;
+		color: #27292B;
+		text-transform: uppercase;
+		letter-spacing: 4px;
+		padding-bottom: 30px;
+	}
+	.grayBg{
+		background-color: #EBEBEB;
+	}
+	.sectionNumber{
+		font-size: 20px;
+		font-family: nexabold;
+		color: #27292B;
+		text-transform: uppercase;
+		letter-spacing: 4px;
+		padding-bottom: 30px;
+	}
+	.dataContainer {
+		border: 2px solid #F79234;
+		padding: 25px !important;
+	}
+	/*GLOBAL STYLING*/
+
+	.arrowContainer{
+		padding-left: 0px;
+		width: 13%;
+	}
+	.materialBody{
+		padding-left: 0;
+		padding-top: 8%;
+		padding-right: 25px;
+	}
+
+	.pd-to-r{
+		padding-left: 0px;
+		padding-right: 30px;
+	}
+
+
+
+
+
+
+
+	/*Activity chart styling*/
+	.activityChart {
+		line-height:0!important
+	}
+
+	.activityChart>div {
+		width:16px;
+		height:16px;
+		padding:1px;
+		float:left
+	}
+
+	.activityChart>div>div {
+		width:14px;
+		height:14px
+	}
+
+	.activityChart>div>div>div {
+		width:14px;
+		height:14px
+	}
+
+	.activityChart>div>div:hover {
+		border:1px solid
+	}
+
+	.activityLow {
+		background-color:#58585B!important
+	}
+
+	.activityHigh {
+		background-color:#F68E1E!important
+	}
+
+	.activityNone {
+		background-color:#D1D2D4!important
+	}
+
+	.titleRow {
+		padding-left:34px
+	}
+
+	.titleRow>div {
+		position:relative;
+		float:left;
+		font-size:20px;
+		font-family:nexabold;
+		color:#F79234;
+		text-transform:uppercase;
+		letter-spacing:4px;
+		width:136px;
+		text-align:center
+	}
+
+	.dayMarkers {
+		position:relative;
+		float:left
+	}
+
+	.dayMarkers>div {
+		font-size:20px;
+		font-family:nexabold;
+		color:#F79234;
+		text-transform:uppercase;
+		text-align:center;
+		width:20px;
+		height:22px;
+		margin:0 12px 12px 0
+	}
+
+	.calendarBlock {
+		float:left;
+		position:relative;
+		width:136px
+	}
+
+	.calendarBlock>.week>div {
+		float:left;
+		width:22px;
+		height:22px;
+		background-color:#EBEBEB;
+		margin:0 0 12px
+	}
+
+	.week {
+		width:22px;
+		position:relative;
+		float:left;
+		margin:0 12px 0 0
+	}
+
+	.verticalMarker {
+		width:1px;
+		position:absolute;
+		background-color:#F68E1E;
+		height:17px;
+		margin-left:127px;
+		margin-top: -25px;
+	}
+
+	.legendHigh {
+		width:22px;
+		height:22px;
+		background-color:#F68E1E;
+		float:left;
+		position:relative;
+		margin-right:20px
+	}
+
+	.legendHighText {
+		font-size:14px;
+		font-family:Open Sans;
+		color:#F68E1E
+	}
+
+	.legendLow {
+		width:22px;
+		height:22px;
+		background-color:#58585B;
+		float:left;
+		position:relative;
+		margin-right:20px
+	}
+
+	.legendLowText {
+		font-size:14px;
+		font-family:Open Sans;
+		color:#58585B
+	}
+
+	.legendNone {
+		width:22px;
+		height:22px;
+		background-color:#D1D2D4;
+		float:left;
+		position:relative;
+		margin-right:20px
+	}
+
+	.legendNoneText {
+		font-size:14px;
+		font-family:Open Sans;
+		color:#D1D2D4
+	}
+
+	.legend {
+		margin-top:15px
+	}
+
+	.activityTable {
+		min-width:714px
+	}
+	.no-mg-b{
+		margin-bottom: 0px;
+	}
+
+	/* iPads (portrait) ----------- */
+	@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+	.removeFirst {
+		display:none
+	}
+	}
+
+	@media only screen and (min-device-width : 1589px) and (max-device-width : 1807px) and (orientation : portrait) {
+	.removeSecond {
+		display:none
+	}
+	}
+
+	/**activity row - end**/
