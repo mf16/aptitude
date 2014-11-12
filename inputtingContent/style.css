@@ -44,3 +44,14 @@
 		background-color: white !important;
 	}
 	.ui-state-highlight {display:inline-block;}
+	
+
+
+	.pseudoHorizontalSort{
+	width: 33.3333%;
+	display:inline-block;
+	}
+	.pseudoWrap{
+	   white-space:normal; 
+	   padding: 15px 20px;
+	}
