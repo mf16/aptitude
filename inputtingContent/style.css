@@ -10,6 +10,9 @@
 		background-color: #EBEBEB;
 	}
 	/*GLOBAL STYLING*/
+	.delContent{
+		cursor:pointer;
+	}
 
 
 	.horizontalSort{

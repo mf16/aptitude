@@ -31,13 +31,14 @@
 	<script type="text/javascript" src="/js/MathJax-2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 	<!-- Nano Scroller Plugin-->
 	<link rel="stylesheet" href="/js/nanoscroller/nanoscroller.css">
-	<script type="text/javascript" src="/js/nanoscroller/jquery.nanoscroller.min.js"></script>
+	<!--<script type="text/javascript" src="/js/nanoscroller/jquery.nanoscroller.min.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function() {
 	   		$(".nano").nanoScroller();
 	   	});
 	</script>
+		-->
 	<!--<style type="text/css" src="js/jsxgraph/jsxgraph.css"></style>
 
 	<script type="text/javascript" src="/js/JSXGraph/jsxgraphcore.js"></script>-->

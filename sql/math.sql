@@ -37,20 +37,20 @@ CREATE TABLE `chapter_names` (
 LOCK TABLES `chapter_names` WRITE;
 /*!40000 ALTER TABLE `chapter_names` DISABLE KEYS */;
 INSERT INTO `chapter_names` VALUES (1,'Relations and Functions',2);
-INSERT INTO `chapter_names` VALUES (2,'Linear and Quadratic Functions',12);
-INSERT INTO `chapter_names` VALUES (3,'Polynomial Functions',3);
-INSERT INTO `chapter_names` VALUES (4,'Rational Functions',1);
-INSERT INTO `chapter_names` VALUES (5,'Further Topics in Functions',5);
-INSERT INTO `chapter_names` VALUES (6,'Exponential and Logarithmic Functions',13);
-INSERT INTO `chapter_names` VALUES (7,'Hooked on Conics',7);
-INSERT INTO `chapter_names` VALUES (8,'Systems of Equations and Matrices',8);
-INSERT INTO `chapter_names` VALUES (9,'Sequences and the Binomial Theorem',6);
-INSERT INTO `chapter_names` VALUES (12,'bbbbb',0);
-INSERT INTO `chapter_names` VALUES (14,'gdsag',4);
-INSERT INTO `chapter_names` VALUES (17,'dsagasdg',9);
-INSERT INTO `chapter_names` VALUES (18,'adsgsad',10);
-INSERT INTO `chapter_names` VALUES (19,'asdgsadgsadg',11);
-INSERT INTO `chapter_names` VALUES (20,'fffffffff',14);
+INSERT INTO `chapter_names` VALUES (2,'Linear and Quadratic Functions',13);
+INSERT INTO `chapter_names` VALUES (3,'Polynomial Functions',4);
+INSERT INTO `chapter_names` VALUES (4,'Rational Functions',3);
+INSERT INTO `chapter_names` VALUES (5,'Further Topics in Functions',6);
+INSERT INTO `chapter_names` VALUES (6,'Exponential and Logarithmic Functions',14);
+INSERT INTO `chapter_names` VALUES (7,'Hooked on Conics',8);
+INSERT INTO `chapter_names` VALUES (8,'Systems of Equations and Matrices',9);
+INSERT INTO `chapter_names` VALUES (9,'Sequences and the Binomial Theorem',7);
+INSERT INTO `chapter_names` VALUES (12,'bbbbb',1);
+INSERT INTO `chapter_names` VALUES (14,'gdsag',5);
+INSERT INTO `chapter_names` VALUES (17,'dsagasdg',10);
+INSERT INTO `chapter_names` VALUES (18,'adsgsad',11);
+INSERT INTO `chapter_names` VALUES (19,'asdgsadgsadg',12);
+INSERT INTO `chapter_names` VALUES (20,'fffffffff',15);
 /*!40000 ALTER TABLE `chapter_names` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,8 +96,9 @@ CREATE TABLE `content` (
   `submitter_type` varchar(255) DEFAULT NULL,
   `submitter_id` int(11) DEFAULT NULL,
   `contentgroup_id` int(11) DEFAULT NULL,
+  `order` int(11) DEFAULT NULL,
   PRIMARY KEY (`idcontent`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -106,8 +107,7 @@ CREATE TABLE `content` (
 
 LOCK TABLES `content` WRITE;
 /*!40000 ALTER TABLE `content` DISABLE KEYS */;
-INSERT INTO `content` VALUES (1,'							<article class=\"leadingLetter\">B</article>\n							<p class=\"vote-text\">efore we embark upon any further adventures with functions, we need to take some time to gather our thoughts and gain some perspective. Chapter 1 first introduced us to functions in Section 1.3. At that time, functions were specific kinds of relations - sets of points in the plane which passed the Vertical Line Test, Theorem 1.1. In Section 1.4, we developed the idea that functions are processes - rules which match inputs to outputs - and this gave rise to the concepts of domain and range. We spoke about how functions could be combined in Section 1.5 using the four basic arithmetic operations, took a more detailed look at their graphs in Section 1.6 and studied how their graphs behaved under certain classes of transformations in Section 1.7. In Chapter 2, we took a closer look at three families of functions: linear functions (Section 2.1), absolute value functions1 (Section 2.2), and quadratic functions (Section 2.3).</p> ',NULL,NULL,NULL,NULL);
-INSERT INTO `content` VALUES (2,'<p class=\"vote-text\">Linear and quadratic functions were special cases of polynomial functions, which we studied in generality in Chapter 3. Chapter 3 culminated with the Real Factorization Theorem, Theorem 3.16, which says that all polynomial functions with real coefficients can be thought of as products of linear and quadratic functions. Our next step was to enlarge our field of study to rational functions in Chapter 4. Being quotients of polynomials, we can ultimately view this family of functions as being built up of linear and quadratic functions as well. So in some sense, Chapters 2, 3, and 4 can be thought of as an exhaustive study of linear and quadratic functions and their arithmetic combinations as described in Section 1.5. We now wish to study other algebraic functions, such as \\(f(x) = \\sqrt{x}\\) and \\(g(x) = x^{2/3}\\), and the purpose of the first two sections of this chapter is to see how these kinds of functions arise from polynomial and rational functions. To that end, we first study a new way to combine functions as defined below.</p>',NULL,NULL,NULL,NULL);
+INSERT INTO `content` VALUES (3,'<p class=\"vote-text\">Linear and quadratic functions were special cases of polynomial functions, which we studied in generality in Chapter 3. Chapter 3 culminated with the Real Factorization Theorem, Theorem 3.16, which says that all polynomial functions with real coefficients can be thought of as products of linear and quadratic functions. Our next step was to enlarge our field of study to rational functions in Chapter 4. Being quotients of polynomials, we can ultimately view this family of functions as being built up of linear and quadratic functions as well. So in some sense, Chapters 2, 3, and 4 can be thought of as an exhaustive study of linear and quadratic functions and their arithmetic combinations as described in Section 1.5. We now wish to study other algebraic functions, such as \\(f(x) = \\sqrt{x}\\) and \\(g(x) = x^{2/3}\\), and the purpose of the first two sections of this chapter is to see how these kinds of functions arise from polynomial and rational functions. To that end, we first study a new way to combine functions as defined below.</p>',2,NULL,NULL,1,3);
 /*!40000 ALTER TABLE `content` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,10 +131,10 @@ CREATE TABLE `contentgroup_type_names` (
 
 LOCK TABLES `contentgroup_type_names` WRITE;
 /*!40000 ALTER TABLE `contentgroup_type_names` DISABLE KEYS */;
-INSERT INTO `contentgroup_type_names` VALUES (1,'definition');
-INSERT INTO `contentgroup_type_names` VALUES (2,'example');
-INSERT INTO `contentgroup_type_names` VALUES (3,'summary');
-INSERT INTO `contentgroup_type_names` VALUES (4,'explanation');
+INSERT INTO `contentgroup_type_names` VALUES (1,'Definition');
+INSERT INTO `contentgroup_type_names` VALUES (2,'Example');
+INSERT INTO `contentgroup_type_names` VALUES (3,'Summary');
+INSERT INTO `contentgroup_type_names` VALUES (4,'Explanation');
 /*!40000 ALTER TABLE `contentgroup_type_names` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,10 +148,12 @@ DROP TABLE IF EXISTS `contentgroups`;
 CREATE TABLE `contentgroups` (
   `contentgroup_id` int(11) NOT NULL AUTO_INCREMENT,
   `order` int(11) DEFAULT NULL,
-  `type_id` int(11) DEFAULT NULL,
   `section_id` int(11) DEFAULT NULL,
+  `type_id` int(11) DEFAULT NULL,
+  `concept1` int(11) DEFAULT NULL,
+  `concept2` int(11) DEFAULT NULL,
   PRIMARY KEY (`contentgroup_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -160,32 +162,10 @@ CREATE TABLE `contentgroups` (
 
 LOCK TABLES `contentgroups` WRITE;
 /*!40000 ALTER TABLE `contentgroups` DISABLE KEYS */;
+INSERT INTO `contentgroups` VALUES (1,1,24,3,NULL,NULL);
+INSERT INTO `contentgroups` VALUES (2,2,24,2,NULL,NULL);
+INSERT INTO `contentgroups` VALUES (3,2,24,2,NULL,NULL);
 /*!40000 ALTER TABLE `contentgroups` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `contentgroups_concepts`
---
-
-DROP TABLE IF EXISTS `contentgroups_concepts`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `contentgroups_concepts` (
-  `idcontentgroups_concepts` int(11) NOT NULL AUTO_INCREMENT,
-  `contentgroup_id` int(11) DEFAULT NULL,
-  `concept_id` int(11) DEFAULT NULL,
-  `priority` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idcontentgroups_concepts`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `contentgroups_concepts`
---
-
-LOCK TABLES `contentgroups_concepts` WRITE;
-/*!40000 ALTER TABLE `contentgroups_concepts` DISABLE KEYS */;
-/*!40000 ALTER TABLE `contentgroups_concepts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -208,9 +188,9 @@ CREATE TABLE `contentmedium_names` (
 
 LOCK TABLES `contentmedium_names` WRITE;
 /*!40000 ALTER TABLE `contentmedium_names` DISABLE KEYS */;
-INSERT INTO `contentmedium_names` VALUES (1,'video');
-INSERT INTO `contentmedium_names` VALUES (2,'text');
-INSERT INTO `contentmedium_names` VALUES (3,'interactive');
+INSERT INTO `contentmedium_names` VALUES (1,'Video');
+INSERT INTO `contentmedium_names` VALUES (2,'Text');
+INSERT INTO `contentmedium_names` VALUES (3,'Interactive');
 /*!40000 ALTER TABLE `contentmedium_names` ENABLE KEYS */;
 UNLOCK TABLES;
 

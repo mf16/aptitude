@@ -1,8 +1,8 @@
 $(function() {
     $( ".sortable" ).sortable({placeholder: "ui-state-highlight"});
-    $( ".sortable" ).disableSelection();
+    //$( ".sortable" ).disableSelection();
     $( ".subSortable" ).sortable({placeholder: "ui-state-highlight"});
-    $( ".subSortable" ).disableSelection();
+    //$( ".subSortable" ).disableSelection();
 
     $( ".sortable" ).sortable({
 	  start: function( event, ui ) {
@@ -10,6 +10,7 @@ $(function() {
 	  	$('.ui-state-highlight').css('line-height', $(ui.item).css('height'));
 	  }
 	});
+
 	$( ".subSortable" ).sortable({
 	  start: function( event, ui ) {
 	  	$('.ui-state-highlight').css('height',  $(ui.item).css('height'));
@@ -17,4 +18,5 @@ $(function() {
 	  	$('.ui-state-highlight').css('line-height', $(ui.item).css('height'));
 	  }
 	});
+
   });

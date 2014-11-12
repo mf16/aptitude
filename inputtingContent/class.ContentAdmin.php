@@ -1,10 +1,15 @@
 <?php
 include_once "../includes/global.php";
-class ChapterSectionAdmin{
+class ContentAdmin {
 	protected $subject;
+	protected $chapter;
+	protected $section;
 	function __construct(){
 		if(isset($_REQUEST['subject'])){
 			$this->subject=$_REQUEST['subject'];
+		}
+		if(isset($_REQUEST['section'])){
+			$this->section=$_REQUEST['section'];
 		}
 		if(isset($_REQUEST['action'])){
 			$action=$_REQUEST['action'];
@@ -14,319 +19,252 @@ class ChapterSectionAdmin{
 		}
 	}
 
-	function saveNewSection(){
-		if(isset($_REQUEST['sectionName']) && isset($this->subject)){
-			$sql="INSERT INTO ".$this->subject.".section_names (chapter_id,section_name) VALUES (?,?);";
-			query($sql,$_REQUEST['chapter_id'],$_REQUEST['sectionName']);
-			echo 'success';
-		} else {
-			echo 'failed';
-		}
-	}
-
-	function saveChapterName(){
-		if(isset($_REQUEST['chapterName']) && isset($this->subject)){
-			$sql="UPDATE ".$this->subject.".chapter_names SET chapter_name=? WHERE chapter_id=?;";
-			query($sql,$_REQUEST['chapterName'],$_REQUEST['chapter_id']);
-		}
-	}
-
-	function saveSectionName(){
-		if(isset($_REQUEST['sectionName']) && isset($this->subject)){
-			$sql="UPDATE ".$this->subject.".section_names SET section_name=? WHERE section_id=?;";
-			query($sql,$_REQUEST['sectionName'],$_REQUEST['section_id']);
-		}
-	}
-
-	function delChapter(){
-		if(isset($_REQUEST['chapter_id']) && isset($this->subject)){
-			// delete sections related to chapter
-			$sql="SELECT section_id FROM ".$this->subject.".section_names WHERE chapter_id=?;";
-			$sections=query($sql,$_REQUEST['chapter_id']);
-			foreach($sections as $key=>$section){
-				$this->delSection($section['section_id']);
-			}
-			// Delete actual chapter
-			$sql="DELETE FROM ".$this->subject.".chapter_names WHERE chapter_id=?;";
-			query($sql,$_REQUEST['chapter_id']);
-		}
-	}
-
-	function delSection($sectionid){
-		if(isset($_REQUEST['section_id'])){
-			$sectionid=$_REQUEST['section_id'];
-		}
-		if(isset($sectionid) && isset($this->subject)){
-			$sql="DELETE FROM ".$this->subject.".section_names WHERE section_id=?;";
-			query($sql,$sectionid);
-		}
-	}
-
-	function saveNewChapter(){
-		if(isset($_REQUEST['chapterName']) && isset($this->subject)){
-			$sql="INSERT INTO ".$this->subject.".chapter_names (chapter_name) VALUES (?);";
-			query($sql,$_REQUEST['chapterName']);
-			echo 'success';
-		} else {
-			echo 'failed';
-		}
-	}
-
-	function drawChapters($subject=NULL){
-		if(isset($_REQUEST['subject'])){
-			$subject=$_REQUEST['subject'];
-		}
-			?>
-			<script>
-				$(function(){
-					$("#sortableChapters").sortable({
-						update:function(event,ui){
-							//alert('changed');
-							chaptersInOrder=JSON.stringify($("#sortableChapters").sortable("toArray"));
-							console.log(JSON.stringify(chaptersInOrder));
-							$.ajax({
-								type: 'POST',
-								url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=saveChapterOrder&data='+chaptersInOrder,
-								success:function(result){
-									//alert('success');
-									console.log(result);
-									$.ajax({
-										type:'POST',
-										url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
-										success:function(result){
-											$("#chapterList").html(result);
-										}
-									});
-								}
-							});
-						}
-					});
-				});
-			</script>
-			<?php
-		$sql="SELECT * FROM ".$subject.".chapter_names ORDER BY chapter_order ASC;";
-		$chapters=query($sql);
-		echo '<h2>Chapters and Sections</h2>';
-		echo '<ul id="sortableChapters">';
-			foreach($chapters as $key=>$chapter){
-				// use class for renaming. Can't change id from sole int, and if I leave it then section and chapter could have conflicting id's when trying to rename
-				echo '<li id="'.$chapter['chapter_id'].'" class="ui-state-default">';
-					echo '<span class="chapter_'.$chapter['chapter_id'].'">'; 
-						echo $chapter['chapter_name'];
-					echo '</span>';
-					echo ' - <span id="renameChapter_'.$chapter['chapter_id'].'" style="cursor:pointer;" onClick="renameChapter('.$chapter['chapter_id'].',\''.$chapter['chapter_name'].'\')"><b>Rename</b></span>';
-					echo ' - <span style="cursor:pointer;" onClick="delChapter('.$chapter['chapter_id'].',\''.$chapter['chapter_name'].'\')"><b>Delete</b></span>';
-					echo '<ul id="sortableSections_'.$chapter['chapter_id'].'">';
-						$sql="SELECT section_id,section_name FROM ".$subject.".section_names WHERE chapter_id=? ORDER BY friendly_view_section_id ASC;";
-						$sections=query($sql,$chapter['chapter_id']);
-						//print_r($sections);
-						if(isset($sections)){
-							foreach($sections as $sectionKey=>$section){
-								echo '<li class="section_'.$section['section_id'].'" id="'.$section['section_id'].'">'.$section['section_name'].' - <span id="renameSection_'.$section['section_id'].'" style="cursor:pointer;" onClick="renameSection('.$section['section_id'].',\''.$section['section_name'].'\')"><b>Rename</b></span> - <span style="cursor:pointer;" onClick="delSection('.$section['section_id'].',\''.$section['section_name'].'\')"><b>Delete</b></span></li>';
-							}
-						}
-					echo '</ul>';
-					echo '<span style="margin-left:30px;cursor:pointer;" id="addSection_'.$chapter['chapter_id'].'" onClick="addSection('.$chapter['chapter_id'].');"><b>Add Section</b></span>';
-					?>
-					<script>
-						$(function(){
-							$("#sortableSections_<?php echo $chapter['chapter_id'];?>").sortable({
-								update:function(event,ui){
-									//alert('changed');
-									sectionsInOrder_<?php echo $chapter['chapter_id'];?>=JSON.stringify($("#sortableSections_<?php echo $chapter['chapter_id'];?>").sortable("toArray"));
-									console.log(JSON.stringify(sectionsInOrder_<?php echo $chapter['chapter_id'];?>));
-									$.ajax({
-										type: 'POST',
-										url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=saveSectionOrder&data='+sectionsInOrder_<?php echo $chapter['chapter_id'];?>,
-										success:function(result){
-											//alert('success');
-											console.log(result);
-											$.ajax({
-												type:'POST',
-												url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
-												success:function(result){
-													$("#chapterList").html(result);
-												}
-											});
-										}
-									});
-								}
-							});
-						});
-					</script>
-				<?php
-				echo '</li>';
-			}
-		echo '</ul>';
-		echo '<span style="cursor:pointer;" id="addChapter" onClick="addChapter();"><b>Add Chapter</b></span>';
-	}
-
-	function saveSectionOrder(){
-		print_r($_REQUEST);
-		foreach(JSON_decode($_REQUEST['data']) as $key=>$value){
-			if(isset($_REQUEST['subject'])){
-				$sql="UPDATE ".$_REQUEST['subject'].".section_names SET friendly_view_section_id=? WHERE section_id=?;";
-				query($sql,$key+1,$value);
-				echo 'success';
-			}
-		}
-	}
-	function saveChapterOrder(){
-		//print_r($_REQUEST);
-		foreach(JSON_decode($_REQUEST['data']) as $key=>$value){
-			if(isset($_REQUEST['subject'])){
-				$sql="UPDATE ".$_REQUEST['subject'].".chapter_names SET chapter_order=? WHERE chapter_id=?;";
-				query($sql,$key,$value);
-				echo 'success';
-			}
-		}
-	}
-
 	function draw(){
-		echo '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>';
-		echo ' <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>';
+		include "../head.php";
 		?>
-		<script>
-
-			function addSection(chapter_id){
-				$("#addSection_"+chapter_id).attr("onClick","").unbind('click');
-				$("#addSection_"+chapter_id).css("cursor","default");
-				$("#addSection_"+chapter_id).html("<input id='newSectionName_"+chapter_id+"' type='text'><span style='cursor:pointer;border:1px solid black;' onClick='saveNewSection("+chapter_id+");'>Save</span>");
-			}
-
-			function saveNewSection(chapter_id){
-				var sectionName=$("#newSectionName_"+chapter_id).val();
-				$.ajax({
-					type: 'POST',
-					url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=saveNewSection&sectionName='+sectionName+'&chapter_id='+chapter_id,
-					success:function(result){
-						//alert('success');
+		  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		  <link rel="stylesheet" href="style.css">
+		  <script src="script.js"></script>
+		  <script>
+		  $(function(){
+				$("#sectionSelect").change(function(){
+					var section=$("#sectionSelect").val().substring(7);
+					window.location.assign('/inputtingContent/class.ContentAdmin.php?subject=<?php echo $this->subject;?>&section='+section);
+				});
+				
+				$(".delContent").click(function(){
+					var contentid=$(this).attr("contentid");
+					if(confirm("Are you sure you wish to delete this content?")){
 						$.ajax({
-							type:'POST',
-							url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
+							type: 'POST',
+							url: 'class.ContentAdmin.php?subject=<?php echo $this->subject;?>&action=delContent&contentid='+contentid,
 							success:function(result){
-								$("#chapterList").html(result);
+								$("#realContent_"+contentid).remove();
+								console.log(result);
 							}
 						});
 					}
 				});
-			}
 
-			function delChapter(chapter_id,chapterName){
-				if (confirm('Are you sure you wish to delete chapter '+chapterName+'?\n\nThis will also delete all sections associated with this chapter.')){
+				$(".mediumSelect").change(function(){
+					var contentid=this.id.substring(8);
+					var mediumid=$(this).find('option:selected').val();
 					$.ajax({
 						type: 'POST',
-						url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=delChapter&chapter_id='+chapter_id,
+						url: 'class.ContentAdmin.php?subject=<?php echo $this->subject;?>&action=changeContentMediumByid&contentid='+contentid+'&mediumid='+mediumid,
 						success:function(result){
 							console.log(result);
-							$.ajax({
-								type:'POST',
-								url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
-								success:function(result){
-									$("#chapterList").html(result);
-								}
-							});
 						}
 					});
-				} else {
-				}
-			}
-
-			function renameChapter(chapter_id,chapterName){
-				$(".chapter_"+chapter_id).html('<input type="text" id="renameChapter_'+chapter_id+'" value="'+chapterName+'"><span style="border:1px solid black;cursor:pointer" onClick="saveChapterName('+chapter_id+');">save</span>');
-			}
-
-			function renameSection(section_id,sectionName){
-				$(".section_"+section_id).html('<input type="text" id="renameSection_'+section_id+'" value="'+sectionName+'"><span style="border:1px solid black;cursor:pointer" onClick="saveSectionName('+section_id+');">save</span>');
-			}
-
-			function saveChapterName(chapter_id){
-				chapterName=$("#renameChapter_"+chapter_id).val();
-				$.ajax({
-					type: 'POST',
-					url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=saveChapterName&chapter_id='+chapter_id+'&chapterName='+chapterName,
-					success:function(result){
-						//alert('success');
-						$.ajax({
-							type:'POST',
-							url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
-							success:function(result){
-								$("#chapterList").html(result);
-							}
-						});
-					}
 				});
-			}
 
-			function saveSectionName(section_id){
-				sectionName=$("#renameSection_"+section_id).val();
-				$.ajax({
-					type: 'POST',
-					url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=saveSectionName&section_id='+section_id+'&sectionName='+sectionName,
-					success:function(result){
-						//alert('success');
-						$.ajax({
-							type:'POST',
-							url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
-							success:function(result){
-								$("#chapterList").html(result);
-							}
-						});
-					}
-				});
-			}
-
-			function delSection(section_id,sectionName){
-				if (confirm('Are you sure you wish to delete section '+sectionName+'?')){
+				$(".typeSelect").change(function(){
+					var contentgroupid= this.id.substring(13);
+					var typeid=$(this).find('option:selected').val();
 					$.ajax({
 						type: 'POST',
-						url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=delSection&section_id='+section_id,
+						url: 'class.ContentAdmin.php?subject=<?php echo $this->subject;?>&action=changeContentgroupTypeByid&contentgroupid='+contentgroupid+'&typeid='+typeid,
 						success:function(result){
-							//alert('success');
-							$.ajax({
-								type:'POST',
-								url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
-								success:function(result){
-									$("#chapterList").html(result);
-								}
-							});
+							console.log(result);
 						}
 					});
-				} else {
-					
-				}
-			}
-
-			function addChapter(){
-				$("#addChapter").attr("onClick","").unbind('click');
-				$("#addChapter").css("cursor","default");
-				$("#addChapter").html("<input id='newChapterName' type='text'><span style='cursor:pointer;border:1px solid black;' onClick='saveNewChapter();'>Save</span>");
-			}
-
-			function saveNewChapter(){
-				var chapterName=$("#newChapterName").val();
-				$.ajax({
-					type: 'POST',
-					url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=saveNewChapter&chapterName='+chapterName,
-					success:function(result){
-						//alert('success');
-						$.ajax({
-							type:'POST',
-							url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
-							success:function(result){
-								$("#chapterList").html(result);
-							}
-						});
-					}
 				});
-			}
-		</script>
-		<?php
+			});
+		  </script>
+		<body class="grayBg">
+			<div id="slidingMenu">
+				<h1>Aptitude</h1>
+				<span id="studentName">Albert Einstein</span>
+				<hr style="margin:0px; border-top: 1px solid #F26522;">
+				<!--<a href="#services">Timeline</a>-->
+				<a href="#services">Account Settings</a>
+				<span>Classes</span>
+				<hr style="margin:0px; border-top: 1px solid #F26522;">
+				<a href="/class/1">mathTest</a><a href="/class/3">mathgroup2</a>			<a href="#">+ Create new class</a>
+			</div>
+			<header>
+				<div id="header">
+					<!--Button to expand slideout-->
+					<section id="buttonSideMenu"> <!--// onclick="displayMenu()"-->
+					</section>
+					<article>
+						<span class="phoneHide" id="aptitude">Aptitude</span>
+					</article>
+				</div>
+			</header>
+			<section id="headerSpacerSmall"></section>
+			<section class="col-md-1 no-pd mg-t-md">
+				<div class="chapter-number">
+					<img src="/img/global/solid-arrow.png">
+				</div>
+			</section>
+			<section class="col-md-10 mg-t-lg">
+				<div class="title">
+					<h1>Modify Content</h1>
+					<?php
+					$chapters=$this->getChapters($this->subject);
+					echo '<select class="form-control" id="sectionSelect">';
+						echo '<option>----Select a section to edit----</option>';
+						foreach($chapters as $key=>$chapter){
+							echo '<optgroup label="Chapter '.$chapter['chapter_order'].' - '.$chapter['chapter_name'].'">';
+								$sections=$this->getSections($this->subject,$chapter['chapter_id']);
+								foreach($sections as $sectionKey=>$eachSection){
+									$selectedText="";
+									if($this->section==$eachSection['section_id']){
+										$selectedText=" selected='selected' ";
+									}
+									echo '<option '.$selectedText.' value="section'.$eachSection['section_id'].'">';
+										echo $eachSection['section_name'];
+									echo '</option>';
+								}
+							echo '</optgroup>';
+						}
+					?>
+					</select>
+				</div>
+				<div class="modifyContentContainer mg-t-md">
+					<?php
+					$this->drawModifiedContent();
+				echo '</div>';
+				echo '</section>';
+	}
 
-		echo 'draw class for <h1>'.$this->subject.'</h1>';
-		echo '<div id="chapterList" style="border:1px solid black;">';
-			$this->drawChapters($this->subject);
-		echo '</div>';
+	function drawModifiedContent(){
+		$contentGroups=$this->getContentGroupsBySectionid($this->section);
+			//print_r($contentGroups);
+			$types=$this->getTypes();
+			$mediums=$this->getMediums();
+			foreach($contentGroups as $contentGroupKey=>$contentGroup){
+				echo '
+					<section class="sortable">
+						<article class="ui-state-default verticalSort">
+							<i class="fa fa-arrows-v pull-left"></i>
+							<i class="fa fa-plus"></i>
+							<i class="fa fa-times"></i>
+							<select class="sideSelection typeSelect" id="contentGroup_'.$contentGroup['contentgroup_id'].'">
+								<option>--Type--</option>
+								';
+								foreach($types as $typeKey=>$type){
+									$typeSelectedText=""; if($contentGroup['type_id']==$type['type_id']){
+										$typeSelectedText=" selected='selected' ";
+									}
+									echo '<option '.$typeSelectedText.' value="'.$type['type_id'].'">';
+										echo $type['name'];
+									echo '</option>';
+								}
+								echo '
+							</select>
+							<span class="pull-left">Sort '.($contentGroupKey+1).'</span>
+							<input type="text">
+							<input type="text">
+							<section class="subSortable ui-sortable">
+							';
+							$contents=$this->getContentByGroupid($contentGroup['contentgroup_id']);
+							//print_r($contents);
+							if(isset($contents)){
+								foreach($contents as $contentKey=>$content){
+								echo '
+									<article class="horizontalSort" id="realContent_'.$content['idcontent'].'">
+										<div class="wrap">
+											<i class="fa fa-arrows-h"></i>
+											<select class="mediumSelect" id="content_'.$content['idcontent'].'">
+											';
+											foreach($mediums as $mediumKey=>$medium){
+												$mediumSelectedText="";
+												if($content['medium_id']==$medium['medium_id']){
+													$mediumSelectedText=" selected='selected' ";
+												}
+												echo '<option '.$mediumSelectedText.' value="'.$medium['medium_id'].'">';
+													echo $medium['medium_name'];
+												echo '</option>';
+											}
+											echo '
+											</select>
+											<i class="fa fa-pencil-square-o"></i>
+											<i class="fa fa-times delContent" contentid="'.$content['idcontent'].'"></i>
+										'.$content['content'].'
+										</div>
+									</article>
+									';
+								}
+							}
+							echo '
+							</section>
+						</article>
+					</section>
+					<i class="fa fa-plus"></i>
+				';
+			}
+		?>
+	<?php 	
+	}
+
+	function getChapters($subject){
+		$sql="SELECT chapter_id,chapter_name,chapter_order FROM ".$subject.".chapter_names ORDER BY chapter_order;";
+		$results=query($sql);
+		return $results;
+	}
+
+	function getSections($subject,$chapterid){
+		$sql="SELECT section_id,section_name,friendly_view_section_id FROM ".$subject.".section_names WHERE chapter_id=?;";
+		$results=query($sql,$chapterid);
+		return $results;
+	}
+	
+	function getContentByGroupid($groupid){
+		$sql="SELECT idcontent,content,medium_id FROM ".$this->subject.".content WHERE contentgroup_id=? ORDER BY `order`;";
+		$results=query($sql,$groupid);
+		return $results;
+	}
+
+	function changeContentMediumByid($contentid=NULL,$mediumid=NULL){
+		if(isset($_REQUEST['contentid'])){
+			$contentid=$_REQUEST['contentid'];
+		}
+		if(isset($_REQUEST['mediumid'])){
+			$mediumid=$_REQUEST['mediumid'];
+		}
+		$sql="UPDATE ".$this->subject.".content SET medium_id=? WHERE idcontent=?;";
+		$results=query($sql,$mediumid,$contentid);
+		//return $results;
+	}
+
+	function changeContentgroupTypeByid($contentgroupid=NULL,$typeid=NULL){
+		if(isset($_REQUEST['contentgroupid'])){
+			$contentgroupid=$_REQUEST['contentgroupid'];
+		}
+		if(isset($_REQUEST['typeid'])){
+			$typeid=$_REQUEST['typeid'];
+		}
+		$sql="UPDATE ".$this->subject.".contentgroups SET type_id=? WHERE contentgroup_id=?;";
+		$results=query($sql,$typeid,$contentgroupid);
+		//return $results;
+	}
+
+	function getMediums(){
+		$sql="SELECT medium_id,medium_name FROM ".$this->subject.".contentmedium_names;";
+		$results=query($sql);
+		return $results;
+	}
+
+	function getTypes(){
+		$sql="SELECT type_id,name FROM ".$this->subject.".contentgroup_type_names;";
+		$results=query($sql);
+		return $results;
+	}
+
+	function getContentGroupsBySectionid($sectionid){
+		$sql="SELECT contentgroup_id,type_id,concept1,concept2 FROM ".$this->subject.".contentgroups WHERE section_id=? ORDER BY `order` ASC;";
+		$results=query($sql,$sectionid);
+		return $results;
+	}
+
+	function delContent($contentid=NULL){
+		if(isset($_REQUEST['contentid'])){
+			$contentid=$_REQUEST['contentid'];
+		}
+		$sql="DELETE FROM ".$this->subject.".content WHERE idcontent=?;";
+		$results=query($sql,$contentid);
 	}
 
 	function asdf(){
@@ -334,4 +272,4 @@ class ChapterSectionAdmin{
 	}
 }
 
-$chapterSectionAdmin= new ChapterSectionAdmin();
+$contentAdmin= new ContentAdmin();

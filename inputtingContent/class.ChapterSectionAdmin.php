@@ -90,6 +90,9 @@ class ChapterSectionAdmin{
 								success:function(result){
 									//alert('success');
 									console.log(result);
+									// is this necessary???
+									// I don't think so, because it already saves in the above ajax. This is just to make sure there aren't any errors I guess? Lots of load on the server though.. 
+									/*
 									$.ajax({
 										type:'POST',
 										url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
@@ -97,6 +100,7 @@ class ChapterSectionAdmin{
 											$("#chapterList").html(result);
 										}
 									});
+									*/
 								}
 							});
 						}
@@ -141,6 +145,8 @@ class ChapterSectionAdmin{
 										success:function(result){
 											//alert('success');
 											console.log(result);
+											// not nessecesary
+											/*
 											$.ajax({
 												type:'POST',
 												url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
@@ -148,6 +154,7 @@ class ChapterSectionAdmin{
 													$("#chapterList").html(result);
 												}
 											});
+											*/
 										}
 									});
 								}
@@ -176,7 +183,7 @@ class ChapterSectionAdmin{
 		foreach(JSON_decode($_REQUEST['data']) as $key=>$value){
 			if(isset($_REQUEST['subject'])){
 				$sql="UPDATE ".$_REQUEST['subject'].".chapter_names SET chapter_order=? WHERE chapter_id=?;";
-				query($sql,$key,$value);
+				query($sql,$key+1,$value);
 				echo 'success';
 			}
 		}
@@ -219,6 +226,7 @@ class ChapterSectionAdmin{
 						url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=delChapter&chapter_id='+chapter_id,
 						success:function(result){
 							console.log(result);
+							// not necessary, need to delete element from dom
 							$.ajax({
 								type:'POST',
 								url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
@@ -247,6 +255,7 @@ class ChapterSectionAdmin{
 					url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=saveChapterName&chapter_id='+chapter_id+'&chapterName='+chapterName,
 					success:function(result){
 						//alert('success');
+						// not necessary, just change dom element
 						$.ajax({
 							type:'POST',
 							url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
@@ -265,6 +274,7 @@ class ChapterSectionAdmin{
 					url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=saveSectionName&section_id='+section_id+'&sectionName='+sectionName,
 					success:function(result){
 						//alert('success');
+						// not necessary, just change dom element
 						$.ajax({
 							type:'POST',
 							url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',
@@ -283,6 +293,7 @@ class ChapterSectionAdmin{
 						url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=delSection&section_id='+section_id,
 						success:function(result){
 							//alert('success');
+							// not necessary, just delete dom element
 							$.ajax({
 								type:'POST',
 								url:'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=drawChapters',

@@ -48,7 +48,7 @@ include_once '../head.php';
 			</select>
 		</div>
 		<div class="modifyContentContainer mg-t-md">
-
+<!-- COPIED TO HERE-->
 			<section class="sortable">
 				<article class="ui-state-default verticalSort">
 					<i class="fa fa-arrows-v pull-left"></i>
