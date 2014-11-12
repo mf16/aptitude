@@ -27,7 +27,13 @@ class ContentAdmin {
 		  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 		  <link rel="stylesheet" href="style.css">
 		  <script>
-			var sectionid=<?php echo $this->section;?>;
+			<?php 
+			if(isset($this->section)){
+				echo 'var sectionid='.$this->section.';';
+			} else {
+				echo 'var sectionid=0;';
+			}
+			?>
 			var subject='<?php echo $this->subject;?>';
 		  </script>
 		  <script src="script.js"></script>
@@ -64,7 +70,7 @@ class ContentAdmin {
 					<?php
 					$chapters=$this->getChapters($this->subject);
 					echo '<select class="form-control" id="sectionSelect">';
-						echo '<option>----Select a section to edit----</option>';
+						//echo '<option>----Select a section to edit----</option>';
 						foreach($chapters as $key=>$chapter){
 							echo '<optgroup label="Chapter '.$chapter['chapter_order'].' - '.$chapter['chapter_name'].'">';
 								$sections=$this->getSections($this->subject,$chapter['chapter_id']);
