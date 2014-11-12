@@ -70,7 +70,7 @@ class ContentAdmin {
 					<?php
 					$chapters=$this->getChapters($this->subject);
 					echo '<select class="form-control" id="sectionSelect">';
-						//echo '<option>----Select a section to edit----</option>';
+						echo '<option value="section0">----Select a section to edit----</option>';
 						foreach($chapters as $key=>$chapter){
 							echo '<optgroup label="Chapter '.$chapter['chapter_order'].' - '.$chapter['chapter_name'].'">';
 								$sections=$this->getSections($this->subject,$chapter['chapter_id']);
