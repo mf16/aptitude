@@ -10,7 +10,7 @@
 		background-color: #EBEBEB;
 	}
 	/*GLOBAL STYLING*/
-	.delContent{
+	.delContent,.delContentgroup,.addContentgroup,.addContent{
 		cursor:pointer;
 	}
 

@@ -98,7 +98,7 @@ CREATE TABLE `content` (
   `contentgroup_id` int(11) DEFAULT NULL,
   `order` int(11) DEFAULT NULL,
   PRIMARY KEY (`idcontent`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,7 +107,14 @@ CREATE TABLE `content` (
 
 LOCK TABLES `content` WRITE;
 /*!40000 ALTER TABLE `content` DISABLE KEYS */;
-INSERT INTO `content` VALUES (3,'<p class=\"vote-text\">Linear and quadratic functions were special cases of polynomial functions, which we studied in generality in Chapter 3. Chapter 3 culminated with the Real Factorization Theorem, Theorem 3.16, which says that all polynomial functions with real coefficients can be thought of as products of linear and quadratic functions. Our next step was to enlarge our field of study to rational functions in Chapter 4. Being quotients of polynomials, we can ultimately view this family of functions as being built up of linear and quadratic functions as well. So in some sense, Chapters 2, 3, and 4 can be thought of as an exhaustive study of linear and quadratic functions and their arithmetic combinations as described in Section 1.5. We now wish to study other algebraic functions, such as \\(f(x) = \\sqrt{x}\\) and \\(g(x) = x^{2/3}\\), and the purpose of the first two sections of this chapter is to see how these kinds of functions arise from polynomial and rational functions. To that end, we first study a new way to combine functions as defined below.</p>',2,NULL,NULL,1,3);
+INSERT INTO `content` VALUES (4,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id libero efficitur, rhoncus nunc ac, porttitor diam. Sed sed ultrices nunc, non suscipit justo. Quisque mattis feugiat ipsum, et commodo dui pretium id. Fusce nec felis rutrum, blandit enim a, vulputate nisi. Pellentesque sed tempor leo. Maecenas condimentum tristique mattis. Cras sed laoreet quam, eget imperdiet justo. ',2,NULL,NULL,16,2);
+INSERT INTO `content` VALUES (6,'asdfasdfasdf sadfsad fsad f asdf asdf ads',1,'',0,16,1);
+INSERT INTO `content` VALUES (23,NULL,2,NULL,NULL,19,1);
+INSERT INTO `content` VALUES (27,NULL,1,NULL,NULL,15,2);
+INSERT INTO `content` VALUES (29,NULL,2,NULL,NULL,15,1);
+INSERT INTO `content` VALUES (30,NULL,3,NULL,NULL,15,3);
+INSERT INTO `content` VALUES (31,NULL,1,NULL,NULL,20,2);
+INSERT INTO `content` VALUES (32,NULL,3,NULL,NULL,20,1);
 /*!40000 ALTER TABLE `content` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,7 +160,7 @@ CREATE TABLE `contentgroups` (
   `concept1` int(11) DEFAULT NULL,
   `concept2` int(11) DEFAULT NULL,
   PRIMARY KEY (`contentgroup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,9 +169,12 @@ CREATE TABLE `contentgroups` (
 
 LOCK TABLES `contentgroups` WRITE;
 /*!40000 ALTER TABLE `contentgroups` DISABLE KEYS */;
-INSERT INTO `contentgroups` VALUES (1,1,24,3,NULL,NULL);
-INSERT INTO `contentgroups` VALUES (2,2,24,2,NULL,NULL);
-INSERT INTO `contentgroups` VALUES (3,2,24,2,NULL,NULL);
+INSERT INTO `contentgroups` VALUES (15,14,24,NULL,NULL,NULL);
+INSERT INTO `contentgroups` VALUES (16,15,24,NULL,NULL,NULL);
+INSERT INTO `contentgroups` VALUES (19,18,24,2,NULL,NULL);
+INSERT INTO `contentgroups` VALUES (20,19,24,1,NULL,NULL);
+INSERT INTO `contentgroups` VALUES (21,20,24,1,NULL,NULL);
+INSERT INTO `contentgroups` VALUES (22,21,24,3,NULL,NULL);
 /*!40000 ALTER TABLE `contentgroups` ENABLE KEYS */;
 UNLOCK TABLES;
 
