@@ -88,7 +88,6 @@ class ChapterSectionAdmin{
 								type: 'POST',
 								url: 'class.ChapterSectionAdmin.php?subject=<?php echo $this->subject;?>&action=saveChapterOrder&data='+chaptersInOrder,
 								success:function(result){
-									//alert('success');
 									console.log(result);
 									// is this necessary???
 									// I don't think so, because it already saves in the above ajax. This is just to make sure there aren't any errors I guess? Lots of load on the server though.. 

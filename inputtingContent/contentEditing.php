@@ -91,6 +91,50 @@ include_once '../head.php';
 				  				Meatloaf turducken alcatra short loin. Meatloaf spare ribs andouille, tongue filet mignon ground round beef ribs. Kevin leberkas short ribs andouille ham, turkey kielbasa hamburger beef ribs rump spare ribs meatball shoulder. Leberkas venison tri-tip beef ribs shank cow. Andouille tail meatball, t-bone spare ribs sirloin strip steak ham pig doner cow boudin alcatra. Andouille jerky t-bone, prosciutto fatback ham bacon spare ribs ribeye shoulder kevin kielbasa.
 					  		</div>
 				  		</article>
+				  	
+				  	</section>
+				</article>
+				<article class="ui-state-default verticalSort">
+					<i class="fa fa-arrows-v pull-left"></i>
+					<i class="fa fa-plus"></i>
+					<i class="fa fa-times"></i>
+					<select class='sideSelection'>
+						<option>--Type--</option>
+						<option value="definition">Definition</option>
+	  					<option value="example">Example</option>
+	  					<option value="summary">Summary</option>
+	  					<option value="explantation">Explantation</option>
+					</select>
+					<span class="pull-left">Sort 1</span>
+					<input type="text">
+					<input type="text">
+					<section class="subSortable ui-sortable">
+				  		<article class="horizontalSort">
+					  		<div class="wrap">
+					  			<i class="fa fa-arrows-h"></i>
+				  				<select>
+				  					<option value="video">Video</option>
+				  					<option value="text">Text</option>
+				  					<option value="interactive">Interactive</option>
+				  				</select>
+					  			<i class="fa fa-pencil-square-o"></i>
+					  			<i class="fa fa-times"></i>
+				  				Meatloaf turducken alcatra short loin. Meatloaf spare ribs andouille, tongue filet mignon ground round beef ribs. Kevin leberkas short ribs andouille ham, turkey kielbasa hamburger beef ribs rump spare ribs meatball shoulder. Leberkas venison tri-tip beef ribs shank cow. Andouille tail meatball, t-bone spare ribs sirloin strip steak ham pig doner cow boudin alcatra. Andouille jerky t-bone, prosciutto fatback ham bacon spare ribs ribeye shoulder kevin kielbasa.
+					  		</div>
+				  		</article>
+				  		<article class="horizontalSort">
+					  		<div class="wrap">
+					  			<i class="fa fa-arrows-h"></i>
+				  				<select>
+				  					<option value="video">Video</option>
+				  					<option value="text">Text</option>
+				  					<option value="interactive">Interactive</option>
+				  				</select>
+					  			<i class="fa fa-pencil-square-o"></i>
+					  			<i class="fa fa-times"></i>
+				  				Meatloaf turducken alcatra short loin. Meatloaf spare ribs andouille, tongue filet mignon ground round beef ribs. Kevin leberkas short ribs andouille ham, turkey kielbasa hamburger beef ribs rump spare ribs meatball shoulder. Leberkas venison tri-tip beef ribs shank cow. Andouille tail meatball, t-bone spare ribs sirloin strip steak ham pig doner cow boudin alcatra. Andouille jerky t-bone, prosciutto fatback ham bacon spare ribs ribeye shoulder kevin kielbasa.
+					  		</div>
+				  		</article>
 				  		<article class="horizontalSort">
 					  		<div class="wrap">
 					  			<i class="fa fa-arrows-h"></i>

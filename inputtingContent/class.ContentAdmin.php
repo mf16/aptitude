@@ -100,69 +100,68 @@ class ContentAdmin {
 			//print_r($contentGroups);
 			$types=$this->getTypes();
 			$mediums=$this->getMediums();
+			echo '<section class="sortable ui-sortable">';
 			if(isset($contentGroups)){
 				foreach($contentGroups as $contentGroupKey=>$contentGroup){
 					echo '
-						<section class="sortable" id="contentgroupContainer_'.$contentGroup['contentgroup_id'].'">
-							<article class="ui-state-default verticalSort">
-								<i class="fa fa-arrows-v pull-left"></i>
-								<i class="fa fa-plus addContent" contentgroupid="'.$contentGroup['contentgroup_id'].'"></i>
-								<i class="fa fa-times delContentgroup" contentgroupid="'.$contentGroup['contentgroup_id'].'"></i>
-								<select class="sideSelection typeSelect" id="contentGroup_'.$contentGroup['contentgroup_id'].'">
-									<option>--Type--</option>
-									';
-									foreach($types as $typeKey=>$type){
-										$typeSelectedText=""; if($contentGroup['type_id']==$type['type_id']){
-											$typeSelectedText=" selected='selected' ";
-										}
-										echo '<option '.$typeSelectedText.' value="'.$type['type_id'].'">';
-											echo $type['name'];
-										echo '</option>';
-									}
-									echo '
-								</select>
-								<span class="pull-left">Sort './*($contentGroupKey+1).*/'</span>
-								<input type="text">
-								<input type="text">
-								<section class="subSortable ui-sortable" contentgroupid="'.$contentGroup['contentgroup_id'].'">
+						<article class="ui-state-default verticalSort" id="contentgroupContainer_'.$contentGroup['contentgroup_id'].'">
+							<i class="fa fa-arrows-v pull-left"></i>
+							<i class="fa fa-plus addContent" contentgroupid="'.$contentGroup['contentgroup_id'].'"></i>
+							<i class="fa fa-times delContentgroup" contentgroupid="'.$contentGroup['contentgroup_id'].'"></i>
+							<select class="sideSelection typeSelect" id="contentGroup_'.$contentGroup['contentgroup_id'].'">
+								<option>--Type--</option>
 								';
-								$contents=$this->getContentByGroupid($contentGroup['contentgroup_id']);
-								//print_r($contents);
-								if(isset($contents)){
-									foreach($contents as $contentKey=>$content){
-									echo '
-										<article class="horizontalSort" id="realContent_'.$content['idcontent'].'">
-											<div class="wrap">
-												<i class="fa fa-arrows-h"></i>
-												<select class="mediumSelect" id="content_'.$content['idcontent'].'">
-												<option>--Medium--</option>
-												';
-												foreach($mediums as $mediumKey=>$medium){
-													$mediumSelectedText="";
-													if($content['medium_id']==$medium['medium_id']){
-														$mediumSelectedText=" selected='selected' ";
-													}
-													echo '<option '.$mediumSelectedText.' value="'.$medium['medium_id'].'">';
-														echo $medium['medium_name'];
-													echo '</option>';
-												}
-												echo '
-												</select>
-												<i class="fa fa-pencil-square-o"></i>
-												<i class="fa fa-times delContent" contentid="'.$content['idcontent'].'"></i>
-											'.$content['content'].'
-											</div>
-										</article>
-										';
+								foreach($types as $typeKey=>$type){
+									$typeSelectedText=""; if($contentGroup['type_id']==$type['type_id']){
+										$typeSelectedText=" selected='selected' ";
 									}
+									echo '<option '.$typeSelectedText.' value="'.$type['type_id'].'">';
+										echo $type['name'];
+									echo '</option>';
 								}
 								echo '
-								</section>
-							</article>
-						</section>
+							</select>
+							<span class="pull-left">Sort './*($contentGroupKey+1).*/'</span>
+							<input type="text">
+							<input type="text">
+							<section class="subSortable ui-sortable" contentgroupid="'.$contentGroup['contentgroup_id'].'">
+							';
+							$contents=$this->getContentByGroupid($contentGroup['contentgroup_id']);
+							//print_r($contents);
+							if(isset($contents)){
+								foreach($contents as $contentKey=>$content){
+								echo '
+									<article class="horizontalSort" id="realContent_'.$content['idcontent'].'">
+										<div class="wrap">
+											<i class="fa fa-arrows-h"></i>
+											<select class="mediumSelect" id="content_'.$content['idcontent'].'">
+											<option>--Medium--</option>
+											';
+											foreach($mediums as $mediumKey=>$medium){
+												$mediumSelectedText="";
+												if($content['medium_id']==$medium['medium_id']){
+													$mediumSelectedText=" selected='selected' ";
+												}
+												echo '<option '.$mediumSelectedText.' value="'.$medium['medium_id'].'">';
+													echo $medium['medium_name'];
+												echo '</option>';
+											}
+											echo '
+											</select>
+											<i class="fa fa-pencil-square-o"></i>
+											<i class="fa fa-times delContent" contentid="'.$content['idcontent'].'"></i>
+										'.$content['content'].'
+										</div>
+									</article>
+									';
+								}
+							}
+							echo '
+							</section>
+						</article>
 					';
 				}
-				echo '<i class="fa fa-plus addContentgroup"></i>';
+				echo '</section><i class="fa fa-plus addContentgroup"></i>';
 			} else {
 				echo 'Please select a section above.';
 			}
