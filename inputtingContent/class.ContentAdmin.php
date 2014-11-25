@@ -104,26 +104,34 @@ class ContentAdmin {
 			if(isset($contentGroups)){
 				foreach($contentGroups as $contentGroupKey=>$contentGroup){
 					echo '
+						<div class="clearfix"></div>
 						<article class="ui-state-default verticalSort" id="contentgroupContainer_'.$contentGroup['contentgroup_id'].'">
-							<i class="fa fa-arrows-v pull-left"></i>
-							<i class="fa fa-plus addContent" contentgroupid="'.$contentGroup['contentgroup_id'].'"></i>
-							<i class="fa fa-times delContentgroup" contentgroupid="'.$contentGroup['contentgroup_id'].'"></i>
-							<select class="sideSelection typeSelect" id="contentGroup_'.$contentGroup['contentgroup_id'].'">
-								<option>--Type--</option>
-								';
-								foreach($types as $typeKey=>$type){
-									$typeSelectedText=""; if($contentGroup['type_id']==$type['type_id']){
-										$typeSelectedText=" selected='selected' ";
-									}
-									echo '<option '.$typeSelectedText.' value="'.$type['type_id'].'">';
-										echo $type['name'];
-									echo '</option>';
-								}
-								echo '
-							</select>
-							<span class="pull-left">Sort './*($contentGroupKey+1).*/'</span>
-							<input type="text">
-							<input type="text">
+							<div class="groupLegend">
+								<div class="legendIcons">
+									<br>
+									<i class="fa fa-arrows-v handle"></i><br><br>
+									<i class="fa fa-plus addContent" contentgroupid="'.$contentGroup['contentgroup_id'].'"></i><br><br>
+									<i class="fa fa-times delContentgroup" contentgroupid="'.$contentGroup['contentgroup_id'].'"></i><br>
+								</div>
+								<div class="legendOptions">
+									<select class="sideSelection form-control typeSelect" id="contentGroup_'.$contentGroup['contentgroup_id'].'">
+										<option>--Type--</option>
+										';
+										foreach($types as $typeKey=>$type){
+											$typeSelectedText=""; if($contentGroup['type_id']==$type['type_id']){
+												$typeSelectedText=" selected='selected' ";
+											}
+											echo '<option '.$typeSelectedText.' value="'.$type['type_id'].'">';
+												echo $type['name'];
+											echo '</option>';
+										}
+										echo '
+									</select>
+									<!--<span class="pull-left">Sort './*($contentGroupKey+1).*/'</span>-->
+									<br><input placeholder="Primary tag" class="form-control" type="text">
+									<br><input placeholder="Secondary tag" class="form-control" type="text">
+								</div>
+							</div>
 							<section class="subSortable ui-sortable" contentgroupid="'.$contentGroup['contentgroup_id'].'">
 							';
 							$contents=$this->getContentByGroupid($contentGroup['contentgroup_id']);
@@ -133,8 +141,8 @@ class ContentAdmin {
 								echo '
 									<article class="horizontalSort" id="realContent_'.$content['idcontent'].'">
 										<div class="wrap">
-											<i class="fa fa-arrows-h"></i>
-											<select class="mediumSelect" id="content_'.$content['idcontent'].'">
+											<i class="fa fa-arrows-h subHandle"></i>
+											<select class="mediumSelect form-control" id="content_'.$content['idcontent'].'">
 											<option>--Medium--</option>
 											';
 											foreach($mediums as $mediumKey=>$medium){

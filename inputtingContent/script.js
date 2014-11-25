@@ -1,7 +1,8 @@
 $(function() {
     $( ".sortable" ).sortable({
+    	handle: ".handle",
 		axis: "y",
-		revert: true,
+		//revert: true,
 		cursor: "move",
     	placeholder: "ui-state-highlight",
 	  start: function( event, ui ) {
@@ -10,10 +11,12 @@ $(function() {
 	  	$('.ui-state-highlight').css('width', $(ui.item).css('width'));
 	  }
 	});
+    $( ".sortable" ).disableSelection();
 
 	$( ".subSortable" ).sortable({
+		handle: ".subHandle",
 		axis: "x",
-		revert: true,
+		//revert: true,
 		cursor: "move",
 		placeholder: "ui-state-highlight",
 		start: function( event, ui ) {
@@ -33,6 +36,8 @@ $(function() {
 			});
 		}
 	});
+	$( ".subSortable" ).disableSelection();
+
 
 	//Populate section
 	$(document).on('change',"#sectionSelect",{} ,function(){
@@ -133,3 +138,4 @@ $(function() {
 		});
 	});
 });
+

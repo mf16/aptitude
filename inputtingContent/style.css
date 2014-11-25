@@ -14,9 +14,15 @@
 		cursor:pointer;
 	}
 
-
+	.fa{
+		font-size: 20px;
+	}
 	.horizontalSort{
+		/*
 		width: 33.3333%;
+		*/
+		width: 100%;
+		vertical-align: top;
 		display:inline-block;
 	}
 	.subSortable{
@@ -36,7 +42,8 @@
 		border: solid 1px #ADADAD;
 		border-radius: 10px;
 		min-height: 25px;
-		padding: 15px;
+		padding: 0;
+		overflow-x: hidden; 
 	}
 	.verticalSort{
 		background: none; 
@@ -55,3 +62,74 @@
 	   white-space:normal; 
 	   padding: 15px 20px;
 	}
+	.groupLegend{
+		float: left;
+		width: 230px;
+		background-color: whitesmoke;
+		border-top: 1px solid white;
+		padding: 15px;
+		border-bottom: 1px solid rgb(194, 194, 194);
+	}
+	.legendIcons{
+		float: left;
+		width: 50px;
+		text-align: center;
+	}
+	.legendOptions{
+		float: left;
+		width: 150px;
+	}
+	.mediumSelect{
+		max-width: 215px;
+		float: left;
+	}
+
+
+
+
+
+
+
+.subSortable::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+.subSortable::-webkit-scrollbar-track {
+	background-color: rgba(113,112,107,0.1);
+	-webkit-border-radius: 5px;
+}
+.subSortable::-webkit-scrollbar-thumb:vertical {
+	background-color: rgba(0,0,0,.2);
+	-webkit-border-radius: 6px;
+}
+.subSortable::-webkit-scrollbar-thumb:vertical:hover,
+.subSortable::-webkit-scrollbar-thumb:horizontal:hover {
+	background: #F79234;
+}
+.subSortable::-webkit-scrollbar-thumb:horizontal {
+	background-color: rgba(0,0,0,.2);
+	-webkit-border-radius: 6px;
+}
+
+
+
+body::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+body::-webkit-scrollbar-track {
+	background-color: rgba(113,112,107,0.1);
+	-webkit-border-radius: 5px;
+}
+body::-webkit-scrollbar-thumb:vertical {
+	background-color: rgba(0,0,0,.2);
+	-webkit-border-radius: 6px;
+}
+body::-webkit-scrollbar-thumb:vertical:hover,
+body::-webkit-scrollbar-thumb:horizontal:hover {
+	background: #F79234;
+}
+body::-webkit-scrollbar-thumb:horizontal {
+	background-color: rgba(0,0,0,.2);
+	-webkit-border-radius: 6px;
+}
