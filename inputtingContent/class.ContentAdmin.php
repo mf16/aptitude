@@ -24,7 +24,7 @@ class ContentAdmin {
 	function draw(){
 		include "../head.php";
 		?>
-		  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		  <link rel="stylesheet" href="/css/jquery-ui.css">
 		  <link rel="stylesheet" href="style.css">
 		  <script>
 			<?php 
@@ -108,10 +108,9 @@ class ContentAdmin {
 						<article class="ui-state-default verticalSort" id="contentgroupContainer_'.$contentGroup['contentgroup_id'].'">
 							<div class="groupLegend">
 								<div class="legendIcons">
-									<br>
+									<br><br>	
 									<i class="fa fa-arrows-v handle"></i><br><br>
-									<i class="fa fa-plus addContent" contentgroupid="'.$contentGroup['contentgroup_id'].'"></i><br><br>
-									<i class="fa fa-times delContentgroup" contentgroupid="'.$contentGroup['contentgroup_id'].'"></i><br>
+									<i class="fa fa-times delContentgroup" contentgroupid="'.$contentGroup['contentgroup_id'].'"></i>
 								</div>
 								<div class="legendOptions">
 									<select class="sideSelection form-control typeSelect" id="contentGroup_'.$contentGroup['contentgroup_id'].'">
@@ -131,6 +130,9 @@ class ContentAdmin {
 									<br><input placeholder="Primary tag" class="form-control" type="text">
 									<br><input placeholder="Secondary tag" class="form-control" type="text">
 								</div>
+								<div class="addNewSection">
+									N<br>e<br>w<br><i class="fa fa-plus addContent" contentgroupid="'.$contentGroup['contentgroup_id'].'"></i>
+								</div>
 							</div>
 							<section class="subSortable ui-sortable" contentgroupid="'.$contentGroup['contentgroup_id'].'">
 							';
@@ -141,23 +143,26 @@ class ContentAdmin {
 								echo '
 									<article class="horizontalSort" id="realContent_'.$content['idcontent'].'">
 										<div class="wrap">
-											<i class="fa fa-arrows-h subHandle"></i>
-											<select class="mediumSelect form-control" id="content_'.$content['idcontent'].'">
-											<option>--Medium--</option>
-											';
-											foreach($mediums as $mediumKey=>$medium){
-												$mediumSelectedText="";
-												if($content['medium_id']==$medium['medium_id']){
-													$mediumSelectedText=" selected='selected' ";
+											<div class="sectionLegend">
+												<i class="fa fa-arrows-h subHandle"></i>
+												<select class="mediumSelect form-control" id="content_'.$content['idcontent'].'">
+												<option>--Medium--</option>
+												';
+												foreach($mediums as $mediumKey=>$medium){
+													$mediumSelectedText="";
+													if($content['medium_id']==$medium['medium_id']){
+														$mediumSelectedText=" selected='selected' ";
+													}
+													echo '<option '.$mediumSelectedText.' value="'.$medium['medium_id'].'">';
+														echo $medium['medium_name'];
+													echo '</option>';
 												}
-												echo '<option '.$mediumSelectedText.' value="'.$medium['medium_id'].'">';
-													echo $medium['medium_name'];
-												echo '</option>';
-											}
-											echo '
-											</select>
-											<i class="fa fa-pencil-square-o"></i>
-											<i class="fa fa-times delContent" contentid="'.$content['idcontent'].'"></i>
+												echo '
+												</select>
+												<i class="fa fa-pencil-square-o"></i>
+												<i class="fa fa-times delContent" contentid="'.$content['idcontent'].'"></i>
+											</div>
+											<div class="clearfix"></div>
 										'.$content['content'].'
 										</div>
 									</article>

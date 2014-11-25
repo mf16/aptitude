@@ -13,10 +13,13 @@
 	.delContent,.delContentgroup,.addContentgroup,.addContent{
 		cursor:pointer;
 	}
-
+	.addContent{
+		margin-top: 8px;
+	}
 	.fa{
 		font-size: 20px;
 	}
+	.handle{cursor: pointer}
 	.horizontalSort{
 		/*
 		width: 33.3333%;
@@ -35,6 +38,7 @@
 	   white-space:normal; 
 	   padding: 15px 20px;
 	   border: 1px dashed #CACACA;
+	   min-height: 164px;
 	}
 
 	.modifyContentContainer{
@@ -64,26 +68,54 @@
 	}
 	.groupLegend{
 		float: left;
-		width: 230px;
-		background-color: whitesmoke;
+		width: 215px;
+		background-color: lightgray;
 		border-top: 1px solid white;
-		padding: 15px;
 		border-bottom: 1px solid rgb(194, 194, 194);
+	}
+	.addNewSection{
+		float: left;
+		width: 40px;
+		height: 172px;
+		text-align: center;
+		padding: 46px 0;
+		border-left: 1px solid white;
+		cursor: pointer;
+		transition: all .2s;
+		-webkit-transition: all .3s;
+	}
+	.addNewSection:hover{
+		background-color: rgb(232, 232, 232);;
+	}
+	.groupIcons{
+		float: left;
 	}
 	.legendIcons{
 		float: left;
-		width: 50px;
+		width: 40px;
 		text-align: center;
+		padding: 15px 0px;
 	}
 	.legendOptions{
 		float: left;
-		width: 150px;
+		width: 135px;
+		padding: 15px 5px;
+		border-right: 1px solid rgb(190, 190, 190);
 	}
 	.mediumSelect{
 		max-width: 215px;
 		float: left;
 	}
-
+	.sectionLegend{
+		text-align: center;
+		height: 40px;
+		padding-left: 20%;
+	}
+	.sectionLegend>.fa{
+		float: left;
+		line-height: 34px;
+		padding: 0 30px 
+	}
 
 
 
