@@ -44,7 +44,7 @@ $(function() {
 		var section=$("#sectionSelect").val().substring(7);
 		window.location.assign('/inputtingContent/class.ContentAdmin.php?subject='+subject+'&section='+section);
 	});
-	
+
 /******CONTENT GROUP HANDLING******/
 	//Add content section
 	$(document).on('click',".addContentgroup",{} ,function(){
@@ -75,7 +75,7 @@ $(function() {
 				}
 			});
 		}
-	}); 
+	});
 	//Change row type of content
 	$(document).on('change',".typeSelect",{} ,function(){
 		var contentgroupid= this.id.substring(13);
@@ -94,7 +94,7 @@ $(function() {
 
 /******SECTION HANDLING******/
 	//Add content section
-	$(document).on('click',".addContent",{} ,function(){
+	$(document).on('click',".addNewSection",{} ,function(){
 		var contentgroupid=$(this).attr("contentgroupid");
 		$.ajax({
 			type: 'POST',
@@ -111,7 +111,7 @@ $(function() {
 			}
 		});
 	});
-	//Remove section of content			
+	//Remove section of content
 	$(document).on('click',".delContent",{} ,function(){
 		var contentid=$(this).attr("contentid");
 		if(confirm("Are you sure you wish to delete this content?")){
@@ -126,7 +126,7 @@ $(function() {
 		}
 	});
 	//Change medium of content delivery
-	$(document).on('change',".mediumSelect",{} ,function(){
+	$(document).on('click',".mediumSubmit",{} ,function(){
 		var contentid=this.id.substring(8);
 		var mediumid=$(this).find('option:selected').val();
 		$.ajax({
@@ -136,6 +136,27 @@ $(function() {
 				console.log(result);
 			}
 		});
+	});
+
+	//Change the medium type and populate html accordingly
+	$(document).on('change',".mediumSelect",{} ,function(){
+		var contentid=this.id.substring(12);
+		var mediumid=$(this).find('option:selected').val();
+		if(mediumid == 1){
+			//video - paste url section
+		} else if(mediumid == 2){
+			//text - rich text editor
+			$('#content_'+contentid).html('<textarea id="editor" placeholder="Start typing here..."></textarea>');
+			$('#editor').wysihtml5();
+
+			$('.wysihtml5-toolbar').append('<li style="float: right;"><a class="btn  btn-default" tabindex="-1" href="javascript:;"><span>Save</span></a></li>');
+
+			/*var contentgroupid = $(this).parent().parent().parent().parent().attr('contentgroupid');
+			var height = $(this).parent().parent().parent().parent().height();
+			$('#contentgroupContainer_'+contentgroupid+'>.groupLegend').height(height);*/
+		} else if(mediumid == 3){
+			//interactive - upload
+		}
 	});
 });
 

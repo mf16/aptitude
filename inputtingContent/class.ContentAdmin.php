@@ -27,7 +27,7 @@ class ContentAdmin {
 		  <link rel="stylesheet" href="/css/jquery-ui.css">
 		  <link rel="stylesheet" href="style.css">
 		  <script>
-			<?php 
+			<?php
 			if(isset($this->section)){
 				echo 'var sectionid='.$this->section.';';
 			} else {
@@ -100,7 +100,8 @@ class ContentAdmin {
 			//print_r($contentGroups);
 			$types=$this->getTypes();
 			$mediums=$this->getMediums();
-			echo '<section class="sortable ui-sortable">';
+			echo '<section class="sortable ui-sortable">
+					<div class="col-md-12 text-center addContentGroup">ADD NEW CONTENT GROUP <i class="fa fa-plus"></i></div>';
 			if(isset($contentGroups)){
 				foreach($contentGroups as $contentGroupKey=>$contentGroup){
 					echo '
@@ -108,9 +109,8 @@ class ContentAdmin {
 						<article class="ui-state-default verticalSort" id="contentgroupContainer_'.$contentGroup['contentgroup_id'].'">
 							<div class="groupLegend">
 								<div class="legendIcons">
-									<br><br>	
-									<i class="fa fa-arrows-v handle"></i><br><br>
-									<i class="fa fa-times delContentgroup" contentgroupid="'.$contentGroup['contentgroup_id'].'"></i>
+									<i class="fa fa-arrows-v handle"></i><br>
+									<i class="fa fa-times delContentGroup" contentgroupid="'.$contentGroup['contentgroup_id'].'"></i>
 								</div>
 								<div class="legendOptions">
 									<select class="sideSelection form-control typeSelect" id="contentGroup_'.$contentGroup['contentgroup_id'].'">
@@ -130,8 +130,8 @@ class ContentAdmin {
 									<br><input placeholder="Primary tag" class="form-control" type="text">
 									<br><input placeholder="Secondary tag" class="form-control" type="text">
 								</div>
-								<div class="addNewSection">
-									N<br>e<br>w<br><i class="fa fa-plus addContent" contentgroupid="'.$contentGroup['contentgroup_id'].'"></i>
+								<div class="addNewSection" contentgroupid="'.$contentGroup['contentgroup_id'].'">
+									N<br>e<br>w<br><i class="fa fa-plus addContent"></i>
 								</div>
 							</div>
 							<section class="subSortable ui-sortable" contentgroupid="'.$contentGroup['contentgroup_id'].'">
@@ -144,8 +144,8 @@ class ContentAdmin {
 									<article class="horizontalSort" id="realContent_'.$content['idcontent'].'">
 										<div class="wrap">
 											<div class="sectionLegend">
-												<i class="fa fa-arrows-h subHandle"></i>
-												<select class="mediumSelect form-control" id="content_'.$content['idcontent'].'">
+												<i class="fa fa-arrows-h subHandle pull-left"></i>
+												<select class="mediumSelect form-control" id="contentCont_'.$content['idcontent'].'">
 												<option>--Medium--</option>
 												';
 												foreach($mediums as $mediumKey=>$medium){
@@ -159,11 +159,10 @@ class ContentAdmin {
 												}
 												echo '
 												</select>
-												<i class="fa fa-pencil-square-o"></i>
-												<i class="fa fa-times delContent" contentid="'.$content['idcontent'].'"></i>
+												<i class="fa fa-times delContent pull-right" contentid="'.$content['idcontent'].'"></i>
 											</div>
 											<div class="clearfix"></div>
-										'.$content['content'].'
+											<div class="col-md-12 contentContainer" id="content_'.$content['idcontent'].'" contentid="'.$content['idcontent'].'">'.$content['content'].'</div>
 										</div>
 									</article>
 									';
@@ -174,12 +173,14 @@ class ContentAdmin {
 						</article>
 					';
 				}
-				echo '</section><i class="fa fa-plus addContentgroup"></i>';
+				echo '<div class="clearfix"></div>
+					<div class="col-md-12 text-center addContentGroup">ADD NEW CONTENT GROUP <i class="fa fa-plus"></i></div>
+				</section>';
 			} else {
 				echo 'Please select a section above.';
 			}
 		?>
-	<?php 	
+	<?php
 	}
 
 	function getChapters($subject){
@@ -193,7 +194,7 @@ class ContentAdmin {
 		$results=query($sql,$chapterid);
 		return $results;
 	}
-	
+
 	function getContentByGroupid($groupid){
 		$sql="SELECT idcontent,content,medium_id FROM ".$this->subject.".content WHERE contentgroup_id=? ORDER BY `order`;";
 		$results=query($sql,$groupid);
@@ -250,7 +251,7 @@ class ContentAdmin {
 		$results=query($sql,$contentid);
 	}
 
-	function delContentgroup($contentgroupid=NULL){
+	function delContentGroup($contentgroupid=NULL){
 		if(isset($_REQUEST['contentgroupid'])){
 			$contentgroupid=$_REQUEST['contentgroupid'];
 		}

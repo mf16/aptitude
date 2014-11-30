@@ -16,13 +16,15 @@
 	<link href="/includes/fonts/fonts.css" type="text/css" rel="stylesheet">
 	<!--Google fonts-->
 	<link href='/css/googleFonts.css' rel='stylesheet' type='text/css'>
+	<link href="/css/text-editor.css" type="text/css" rel="stylesheet">
 	<!--JQUERY-->
 	<script type="text/javascript" src="/js/jquery-1.11.0/jquery.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/js/jquery/jquery-ui.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/js/global.js"></script>
+	<script type="text/javascript" src="/js/text-editor.js" type="text/javascript"></script>
 	<link href="/css/font-awesome.min.css" rel="stylesheet">
 	<!-- Bootstrap JS File -->
-	<script type="text/javascript" src="/css/bootstrap-3.1.1/js/bootstrap.min.js"></script> 
+	<script type="text/javascript" src="/css/bootstrap-3.1.1/js/bootstrap.min.js"></script>
 	<!--AM CHARTS AND CHART TYPES-->
 	<script type="text/javascript" src="/js/amcharts/amcharts.js"></script>
 	<script type="text/javascript" src="/js/amcharts/serial.js"></script>

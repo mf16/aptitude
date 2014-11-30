@@ -21,41 +21,40 @@
 	}
 	.handle{cursor: pointer}
 	.horizontalSort{
-		/*
-		width: 33.3333%;
-		*/
-		width: 100%;
+		width: 95%;
 		vertical-align: top;
 		display:inline-block;
 	}
 	.subSortable{
-		overflow-x:scroll; 
-		overflow-y:hidden; 
+		overflow-x:scroll;
+		overflow-y:hidden;
 		width: auto;
-   		white-space:nowrap; 
+   		white-space:nowrap;
 	}
 	.wrap{
-	   white-space:normal; 
+	   white-space:normal;
 	   padding: 15px 20px;
 	   border: 1px dashed #CACACA;
 	   min-height: 164px;
+	   display: inline-block;
+	   width: 100%;
 	}
 
 	.modifyContentContainer{
 		background-color: white;
 		border: solid 1px #ADADAD;
-		border-radius: 10px;
 		min-height: 25px;
 		padding: 0;
-		overflow-x: hidden; 
+		margin-bottom: 50px;
+		overflow-x: hidden;
 	}
 	.verticalSort{
-		background: none; 
+		background: none;
 		border: none;
 		background-color: white !important;
 	}
 	.ui-state-highlight {display:inline-block;}
-	
+
 
 
 	.pseudoHorizontalSort{
@@ -63,7 +62,7 @@
 	display:inline-block;
 	}
 	.pseudoWrap{
-	   white-space:normal; 
+	   white-space:normal;
 	   padding: 15px 20px;
 	}
 	.groupLegend{
@@ -94,9 +93,21 @@
 		float: left;
 		width: 40px;
 		text-align: center;
-		padding: 15px 0px;
+		padding: 0;
+		height: 172px;
+		position: relative;
+	}
+	.fa-arrows-v{
+		top: 20px;
+		position: absolute;
+	}
+	.delContentGroup{
+		position: absolute;
+		bottom: 20px;
+		left: 15px;
 	}
 	.legendOptions{
+		height: 172px;
 		float: left;
 		width: 135px;
 		padding: 15px 5px;
@@ -109,16 +120,37 @@
 	.sectionLegend{
 		text-align: center;
 		height: 40px;
-		padding-left: 20%;
 	}
 	.sectionLegend>.fa{
 		float: left;
 		line-height: 34px;
-		padding: 0 30px 
+		padding: 0 30px
 	}
-
-
-
+	.addContentGroup{
+		padding: 10px;
+		cursor: pointer;
+		transition: all .2s;
+		-webkit-transition: all .3s;
+		font-size: 15px;
+		background-color: lightgray;
+		line-height: 15px;
+		border-top: 1px solid white;
+		border-bottom: 1px solid rgb(194, 194, 194);
+	}
+	.addContentGroup:hover{
+		background-color:#e6e6e6;
+	}
+	.addContentGroup>.fa{
+		font-size: 15px;
+		padding-left: 10px;
+		color: #555555;
+	}
+	.wysihtml5-sandbox{
+		width: 100% !important;
+	}
+	.modal-dialog{
+		margin-top: 100px !important;
+	}
 
 
 

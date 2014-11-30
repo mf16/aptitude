@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.40, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.16, for Win32 (x86)
 --
 -- Host: localhost    Database: math
 -- ------------------------------------------------------
--- Server version	5.5.40-0ubuntu0.14.04.1
+-- Server version	5.6.16
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -98,7 +98,7 @@ CREATE TABLE `content` (
   `contentgroup_id` int(11) DEFAULT NULL,
   `order` int(11) DEFAULT NULL,
   PRIMARY KEY (`idcontent`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,14 +107,26 @@ CREATE TABLE `content` (
 
 LOCK TABLES `content` WRITE;
 /*!40000 ALTER TABLE `content` DISABLE KEYS */;
-INSERT INTO `content` VALUES (4,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id libero efficitur, rhoncus nunc ac, porttitor diam. Sed sed ultrices nunc, non suscipit justo. Quisque mattis feugiat ipsum, et commodo dui pretium id. Fusce nec felis rutrum, blandit enim a, vulputate nisi. Pellentesque sed tempor leo. Maecenas condimentum tristique mattis. Cras sed laoreet quam, eget imperdiet justo. ',2,NULL,NULL,16,2);
-INSERT INTO `content` VALUES (6,'asdfasdfasdf sadfsad fsad f asdf asdf ads',1,'',0,16,1);
-INSERT INTO `content` VALUES (23,NULL,2,NULL,NULL,19,1);
-INSERT INTO `content` VALUES (27,NULL,1,NULL,NULL,15,2);
+INSERT INTO `content` VALUES (4,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id libero efficitur, rhoncus nunc ac, porttitor diam. Sed sed ultrices nunc, non suscipit justo. Quisque mattis feugiat ipsum, et commodo dui pretium id. Fusce nec felis rutrum, blandit enim a, vulputate nisi. Pellentesque sed tempor leo. Maecenas condimentum tristique mattis. Cras sed laoreet quam, eget imperdiet justo. ',3,NULL,NULL,16,1);
+INSERT INTO `content` VALUES (6,'asdfasdfasdf sadfsad fsad f asdf asdf ads',1,'',0,16,2);
 INSERT INTO `content` VALUES (29,NULL,2,NULL,NULL,15,1);
-INSERT INTO `content` VALUES (30,NULL,3,NULL,NULL,15,3);
-INSERT INTO `content` VALUES (31,NULL,1,NULL,NULL,20,2);
-INSERT INTO `content` VALUES (32,NULL,3,NULL,NULL,20,1);
+INSERT INTO `content` VALUES (33,NULL,NULL,NULL,NULL,15,2);
+INSERT INTO `content` VALUES (34,NULL,NULL,NULL,NULL,0,1);
+INSERT INTO `content` VALUES (35,NULL,NULL,NULL,NULL,NULL,1);
+INSERT INTO `content` VALUES (36,NULL,NULL,NULL,NULL,0,2);
+INSERT INTO `content` VALUES (37,NULL,NULL,NULL,NULL,NULL,1);
+INSERT INTO `content` VALUES (38,NULL,NULL,NULL,NULL,NULL,1);
+INSERT INTO `content` VALUES (39,NULL,NULL,NULL,NULL,NULL,1);
+INSERT INTO `content` VALUES (40,NULL,NULL,NULL,NULL,0,3);
+INSERT INTO `content` VALUES (41,NULL,NULL,NULL,NULL,NULL,1);
+INSERT INTO `content` VALUES (42,NULL,NULL,NULL,NULL,0,4);
+INSERT INTO `content` VALUES (43,NULL,NULL,NULL,NULL,NULL,1);
+INSERT INTO `content` VALUES (44,NULL,NULL,NULL,NULL,NULL,1);
+INSERT INTO `content` VALUES (45,NULL,NULL,NULL,NULL,NULL,1);
+INSERT INTO `content` VALUES (46,NULL,NULL,NULL,NULL,NULL,1);
+INSERT INTO `content` VALUES (47,NULL,NULL,NULL,NULL,NULL,1);
+INSERT INTO `content` VALUES (48,NULL,NULL,NULL,NULL,NULL,1);
+INSERT INTO `content` VALUES (50,NULL,1,NULL,NULL,27,1);
 /*!40000 ALTER TABLE `content` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -160,7 +172,7 @@ CREATE TABLE `contentgroups` (
   `concept1` int(11) DEFAULT NULL,
   `concept2` int(11) DEFAULT NULL,
   PRIMARY KEY (`contentgroup_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -169,12 +181,9 @@ CREATE TABLE `contentgroups` (
 
 LOCK TABLES `contentgroups` WRITE;
 /*!40000 ALTER TABLE `contentgroups` DISABLE KEYS */;
-INSERT INTO `contentgroups` VALUES (15,14,24,NULL,NULL,NULL);
-INSERT INTO `contentgroups` VALUES (16,15,24,NULL,NULL,NULL);
-INSERT INTO `contentgroups` VALUES (19,18,24,2,NULL,NULL);
-INSERT INTO `contentgroups` VALUES (20,19,24,1,NULL,NULL);
-INSERT INTO `contentgroups` VALUES (21,20,24,1,NULL,NULL);
-INSERT INTO `contentgroups` VALUES (22,21,24,3,NULL,NULL);
+INSERT INTO `contentgroups` VALUES (15,14,24,3,NULL,NULL);
+INSERT INTO `contentgroups` VALUES (16,15,24,1,NULL,NULL);
+INSERT INTO `contentgroups` VALUES (27,16,24,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `contentgroups` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -695,3 +704,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+-- Dump completed on 2014-11-29 19:39:56
