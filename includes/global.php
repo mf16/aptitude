@@ -30,7 +30,7 @@ if($_SERVER['REMOTE_ADDR']=='127.0.0.1' || $_SERVER['HTTP_HOST']=='localhost'){
 	$_SERVER['DOCUMENT_ROOT']='/';
 } 
 elseif($_SERVER['HTTP_HOST']=='dev.goaptitude.com'){
-	$db = new mysqli('localhost', 'goaptitude', 'Chicheme2013');
+	$db = new mysqli('localhost', 'root', '#Mountain72');
 	$_SERVER['DOCUMENT_ROOT']='/';
 	error_reporting(0);
 }
