@@ -144,22 +144,31 @@ class ContentAdmin {
 									<article class="horizontalSort" id="realContent_'.$content['idcontent'].'">
 										<div class="wrap">
 											<div class="sectionLegend">
-												<i class="fa fa-arrows-h subHandle pull-left"></i>
-												<select class="mediumSelect form-control" id="contentCont_'.$content['idcontent'].'">
-												<option>--Medium--</option>
-												';
-												foreach($mediums as $mediumKey=>$medium){
-													$mediumSelectedText="";
-													if($content['medium_id']==$medium['medium_id']){
-														$mediumSelectedText=" selected='selected' ";
+												<i class="fa fa-arrows-h subHandle pull-left"></i>';
+												if($content['content'] == ''){
+													echo '<select class="mediumSelect form-control" id="contentCont_'.$content['idcontent'].'">
+													<option>--Select a Medium--</option>
+													';
+													foreach($mediums as $mediumKey=>$medium){
+														$mediumSelectedText="";
+														if($content['medium_id']==$medium['medium_id']){
+															$mediumSelectedText=" selected='selected' ";
+														}
+														echo '<option '.$mediumSelectedText.' value="'.$medium['medium_id'].'">';
+															echo $medium['medium_name'];
+														echo '</option>';
 													}
-													echo '<option '.$mediumSelectedText.' value="'.$medium['medium_id'].'">';
-														echo $medium['medium_name'];
-													echo '</option>';
+													echo '
+													</select>';
 												}
-												echo '
-												</select>
-												<i class="fa fa-times delContent pull-right" contentid="'.$content['idcontent'].'"></i>
+												else{
+													foreach($mediums as $mediumKey=>$medium){
+														if($content['medium_id']==$medium['medium_id']){
+															echo '<div class="hidden" id="contentCont_'.$content['idcontent'].'">'. $medium['medium_name'].'</div>';
+														}
+													}
+												}
+												echo '<i class="fa fa-times delContent pull-right" contentid="'.$content['idcontent'].'"></i>
 											</div>
 											<div class="clearfix"></div>
 											<div class="col-md-12 contentContainer" id="content_'.$content['idcontent'].'" contentid="'.$content['idcontent'].'">'.$content['content'].'</div>
