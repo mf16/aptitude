@@ -98,7 +98,7 @@ CREATE TABLE `content` (
   `contentgroup_id` int(11) DEFAULT NULL,
   `order` int(11) DEFAULT NULL,
   PRIMARY KEY (`idcontent`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,7 +107,7 @@ CREATE TABLE `content` (
 
 LOCK TABLES `content` WRITE;
 /*!40000 ALTER TABLE `content` DISABLE KEYS */;
-INSERT INTO `content` VALUES (4,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id libero efficitur, rhoncus nunc ac, porttitor diam. Sed sed ultrices nunc, non suscipit justo. Quisque mattis feugiat ipsum, et commodo dui pretium id. Fusce nec felis rutrum, blandit enim a, vulputate nisi. Pellentesque sed tempor leo. Maecenas condimentum tristique mattis. Cras sed laoreet quam, eget imperdiet justo. ',3,NULL,NULL,16,1);
+INSERT INTO `content` VALUES (4,'bootooo',3,NULL,NULL,16,1);
 INSERT INTO `content` VALUES (6,'asdfasdfasdf sadfsad fsad f asdf asdf ads',1,'',0,16,2);
 INSERT INTO `content` VALUES (29,NULL,2,NULL,NULL,15,1);
 INSERT INTO `content` VALUES (33,NULL,NULL,NULL,NULL,15,2);
@@ -127,6 +127,7 @@ INSERT INTO `content` VALUES (46,NULL,NULL,NULL,NULL,NULL,1);
 INSERT INTO `content` VALUES (47,NULL,NULL,NULL,NULL,NULL,1);
 INSERT INTO `content` VALUES (48,NULL,NULL,NULL,NULL,NULL,1);
 INSERT INTO `content` VALUES (50,NULL,1,NULL,NULL,27,1);
+INSERT INTO `content` VALUES (51,NULL,NULL,NULL,NULL,15,3);
 /*!40000 ALTER TABLE `content` ENABLE KEYS */;
 UNLOCK TABLES;
 

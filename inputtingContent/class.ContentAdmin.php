@@ -308,6 +308,19 @@ class ContentAdmin {
 		}
 	}
 
+	function saveContentByid($content=NULL,$id=NULL){
+		if(isset($_REQUEST['content'])){
+			$content=$_REQUEST['content'];
+		}
+		if(isset($_REQUEST['id'])){
+			$id=$_REQUEST['id'];
+		}
+		if(isset($content) && isset($id)){
+			$sql="UPDATE ".$this->subject.".content SET content=? WHERE idcontent=?;";
+			$results=query($sql,$content,$id);
+		}
+	}
+
 	function asdf(){
 		echo 'asdf';
 	}
