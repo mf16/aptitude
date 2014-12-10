@@ -73,6 +73,21 @@ class SidebarMenu extends SidebarMenuDAO {
 				</article>
 			</div>
 		</header>
+		<!-- Universal Modal -->
+		<div class="modal fade" id="universalModal" tabindex="-1" role="dialog" aria-labelledby="universalModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 class="modal-title" id="universalModalLabel"></h4>
+		      </div>
+		      <div class="modal-body">
+		      </div>
+		      <div class="modal-footer">
+		      </div>
+		    </div>
+		  </div>
+		</div>
 	<?php
 	}
 }

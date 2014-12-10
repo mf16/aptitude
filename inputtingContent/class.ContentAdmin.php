@@ -46,7 +46,8 @@ class ContentAdmin {
 				<a href="#services">Account Settings</a>
 				<span>Classes</span>
 				<hr style="margin:0px; border-top: 1px solid #F26522;">
-				<a href="/class/1">mathTest</a><a href="/class/3">mathgroup2</a>			<a href="#">+ Create new class</a>
+				<a href="/class/1">mathTest</a><a href="/class/3">mathgroup2</a>
+				<a href="#">+ Create new class</a>
 			</div>
 			<header>
 				<div id="header">
@@ -58,6 +59,21 @@ class ContentAdmin {
 					</article>
 				</div>
 			</header>
+			<!-- Universal Modal -->
+			<div class="modal fade" id="universalModal" tabindex="-1" role="dialog" aria-labelledby="universalModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			        <h4 class="modal-title" id="universalModalLabel"></h4>
+			      </div>
+			      <div class="modal-body">
+			      </div>
+			      <div class="modal-footer">
+			      </div>
+			    </div>
+			  </div>
+			</div>
 			<section id="headerSpacerSmall"></section>
 			<section class="col-md-1 no-pd mg-t-md">
 				<div class="chapter-number">
@@ -130,7 +146,7 @@ class ContentAdmin {
 									<br><input placeholder="Primary tag" class="form-control" type="text">
 									<br><input placeholder="Secondary tag" class="form-control" type="text">
 								</div>
-								<div class="addNewSection" contentgroupid="'.$contentGroup['contentgroup_id'].'">
+								<div class="addNewSection" id="addNewSection_'.$contentGroup['contentgroup_id'].'" contentgroupid="'.$contentGroup['contentgroup_id'].'">
 									N<br>e<br>w<br><i class="fa fa-plus addContent"></i>
 								</div>
 							</div>
@@ -145,7 +161,13 @@ class ContentAdmin {
 										<div class="wrap">
 											<div class="sectionLegend">
 												<i class="fa fa-arrows-h subHandle pull-left"></i>';
-												if($content['content'] == ''){
+												$mediumSelected=false;
+												foreach($mediums as $mediumKey=>$medium){
+													if($content['medium_id']==$medium['medium_id']){
+														$mediumSelected=true;
+													}
+												}
+												if($mediumSelected !== true){
 													echo '<select class="mediumSelect form-control" id="contentCont_'.$content['idcontent'].'">
 													<option>--Select a Medium--</option>
 													';
@@ -159,7 +181,7 @@ class ContentAdmin {
 														echo '</option>';
 													}
 													echo '
-													</select>';
+													</select><a id="mediumSave" contentid="'.$content['idcontent'].'" class="btn btn-default" tabindex="-1" href="javascript:;"><span>Create</span></a>';
 												}
 												else{
 													foreach($mediums as $mediumKey=>$medium){
@@ -312,8 +334,8 @@ class ContentAdmin {
 		if(isset($_REQUEST['content'])){
 			$content=$_REQUEST['content'];
 		}
-		if(isset($_REQUEST['id'])){
-			$id=$_REQUEST['id'];
+		if(isset($_REQUEST['contentid'])){
+			$id=$_REQUEST['contentid'];
 		}
 		if(isset($content) && isset($id)){
 			$sql="UPDATE ".$this->subject.".content SET content=? WHERE idcontent=?;";
