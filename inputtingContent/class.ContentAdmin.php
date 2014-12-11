@@ -90,14 +90,16 @@ class ContentAdmin {
 						foreach($chapters as $key=>$chapter){
 							echo '<optgroup label="Chapter '.$chapter['chapter_order'].' - '.$chapter['chapter_name'].'">';
 								$sections=$this->getSections($this->subject,$chapter['chapter_id']);
-								foreach($sections as $sectionKey=>$eachSection){
-									$selectedText="";
-									if($this->section==$eachSection['section_id']){
-										$selectedText=" selected='selected' ";
+								if(isset($sections)){
+									foreach($sections as $sectionKey=>$eachSection){
+										$selectedText="";
+										if($this->section==$eachSection['section_id']){
+											$selectedText=" selected='selected' ";
+										}
+										echo '<option '.$selectedText.' value="section'.$eachSection['section_id'].'">';
+											echo $eachSection['section_name'];
+										echo '</option>';
 									}
-									echo '<option '.$selectedText.' value="section'.$eachSection['section_id'].'">';
-										echo $eachSection['section_name'];
-									echo '</option>';
 								}
 							echo '</optgroup>';
 						}
