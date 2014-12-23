@@ -32,6 +32,22 @@ function login($username,$password){
 	}
 }
 
+// first try at creating a query function for wolfram alpha
+function queryWA($queryText){
+	$response=file_get_contents('http://api.wolframalpha.com/v2/query?appid=G4VA4T-9XRG3WHYRJ&input='.$queryText.'&format=html,image,plaintext');
+	$response = new SimpleXMLElement($response);
+	$response=(array)$response;
+	print_r($response);
+	echo '<br/><br/>';
+	if($response['@attributes']['success']){
+		echo 'success';
+		print_r($response['pod'][1]);
+	} else {
+		echo 'query failed';
+		//return 'query failed';
+	}
+}
+
 function query($query) {
 	global $db;
 	$args = func_get_args();
